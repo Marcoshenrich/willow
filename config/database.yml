@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: willow_production
-  username: willow
-  password: <%= ENV["WILLOW_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

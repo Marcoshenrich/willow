@@ -1,0 +1,24 @@
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.LoginForm > * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: block;
+    width: 200px;
+    flex-direction: column;
+    margin: 10px;
+    
+}
+
+.LoginForm > * > *{
+    background-color: blue;
+    border: solid red 1px;
+    margin-top: 6px;
+}
+
+#LoginButton {
+    display: block;
+    width: 60px;
+}

@@ -1,0 +1,24 @@
+.map {
+    width: 500px;
+    height: 500px;
+}
+
+.test {
+    font-family: system,
+        BlinkMacSystemFont,
+        "Roboto",
+        "Droid Sans",
+        "Segoe UI",
+        "Helvetica",
+        Arial,
+        sans-serif;
+}
+
+.test2 {
+    font-family: "Graphik Webfont",
+        -apple-system,
+        "Helvetica Neue",
+        "Droid Sans",
+        Arial,
+        sans-serif;
+}

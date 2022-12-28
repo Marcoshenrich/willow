@@ -1,0 +1,53 @@
+:root {
+    --bg-color: pink;
+    --font: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+    --font-w-med: 400;
+    --font-s-med: 18px;
+    
+    --burnt-amber: #f1641d;
+    --beeswax: #FDEBD2;
+    --grassylight: #d4e9d7;
+    --grassyplains: #9ec064;
+    --enchantment: #9560b8;
+    --oceanmist: #d7e5f5;
+    --oceansurf: #4d6bc6;
+    --oceandepths: #2f466c;
+    --oceanabyss: #232347;
+    --fog: #efefef;
+}
+
+#NavBar {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: blue solid 1px;
+}
+
+#NavBarMid {
+    font-family: var(--font);
+    font-weight: var(--med-w);
+    font-size: 60px;
+}
+
+#NavBar > div {
+    /* border: solid blue 1px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#NavBar > div > div {
+    /* border: solid blue 1px; */
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+    font-family: var(--font);
+    font-weight: var(--font-w-med) ;
+    font-size: var(--font-s-med);
+}
+
+#NavBar>div>div:hover {
+    color: var(--burnt-amber)
+}
+
