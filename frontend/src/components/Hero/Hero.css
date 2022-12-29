@@ -22,8 +22,8 @@
 #Hero {
     height:400px;
     width:100%;
-    background-color: var(--grassylight);
 }
+
 
 #Hero > img {
     height: 100%;
@@ -31,3 +31,27 @@
     object-fit: cover;
 }
 
+#Hero-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: var(--beeswax);
+    font-size: 100px;
+    bottom: 300px;
+}
+
+#Search-Bar {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+#Search-Bar > input {
+    border-radius: 20px;
+    width: 50%;
+    height: 50px;
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+}

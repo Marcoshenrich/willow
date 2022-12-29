@@ -1,8 +1,11 @@
+import { useState } from 'react';
+import SessionModal from '../SessionModal';
 import './NavBar.css';
 
 const NavBar = () => {
-
+    const [showSessionModal, setShowSessionModal] = useState(false)
     return (
+        <>
         <nav id="NavBar">
             <div id="NavBarLeft">
                 <div>Buy</div>
@@ -20,9 +23,11 @@ const NavBar = () => {
                 <div>Manage Rentals</div>
                 <div>Advertise</div>
                 <div>Help</div>
-                <div>Sign In</div>
+                <div onClick={()=>setShowSessionModal(true)}>Sign In</div>
             </div>
         </nav>
+            {showSessionModal && (<SessionModal setShowSessionModal={setShowSessionModal} />)}
+        </>
     )
 }
 

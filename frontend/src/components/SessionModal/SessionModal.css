@@ -1,5 +1,6 @@
 :root {
     --font: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+    --font-serif: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times", "Adjusted Times New Roman", "Times New Roman", serif;
     --font-w-lrg: 700;
     --font-w-med: 400;
     --font-w-sml: 300;
@@ -62,7 +63,7 @@
 }
 
 .modal-content > div > h2 {
-    font-family: var(--font);
+    font-family: var(--font-serif);
     font-size: var(--font-s-lrg);
     font-weight: var(--font-w-med);
     color: var(--oceanabyss);
@@ -80,7 +81,7 @@
     justify-content: flex-start;
 }
 
-.modal-content>#sessionType > button {
+#sessionType > button {
     background-color: transparent;
     height: 40px;
     border: 0px;
@@ -91,10 +92,16 @@
     font-weight: var(--font-w-med);
 }
 
+#sessionType > .selected {
+    margin: 0px;
+        color: var(--oceanabyss);
+        border-bottom: 3px solid var(--burnt-amber);
+        border-radius: 5%;
+}
+
 #sessionType > button:hover {
     margin: 0px;
     color: var(--burnt-amber);
-    border-bottom: 3px solid var(--burnt-amber);
     border-radius: 5%;
 }
 
@@ -105,8 +112,5 @@
 }
 
 #modal-x:hover {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
     background-color: var(--fog);
 }
