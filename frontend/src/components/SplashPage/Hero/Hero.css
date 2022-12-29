@@ -29,8 +29,7 @@
     height: 400px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.25);
-    position: absolute;
-    
+    position: absolute
 }
 
 #Hero > img {
@@ -47,6 +46,7 @@
     color: white;
     font-size: 100px;
     bottom: 300px;
+    margin-bottom: -250px;
 }
 
 #Search-Bar {
@@ -73,7 +73,7 @@
     border-left: 0px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    
+
 }
 
 #Search-Glass {

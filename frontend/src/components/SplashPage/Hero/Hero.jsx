@@ -14,7 +14,6 @@ const Hero = () => {
                 <input type="search" placeholder="find your dream home"/>
                 <button id="Search-Button">{<BsSearch id="Search-Glass"/>}</button>
             </div>
-            
         </div>
     </>
     )

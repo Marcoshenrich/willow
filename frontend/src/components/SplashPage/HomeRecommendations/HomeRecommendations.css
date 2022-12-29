@@ -1,0 +1,74 @@
+:root {
+    --font: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+    --font-w-lrg: 700;
+    --font-w-med: 400;
+    --font-w-sml: 300;
+    --font-s-lrg: 24px;
+    --font-s-med: 18px;
+    --font-s-sml: 14px;
+
+    --burnt-amber: #f1641d;
+    --beeswax: #FDEBD2;
+    --grassylight: #d4e9d7;
+    --grassyplains: #9ec064;
+    --enchantment: #9560b8;
+    --oceanmist: #d7e5f5;
+    --oceansurf: #4d6bc6;
+    --oceandepths: #2f466c;
+    --oceanabyss: #232347;
+    --fog: #efefef;
+}
+
+.Recommendations {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Recommendations img {
+    height: 100%;
+    width: 100%;
+
+}
+
+.Recommendations>div {
+    margin-left: 23%;
+    margin-right: 23%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.Recommendations > div > div{
+    margin: 5px;
+    width: 250px;
+    height: 250px;
+}
+
+#Recommendation-Text {
+    width:350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Recommendation-Text > h3{
+    margin: 5px;
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-lrg);
+    text-align: center;
+}
+
+#Recommendation-Text>p {
+    margin: 10px;
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml);
+    text-align: center;
+}
