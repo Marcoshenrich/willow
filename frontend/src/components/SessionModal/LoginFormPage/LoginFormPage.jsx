@@ -33,7 +33,7 @@ function LoginFormPage() {
 
     return (
 
-        <form onSubmit={handleSubmit} className="LoginForm">
+        <form onSubmit={handleSubmit} className="Login-Form">
             {errors[0] && (<ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
             </ul>)}
@@ -55,7 +55,7 @@ function LoginFormPage() {
                     required
                 />
             </label>
-            <button id="LoginButton" type="submit">Log In</button>
+            <button id="Login-Button" type="submit">Log In</button>
         </form>
     );
 }

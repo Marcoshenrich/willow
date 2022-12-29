@@ -37,10 +37,10 @@ function SignupFormPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
+        <form className="Sign-Up-Form" onSubmit={handleSubmit}>
+                {errors[0] && (<ul>
+                    {errors.map(error => <li key={error}>{error}</li>)}
+                </ul>)}
             <label>
                 Email
                 <input
