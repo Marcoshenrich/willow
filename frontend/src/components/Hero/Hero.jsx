@@ -12,7 +12,7 @@ const Hero = () => {
             <div>Discover Your Fairy Tale</div>
             <div id="Search-Bar">
                 <input type="search" placeholder="find your dream home"/>
-                    <button id="Search-Button">{<BsSearch id="Search-Glass"/>}</button>
+                <button id="Search-Button">{<BsSearch id="Search-Glass"/>}</button>
             </div>
             
         </div>

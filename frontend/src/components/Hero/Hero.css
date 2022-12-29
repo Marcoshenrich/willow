@@ -24,6 +24,14 @@
     width:100%;
 }
 
+#Hero::before{
+    content: "";
+    height: 400px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    
+}
 
 #Hero > img {
     height: 100%;
@@ -36,7 +44,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    color: var(--beeswax);
+    color: white;
     font-size: 100px;
     bottom: 300px;
 }
