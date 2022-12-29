@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Hero from "./components/Hero";
 import SessionModal from "./components/SessionModal";
+import SplashPage from "./components/SplashPage";
+
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       {showSessionModal && (<SessionModal />)}
       <Switch>
         <Route path="/">
-      <Hero/>
+          <SplashPage />
         </Route>
       </Switch>
     </>

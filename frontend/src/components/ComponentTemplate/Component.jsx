@@ -1,4 +1,4 @@
-import ".Component.css"
+import "./Component.css"
 
 const Component = () => {
 
