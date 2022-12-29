@@ -4,7 +4,7 @@ import { useState } from "react"
 import SignupFormPage from "./SignupFormPage"
 import LoginFormPage from "./LoginFormPage"
 
-const SessionModal = ({ setShowSessionModal }) => {
+const SessionModal = () => {
   const [sessionType, setSessionType] = useState("login")
 
   const sessionTypeClickHandler = (e) =>{
@@ -25,21 +25,17 @@ const SessionModal = ({ setShowSessionModal }) => {
 
   return (
     <>
-      <div class="modal">
-        <div class="modal-content">
-          <div id="modalTopline">
-            <div></div>
-            <h2>Welcome to Willow</h2>
-            <HiOutlineX id="modal-x" onClick={()=>setShowSessionModal(false)}/>
-          </div>
-          <div id="sessionType" >
-            <button id="signInButton" onClick={sessionTypeClickHandler } className="selected">Sign In</button>
-            <button id="signUpButton" onClick={sessionTypeClickHandler }>New Account</button>
-          </div>
-          {sessionType === "login" && (<LoginFormPage/>)}
-          {sessionType === "signup" && (<SignupFormPage />)}
-        </div>
+      <div id="Session-Modal-Content">
+        <div></div>
+        <h2>Welcome to Willow</h2>
+        <HiOutlineX id="modal-x" onClick={()=>{}}/>
       </div>
+      <div id="sessionType" >
+        <button id="signInButton" onClick={sessionTypeClickHandler } className="selected">Sign In</button>
+        <button id="signUpButton" onClick={sessionTypeClickHandler }>New Account</button>
+      </div>
+      {sessionType === "login" && (<LoginFormPage/>)}
+      {sessionType === "signup" && (<SignupFormPage />)}
     </>
   )
 }

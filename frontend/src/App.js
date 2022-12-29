@@ -1,9 +1,6 @@
 
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import LoginFormPage from "./components/SessionModal/LoginFormPage";
-import SignupFormPage from "./components/SessionModal/SignupFormPage";
-import Navigation from "./components/Navigation";
 import BenchIndex from "./components/BenchIndex";
 import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
@@ -18,7 +15,6 @@ function App() {
     <>
       <NavBar/>
       <Hero/>
-      <Navigation />
       {showSessionModal && (<SessionModal />)}
       <Switch>
         <Route path="/">

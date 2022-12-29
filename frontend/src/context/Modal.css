@@ -20,25 +20,37 @@
     --fog: #efefef;
 }
 
-.Login-Form {
+
+#modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     display: flex;
-    background-color: pink;
-    width: 400px;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.Login-Form > * {
-    font-family: var(--font);
-    font-size: var(--font-s-med);
-    font-weight: var(--font-w-med);
-    display: block;
-    width: 100px;
-    flex-direction: column;
-    margin: 10px;
+#modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
-
-#Login-Button {
-    display: block;
-    width: 60px;
+#modal-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    background-color:white;
+    border: var(--oceansurf) solid 3px;
+    border-radius: 5px;
+    margin: 15% auto;
+    padding: 20px;
+    width: auto;
+    height: auto;
 }

@@ -45,6 +45,7 @@ function SignupFormPage() {
                 Email
                 <input
                     type="text"
+                    placeholder="Enter email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -54,6 +55,7 @@ function SignupFormPage() {
                 Username
                 <input
                     type="text"
+                    placeholder="Enter username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
@@ -63,6 +65,7 @@ function SignupFormPage() {
                 Password
                 <input
                     type="password"
+                    placeholder="Enter password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -72,11 +75,15 @@ function SignupFormPage() {
                 Confirm Password
                 <input
                     type="password"
+                    placeholder="Confirm password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                 />
             </label>
+            <div id="Fairy-Godmother-Signup">
+                <label><input type="checkbox" value="" /><span>I am a Fairy Godmother</span></label>
+            </div>
             <button type="submit">Sign Up</button>
         </form>
     );

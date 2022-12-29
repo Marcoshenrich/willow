@@ -21,13 +21,12 @@
 }
 
 
-
 .Sign-Up-Form {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 400px;
-    background-color: pink;
+    align-items: center;
+    width: 100%;
 }
 
 .Sign-Up-Form > * {
@@ -35,7 +34,7 @@
     font-size: var(--font-s-sml);
     font-weight: var(--font-w-med);
     display: block;
-    width: 200px;
+    width: 90%;
     flex-direction: column;
     margin: 10px;
     border-radius: 50px;
@@ -44,9 +43,52 @@
 .Sign-Up-Form > * > input {
     display: block;
     border: 1px solid slategrey;
-    font-size: var(--font-s-med);
     background-color: var(--fog);
+    font-size: var(--font-s-med);
     margin-top: 5px;
-    height: 30px;
+    height: 35px;
+    width: 96%;
     border-radius: 4px;
+    color: var(--oceandepths);
+    padding-left: 10px;
+}
+
+
+.Sign-Up-Form>*>input::placeholder {
+    color: darkgray;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: var(--font-w-med);
+}
+
+input[type=checkbox] {
+    transform: scale(2);
+    padding: 10px;
+    margin: 10px
+}
+
+.Sign-Up-Form > button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid slategrey;
+    font-size: var(--font-s-med);
+    background-color: var(--oceansurf);
+    margin-top: 5px;
+    height: 35px;
+    width: 90%;
+    border-radius: 4px;
+    color: var(--fog);
+    transition: background-color 1s;
+}
+
+.Sign-Up-Form>button:hover {
+    cursor: pointer;
+    transition: background-color 1s;
+    background-color: var(--oceandepths);
+}
+
+.Sign-Up-Form>button:active {
+    height: 32px;
+    width: 87%;
 }

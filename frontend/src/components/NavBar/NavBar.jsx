@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SessionModal from '../SessionModal';
+import { Modal } from '../../context/Modal';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -26,7 +27,11 @@ const NavBar = () => {
                 <div onClick={()=>setShowSessionModal(true)}>Sign In</div>
             </div>
         </nav>
-            {showSessionModal && (<SessionModal setShowSessionModal={setShowSessionModal} />)}
+            {showSessionModal && (
+                <Modal onClose={() => setShowSessionModal(false)}>
+                    <SessionModal />
+                </Modal>
+            )}
         </>
     )
 }
