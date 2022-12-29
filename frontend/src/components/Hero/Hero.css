@@ -49,9 +49,31 @@
 }
 
 #Search-Bar > input {
-    border-radius: 20px;
-    width: 50%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: solid var(--oceandepths) 2px;
+    border-right: 0px;
+    width: 30%;
     height: 50px;
     font-family: var(--font);
     font-size: var(--font-s-med);
+}
+
+#Search-Button {
+    background-color: white;
+    border: solid var(--oceandepths) 2px;
+    border-left: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
+}
+
+#Search-Glass {
+    color: var(--oceansurf);
+    height: 20px;
+    width: 20px;
+}
+
+#Search-Button:hover {
+    background-color: var(--oceanmist);
 }

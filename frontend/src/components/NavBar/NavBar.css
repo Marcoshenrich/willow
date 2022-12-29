@@ -1,9 +1,13 @@
 :root {
-    --bg-color: pink;
     --font: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+    --font-serif: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times", "Adjusted Times New Roman", "Times New Roman", serif;
+    --font-w-lrg: 700;
     --font-w-med: 400;
+    --font-w-sml: 300;
+    --font-s-lrg: 24px;
     --font-s-med: 18px;
-    
+    --font-s-sml: 14px;
+
     --burnt-amber: #f1641d;
     --beeswax: #FDEBD2;
     --grassylight: #d4e9d7;
@@ -21,12 +25,13 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    border-bottom: blue solid 1px;
+    border-bottom: var(--fog) solid 2px;
 }
 
 #NavBarMid {
-    font-family: var(--font);
+    font-family: var(--font-serif);
     font-weight: var(--med-w);
+    color: var(--oceanabyss);
     font-size: 60px;
 }
 
@@ -43,6 +48,7 @@
     margin: 5px;
     padding: 5px;
     font-family: var(--font);
+    color: var(--oceanabyss);
     font-weight: var(--font-w-med) ;
     font-size: var(--font-s-med);
 }
