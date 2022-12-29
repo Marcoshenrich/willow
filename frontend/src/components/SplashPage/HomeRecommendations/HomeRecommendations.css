@@ -60,7 +60,7 @@
 #Recommendation-Text > h3{
     margin: 5px;
     font-family: var(--font);
-    font-size: var(--font-s-lrg);
+    font-size: var(--font-s-med);
     font-weight: var(--font-w-lrg);
     text-align: center;
 }
@@ -68,7 +68,26 @@
 #Recommendation-Text>p {
     margin: 10px;
     font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml);
+    text-align: center;
+}
+
+#Recommendation-Text>button {
+    cursor: pointer;
+    background-color:transparent;
+    border-radius: 3px;
+    margin: 10px;
+    height: 50px;
+    width: 90px;
+    font-family: var(--font);
     font-size: var(--font-s-med);
     font-weight: var(--font-w-sml);
     text-align: center;
+}
+
+#Recommendation-Text>button:hover {
+    transition: background-color 1s;
+    background-color: var(--grassylight);
+
 }

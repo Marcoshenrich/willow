@@ -31,6 +31,12 @@ function LoginFormPage() {
             });
     }
 
+    const demoLogin = (e) => {
+        e.preventDefault();
+        e.stopPropagation()
+        dispatch(sessionActions.login({ credential: "PeriwinkleStar", password: "password" }))
+    }
+
     return (
 
         <form onSubmit={handleSubmit} className="Login-Form">
@@ -57,8 +63,8 @@ function LoginFormPage() {
                     required
                 />
             </label>
-            <button className="Login-Button" id="Demo-User-Button" type="submit">Log In As Demo User</button>
-            <button className="Login-Button" type="submit">Log In</button>
+            <button className="Login-Button" id="Demo-User-Button" onClick={demoLogin}>Log In As Demo User</button>
+            <button className="Login-Button">Log In</button>
         </form>
     );
 }
