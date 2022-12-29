@@ -35,6 +35,13 @@
     font-size: 60px;
 }
 
+#NavBarMid img {
+    cursor: pointer;
+    top: 5px;
+    width: 53px;
+    height: 60px;
+}
+
 #NavBar > div {
     /* border: solid blue 1px; */
     display: flex;

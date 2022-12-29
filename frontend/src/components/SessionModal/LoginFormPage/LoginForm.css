@@ -20,25 +20,80 @@
     --fog: #efefef;
 }
 
+
 .Login-Form {
+    position: relative;
     display: flex;
-    background-color: pink;
-    width: 400px;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-.Login-Form > * {
+.Login-Form>* {
     font-family: var(--font);
-    font-size: var(--font-s-med);
+    font-size: var(--font-s-sml);
     font-weight: var(--font-w-med);
     display: block;
-    width: 100px;
+    width: 90%;
     flex-direction: column;
     margin: 10px;
+    border-radius: 50px;
+}
+
+.Login-Form>*>input {
+    display: block;
+    border: 1px solid slategrey;
+    background-color: var(--fog);
+    font-size: var(--font-s-med);
+    margin-top: 5px;
+    height: 35px;
+    width: 96%;
+    border-radius: 4px;
+    color: var(--oceandepths);
+    padding-left: 10px;
 }
 
 
-#Login-Button {
-    display: block;
-    width: 60px;
+.Login-Form>*>input::placeholder {
+    color: darkgray;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: var(--font-w-med);
+}
+
+.Login-Button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid slategrey;
+    font-size: var(--font-s-med);
+    background-color: var(--oceansurf);
+    margin-top: 5px;
+    height: 35px;
+    width: 90%;
+    border-radius: 4px;
+    color: var(--fog);
+    transition: background-color 1s;
+}
+
+
+.Login-Form>button:hover {
+    cursor: pointer;
+    transition: background-color 1s;
+    background-color: var(--oceandepths);
+}
+
+#Demo-User-Button {
+    margin-top: 20px;
+    background-color: var(--enchantment);
+}
+
+#Demo-User-Button:hover {
+    transition: background-color 1s;
+    background-color: var(--oceandepths);
+}
+
+.Login-Button:active {
+    height: 32px;
+    width: 87%;
 }

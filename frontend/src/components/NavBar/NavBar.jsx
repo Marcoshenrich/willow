@@ -2,9 +2,16 @@ import { useState } from 'react';
 import SessionModal from '../SessionModal';
 import { Modal } from '../../context/Modal';
 import './NavBar.css';
+import Icon from "../assets/icons/icon.png"
+import { Link, useHistory } from 'react-router-dom';
 
 const NavBar = () => {
     const [showSessionModal, setShowSessionModal] = useState(false)
+    const history = useHistory();
+    const routeChange = () => {
+        history.push(`/`);
+    }
+
     return (
         <>
         <nav id="NavBar">
@@ -17,7 +24,8 @@ const NavBar = () => {
             </div>
 
             <div id="NavBarMid">
-                Willow
+                    <img src={Icon} alt="" onClick={routeChange}/>
+                <span>Willow</span>
             </div>
 
             <div id="NavBarRight">
