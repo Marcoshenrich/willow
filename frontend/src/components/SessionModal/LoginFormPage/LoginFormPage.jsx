@@ -6,15 +6,14 @@ import { Redirect } from 'react-router-dom';
 
 function LoginFormPage({ onSessionModalClose }) {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
     const loginErrors = useSelector(state => state.errors.loginErrors);
-    console.log(loginErrors)
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(sessionActions.login({ credential, password }))
+        e.stopPropagation()
+        dispatch(sessionActions.login({ credential, password })).then((res) => { if (res.ok) onSessionModalClose() })
     }
 
 
@@ -23,7 +22,6 @@ function LoginFormPage({ onSessionModalClose }) {
         e.stopPropagation()
         dispatch(sessionActions.login({ credential: "PeriwinkleStar", password: "password" }))
         onSessionModalClose()
-        loginErrors = []
     }
 
     return (

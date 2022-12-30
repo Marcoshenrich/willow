@@ -92,3 +92,10 @@ input[type=checkbox] {
     height: 32px;
     width: 87%;
 }
+
+#Sign-Up-Errors {
+    color: red;
+    font-family: var(--font);
+    font-weight: var(--font-w-med);
+    font-size: var(--font-s-sml);
+}

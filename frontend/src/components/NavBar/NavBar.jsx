@@ -22,7 +22,7 @@ const NavBar = () => {
         history.push(`/listings`);
     }
 
-    const onSessionModalClose = () => {
+    const onSessionModalClose = (e) => {
         setShowSessionModal(false)
         dispatch(clearErrors())
     }

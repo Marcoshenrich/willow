@@ -1,46 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { signUpErrors } from "../../../store/errors";
 import * as sessionActions from "../../../store/session";
 import './SignupForm.css';
 
+
 function SignupFormPage({ onSessionModalClose }) {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
+    const errors = useSelector(state => state.errors.signUpErrors);
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [errors, setErrors] = useState([]);
-
-    if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password === confirmPassword) {
-            setErrors([]);
-            return dispatch(sessionActions.signup({ email, username, password }))
-                .catch(async (res) => {
-                    let data;
-                    try {
-                        // .clone() essentially allows you to read the response body twice
-                        data = await res.clone().json();
-                    } catch {
-                        data = await res.text(); // Will hit this case if the server is down
-                    }
-                    if (data?.errors) setErrors(data.errors);
-                    else if (data) setErrors([data]);
-                    else setErrors([res.statusText]);
-                });
+            dispatch(sessionActions.signup({ email, username, password }))
+        } else {
+            dispatch(signUpErrors(["Passwords don't match"]))
         }
-        return setErrors(['Confirm Password field must be the same as the Password field']);
     };
 
     return (
         <form className="Sign-Up-Form" onSubmit={handleSubmit}>
-                {errors[0] && (<ul>
-                    {errors.map(error => <li key={error}>{error}</li>)}
-                </ul>)}
             <label>
                 Email
                 <input
@@ -84,6 +68,11 @@ function SignupFormPage({ onSessionModalClose }) {
             <div id="Fairy-Godmother-Signup">
                 <label><input type="checkbox" value="" /><span>I am a Fairy Godmother</span></label>
             </div>
+            {errors && (
+                <ul id="Sign-Up-Errors">
+                    {errors.map(error => <li key={error}>{error}</li>)}
+                </ul>)
+            }
             <button type="submit">Sign Up</button>
         </form>
     );
