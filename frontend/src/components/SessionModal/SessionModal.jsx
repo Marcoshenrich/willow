@@ -4,7 +4,7 @@ import { useState } from "react"
 import SignupFormPage from "./SignupFormPage"
 import LoginFormPage from "./LoginFormPage"
 
-const SessionModal = ({onClose}) => {
+const SessionModal = ({ onSessionModalClose }) => {
   const [sessionType, setSessionType] = useState("login")
 
   const sessionTypeClickHandler = (e) =>{
@@ -28,14 +28,14 @@ const SessionModal = ({onClose}) => {
       <div id="Session-Modal-Content">
         <div></div>
         <h2>Welcome to Willow</h2>
-        <HiOutlineX id="modal-x" onClick={onClose}/>
+        <HiOutlineX id="modal-x" onClick={onSessionModalClose}/>
       </div>
       <div id="sessionType" >
         <button id="signInButton" onClick={sessionTypeClickHandler } className="selected">Sign In</button>
         <button id="signUpButton" onClick={sessionTypeClickHandler }>New Account</button>
       </div>
-      {sessionType === "login" && (<LoginFormPage onClose={onClose}/>)}
-      {sessionType === "signup" && (<SignupFormPage onClose={onClose} />)}
+      {sessionType === "login" && (<LoginFormPage onSessionModalClose={onSessionModalClose}/>)}
+      {sessionType === "signup" && (<SignupFormPage onSessionModalClose={onSessionModalClose} />)}
     </>
   )
 }

@@ -3,7 +3,7 @@ import { benchReducer } from "./benches";
 import {createStore, combineReducers, applyMiddleware, compose} from "redux"
 import thunk from "redux-thunk"
 import { mapReducer } from "./map";
-import { errorReducer } from "./errors";
+import errors from "./errors";
 
 let enhancer;
 
@@ -16,11 +16,19 @@ if (process.env.NODE_ENV === 'production') {
     enhancer = composeEnhancers(applyMiddleware(thunk, logger));
 }
 
-const rootReducer = combineReducers({
-    errorReducer,
+const appReducer = combineReducers({
+    errors,
     session,
     "mapKey": mapReducer
 })
+
+const rootReducer = (state, action) => {
+    if (action.type === 'REMOVE_CURRENT_USER') {
+        return appReducer(undefined, action)
+    }
+
+    return appReducer(state, action)
+}
 
 const configureStore = (preloadedState ={})=> {
     return createStore(rootReducer, preloadedState, enhancer)

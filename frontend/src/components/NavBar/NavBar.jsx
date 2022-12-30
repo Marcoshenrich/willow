@@ -6,6 +6,7 @@ import { Modal } from '../../context/Modal';
 import './NavBar.css';
 import Icon from "../assets/icons/icon.png"
 import { Link, useHistory } from 'react-router-dom';
+import { clearErrors } from '../../store/errors';
 
 const NavBar = () => {
     const dispatch = useDispatch()
@@ -19,6 +20,11 @@ const NavBar = () => {
 
     const routeChangeListings = () => {
         history.push(`/listings`);
+    }
+
+    const onSessionModalClose = () => {
+        setShowSessionModal(false)
+        dispatch(clearErrors())
     }
 
     const sessionControl = () => {
@@ -59,8 +65,8 @@ const NavBar = () => {
             </div>
         </nav>
             {showSessionModal && (
-                <Modal onClose={() => setShowSessionModal(false)}>
-                    <SessionModal onClose={() => setShowSessionModal(false)} />
+                <Modal onSessionModalClose={onSessionModalClose}>
+                    <SessionModal onSessionModalClose={onSessionModalClose} />
                 </Modal>
             )}
         </>
