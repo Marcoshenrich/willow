@@ -1,4 +1,7 @@
+import ListingShowPage from "../ListingShowPage"
 import "./ListingsIndex.css"
+import { Link } from "react-router-dom"
+
 
 const ListingsIndex = () => {
 
@@ -10,7 +13,8 @@ const ListingsIndex = () => {
           <div id="Listings-Map">Map</div>
           <div className="Listings-Nav">
             <div id="Listings-Header">Listings Header</div>
-            <div id="Listings-Container">Listings Container</div>
+            <div id="Listings-Container">Listings Container
+            </div>
           </div>
       </div>
     </div> 
