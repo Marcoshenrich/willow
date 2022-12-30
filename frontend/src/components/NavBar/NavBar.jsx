@@ -55,7 +55,7 @@ const NavBar = () => {
         </nav>
             {showSessionModal && (
                 <Modal onClose={() => setShowSessionModal(false)}>
-                    <SessionModal />
+                    <SessionModal onClose={() => setShowSessionModal(false)} />
                 </Modal>
             )}
         </>

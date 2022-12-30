@@ -8,16 +8,14 @@ import SplashPage from "./components/SplashPage";
 
 
 function App() {
-  const [showSessionModal, setShowSessionModal] = useState(false)
 
 
   return (
     <>
       <NavBar/>
-      {showSessionModal && (<SessionModal />)}
       <Switch>
         <Route path="/">
-          <SplashPage />
+      <SplashPage/>
         </Route>
       </Switch>
     </>
