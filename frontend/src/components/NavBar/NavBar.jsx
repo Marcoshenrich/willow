@@ -12,8 +12,13 @@ const NavBar = () => {
     const sessionUser = useSelector(state => state.session.user);
     const [showSessionModal, setShowSessionModal] = useState(false)
     const history = useHistory();
-    const routeChange = () => {
+
+    const routeChangeHome = () => {
         history.push(`/`);
+    }
+
+    const routeChangeListings = () => {
+        history.push(`/listings`);
     }
 
     const sessionControl = () => {
@@ -34,15 +39,15 @@ const NavBar = () => {
         <>
         <nav id="NavBar">
             <div id="NavBarLeft">
-                <div>Buy</div>
-                <div>Rent</div>
+                <div onClick={routeChangeListings}>Buy</div>
+                <div onClick={routeChangeListings}>Rent</div>
                 <div>Sell</div>
                 <div>Home Loans</div>
                 <div>Agent Finder</div>
             </div>
 
             <div id="NavBarMid">
-                    <img src={Icon} alt="" onClick={routeChange}/>
+                    <img src={Icon} alt="" onClick={routeChangeHome}/>
                 <span>Willow</span>
             </div>
 
