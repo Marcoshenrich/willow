@@ -1,4 +1,5 @@
 import csrfFetch from './csrf';
+import { loginErrors, signupErrors } from './errors';
 
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
@@ -36,10 +37,15 @@ export const signup = (user) => async (dispatch) => {
             password
         })
     });
-    const data = await response.json();
-    storeCurrentUser(data.user);
-    dispatch(setCurrentUser(data.user));
-    return response;
+    // console.log("response")
+    // if (response.ok) {
+        const data = await response.json();
+        storeCurrentUser(data.user);
+        dispatch(setCurrentUser(data.user));
+        return response;
+    // } else {
+    //     console.log(response)
+    // }
 };
 
 export const login = ({ credential, password }) => async dispatch => {
@@ -48,9 +54,13 @@ export const login = ({ credential, password }) => async dispatch => {
         body: JSON.stringify({ credential, password })
     });
     const data = await response.json();
-    storeCurrentUser(data.user);
-    dispatch(setCurrentUser(data.user));
-    return response;
+    if (response.ok) {
+        storeCurrentUser(data.user);
+        dispatch(setCurrentUser(data.user));
+        return response;
+    } else {
+        dispatch(loginErrors(data))
+    }
 };
 
 export const logout = () => async (dispatch) => {

@@ -7,29 +7,36 @@ import { Redirect } from 'react-router-dom';
 function LoginFormPage({ onClose }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const errors = useSelector(state => state.errors);
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState([]);
 
     if (sessionUser) return <Redirect to="/" />;
 
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     setErrors([]);
+    //     return dispatch(sessionActions.login({ credential, password }))
+    //         .catch(async (res) => {
+    //             let data;
+    //             try {
+    //                 // .clone() essentially allows you to read the response body twice
+    //                 data = await res.clone().json();
+    //             } catch {
+    //                 data = await res.text(); // Will hit this case if the server is down
+    //             }
+    //             if (data?.errors) setErrors(data.errors);
+    //             else if (data) setErrors([data]);
+    //             else setErrors([res.statusText]);
+    //         });
+    // }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
-        return dispatch(sessionActions.login({ credential, password }))
-            .catch(async (res) => {
-                let data;
-                try {
-                    // .clone() essentially allows you to read the response body twice
-                    data = await res.clone().json();
-                } catch {
-                    data = await res.text(); // Will hit this case if the server is down
-                }
-                if (data?.errors) setErrors(data.errors);
-                else if (data) setErrors([data]);
-                else setErrors([res.statusText]);
-            });
+        // setErrors([]);
+        dispatch(sessionActions.login({ credential, password }))
     }
+
 
     const demoLogin = (e) => {
         e.preventDefault();

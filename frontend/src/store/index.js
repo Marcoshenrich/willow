@@ -3,6 +3,7 @@ import { benchReducer } from "./benches";
 import {createStore, combineReducers, applyMiddleware, compose} from "redux"
 import thunk from "redux-thunk"
 import { mapReducer } from "./map";
+import { errorReducer } from "./errors";
 
 let enhancer;
 
@@ -16,9 +17,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const rootReducer = combineReducers({
-    // users: usersReducer,
+    errorReducer,
     session,
-    "benches": benchReducer,
     "mapKey": mapReducer
 })
 
