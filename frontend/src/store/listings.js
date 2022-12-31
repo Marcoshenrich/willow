@@ -47,7 +47,7 @@ export const createListing = (listing) => async dispatch => {
 }
 
 
-export const lsitingReducer = (oldState={}, action) => {
+export const listingsReducer = (oldState={}, action) => {
     const newState = { ...oldState }
     switch (action.type) {
         case RECEIVE_LISTINGS:
