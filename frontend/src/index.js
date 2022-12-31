@@ -12,9 +12,6 @@ import * as sessionActions from "./store/session";
 const store = configureStore();
 
 if (process.env.NODE_ENV !== "production") {
-  window.store = store;
-  window.csrfFetch = csrfFetch;
-  window.sessionActions = sessionActions;
 }
 
 function Root() {
