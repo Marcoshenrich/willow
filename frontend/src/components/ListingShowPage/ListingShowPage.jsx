@@ -15,6 +15,10 @@ const ListingShowPage = () => {
         </div>
           <div id="Listing-Show-Page-Appointment-Info">Appointment</div>
       </div>
+      <div id="Listing-Show-Page-Local-Info">Local Info</div>
+      <div id="Listing-Show-Page-Description">Description</div>
+      <div id="Listing-Show-Page-Highlights">Highlights</div>
+      <div id="Listing-Show-Page-Details">Details</div>
     </div>
   )
 }

@@ -23,6 +23,33 @@ function SignupFormPage({ onSessionModalClose }) {
         }
     };
 
+    const passwordRequirements = () => {
+        if (password.length > 0) {
+            return (
+                <div id="Password-Requirements">
+                    {passwordLengthReq()}
+                    {passwordMatchReq()}
+                </div>
+            )
+        }
+    }
+
+    const passwordLengthReq = () => {
+        if (password.length >= 6) {
+            return (<span className="green">- Password must be at least 6 characters</span>)
+        }else{
+            return (<span className="red">- Password must be at least 6 characters</span>)
+        }
+    }
+
+    const passwordMatchReq = () => {
+        if (password === confirmPassword) {
+            return (<span className="green">- Passwords must match</span>)
+        } else {
+            return (<span className="red">- Passwords must match</span>)
+        }
+    }
+
     return (
         <form className="Sign-Up-Form" onSubmit={handleSubmit}>
             <label>
@@ -55,6 +82,7 @@ function SignupFormPage({ onSessionModalClose }) {
                     required
                 />
             </label>
+            {passwordRequirements()}
             <label>
                 Confirm Password
                 <input

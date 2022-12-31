@@ -21,21 +21,22 @@
 
 
 .Listing-Show-Page {
-    height: 100vh;
     width:100%;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.Listing-Show-Page-Images {
+.Listing-Show-Page > div {
     width: 1370px;
-    height: 500px;
+}
+
+.Listing-Show-Page-Images {
+    height:  500px;
     border: solid black 1px;
 }
 
 .Listing-Show-Page-Topline {
-    width: 1370px;
     height: 230px;
     border: solid black 1px;
     display: flex;
@@ -49,7 +50,6 @@
 }
 
 .Listing-Show-Page-Core-Info > div {
-    background-color: pink;
     border: solid black 1px;
     width:100%;
     height:100%;
@@ -78,3 +78,22 @@
     border: solid black 1px;
 }
 
+#Listing-Show-Page-Local-Info {
+    height: 360px;
+    border: solid black 1px;
+}
+
+#Listing-Show-Page-Description{
+    height: 360px;
+    border: solid black 1px;
+}
+
+#Listing-Show-Page-Highlights{
+    height: 180px;
+    border: solid black 1px;
+}
+
+#Listing-Show-Page-Details {
+    height: 360px;
+    border: solid black 1px;
+}

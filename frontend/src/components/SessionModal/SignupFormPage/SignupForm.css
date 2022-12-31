@@ -99,3 +99,22 @@ input[type=checkbox] {
     font-weight: var(--font-w-med);
     font-size: var(--font-s-sml);
 }
+
+#Password-Requirements {
+    width: 90%;
+    display: flex;
+    border-radius: 0;
+}
+
+#Password-Requirements > span {
+    padding: 2px;
+    padding-left: 13px;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}

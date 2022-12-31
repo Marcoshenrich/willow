@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :username, null: false 
       t.string :password_digest, null: false 
       t.string :session_token
-
+      t.boolean :agent, default: false
       t.timestamps
     end
     add_index :users, :email, unique: true
