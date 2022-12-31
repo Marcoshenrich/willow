@@ -31,7 +31,7 @@ const rootReducer = (state, action) => {
     return appReducer(state, action)
 }
 
-const configureStore = (preloadedState ={})=> {
+const configureStore = (preloadedState = {})=> {
     return createStore(rootReducer, preloadedState, enhancer)
 }
 

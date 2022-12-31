@@ -29,6 +29,7 @@ ApplicationRecord.transaction do
       street_num: "2101",
       street_name: "Shoreline Drive",
       city: "Alameda",
+      state: "CA",
       zip: "94501",
       value: 100,
       beds: 2,

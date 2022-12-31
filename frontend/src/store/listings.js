@@ -23,11 +23,24 @@ export const getListings = (store) => {
     return []
 }
 
+export const getListing = (listingId) => (store) => {
+    if (store.listings && store.listings[listingId]) return store.listings[listingId]
+    return null
+}
+
 export const fetchListings = () => async dispatch => {
     const response = await csrfFetch("/api/listings")
     if (response.ok) {
         const data = await response.json();
-        dispatch(receiveListings(data));
+        dispatch(receiveListings(data.listings));
+    }
+};
+
+export const fetchListing = (listingId) => async dispatch => {
+    const response = await csrfFetch(`/api/listings/${listingId}`)
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(receiveListing(data.listing));
     }
 };
 
@@ -42,7 +55,7 @@ export const createListing = (listing) => async dispatch => {
     })
     if (response.ok) {
         const data = await response.json();
-        dispatch(receiveListing(data));
+        dispatch(receiveListing(data.listing));
     }
 }
 

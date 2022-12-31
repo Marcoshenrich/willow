@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_31_015600) do
     t.string "street_num", null: false
     t.string "street_name", null: false
     t.string "city", null: false
+    t.string "state", limit: 2, null: false
     t.string "zip", limit: 5, null: false
     t.integer "value", null: false
     t.integer "beds", null: false

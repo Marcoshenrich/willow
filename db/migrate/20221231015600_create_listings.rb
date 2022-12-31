@@ -6,6 +6,7 @@ class CreateListings < ActiveRecord::Migration[7.0]
       t.string :street_num, null: false
       t.string :street_name, null: false
       t.string :city, null: false
+      t.string :state, null: false, limit: 2
       t.string :zip, limit: 5, null: false
       t.integer :value, null: false
       t.integer :beds, null: false
