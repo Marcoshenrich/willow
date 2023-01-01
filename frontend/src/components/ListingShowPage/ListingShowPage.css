@@ -21,6 +21,7 @@
 
 
 .Listing-Show-Page {
+    color: var(--oceanabyss);
     width:100%;
     display: flex;
     align-items: center;
@@ -28,7 +29,7 @@
 }
 
 .Listing-Show-Page > div {
-    width: 1370px;
+    width: 900px;
 }
 
 .Listing-Show-Page-Images {
@@ -36,46 +37,82 @@
     border: solid black 1px;
 }
 
-.Listing-Show-Page-Topline {
-    height: 230px;
-    border: solid black 1px;
-    display: flex;
-}
-
 .Listing-Show-Page-Core-Info {
     display: flex;
     width: 1370px;
-    height: 230px;
-    border: solid black 1px;
+    height: 120px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .Listing-Show-Page-Core-Info > div {
-    border: solid black 1px;
     width:100%;
     height:100%;
 }
 
 #Listing-Show-Page-Appointment-Info {
     height: 100%;
-    border: solid black 1px;
     width: 330px;
 }
 
-#Listing-Show-Page-Mortgage-Info {
-    width: 60%;
+
+.Listing-Show-Page-Address {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+}
+
+.Listing-Show-Page-Address > span {
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.Listing-Show-Page-Mortgage-Info>span {
+    padding: 5px;
+}
+
+#Listing-Show-Page-Core-Info-h2 {
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: 500;
 }
 
 
-#Listing-Show-Page-Address {
-    width: 100%;
-    height: 70%;
-    border: solid black 1px;
+#Listing-Show-Page-Core-Info-Body {
+    font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-med);
+    color: var(--oceanabyss);
 }
 
 #Listing-Show-Page-Base-Stats {
-    width: 100%;
-    height: 30%;
-    border: solid black 1px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 50%;
+}
+
+#Listing-Show-Page-Base-Stats > div {
+    padding: 10px;
+    font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml);
+    display: flex;
+    height: auto;
+    width: auto;
+    align-items: flex-end;
+}
+
+.Listing-Show-Page-Icon {
+    font-size: 30px;
+}
+
+.Listing-Show-Page-Mortgage-Info {
+    display: flex;
+    flex-direction: column;
 }
 
 #Listing-Show-Page-Local-Info {
