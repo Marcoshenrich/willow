@@ -19,29 +19,7 @@
     --fog: #efefef;
 }
 
-.Listings-Index {
+.map {
     width: 100%;
-    height: 88vh;
-}
-
-#Listings-Search-Bar {
-    height: 55px;
-    border: 1px solid black;
-}
-
-.Listings-Panels {
-    display: flex;
-    height: auto;
-    width: 100%;
-}
-
-.Listings-Panels > div {
-    border: 1px solid black;
-    height: 100%;
-    width: 100%;
-}
-
-#Listings-Header {
-    height: 115px;
-    border: 1px solid black;
+    height: 80vh;
 }
