@@ -24,9 +24,11 @@
 .Sign-Up-Form {
     position: relative;
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 550px;
 }
 
 .Sign-Up-Form > * {
@@ -46,6 +48,8 @@
     background-color: var(--fog);
     font-size: var(--font-s-med);
     margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     height: 35px;
     width: 96%;
     border-radius: 4px;
@@ -75,7 +79,7 @@ input[type=checkbox] {
     font-size: var(--font-s-med);
     background-color: var(--oceansurf);
     margin-top: 5px;
-    height: 35px;
+    height: 43px;
     width: 90%;
     border-radius: 4px;
     color: var(--fog);

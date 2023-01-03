@@ -97,9 +97,9 @@ function SignupFormPage({ onSessionModalClose }) {
                 <label><input type="checkbox" value="" /><span>I am a Fairy Godmother</span></label>
             </div>
             {errors && (
-                <ul id="Sign-Up-Errors">
-                    {errors.map(error => <li key={error}>{error}</li>)}
-                </ul>)
+                <div id="Sign-Up-Errors">
+                    {errors.map(error => <div key={error}>{error}</div>)}
+                </div>)
             }
             <button type="submit">Sign Up</button>
         </form>

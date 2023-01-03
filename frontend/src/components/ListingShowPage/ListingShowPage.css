@@ -54,7 +54,25 @@
 
 #LSP-Highlights {
     height: 180px;
-    border: solid black 1px;
+    border: solid var(--fog) 2px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#LSP-HLT-Header {
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-s-lrg);
+    padding: 10px;
+    padding-left: 20px;
+}
+
+#LSP-HLT-Container {
+    display: flex;
+}
+
+#LSP-HLT-Container > div {
+    width: 450px;
 }
 
 #LSP-Details {

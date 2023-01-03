@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { fetchListing, getListing } from "../../store/listings"
 import "./ListingShowPage.css"
-import ListingShowPageCoreInfo from "./ListingShowPageCoreInfo/ListingShowPageCoreInfo"
+import ListingShowPageCoreInfo from "./LSPCoreInfo/LSPCoreInfo"
+import LSPHighlight from "./LSPHighlight"
+import {GiButterflyFlower} from  "react-icons/gi"
+import { GiEvilHand } from "react-icons/gi"
+import { GiHighGrass } from "react-icons/gi"
+
 
 const ListingShowPage = () => {
   const dispatch = useDispatch()
@@ -15,6 +20,7 @@ const ListingShowPage = () => {
   }, [listingId])
 
 
+
   return (
     <div className="LSP">
       <div className="LSP-Images">images</div>
@@ -24,7 +30,24 @@ const ListingShowPage = () => {
         <h2>Description</h2>
         {listing && (<p>{listing.description}</p>)}
       </div>
-      <div id="LSP-Highlights">Highlights</div>
+      <div id="LSP-Highlights">
+        <div id="LSP-HLT-Header">Home Highlights</div>
+        <div id="LSP-HLT-Container">
+            <div>
+            <LSPHighlight icon={<GiHighGrass />} category={"Outdoors"} content={"Pristine Glades"} className="LSP-HLT-Icon"  />
+              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips"} className="LSP-HLT-Icon" />
+              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips"} className="LSP-HLT-Icon" />
+            </div>
+            <div>
+              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips"} className="LSP-HLT-Icon" />
+              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips"} className="LSP-HLT-Icon" />
+            <LSPHighlight icon={<GiEvilHand />} category={"Omens"} content={"Raven's Caw"} className="LSP-HLT-Icon" />
+            </div>
+        </div>
+
+
+
+      </div>
       <div id="LSP-Details">Details</div>
     </div>
   )

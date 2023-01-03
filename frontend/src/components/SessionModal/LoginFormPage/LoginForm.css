@@ -24,9 +24,11 @@
 .Login-Form {
     position: relative;
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 350px;
 }
 
 .Login-Form>* {
@@ -36,7 +38,6 @@
     display: block;
     width: 90%;
     flex-direction: column;
-    margin: 10px;
     border-radius: 50px;
 }
 
@@ -46,6 +47,8 @@
     background-color: var(--fog);
     font-size: var(--font-s-med);
     margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     height: 35px;
     width: 96%;
     border-radius: 4px;
@@ -69,11 +72,13 @@
     font-size: var(--font-s-med);
     background-color: var(--oceansurf);
     margin-top: 5px;
-    height: 35px;
+    height: 43px;
     width: 90%;
     border-radius: 4px;
     color: var(--fog);
     transition: background-color 1s;
+        padding-top: 10px;
+        padding-bottom: 10px;
 }
 
 

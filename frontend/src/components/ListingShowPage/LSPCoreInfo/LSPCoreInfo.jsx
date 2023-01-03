@@ -1,4 +1,4 @@
-import "./ListingShowPageCoreInfo.css"
+import "./LSPCoreInfo.css"
 import { TbBed } from "react-icons/tb"
 
 const ListingShowPageCoreInfo = ({listing}) => {

@@ -48,9 +48,9 @@ function LoginFormPage({ onSessionModalClose }) {
                 />
             </label>
             {loginErrors && (
-            <ul id="Login-Errors">
-                {loginErrors.map(error => <li key={error}>{error}</li>)}
-            </ul>)
+            <div id="Login-Errors">
+                {loginErrors.map(error => <div key={error}>{error}</div>)}
+            </div>)
             }
             <button className="Login-Button" id="Demo-User-Button" onClick={demoLogin}>Log In As Demo User</button>
             <button className="Login-Button">Log In</button>

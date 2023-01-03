@@ -6,8 +6,8 @@
 
 #Session-Modal-Content > h2 {
     font-family: var(--font-serif);
-    font-size: var(--font-s-lrg);
-    font-weight: var(--font-w-med);
+    font-size: 30px;
+    font-weight: var(--font-w-lrg);
     color: var(--oceanabyss);
 }
 
@@ -22,8 +22,6 @@
 }
 
 #sessionType {
-    /* background-color: blue; */
-    padding-top: 40px;
     margin: 5px;
     font-family: var(--font);
     font-size: var(--font-s-lrg);

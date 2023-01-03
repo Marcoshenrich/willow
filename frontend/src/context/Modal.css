@@ -47,10 +47,9 @@
     flex-direction: column;
     position: absolute;
     background-color:white;
-    border: var(--oceansurf) solid 3px;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15);
     margin: 15% auto;
     padding: 20px;
     width: auto;
-    height: auto;
 }
