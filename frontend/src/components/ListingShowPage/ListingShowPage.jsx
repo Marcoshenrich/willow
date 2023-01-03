@@ -8,6 +8,9 @@ import LSPHighlight from "./LSPHighlight"
 import {GiButterflyFlower} from  "react-icons/gi"
 import { GiEvilHand } from "react-icons/gi"
 import { GiHighGrass } from "react-icons/gi"
+import { GiMushroom } from "react-icons/gi"
+import { GiFairyWand } from "react-icons/gi"
+import { MdDateRange } from "react-icons/md"
 
 
 const ListingShowPage = () => {
@@ -35,13 +38,13 @@ const ListingShowPage = () => {
         <div id="LSP-HLT-Container">
             <div>
             <LSPHighlight icon={<GiHighGrass />} category={"Outdoors"} content={"Pristine Glades"} className="LSP-HLT-Icon"  />
-              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips"} className="LSP-HLT-Icon" />
-              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips"} className="LSP-HLT-Icon" />
+              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips, Daisies"} className="LSP-HLT-Icon" />
+            <LSPHighlight icon={<GiMushroom />} category={"Mushrooms"} content={"Amonita"} className="LSP-HLT-Icon" />
             </div>
             <div>
-              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips"} className="LSP-HLT-Icon" />
-              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips"} className="LSP-HLT-Icon" />
+            <LSPHighlight icon={<GiFairyWand />} category={"Blessings"} content={"Glitter"} className="LSP-HLT-Icon" />
             <LSPHighlight icon={<GiEvilHand />} category={"Omens"} content={"Raven's Caw"} className="LSP-HLT-Icon" />
+            <LSPHighlight icon={<MdDateRange />} category={"Listed"} content={"21 days ago"} className="LSP-HLT-Icon" />
             </div>
         </div>
 

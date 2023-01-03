@@ -9,6 +9,7 @@
     font-size: 30px;
     font-weight: var(--font-w-lrg);
     color: var(--oceanabyss);
+    margin-bottom: 20px;
 }
 
 #modal-x {
