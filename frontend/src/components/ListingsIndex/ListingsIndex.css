@@ -26,6 +26,7 @@
 
 #Listings-Search-Bar {
     height: 55px;
+    border-bottom: 1.5px solid lightgrey;
 }
 
 .Listings-Panels {
@@ -46,29 +47,34 @@
 #Listings-Header {
     height: 65px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-}
-
-#Listings-Header * {
-    padding: 20px;
 }
 
 
 #Listings-Header h2{
+    margin-left: 20px;
     color: var(--oceanabyss);
     font-family: var(--font);
     font-size: var(--font-s-lrg);
     font-weight: var(--font-w-med);
 }
 
-#Listings-Header div {
+#Listings-Header > div {
+    display: flex;
+    width: auto;
+    margin-right: 50px;
+    flex-direction: space-between;
     color: var(--oceansurf);
     font-family: var(--font);
     font-size: var(--font-s-med);
     font-weight: var(--font-w-sml);
 }
 
-#Listings-Container {
-    height: auto;
+#LI-Sort-Dropdown-Icon {
+    margin-left: 5px;
+}
+
+#Listings-Nav {
+    box-shadow: inset 2px 0px rgba(0,0,0,.25);
 }

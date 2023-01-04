@@ -31,7 +31,10 @@ const ListingsIndex = () => {
           <div id="Listings-Nav">
             <div id="Listings-Header">
               <h2>Magical Homes Just For You</h2>
-              <div>Sort: Homes For You<BsChevronDown /></div>
+              <div>
+                <div>Sort: Homes For You</div>
+                <BsChevronDown id="LI-Sort-Dropdown-Icon" />
+              </div>
             </div>
             <div id="Listings-Container">
               {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i}/> ) )}

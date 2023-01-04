@@ -19,13 +19,13 @@
     --oceanabyss: #232347;
     --fog: #efefef;
 }
-/*  */
+
 #NavBar {
     height: 80px;
     width: 100%;
     display: flex;
     justify-content: space-around;
-    border-bottom: var(--fog) solid 2px;
+    border-bottom: 1.5px solid lightgrey;
 }
 
 #NavBarMid {
