@@ -31,9 +31,9 @@
     width: 900px;
 }
 
-/* #LSP-Description {
-    inline-size: 600px;
-} */
+#LSP-Description div {
+    width: 650px;
+}
 
 #LSP-Description h2 {
     font-family: var(--font);

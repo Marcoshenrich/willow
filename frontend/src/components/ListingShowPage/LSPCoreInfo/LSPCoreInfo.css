@@ -98,11 +98,28 @@
     padding-left: 10px;
 }
 
-.LSP-Mortgage-Info>p {
+.LSP-Mortgage-Info p {
     margin: 0px;
     padding: 5px;
     padding-left: 10px;
     width: 90%;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml);
+}
+.LSP-Mortgage-Info {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+    align-items: flex-end;
+    width: 40%;
+}
+
+.LSP-Mortgage-Info > div > div {
+    display: flex;
+    align-items: center;
+
 }
 
 #LSP-Core-Info-h2 {
@@ -143,9 +160,7 @@
     font-size: 30px;
 }
 
-.LSP-Core-Info>.LSP-Mortgage-Info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 50%;
+
+.LSP-Icon-Value{
+    font-size: 15px;
 }

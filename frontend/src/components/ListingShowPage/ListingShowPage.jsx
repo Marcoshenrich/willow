@@ -11,6 +11,7 @@ import { GiHighGrass } from "react-icons/gi"
 import { GiMushroom } from "react-icons/gi"
 import { GiFairyWand } from "react-icons/gi"
 import { MdDateRange } from "react-icons/md"
+import LSPDetails from "./LSPDetails"
 
 
 const ListingShowPage = () => {
@@ -30,28 +31,28 @@ const ListingShowPage = () => {
       <ListingShowPageCoreInfo listing={listing}/>
       <div id="LSP-Local-Info">Local Info</div>
       <div id="LSP-Description">
-        <h2>Description</h2>
-        {listing && (<p>{listing.description}</p>)}
+        <div>
+          <h2>Description</h2>
+          {listing && (<p>{listing.description}</p>)}
+        </div>
       </div>
       <div id="LSP-Highlights">
         <div id="LSP-HLT-Header">Home Highlights</div>
         <div id="LSP-HLT-Container">
             <div>
-            <LSPHighlight icon={<GiHighGrass />} category={"Outdoors"} content={"Pristine Glades"} className="LSP-HLT-Icon"  />
-              <LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={"Tulips, Daisies"} className="LSP-HLT-Icon" />
-            <LSPHighlight icon={<GiMushroom />} category={"Mushrooms"} content={"Amonita"} className="LSP-HLT-Icon" />
+            {listing && (<LSPHighlight icon={<GiHighGrass />} category={"Outdoors"} content={listing.outdoors} className="LSP-HLT-Icon"  />)}
+            {listing && (<LSPHighlight icon={<GiButterflyFlower />} category={"Flowers"} content={listing.flowers} className="LSP-HLT-Icon" />)}
+            {listing && (<LSPHighlight icon={<GiMushroom />} category={"Mushrooms"} content={listing.mushrooms} className="LSP-HLT-Icon" />)}
             </div>
             <div>
-            <LSPHighlight icon={<GiFairyWand />} category={"Blessings"} content={"Glitter"} className="LSP-HLT-Icon" />
-            <LSPHighlight icon={<GiEvilHand />} category={"Omens"} content={"Raven's Caw"} className="LSP-HLT-Icon" />
-            <LSPHighlight icon={<MdDateRange />} category={"Listed"} content={"21 days ago"} className="LSP-HLT-Icon" />
+            {listing && (<LSPHighlight icon={<GiFairyWand />} category={"Blessings"} content={listing.blessings} className="LSP-HLT-Icon" />)}
+            {listing && (<LSPHighlight icon={<GiEvilHand />} category={"Omens"} content={listing.omens} className="LSP-HLT-Icon" />)}
+            {listing && (<LSPHighlight icon={<MdDateRange />} category={"Listed"} content={"21 days ago"} className="LSP-HLT-Icon" />)}
             </div>
         </div>
 
-
-
       </div>
-      <div id="LSP-Details">Details</div>
+      <div id="LSP-Details"> <LSPDetails listing={listing}/> </div>
     </div>
   )
 }

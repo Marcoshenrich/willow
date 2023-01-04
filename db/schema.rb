@@ -50,14 +50,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_03_202114) do
     t.string "city", null: false
     t.string "state", limit: 2, null: false
     t.string "zip", limit: 5, null: false
-    t.integer "value", null: false
-    t.integer "beds", null: false
     t.date "posting_date", null: false
     t.text "description", null: false
     t.integer "built", null: false
     t.bigint "agent_id", null: false
     t.float "lat", null: false
     t.float "long", null: false
+    t.string "outdoors", null: false
+    t.string "flowers", null: false
+    t.string "mushrooms", null: false
+    t.string "blessings", null: false
+    t.string "omens", null: false
+    t.integer "sqin", null: false
+    t.integer "num_rooms", null: false
+    t.integer "beds", null: false
+    t.integer "num_fireplaces", null: false
+    t.integer "fairy_dust", null: false
+    t.integer "human_teeth", null: false
+    t.integer "stolen_dreams", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["agent_id"], name: "index_listings_on_agent_id"
