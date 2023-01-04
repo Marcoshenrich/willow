@@ -1,6 +1,8 @@
 import "./LSPCoreInfo.css"
 import { TbBed } from "react-icons/tb"
+import { GiFireplace } from "react-icons/gi"
 import { FaTooth } from "react-icons/fa"
+import { RiRuler2Fill } from "react-icons/ri"
 import { GiFairyWand } from "react-icons/gi"
 import { GiDreamCatcher } from "react-icons/gi"
 import { GiPollenDust } from "react-icons/gi"
@@ -19,11 +21,11 @@ const ListingShowPageCoreInfo = ({listing}) => {
             </div>
             <div id="LSP-Base-Stats">
               <TbBed className="LSP-Icon" />
-              <div>3 beds</div>
-              <TbBed className="LSP-Icon" />
-              <div>2 Baths</div>
-              <TbBed className="LSP-Icon" />
-              <div>1,300 sqft</div>
+              {listing && (<div>{listing.beds} Beds</div>)}
+              <GiFireplace className="LSP-Icon" />
+              {listing && (<div>{listing.numFireplaces} Hearths</div>)}
+              <RiRuler2Fill className="LSP-Icon" />
+              {listing && (<div>{listing.sqin} Sq inches</div>)}
             </div>
           </div>
           <div className="LSP-Mortgage-Info">
