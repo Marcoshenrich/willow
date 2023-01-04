@@ -24,5 +24,7 @@
   "homepage": "https://github.com/Marcoshenrich/willow#readme",
   "dependencies": {
     "react-icons": "^4.7.1"
-  }
+  },
+  "main": "index.js",
+  "devDependencies": {}
 }
