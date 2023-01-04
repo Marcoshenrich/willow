@@ -6,6 +6,7 @@ import ListingModule from "../ListingModule"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { getListings, fetchListings } from "../../store/listings"
+import { BsChevronDown } from "react-icons/bs"
 
 
 const ListingsIndex = () => {
@@ -25,12 +26,15 @@ const ListingsIndex = () => {
         <div id="Listings-Search-Bar">Listings Search Bar</div>
       <div className="Listings-Panels">
           <div id="Listings-Map">
-            {/* <Map/> */}
+            <Map/>
           </div>
-          <div className="Listings-Nav">
-            <div id="Listings-Header">Listings Header</div>
-            <div id="Listings-Container">Listings Container
-              {listings && (listings.map((listing, i) => <ListingModule listing={listing}/> ) )}
+          <div id="Listings-Nav">
+            <div id="Listings-Header">
+              <h2>Magical Homes Just For You</h2>
+              <div>Sort: Homes For You<BsChevronDown /></div>
+            </div>
+            <div id="Listings-Container">
+              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i}/> ) )}
             </div>
           </div>
       </div>
