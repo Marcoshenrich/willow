@@ -2,28 +2,36 @@ import { Link } from "react-router-dom";
 import "./ListingModule.css"
 import house from "../assets/house1.jpeg"
 import { FaHeart } from "react-icons/fa"
+import { useState } from "react";
 
 const ListingModule = ({listing}) => {
+  const [favoriteActive, setFavoriteActive] = useState(false)
 
   const handleFavoriteClick = (e) => {
-    e.stopPropagation()
-    console.log(e.currentTarget.classList)
-    if (e.currentTarget.classList.includes("LM-Favorite-Active")) {
-      e.currentTarget.classList.remove("LM-Favorite-Active")
-    } else {
-      e.currentTarget.classList.add("LM-Favorite-Active")
-    }
-
+    setFavoriteActive((favoriteActive) =>  !favoriteActive )
   }
 
 
   return (
     <div id="Listing-Module">
-        <FaHeart style={{ stroke: "white", strokeWidth: "45" }} className="LM-Favorite" onClick={handleFavoriteClick}/>
+      <FaHeart 
+      style={{ stroke: "white", strokeWidth: "45" }} 
+      className={favoriteActive ? "LM-Favorite LM-Favorite-Active" : "LM-Favorite" } 
+      onClick={handleFavoriteClick}/>
       <Link to={`/listings/${listing.id}`}><div id="LM-Image">
         <img src={house} />
       </div></Link>
-      <div id="LM-Info-Container"></div>
+      <div id="LM-Info-Container">
+        <div id="LM-Info-Value">
+          {listing && (`${listing.name}` + " - $" + (listing.humanTeeth + listing.fairyDust + listing.stolenDreams))}
+        </div>
+        <div id="LM-Info-Details">
+          {listing && (`${listing.beds} bds | ${listing.sqin} sqin - built ${listing.built}`)}
+        </div>
+        <div id="LM-Info-Agent">
+          {listing && ("-> Fairy-Godmother Name and Link <-")}
+        </div>
+      </div>
     </div>
   )
 }

@@ -19,16 +19,20 @@
     --fog: #efefef;
 }
 
+
 #Listing-Module {
+    margin: 20px;
     max-width: 350px;
     max-height: 285px;
     border-radius: 5px;
-    border: black 1px var(--fog);
+    border: solid 1px var(--fog);
     box-shadow: 1px 2px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
 }
 
 #LM-Image {
     display: flex;
+    box-sizing: border-box;
     align-items: center;
     max-height: 175px;
     overflow: hidden;
@@ -36,11 +40,6 @@
 
 #Listing-Module img {
     height: 100%;
-    width: 100%;
-}
-
-#LM-Info-Container {
-    height: 90px;
     width: 100%;
 }
 
@@ -66,4 +65,33 @@
 
 .LM-Favorite-Active:hover {
     color: rgba(255, 0, 0, 0.9);
+}
+
+#LM-Info-Container {
+    height: 90px;
+    width: 100%;
+}
+
+#LM-Info-Container>div {
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    font-family: var(--font);
+}
+
+#LM-Info-Value {
+    padding-left: 10px;
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-med);
+}
+
+#LM-Info-Details {
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml);
+}
+
+#LM-Info-Agent {
+    font-size: 12px;
+    font-weight: var(--font-w-sml);
+    color: var(--oceandepths);
 }

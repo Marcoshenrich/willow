@@ -26,7 +26,6 @@
 
 #Listings-Search-Bar {
     height: 55px;
-    border: 1px solid black;
 }
 
 .Listings-Panels {
@@ -36,7 +35,6 @@
 }
 
 .Listings-Panels > div {
-    border: 1px solid black;
     height: 100%;
     width: 100%;
 }
@@ -47,7 +45,6 @@
 
 #Listings-Header {
     height: 65px;
-    border: 1px solid black;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
