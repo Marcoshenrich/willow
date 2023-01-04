@@ -50,7 +50,6 @@ const Map = () => {
   ];
 
   const markers = document.getElementById("Marker")
-  console.log(markers)
 
 
   return <GoogleMap zoom={10} center={center} mapContainerClassName="map">

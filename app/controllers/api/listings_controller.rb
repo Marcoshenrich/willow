@@ -3,6 +3,8 @@ class Api::ListingsController < ApplicationController
     end
 
     def index
+        @listings = Listing.all
+        render "api/listings/index"
     end
 
     def show
