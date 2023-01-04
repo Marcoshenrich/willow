@@ -1,7 +1,11 @@
-ApplicationRecord.transaction do 
+require "open-uri"
+
+ApplicationRecord.transaction do
+
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
+  Listing.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -23,7 +27,10 @@ ApplicationRecord.transaction do
       password: 'password'
     }) 
   end
-  Listing.create!(
+
+  puts "Creating Listings"
+  
+  dummy = Listing.create!(
       name: "Casa Concordia",
       available: true,
       street_num: "2101",
@@ -41,5 +48,14 @@ ApplicationRecord.transaction do
       long: 122.2913
   )
 
+    puts "Attaching Images"
+
+# The string passed to URI.open should be the URL of the image in its bucket.
+  dummy.photo.attach(
+    io: URI.open("https://willow-dev-2.s3.us-west-2.amazonaws.com/1011-10113480_tinkle-fairy-fairies-wand-magic-wings-fly-star.png"), 
+    filename: "1011-10113480_tinkle-fairy-fairies-wand-magic-wings-fly-star.png"
+  )
+
   puts "Done!"
+
 end
