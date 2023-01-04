@@ -1,4 +1,3 @@
-import thunk from 'redux-thunk';
 import csrfFetch from './csrf';
 
 const RECEIVE_MAP_KEY = 'maps/receiveKey';
@@ -11,7 +10,7 @@ const receiveMapKey = (key) => {
 };
 
 export const getMapKey = (store) => {
-    if (store.mapKey) return store.mapKey
+    if (store.mapKey) return store.mapKey.key
     return null
 }
 

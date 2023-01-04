@@ -1,0 +1,167 @@
+:root {
+    --font: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+    --font-w-lrg: 700;
+    --font-w-med: 400;
+    --font-w-sml: 300;
+    --font-s-lrg: 24px;
+    --font-s-med: 18px;
+    --font-s-sml: 14px;
+
+    --burnt-amber: #f1641d;
+    --beeswax: #FDEBD2;
+    --grassylight: #d4e9d7;
+    --grassyplains: #9ec064;
+    --enchantment: #9560b8;
+    --oceanmist: #d7e5f5;
+    --oceansurf: #4d6bc6;
+    --oceandepths: #2f466c;
+    --oceanabyss: #232347;
+    --fog: #efefef;
+}
+
+
+.LSP-Images {
+    height: 500px;
+    border: solid black 1px;
+}
+
+.LSP-Core-Info {
+    display: flex;
+    height: 120px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.LSP-Top-Details {
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    width: 70%;
+}
+
+.LSP-Appointment-Info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid var(--fog) 2px;
+    border-radius: 10px;
+    width: 30%;
+}
+
+.LSP-Appointment-Info>* {
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml);
+    margin: 3px;
+}
+
+#LSP-Appointment-Time {
+    font-weight: var(--font-w-med);
+}
+
+#LSP-Appointment-Submit {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid slategrey;
+    font-size: var(--font-s-med);
+    background-color: var(--oceansurf);
+    margin-top: 10px;
+    height: 35px;
+    width: 90%;
+    border-radius: 4px;
+    color: var(--fog);
+    transition: background-color 1s;
+}
+
+#LSP-Appointment-Submit:hover {
+    cursor: pointer;
+    transition: background-color 1s;
+    background-color: var(--oceandepths);
+}
+
+#LSP-Appointment-Submit:active {
+    height: 32px;
+    width: 87%;
+}
+
+
+.LSP-Address {
+    width: 100%;
+}
+
+.LSP-Address>p {
+    margin: 0px;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.LSP-Mortgage-Info p {
+    margin: 0px;
+    padding: 5px;
+    padding-left: 10px;
+    width: 90%;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml);
+}
+.LSP-Mortgage-Info {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+    align-items: flex-end;
+    width: 40%;
+}
+
+.LSP-Mortgage-Info > div > div {
+    display: flex;
+    align-items: center;
+
+}
+
+#LSP-Core-Info-h2 {
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: 500;
+}
+
+
+#LSP-Core-Info-Body {
+    font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-med);
+    color: var(--oceanabyss);
+}
+
+#LSP-Base-Stats {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 50%;
+}
+
+#LSP-Base-Stats>div {
+    padding: 10px;
+    font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml);
+    display: flex;
+    height: auto;
+    width: auto;
+    align-items: flex-end;
+}
+
+.LSP-Icon {
+    justify-self: flex-end;
+    font-size: 30px;
+}
+
+
+.LSP-Icon-Value{
+    font-size: 15px;
+}

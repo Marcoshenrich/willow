@@ -24,9 +24,13 @@
 .Sign-Up-Form {
     position: relative;
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 550px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .Sign-Up-Form > * {
@@ -46,6 +50,8 @@
     background-color: var(--fog);
     font-size: var(--font-s-med);
     margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     height: 35px;
     width: 96%;
     border-radius: 4px;
@@ -75,11 +81,12 @@ input[type=checkbox] {
     font-size: var(--font-s-med);
     background-color: var(--oceansurf);
     margin-top: 5px;
-    height: 35px;
+    height: 43px;
     width: 90%;
     border-radius: 4px;
     color: var(--fog);
     transition: background-color 1s;
+    min-height: 43px;
 }
 
 .Sign-Up-Form>button:hover {
@@ -91,4 +98,30 @@ input[type=checkbox] {
 .Sign-Up-Form>button:active {
     height: 32px;
     width: 87%;
+}
+
+#Sign-Up-Errors {
+    color: red;
+    font-family: var(--font);
+    font-weight: var(--font-w-med);
+    font-size: var(--font-s-sml);
+}
+
+#Password-Requirements {
+    width: 90%;
+    display: flex;
+    border-radius: 0;
+}
+
+#Password-Requirements > span {
+    padding: 2px;
+    padding-left: 13px;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
 }

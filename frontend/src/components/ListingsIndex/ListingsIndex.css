@@ -21,7 +21,7 @@
 
 .Listings-Index {
     width: 100%;
-    height: 100vh;
+    height: 88vh;
 }
 
 #Listings-Search-Bar {
@@ -31,7 +31,7 @@
 
 .Listings-Panels {
     display: flex;
-    height: 100%;
+    height: auto;
     width: 100%;
 }
 
@@ -41,7 +41,37 @@
     width: 100%;
 }
 
+#Listings-Nav {
+    width: 70%
+}
+
 #Listings-Header {
-    height: 115px;
+    height: 65px;
     border: 1px solid black;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+#Listings-Header * {
+    padding: 20px;
+}
+
+
+#Listings-Header h2{
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-med);
+}
+
+#Listings-Header div {
+    color: var(--oceansurf);
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml);
+}
+
+#Listings-Container {
+    height: auto;
 }

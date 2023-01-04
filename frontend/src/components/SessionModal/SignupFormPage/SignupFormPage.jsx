@@ -1,46 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { signUpErrors } from "../../../store/errors";
 import * as sessionActions from "../../../store/session";
 import './SignupForm.css';
 
-function SignupFormPage({ onClose }) {
+
+function SignupFormPage({ onSessionModalClose }) {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
+    const errors = useSelector(state => state.errors.signUpErrors);
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [errors, setErrors] = useState([]);
-
-    if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password === confirmPassword) {
-            setErrors([]);
-            return dispatch(sessionActions.signup({ email, username, password }))
-                .catch(async (res) => {
-                    let data;
-                    try {
-                        // .clone() essentially allows you to read the response body twice
-                        data = await res.clone().json();
-                    } catch {
-                        data = await res.text(); // Will hit this case if the server is down
-                    }
-                    if (data?.errors) setErrors(data.errors);
-                    else if (data) setErrors([data]);
-                    else setErrors([res.statusText]);
-                });
+            dispatch(sessionActions.signup({ email, username, password }))
+        } else {
+            dispatch(signUpErrors(["Passwords don't match"]))
         }
-        return setErrors(['Confirm Password field must be the same as the Password field']);
     };
+
+    const passwordRequirements = () => {
+        if (password.length > 0) {
+            return (
+                <div id="Password-Requirements">
+                    {passwordLengthReq()}
+                    {passwordMatchReq()}
+                </div>
+            )
+        }
+    }
+
+    const passwordLengthReq = () => {
+        if (password.length >= 6) {
+            return (<span className="green">- Password must be at least 6 characters</span>)
+        }else{
+            return (<span className="red">- Password must be at least 6 characters</span>)
+        }
+    }
+
+    const passwordMatchReq = () => {
+        if (password === confirmPassword) {
+            return (<span className="green">- Passwords must match</span>)
+        } else {
+            return (<span className="red">- Passwords must match</span>)
+        }
+    }
 
     return (
         <form className="Sign-Up-Form" onSubmit={handleSubmit}>
-                {errors[0] && (<ul>
-                    {errors.map(error => <li key={error}>{error}</li>)}
-                </ul>)}
             <label>
                 Email
                 <input
@@ -71,6 +82,7 @@ function SignupFormPage({ onClose }) {
                     required
                 />
             </label>
+            {passwordRequirements()}
             <label>
                 Confirm Password
                 <input
@@ -84,6 +96,11 @@ function SignupFormPage({ onClose }) {
             <div id="Fairy-Godmother-Signup">
                 <label><input type="checkbox" value="" /><span>I am a Fairy Godmother</span></label>
             </div>
+            {errors && (
+                <div id="Sign-Up-Errors">
+                    {errors.map(error => <div key={error}>{error}</div>)}
+                </div>)
+            }
             <button type="submit">Sign Up</button>
         </form>
     );

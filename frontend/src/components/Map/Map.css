@@ -18,3 +18,8 @@
     --oceanabyss: #232347;
     --fog: #efefef;
 }
+
+.map {
+    width: 100%;
+    height: 80vh;
+}
