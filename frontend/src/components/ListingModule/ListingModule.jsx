@@ -40,12 +40,11 @@ const ListingModule = ({listing}) => {
           {listing && (`${listing.beds} bds | ${listing.sqin} sqin - built ${listing.built}`)}
         </div>
         {agent && (
-        <Link to={`/users/${agent.id}`}>
-        
+          <div><Link id="LM-Info-Agent-Link" to={`/agents/${agent.id}`}>
           <div id="LM-Info-Agent">
             {`Godmother: ${ agent.username}`}
           </div>
-        </Link>
+          </Link></div>
         )}
       </div>
     </div>

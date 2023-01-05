@@ -100,4 +100,7 @@
     font-size: 12px;
     font-weight: var(--font-w-sml);
     color: var(--oceandepths);
+    background-color: ;
 }
+
+#LM-Info-Agent-Link:link { text-decoration: none; }
