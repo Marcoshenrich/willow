@@ -62,7 +62,7 @@ export const createListing = (listing) => async dispatch => {
 }
 
 
-export const listingsReducer = (oldState={}, action) => {
+const listingsReducer = (oldState={}, action) => {
     const newState = { ...oldState }
     switch (action.type) {
         case RECEIVE_LISTINGS:
@@ -76,4 +76,6 @@ export const listingsReducer = (oldState={}, action) => {
             return oldState;;
     }
 }
+
+export default listingsReducer
 

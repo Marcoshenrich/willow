@@ -1,9 +1,10 @@
 import session from "./session";
-import { listingsReducer } from "./listings";
+import listings from "./listings";
 import {createStore, combineReducers, applyMiddleware, compose} from "redux"
 import thunk from "redux-thunk"
 import { mapReducer } from "./map";
 import errors from "./errors";
+import users from "./user";
 
 let enhancer;
 
@@ -19,7 +20,8 @@ if (process.env.NODE_ENV === 'production') {
 const appReducer = combineReducers({
     errors,
     session,
-    listings: listingsReducer,
+    users,
+    listings,
     mapKey: mapReducer
 })
 

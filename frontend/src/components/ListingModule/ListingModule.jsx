@@ -2,18 +2,25 @@ import { Link } from "react-router-dom";
 import "./ListingModule.css"
 import house from "../assets/house1.jpeg"
 import { FaHeart } from "react-icons/fa"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { fetchUser, getUser } from "../../store/user";
+import { useDispatch, useSelector } from "react-redux"
+
 
 const ListingModule = ({listing}) => {
+  const dispatch = useDispatch()
   const [favoriteActive, setFavoriteActive] = useState(false)
+  const agentId = listing.agentId
+  const agent = useSelector(getUser(agentId))
 
   const handleFavoriteClick = (e) => {
     setFavoriteActive((favoriteActive) =>  !favoriteActive )
   }
-
-  const findAgentName = () => {
+  
+  useEffect(() => {
+    dispatch(fetchUser(agentId))
     
-  }
+  }, [])
 
   return (
     <div id="Listing-Module">
@@ -32,9 +39,14 @@ const ListingModule = ({listing}) => {
         <div id="LM-Info-Details">
           {listing && (`${listing.beds} bds | ${listing.sqin} sqin - built ${listing.built}`)}
         </div>
-        <div id="LM-Info-Agent">
-          {listing && ("-> Fairy-Godmother Name and Link <-")}
-        </div>
+        {agent && (
+        <Link to={`/users/${agent.id}`}>
+        
+          <div id="LM-Info-Agent">
+            {`Godmother: ${ agent.username}`}
+          </div>
+        </Link>
+        )}
       </div>
     </div>
   )
