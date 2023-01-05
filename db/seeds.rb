@@ -1,6 +1,5 @@
 require "open-uri"
 
-ApplicationRecord.transaction do
 
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
@@ -30,7 +29,7 @@ ApplicationRecord.transaction do
 
   puts "Creating Listings"
   
-  dummy = Listing.create!(
+  Listing.create!(
       name: "Casa Concordia",
       available: true,
       street_num: "2101",
@@ -58,14 +57,20 @@ ApplicationRecord.transaction do
       stolen_dreams: 35
   )
 
-#     puts "Attaching Images"
+    puts "Attaching Images"
 
-# # The string passed to URI.open should be the URL of the image in its bucket.
-#   dummy.photo.attach(
-#     io: URI.open("https://willow-dev-2.s3.us-west-2.amazonaws.com/1011-10113480_tinkle-fairy-fairies-wand-magic-wings-fly-star.png"), 
-#     filename: "1011-10113480_tinkle-fairy-fairies-wand-magic-wings-fly-star.png"
-#   )
+# The string passed to URI.open should be the URL of the image in its bucket.
+
+  restaurants.each do |restaurant|
+  restaurant.images.attach(
+    io: URI.open("https://willow-dev-2.s3.us-west-2.amazonaws.com/1011-10113480_tinkle-fairy-fairies-wand-magic-wings-fly-star.png"), 
+    filename: "1011-10113480_tinkle-fairy-fairies-wand-magic-wings-fly-star.png"
+  )
 
   puts "Done!"
 
-end
+
+  #check if the csv has image attachments
+  #if yes, seed completes then
+   #iterate through the seed Restaurant.All
+   #
