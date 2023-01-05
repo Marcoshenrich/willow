@@ -11,10 +11,9 @@ const ListingModule = ({listing}) => {
     setFavoriteActive((favoriteActive) =>  !favoriteActive )
   }
 
-  if (listing.imageUrls) {
-    console.log(listing.imageUrls)
+  const findAgentName = () => {
+    
   }
-
 
   return (
     <div id="Listing-Module">
@@ -24,6 +23,7 @@ const ListingModule = ({listing}) => {
       onClick={handleFavoriteClick}/>
       <Link to={`/listings/${listing.id}`}><div id="LM-Image">
         <img src={listing && listing.imageUrls && (listing.imageUrls[0])} />
+        {/* <img src={house} /> */}
       </div></Link>
       <div id="LM-Info-Container">
         <div id="LM-Info-Value">

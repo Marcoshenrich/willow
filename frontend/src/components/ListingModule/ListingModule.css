@@ -21,10 +21,10 @@
 
 
 #Listing-Module {
-    margin: 20px;
+    margin: 10px;
     margin-top: 10px;
-    max-width: 350px;
-    max-height: 285px;
+    width: 370px;
+    height: 275px;
     border-radius: 5px;
     border: solid 1px var(--fog);
     box-shadow: 1px 2px rgba(0, 0, 0, 0.25);
