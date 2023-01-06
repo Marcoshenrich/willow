@@ -49,12 +49,17 @@
     width: 100%;
 }
 
+#LM-Favorite-Container {
+    padding-left: 300px;
+
+}
+
 .LM-Favorite {
+    border: 2px solid blue;
     position: absolute;
     z-index: 10;
     color: rgba(0, 0, 0, 0.5);
     font-size: 40px;
-    padding-left: 280px;
     padding-top: 12px;
 }
 

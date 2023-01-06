@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
 import { fetchListing, getListing } from "../../store/listings"
 import "./ListingShowPage.css"
 import ListingShowPageCoreInfo from "./LSPCoreInfo/LSPCoreInfo"
@@ -14,15 +13,12 @@ import { MdDateRange } from "react-icons/md"
 import LSPDetails from "./LSPDetails"
 
 
-const ListingShowPage = () => {
+const ListingShowPage = ({listing}) => {
   const dispatch = useDispatch()
-  const {listingId} = useParams()
-  const listing = useSelector(getListing(listingId))
   
   useEffect(()=>{
-    dispatch(fetchListing(listingId))
-  }, [listingId])
-
+    dispatch(fetchListing(listing.id))
+  }, [listing.id])
 
 
   return (
