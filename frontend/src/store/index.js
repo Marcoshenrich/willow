@@ -5,6 +5,7 @@ import thunk from "redux-thunk"
 import { mapReducer } from "./map";
 import errors from "./errors";
 import users from "./user";
+import appointments from "./appointment";
 
 let enhancer;
 
@@ -18,6 +19,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const appReducer = combineReducers({
+    appointments,
     errors,
     session,
     users,

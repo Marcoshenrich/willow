@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./ListingModule.css"
-import house from "../assets/house1.jpeg"
 import { FaHeart } from "react-icons/fa"
 import { useEffect, useState } from "react";
 import { fetchUser, getUser } from "../../store/user";

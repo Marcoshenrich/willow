@@ -18,8 +18,6 @@ const ListingsIndex = () => {
     dispatch(fetchListings())
   },[])
 
-  console.log(listings)
-
   return (
     <>
     <div className="Listings-Index">

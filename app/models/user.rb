@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string
+#  agent           :boolean          default(FALSE)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
   has_secure_password
 
@@ -8,6 +21,14 @@ class User < ApplicationRecord
   validates :session_token, uniqueness: true
 
   before_validation :ensure_session_token
+
+  has_many :user_appointments,
+        foreign_key: :user_id,
+        class_name: :Appointment
+
+  has_many :agent_appointments,
+        foreign_key: :agent_id,
+        class_name: :Appointment
 
   def self.find_by_credentials(credential, password)
     user = nil
