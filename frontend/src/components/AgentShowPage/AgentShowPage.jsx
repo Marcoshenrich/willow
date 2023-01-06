@@ -64,7 +64,7 @@ const AgentShowPage = () => {
       <button onClick={(e)=>appointmentMaker(e)} >Make</button>
       </form>
       <button onClick={(e)=>appointmentDeleter(e)}>Delete</button>
-      {appointments && (<div>{appointments[1].id}</div>)}
+      {/* {appointments && (<div>{appointments[1].id}</div>)} */}
     </>
   
   )
