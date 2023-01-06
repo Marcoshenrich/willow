@@ -23,4 +23,11 @@ class Appointment < ApplicationRecord
         foreign_key: :agent_id,
         class_name: :User
 
+    def self.availability_by_agent_date(date, agent_id)
+      Appointment
+      .select("*")
+      .where("date IN (?)", date)
+      .where("agent_id IN (?)", agent_id)
+    end
+
 end

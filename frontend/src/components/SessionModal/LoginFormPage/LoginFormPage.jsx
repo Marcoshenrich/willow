@@ -20,7 +20,7 @@ function LoginFormPage({ onSessionModalClose }) {
     const demoLogin = (e) => {
         e.preventDefault();
         e.stopPropagation()
-        dispatch(sessionActions.login({ credential: "PeriwinkleStar", password: "password" }))
+        dispatch(sessionActions.login({ credential: "Heleynore", password: "password" }))
         onSessionModalClose()
     }
 

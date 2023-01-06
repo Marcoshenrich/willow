@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/Marcoshenrich/willow#readme",
   "dependencies": {
+    "react-calendar": "^4.0.0",
     "react-icons": "^4.7.1"
   },
-  "main": "index.js",
-  "devDependencies": {}
+  "main": "index.js"
 }

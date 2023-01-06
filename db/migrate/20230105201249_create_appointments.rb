@@ -2,7 +2,7 @@ class CreateAppointments < ActiveRecord::Migration[7.0]
   def change
     create_table :appointments do |t|
       t.date :date, null:false
-      t.time :time, null:false
+      t.string :time, null:false
       t.references :agent, foreign_key: {to_table: :users}, null: false, index: false
       t.references :user, foreign_key: true, null: false, index: false
       t.references :listing, foreign_key: true, null: false, index: false

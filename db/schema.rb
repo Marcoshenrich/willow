@@ -43,15 +43,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_201249) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.datetime "date_time", null: false
+    t.date "date", null: false
+    t.string "time", null: false
     t.bigint "agent_id", null: false
     t.bigint "user_id", null: false
     t.bigint "listing_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["agent_id", "date_time"], name: "index_appointments_on_agent_id_and_date_time", unique: true
-    t.index ["listing_id", "date_time"], name: "index_appointments_on_listing_id_and_date_time", unique: true
-    t.index ["user_id", "date_time"], name: "index_appointments_on_user_id_and_date_time", unique: true
+    t.index ["agent_id", "date", "time"], name: "index_appointments_on_agent_id_and_date_and_time", unique: true
+    t.index ["listing_id", "date", "time"], name: "index_appointments_on_listing_id_and_date_and_time", unique: true
+    t.index ["user_id", "date", "time"], name: "index_appointments_on_user_id_and_date_and_time", unique: true
   end
 
   create_table "listings", force: :cascade do |t|
