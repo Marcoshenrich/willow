@@ -15,7 +15,7 @@ function App() {
       <NavBar/>
       <Switch>
         <Route path="/listings/:listingId" component={ListingShowPage}/>
-        <Route path="/agents/:userId" component={AgentShowPage} />
+        <Route path="/agents/:agentId" component={AgentShowPage} />
         <Route path="/listings" component={ListingsIndex} />
         <Route path="/" component={SplashPage}/>
       </Switch>
