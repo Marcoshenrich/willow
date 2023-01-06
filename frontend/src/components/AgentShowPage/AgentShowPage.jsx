@@ -25,9 +25,16 @@ const AgentShowPage = () => {
   const appointmentMaker = (e) => {
     e.stopPropagation()
     e.preventDefault()
-    const appoint = { agent_id: agentId, listing_id: 2, date_time: `${date}${time}` }
+    const appoint = { agent_id: agentId, listing_id: 2, date_time: `${date}-${time}` }
     console.log(appoint)
     dispatch(createAppointment(appoint))
+  }
+
+  const appointmentScheduleFinder = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
+    const appoint = { agent_id: agentId, listing_id: 2, date_time: `${date}-${time}` }
+    dispatch(fetchAppointment(appoint))
   }
   
   console.log(appointments)
@@ -43,28 +50,36 @@ const AgentShowPage = () => {
     // dispatch(fetchAppointment(1))
   },[dispatch])
 
+
+  // get the appointments for that agent of the date value
+  // if an appointment exists in that timeslot, do NOT render option
+
   return (
     <>
       <datalist id="Appointment-Times">
-        <option label="Midnight">00:00</option>
-        <option>06:00</option>
-        <option label="Noon">12:00</option>
-        <option>18:00</option>
+        { false && (<option>08:00</option>)}
+        <option { ...true && ("disabled")}>11:30</option>
+        <option>15:00</option>
+        <option>18:30</option>
       </datalist>
 
     <form action="">
     <input 
     type="date"
-          min={yesterday}
+    value={date}
+    onChange={(e) => { setDate(e.target.value) }}
     />
 
     <input 
     type="time"
-    list="Appointment-Times"/>
+    list="Appointment-Times"
+    value={time}
+    onChange={(e) => { setTime(e.target.value); console.log(time) }}
+    />
       <button onClick={(e)=>appointmentMaker(e)} >Make</button>
       </form>
       <button onClick={(e)=>appointmentDeleter(e)}>Delete</button>
-      {appointments && (<div>{appointments[1].id}</div>)}
+      {/* {appointments && (<div>{appointments[1].id}</div>)} */}
     </>
   
   )
