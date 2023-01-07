@@ -21,6 +21,9 @@ const AgentShowPage = () => {
   const twoMonthsRaw = new Date(twoMonthsSeed.setMonth(twoMonthsSeed.getMonth() + 2))
   const twoMonthsFromNow = twoMonthsRaw.toISOString().slice(0, 10)
 
+
+
+
   console.log(twoMonthsFromNow)
 
   const now = new Date();
@@ -102,11 +105,39 @@ const AgentShowPage = () => {
   }
 
 
-  const disabledDates = [
-    new Date(2023, 0, 1),
-    new Date(2023, 1, 2),
-  ];
+  const disabledDates = () => {
+    const disabledDatesUnix = []
+    const moment = new Date();
 
+    for (let i = 1; i < 65; i++) {
+
+      let year = moment.getFullYear();
+      let month = moment.getMonth() + 1;
+      let date = moment.getDate();
+      var time = year + '-' + month + '-' + date
+      console.log(time)
+      const updateDate = new Date(time)
+      disabledDatesUnix.push(moment.setTime(updateDate.getTime() + 86400000) - 3600000)
+    }
+
+    console.log(disabledDatesUnix)
+
+    const y = disabledDatesUnix.indexOf(new Date("2023-01-07").getTime() + 86400000) - 3600000
+    console.log(y)
+    disabledDatesUnix.splice(y, 1)
+
+
+    const disabledDatesArr = disabledDatesUnix.map((disabledDate)=>
+      new Date(disabledDate)
+    )
+
+    
+
+
+    return disabledDatesArr
+
+  } 
+  
   return (
     <>
       <datalist id="Appointment-Times">
@@ -135,7 +166,7 @@ const AgentShowPage = () => {
     type="time"
     list="Appointment-Times"
     value={time}
-    onChange={(e) => { setTime(e.target.value); console.log(time) }}
+    onChange={(e) => { setTime(e.target.value) }}
     />
       <button onClick={(e)=>appointmentMaker(e)} >Make</button>
       </form>
@@ -150,11 +181,9 @@ const AgentShowPage = () => {
             minDate={new Date()}
           
           
-          
-          
           tileDisabled={({ date, view }) =>
             (view === 'month') && // Block day tiles only
-            disabledDates.some(disabledDate =>
+            disabledDates().some(disabledDate =>
               date.getFullYear() === disabledDate.getFullYear() &&
               date.getMonth() === disabledDate.getMonth() &&
               date.getDate() === disabledDate.getDate()
