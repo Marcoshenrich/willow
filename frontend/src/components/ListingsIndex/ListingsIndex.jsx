@@ -21,7 +21,6 @@ const ListingsIndex = () => {
   return (
     <>
     <div className="Listings-Index">
-        <div id="Listings-Search-Bar">Listings Search Bar</div>
       <div className="Listings-Panels">
           <div id="Listings-Map">
             <Map/>

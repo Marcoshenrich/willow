@@ -21,7 +21,8 @@
 
 .Listings-Index {
     width: 100%;
-    height: 88vh;
+    height: 91vh;
+    position: fixed;
 }
 
 #Listings-Search-Bar {
@@ -31,7 +32,7 @@
 
 .Listings-Panels {
     display: flex;
-    height: auto;
+    height: 100%;
     width: 100%;
 }
 
@@ -41,7 +42,9 @@
 }
 
 #Listings-Nav {
-    width: 70%
+    width:800px;
+    min-width: 800px;
+    overflow-y: scroll;
 }
 
 #Listings-Header {

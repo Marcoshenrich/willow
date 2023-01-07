@@ -62,7 +62,10 @@
     background-color:white;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.15);
-    margin: 15% auto;
     padding: 20px;
     width: auto;
+}
+
+#Scroll-Modal > #modal-content {
+    top: -82px
 }

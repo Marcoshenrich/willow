@@ -34,7 +34,7 @@ export const LocalMap = () => {
   if (!isLoaded) return <div>Loading...</div>
 
   return (
-    <div><Map/></div>
+    <div id="Map-Container"><Map/></div>
   )
 }
 

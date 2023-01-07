@@ -2,7 +2,6 @@ import './LoginForm.css';
 import React, { useState } from 'react';
 import * as sessionActions from '../../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 function LoginFormPage({ onModalClose }) {
     const dispatch = useDispatch();
@@ -16,13 +15,11 @@ function LoginFormPage({ onModalClose }) {
         dispatch(sessionActions.login({ credential, password })).then((res) => { if (res.ok) onModalClose() })
     }
 
-
     const demoLogin = (e) => {
         e.preventDefault();
         e.stopPropagation()
         dispatch(sessionActions.login({ credential: "Heleynore", password: "password" }))
-
-        onSessionModalClose()
+        onModalClose()
     }
 
     return (

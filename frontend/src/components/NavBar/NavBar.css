@@ -21,7 +21,8 @@
 }
 
 #NavBar {
-    height: 80px;
+    height: 9vh;
+    min-height: 80px;
     width: 100%;
     display: flex;
     justify-content: space-around;

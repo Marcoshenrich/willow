@@ -11,15 +11,21 @@ import ListingShowPage from "../ListingShowPage";
 const ListingModule = ({listing}) => {
   const dispatch = useDispatch()
   const [showListingModal, setShowListingModal] = useState(false)
+  const [dummyState, SetDummyState] = useState(true)
 
-  const onListingModalClose = () => {
+  const onListingModalClose = (e) => {
+    e.stopPropagation()
     console.log("in listing-modal close")
     console.log(showListingModal)
     setShowListingModal(false)
     console.log(showListingModal)
+
+    console.log(dummyState)
+    SetDummyState(true)
   }
 
   const listingModalOpen = () => {
+    
     setShowListingModal(true)
   }
 
@@ -29,6 +35,7 @@ const ListingModule = ({listing}) => {
   const agent = useSelector(getUser(agentId))
 
   const handleFavoriteClick = (e) => {
+    e.stopPropagation()
     setFavoriteActive((favoriteActive) =>  !favoriteActive )
   }
   
@@ -42,11 +49,10 @@ const ListingModule = ({listing}) => {
 
   return (
     <div id="Listing-Module" onClick={()=>listingModalOpen()}>
-      <div id="LM-Favorite-Container"><FaHeart 
-        style={{ stroke: "white", strokeWidth: "45" }} 
+      <FaHeart 
+        style={{ stroke: "white", strokeWidth: "45", overflowClipMargin: "border-box", paddingLeft: "3px", paddingRight: "3px" }} 
         className={favoriteActive ? "LM-Favorite LM-Favorite-Active" : "LM-Favorite" } 
         onClick={handleFavoriteClick}/>
-      </div>
 
       <div id="LM-Image">
         <img src={listing && listing.imageUrls && (listing.imageUrls[0])} />
