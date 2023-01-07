@@ -19,12 +19,6 @@
     --fog: #efefef;
 }
 
-
-.LSP-Images {
-    height: 500px;
-    border: solid black 1px;
-}
-
 .LSP-Core-Info {
     display: flex;
     height: 120px;

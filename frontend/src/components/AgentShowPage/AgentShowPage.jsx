@@ -171,6 +171,7 @@ const AgentShowPage = () => {
       <button onClick={(e)=>appointmentMaker(e)} >Make</button>
       </form>
       <button onClick={(e)=>appointmentDeleter(e)}>Delete</button>
+
       <div id="User-Appointment-Widget">
         <div id="Calendar-Container">
           <Calendar 
@@ -194,6 +195,7 @@ const AgentShowPage = () => {
           {appointments && (<div>{userAppointments()}</div>)}
         </div>
       </div>
+
     </>
   
   )

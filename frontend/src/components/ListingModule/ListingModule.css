@@ -49,12 +49,16 @@
     width: 100%;
 }
 
+#LM-Favorite-Container {
+    padding-left: 300px;
+
+}
+
 .LM-Favorite {
     position: absolute;
     z-index: 10;
     color: rgba(0, 0, 0, 0.5);
     font-size: 40px;
-    padding-left: 280px;
     padding-top: 12px;
 }
 
@@ -100,7 +104,6 @@
     font-size: 12px;
     font-weight: var(--font-w-sml);
     color: var(--oceandepths);
-    background-color: ;
 }
 
 #LM-Info-Agent-Link:link { text-decoration: none; }

@@ -4,6 +4,7 @@
     --font-w-med: 400;
     --font-w-sml: 300;
     --font-s-lrg: 24px;
+    --font-s-std: 20px;
     --font-s-med: 18px;
     --font-s-sml: 14px;
 
@@ -17,4 +18,88 @@
     --oceandepths: #2f466c;
     --oceanabyss: #232347;
     --fog: #efefef;
+}
+#space {
+    height: 300px;
+}
+
+
+#Font-Test {
+    display: flex;
+padding-left: 100px;
+}
+
+#Font-Test > div{
+
+    padding: 20px;
+    margin: 20px;
+    border: black 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+#Font-Test span {
+    font-family: var(--font);
+    color: var(--oceanabyss);
+}
+
+
+.LargeS.LargeW {
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-lrg)
+}
+
+.LargeS.MedW {
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-med)
+}
+
+.LargeS.SmlW {
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-sml)
+}
+
+.StandS.LargeW {
+    font-size: var(--font-s-std);
+    font-weight: var(--font-w-lrg)
+}
+
+.StandS.MedW {
+    font-size: var(--font-s-std);
+    font-weight: var(--font-w-med)
+}
+
+.StandS.SmlW {
+    font-size: var(--font-s-std);
+    font-weight: var(--font-w-sml)
+}
+
+.MedS.LargeW {
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-lrg)
+}
+
+.MedS.MedW {
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-med)
+}
+
+.MedS.SmlW {
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml)
+}
+
+.SmlS.LargeW {
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-lrg)
+}
+
+.SmlS.MedW {
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-med)
+}
+
+.SmlS.SmlW {
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml)
 }
