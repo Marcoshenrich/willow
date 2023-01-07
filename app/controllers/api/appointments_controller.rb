@@ -11,8 +11,8 @@ class Api::AppointmentsController < ApplicationController
     end
 
     def show
-        @appointment = Appointment.find_by_id(params[:id])
-        render "api/appointments/show"
+        @appointments = Appointment.availability_by_agent_date(params[:appointment][:date], params[:appointment][:agent_id])
+        render "api/appointments/index"
     end
 
 
@@ -31,6 +31,6 @@ class Api::AppointmentsController < ApplicationController
 
     private
     def appointment_params
-        params.require(:appointment).permit(:agent_id, :listing_id, :date_time)
+        params.require(:appointment).permit(:agent_id, :listing_id, :date, :time)
     end
 end

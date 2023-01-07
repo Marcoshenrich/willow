@@ -21,7 +21,8 @@ function LoginFormPage({ onModalClose }) {
         e.preventDefault();
         e.stopPropagation()
         dispatch(sessionActions.login({ credential: "Heleynore", password: "password" }))
-        onModalClose()
+
+        onSessionModalClose()
     }
 
     return (
