@@ -57,12 +57,6 @@ const ListingModule = ({listing}) => {
           <ListingShowPage listing={listing} />
         </ScrollModal>)}
 
-      {/* <Link to={`/listings/${listing.id}`}><div id="LM-Image">
-        <img src={listing && listing.imageUrls && (listing.imageUrls[0])} />
-      </div></Link> */}
-
-
-
       <div id="LM-Info-Container">
         <div id="LM-Info-Value">
           {listing && (`${listing.name}` + " - $" + (listing.humanTeeth + listing.fairyDust + listing.stolenDreams))}

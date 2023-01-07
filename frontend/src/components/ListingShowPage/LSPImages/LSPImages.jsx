@@ -5,15 +5,15 @@ const LSPImages = ({listing}) => {
   return (
     <>
       <div className="LSP-Images">
-        <div id="LSP-Hero-Image">Hero
-          <h1>Hero</h1>
+        <div id="LSP-Hero-Image-Container">
+          <img src={listing && listing.imageUrls && (listing.imageUrls[0])} />
         </div>
         <div className="LSP-Support-Image-Container">
           <div className="LSP-Support-Image" id="LSP-Support-Image-Top">
-            img 2
+            <img src={listing && listing.imageUrls && (listing.imageUrls[1])} />
           </div>
           <div className="LSP-Support-Image" id="LSP-Support-Image-Bot">
-            img 3
+            <img src={listing && listing.imageUrls && (listing.imageUrls[2])} />
           </div>
         </div>
       </div>

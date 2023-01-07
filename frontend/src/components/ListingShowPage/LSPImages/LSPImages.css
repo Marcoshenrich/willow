@@ -26,11 +26,17 @@
     overflow: hidden;
 }
 
-#LSP-Hero-Image {
-    background-color: var(--grassyplains);
+#LSP-Hero-Image-Container {
     width: 66%;
     height: 100%;
     margin-right: 6px;
+    overflow: hidden;
+}
+
+.LSP-Images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .LSP-Support-Image-Container{
