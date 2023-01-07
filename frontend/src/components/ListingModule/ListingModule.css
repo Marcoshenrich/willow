@@ -55,7 +55,6 @@
 }
 
 .LM-Favorite {
-    border: 2px solid blue;
     position: absolute;
     z-index: 10;
     color: rgba(0, 0, 0, 0.5);
@@ -105,7 +104,6 @@
     font-size: 12px;
     font-weight: var(--font-w-sml);
     color: var(--oceandepths);
-    background-color: ;
 }
 
 #LM-Info-Agent-Link:link { text-decoration: none; }

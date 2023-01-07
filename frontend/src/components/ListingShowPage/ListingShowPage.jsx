@@ -11,7 +11,7 @@ import { GiMushroom } from "react-icons/gi"
 import { GiFairyWand } from "react-icons/gi"
 import { MdDateRange } from "react-icons/md"
 import LSPDetails from "./LSPDetails"
-
+import LSPImages from "./LSPImages"
 
 const ListingShowPage = ({listing}) => {
   const dispatch = useDispatch()
@@ -23,7 +23,7 @@ const ListingShowPage = ({listing}) => {
 
   return (
     <div className="LSP">
-      <div className="LSP-Images">images</div>
+      <LSPImages listing={listing} />
       <ListingShowPageCoreInfo listing={listing}/>
       <div id="LSP-Local-Info">Local Info</div>
       <div id="LSP-Description">

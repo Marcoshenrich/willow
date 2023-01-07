@@ -35,10 +35,6 @@
     margin-left: -1px;
 }
 
-
-
-
-
 #LSP-Details-Info-Header-Box {
     display: flex;
     align-items: center;
@@ -60,8 +56,7 @@
     font-weight: var(--font-w-lrg);
 }
 #LSP-Details-Info-Details{
-        border-bottom: 2px solid var(--fog);
-
+    border-bottom: 2px solid var(--fog);
 }
 
 #LSP-Details-Info-Details ul {
