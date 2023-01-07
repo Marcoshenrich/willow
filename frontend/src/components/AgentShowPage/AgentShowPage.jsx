@@ -2,21 +2,35 @@ import "./AgentShowPage.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react";
 import { fetchAppointments, fetchAppointment, getAppointment, getAppointments, createAppointment, deleteAppointment } from "../../store/appointment";
+import { useParams } from "react-router-dom";
 
 
 const AgentShowPage = () => {
   const dispatch = useDispatch()
+  const { agentId } = useParams()
+  const appointments = useSelector(getAppointments)
   // const appointments = useSelector(getAppointments)
   // const appointment = useSelector(getAppointment(1))
-  const today = new Date();
+  const yesterday_seed = new Date();
+  const yesterday_raw = new Date(yesterday_seed.setDate(yesterday_seed.getDate() - 1));
+  const yesterday = yesterday_raw.toISOString().slice(0, 10)
+
+  const now = new Date();
+  const timeStr = now.toISOString().slice(10)
+  const today = now.toISOString().slice(0, 10)
+
+  const [date, setDate] = useState(today)
+  const [time, setTime] = useState(timeStr)
 
   const appointmentMaker = (e) => {
     e.stopPropagation()
     e.preventDefault()
-    const appoint = { agent_id: 2, listing_id: 2, date_time: "2019-03-25T12:00:00Z" }
+    const appoint = { agent_id: agentId, listing_id: 2, date_time: `${date}${time}` }
+    console.log(appoint)
     dispatch(createAppointment(appoint))
   }
   
+  console.log(appointments)
 
   const appointmentDeleter = (e) => {
     e.stopPropagation()
@@ -25,7 +39,7 @@ const AgentShowPage = () => {
   }
 
   useEffect(()=>{
-    // dispatch(fetchAppointments())
+    dispatch(fetchAppointments())
     // dispatch(fetchAppointment(1))
   },[dispatch])
 
@@ -38,16 +52,19 @@ const AgentShowPage = () => {
         <option>18:00</option>
       </datalist>
 
-
+    <form action="">
     <input 
     type="date"
-    min={""} />
+          min={yesterday}
+    />
 
     <input 
     type="time"
     list="Appointment-Times"/>
       <button onClick={(e)=>appointmentMaker(e)} >Make</button>
+      </form>
       <button onClick={(e)=>appointmentDeleter(e)}>Delete</button>
+      {/* {appointments && (<div>{appointments[1].id}</div>)} */}
     </>
   
   )

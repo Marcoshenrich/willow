@@ -4,7 +4,7 @@ import * as sessionActions from '../../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-function LoginFormPage({ onSessionModalClose }) {
+function LoginFormPage({ onModalClose }) {
     const dispatch = useDispatch();
     const loginErrors = useSelector(state => state.errors.loginErrors);
     const [credential, setCredential] = useState('');
@@ -13,15 +13,15 @@ function LoginFormPage({ onSessionModalClose }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation()
-        dispatch(sessionActions.login({ credential, password })).then((res) => { if (res.ok) onSessionModalClose() })
+        dispatch(sessionActions.login({ credential, password })).then((res) => { if (res.ok) onModalClose() })
     }
 
 
     const demoLogin = (e) => {
         e.preventDefault();
         e.stopPropagation()
-        dispatch(sessionActions.login({ credential: "PeriwinkleStar", password: "password" }))
-        onSessionModalClose()
+        dispatch(sessionActions.login({ credential: "Heleynore", password: "password" }))
+        onModalClose()
     }
 
     return (

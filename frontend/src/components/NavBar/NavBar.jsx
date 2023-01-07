@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import SessionModal from '../SessionModal';
-import { Modal } from '../../context/Modal';
+import { FixedModal } from '../../context/Modal';
 import './NavBar.css';
 import Icon from "../assets/icons/icon.png"
 import { Link, useHistory } from 'react-router-dom';
@@ -23,6 +23,8 @@ const NavBar = () => {
     }
 
     const onSessionModalClose = (e) => {
+        e.stopPropagation()
+        console.log("SessionModal Closing")
         setShowSessionModal(false)
         dispatch(clearErrors())
     }
@@ -65,9 +67,9 @@ const NavBar = () => {
             </div>
         </nav>
             {showSessionModal && (
-                <Modal onSessionModalClose={onSessionModalClose}>
-                    <SessionModal onSessionModalClose={onSessionModalClose} />
-                </Modal>
+                <FixedModal onModalClose={onSessionModalClose}>
+                    <SessionModal onModalClose={onSessionModalClose} />
+                </FixedModal>
             )}
         </>
     )

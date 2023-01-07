@@ -1,0 +1,62 @@
+:root {
+    --font: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+    --font-w-lrg: 700;
+    --font-w-med: 400;
+    --font-w-sml: 300;
+    --font-s-lrg: 24px;
+    --font-s-med: 18px;
+    --font-s-sml: 14px;
+
+    --burnt-amber: #f1641d;
+    --beeswax: #FDEBD2;
+    --grassylight: #d4e9d7;
+    --grassyplains: #9ec064;
+    --enchantment: #9560b8;
+    --oceanmist: #d7e5f5;
+    --oceansurf: #4d6bc6;
+    --oceandepths: #2f466c;
+    --oceanabyss: #232347;
+    --fog: #efefef;
+}
+
+.LSP-Images {
+    height: 400px;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#LSP-Hero-Image-Container {
+    width: 66%;
+    height: 100%;
+    margin-right: 6px;
+    overflow: hidden;
+}
+
+.LSP-Images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.LSP-Support-Image-Container{
+    width: 34%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.LSP-Support-Image {
+    height: 50%;
+}
+
+#LSP-Support-Image-Top {
+    background-color: #4d6bc6;
+    margin-bottom: 3px;
+}
+
+#LSP-Support-Image-Bot {
+        background-color: #9560b8;
+    margin-top: 3px;
+}
