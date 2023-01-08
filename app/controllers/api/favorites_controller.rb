@@ -9,7 +9,7 @@ class Api::FavoritesController < ApplicationController
     end
     
     def index
-        @favorites = Favorite.all
+        @favorites = Favorite.user_favorites(current_user.id)
         render "api/favorites/index"
     end
     

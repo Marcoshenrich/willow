@@ -61,7 +61,7 @@ const NavBar = () => {
             <div id="NavBarRight">
                 <div>Manage Rentals</div>
                 <div>Advertise</div>
-                <div>Help</div>
+                <div><Link to={`/user/profile`}>Help</Link></div>
                 {sessionControl()}
             </div>
         </nav>

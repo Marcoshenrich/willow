@@ -16,11 +16,11 @@ const ListingsIndex = () => {
   const dispatch = useDispatch()
   const listings = useSelector(getListings)
   const favorites = useSelector(getFavorites)
-  const current_user = useSelector(getCurrentUser)
+  const currentUser = useSelector(getCurrentUser)
   
   useEffect(()=>{
     dispatch(fetchListings())
-    dispatch(fetchFavorites(current_user.id))
+    dispatch(fetchFavorites(currentUser.id))
   },[])
 
   const favoritedListings = () => {

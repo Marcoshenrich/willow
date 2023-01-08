@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import "./ListingModule.css"
 import { FaHeart } from "react-icons/fa"
 import { useEffect, useState } from "react";
@@ -10,6 +11,7 @@ import { createFavorite, deleteFavorite, fetchFavorites, getFavorites } from "..
 import { getCurrentUser } from "../../store/session"
 
 const ListingModule = ({ listing, favoriteId }) => {
+  console.log(listing)
   const dispatch = useDispatch()
   const agentId = listing.agentId
 
@@ -26,7 +28,6 @@ const ListingModule = ({ listing, favoriteId }) => {
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation()
-
     if (favoriteActive) {
       dispatch(deleteFavorite(favoriteId))
     } else {
@@ -36,7 +37,7 @@ const ListingModule = ({ listing, favoriteId }) => {
       }
       dispatch(createFavorite(favorite))
     }
-
+    dispatch(fetchFavorites())
     setFavoriteActive((favoriteActive) =>  !favoriteActive )
   }
   
@@ -50,7 +51,6 @@ const ListingModule = ({ listing, favoriteId }) => {
         style={{ stroke: "white", strokeWidth: "45", overflowClipMargin: "border-box", paddingLeft: "3px", paddingRight: "3px" }} 
         className={favoriteActive ? "LM-Favorite LM-Favorite-Active" : "LM-Favorite" } 
         onClick={handleFavoriteClick}/>
-
       <div id="LM-Image">
         <img src={listing && listing.imageUrls && (listing.imageUrls[0])} />
       </div>
