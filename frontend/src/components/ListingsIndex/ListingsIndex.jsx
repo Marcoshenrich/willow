@@ -10,6 +10,7 @@ import { BsChevronDown } from "react-icons/bs"
 import { fetchFavorites, getFavorites } from "../../store/favorite"
 import { getCurrentUser } from "../../store/session"
 
+
 const ListingsIndex = () => {
 
   const dispatch = useDispatch()
@@ -60,7 +61,7 @@ const ListingsIndex = () => {
               </div>
             </div>
             <div id="Listings-Container">
-              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i} favoriteId={favoriteChecker(listing)} current_user={current_user}/> ) )}
+              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i} favoriteId={favoriteChecker(listing)}/> ) )}
             </div>
           </div>
       </div>

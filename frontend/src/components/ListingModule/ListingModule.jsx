@@ -7,24 +7,22 @@ import { useDispatch, useSelector } from "react-redux"
 import { ScrollModal } from '../../context/Modal';
 import ListingShowPage from "../ListingShowPage";
 import { createFavorite, deleteFavorite, fetchFavorites, getFavorites } from "../../store/favorite";
-import { getCurrentUser } from "../../store/session";
+import { getCurrentUser } from "../../store/session"
 
-const ListingModule = ({ listing, favoriteId, current_user }) => {
-  console.log(favoriteId)
+const ListingModule = ({ listing, favoriteId }) => {
   const dispatch = useDispatch()
   const agentId = listing.agentId
 
+  const agent = useSelector(getUser(agentId))
+  const current_user = useSelector(getCurrentUser)
+
   const [showListingModal, setShowListingModal] = useState(false)
   const [favoriteActive, setFavoriteActive] = useState(!!favoriteId)
-
-  const agent = useSelector(getUser(agentId))
-
 
   const onListingModalClose = (e) => {
     e.stopPropagation()
     setShowListingModal(false)
   }
-
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation()
@@ -36,32 +34,15 @@ const ListingModule = ({ listing, favoriteId, current_user }) => {
         listingId: listing.id,
         userId: current_user.id
       }
-      console.log(favorite)
       dispatch(createFavorite(favorite))
-
-
     }
 
     setFavoriteActive((favoriteActive) =>  !favoriteActive )
   }
-
-  //on page load:
-  // fill the store w/ all of the user's favorites
-  // run through and populate favoriteActive on favorites
-
-  // on click
-  // evaluate if favorite is active
-  //  active:
-  //    dispatchRemoveFavorite
-  //  inactive:
-  //    dispatchCreateFavorite
   
   useEffect(() => {
     dispatch(fetchUser(agentId))
   }, [])
-
-
-
 
   return (
     <div id="Listing-Module" onClick={() => setShowListingModal(true)}>

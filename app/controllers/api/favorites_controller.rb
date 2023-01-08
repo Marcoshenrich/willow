@@ -1,4 +1,5 @@
 class Api::FavoritesController < ApplicationController
+    wrap_parameters include: Favorite.attribute_names + ['listingId', 'userId']
 
     def create 
         @favorite = Favorite.new(favorite_params)
