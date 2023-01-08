@@ -6,6 +6,7 @@ import { mapReducer } from "./map";
 import errors from "./errors";
 import users from "./user";
 import appointments from "./appointment";
+import favorites from "./favorite";
 
 let enhancer;
 
@@ -19,6 +20,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const appReducer = combineReducers({
+    favorites, 
     appointments,
     errors,
     session,

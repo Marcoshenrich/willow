@@ -24,7 +24,6 @@ const NavBar = () => {
 
     const onSessionModalClose = (e) => {
         e.stopPropagation()
-        console.log("SessionModal Closing")
         setShowSessionModal(false)
         dispatch(clearErrors())
     }

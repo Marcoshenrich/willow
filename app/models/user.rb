@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
+  has_many :favorites
+
   has_many :user_appointments,
         foreign_key: :user_id,
         class_name: :Appointment

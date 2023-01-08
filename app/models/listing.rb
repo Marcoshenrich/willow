@@ -34,4 +34,5 @@
 class Listing < ApplicationRecord
     has_many_attached :images
     has_many :appointments
+    has_many :favorites
 end

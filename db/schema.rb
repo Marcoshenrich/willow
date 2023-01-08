@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_201249) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_08_053924) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_201249) do
     t.index ["agent_id", "date", "time"], name: "index_appointments_on_agent_id_and_date_and_time", unique: true
     t.index ["listing_id", "date", "time"], name: "index_appointments_on_listing_id_and_date_and_time", unique: true
     t.index ["user_id", "date", "time"], name: "index_appointments_on_user_id_and_date_and_time", unique: true
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_favorites_on_listing_id"
+    t.index ["user_id", "listing_id"], name: "index_favorites_on_user_id_and_listing_id", unique: true
   end
 
   create_table "listings", force: :cascade do |t|
@@ -104,5 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_201249) do
   add_foreign_key "appointments", "listings"
   add_foreign_key "appointments", "users"
   add_foreign_key "appointments", "users", column: "agent_id"
+  add_foreign_key "favorites", "listings"
+  add_foreign_key "favorites", "users"
   add_foreign_key "listings", "users", column: "agent_id"
 end
