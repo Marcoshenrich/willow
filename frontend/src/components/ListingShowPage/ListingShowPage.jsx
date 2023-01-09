@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchListing, getListing } from "../../store/listings"
 import "./ListingShowPage.css"
@@ -12,19 +12,25 @@ import { GiFairyWand } from "react-icons/gi"
 import { MdDateRange } from "react-icons/md"
 import LSPDetails from "./LSPDetails"
 import LSPImages from "./LSPImages"
+import LSPAppointmentsManager from "./LSPAppointmentsManager"
+
+
 
 const ListingShowPage = ({listing}) => {
   const dispatch = useDispatch()
+  const [showAppointmentsManager, setShowAppointmentsManager] = useState(false)
   
   useEffect(()=>{
     dispatch(fetchListing(listing.id))
   }, [listing.id])
 
 
+
   return (
     <div className="LSP">
-      <LSPImages imageUrls={listing.imageUrls} />
-      <ListingShowPageCoreInfo listing={listing}/>
+      <LSPImages imageUrls={listing.imageUrls}/>
+      <ListingShowPageCoreInfo listing={listing} showAppointmentsManager={showAppointmentsManager} setShowAppointmentsManager={setShowAppointmentsManager} />
+      {showAppointmentsManager && (< LSPAppointmentsManager listing={listing} />)}
       <div id="LSP-Local-Info">Local Info</div>
       <div id="LSP-Description">
         <div>

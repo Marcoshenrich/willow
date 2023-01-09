@@ -19,8 +19,22 @@
     --oceanabyss: #232347;
     --fog: #efefef;
 }
-#space {
+#Splash-Page-Footer-Info {
     height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Splash-Page-Footer-Info > div {
+    width: 32%;
+    text-align: center;
+    line-height: 20px;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: var(--font-w-sml);
+    margin-top: 20px
 }
 
 
@@ -30,7 +44,6 @@ padding-left: 100px;
 }
 
 #Font-Test > div{
-
     padding: 20px;
     margin: 20px;
     border: black 1px solid;
@@ -41,6 +54,14 @@ padding-left: 100px;
 #Font-Test span {
     font-family: var(--font);
     color: var(--oceanabyss);
+}
+
+#Splash-Page-Footer-Image {
+    width: 100%
+}
+
+#Splash-Page-Footer-Image img {
+    width: 100%
 }
 
 

@@ -1,0 +1,2 @@
+import LSPAppointmentsManager from "./LSPAppointmentsManager"
+export default LSPAppointmentsManager
