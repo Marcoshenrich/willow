@@ -23,7 +23,7 @@ const ListingShowPage = ({listing}) => {
 
   return (
     <div className="LSP">
-      <LSPImages listing={listing} />
+      <LSPImages imageUrls={listing.imageUrls} />
       <ListingShowPageCoreInfo listing={listing}/>
       <div id="LSP-Local-Info">Local Info</div>
       <div id="LSP-Description">

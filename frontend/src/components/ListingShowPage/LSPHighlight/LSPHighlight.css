@@ -21,7 +21,7 @@
 
 .LSP-Highlight {
     height: 25px;
-    width: 300px;
+    width: 400px;
     margin: 10px;
     margin-left: 20px;
     display: flex;
@@ -46,8 +46,8 @@
 }
 
 #LSP-HLT-Content {
-    padding-left: 60px;
-    width: 200px;
+    width: 300px;
+    margin-left: 20px;
     color: var(--oceanabyss);
     font-family: var(--font);
     font-size: var(--font-s-med);

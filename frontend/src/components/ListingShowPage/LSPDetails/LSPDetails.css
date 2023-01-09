@@ -20,6 +20,7 @@
 }
 
 #LSP-Details-h2 {
+    margin-bottom: 20px;
     font-family: var(--font);
     font-size: var(--font-s-lrg);
     font-weight: var(--font-s-lrg);
@@ -64,12 +65,15 @@
 }
 
 #LSP-Details-Info-Details li {
-    margin-right: 100px;
-    width: 200px
-}
-
-#LSP-Details-Info-Details li{
+    margin: 20px;
+    margin-left: 25px;
+    width: 200px;
     font-family: var(--font);
     font-size: var(--font-s-sml);
     font-weight: var(--font-s-med);
 }
+
+#LSP-Details-Info-Details li:before{
+    content: "• ";
+}
+

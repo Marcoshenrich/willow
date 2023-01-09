@@ -11,7 +11,6 @@ import { createFavorite, deleteFavorite, fetchFavorites, getFavorites } from "..
 import { getCurrentUser } from "../../store/session"
 
 const ListingModule = ({ listing, favoriteId }) => {
-  console.log(listing)
   const dispatch = useDispatch()
   const agentId = listing.agentId
 
