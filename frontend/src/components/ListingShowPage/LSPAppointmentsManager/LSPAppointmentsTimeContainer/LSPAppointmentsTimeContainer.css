@@ -19,21 +19,12 @@
     --fog: #efefef;
 }
 
-#LSPAM-Time-Block {
-    height: 50px;
-    width: 104px;
-    border: 1.5px solid var(--fog);
-    border-radius: 2px;
-    color: var(--oceanabyss);
-    font-family: var(--font);
+#LSPA-Time-Container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding-left: 30px;
 }
 
-#LSPAM-Time-Block-Time {
-    font-size: 18px;
-    font-weight: 320;
-    padding: 2px;
+#LSPA-Time-Container>* {
+    margin: 4.5px;
 }

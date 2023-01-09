@@ -13,6 +13,7 @@ import ListingModule from "../../ListingModule";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
 import LSPAMDateBlock from "./LSPAMDateBlock";
 import LSPAppointmentsCarousel from "./LSPAppointmentsCarousel";
+import LSPAppointmentsTimeContainer from "./LSPAppointmentsTimeContainer";
 
 
 
@@ -67,24 +68,21 @@ const LSPAppointmentsManager = ({listing}) => {
   return (
     <>
       <div id="LSP-Appointments-Container">
-          {/* <form action="">
-            <input
-              type="date"
-              value={date}
-              min={today}
-              onChange={(e) => { setDate(e.target.value) }} />
-            <button onClick={(e) => appointmentMaker(e)} >Make</button>
-          </form> */}
-
+        <form>
         <div id="LSPA-h1-Container">
           <div id="LSPA-h1">Pick a date</div>
         </div>
         <LSPAppointmentsCarousel carouselType={"Date"}/>
-        <div id="LSPA-h1-Container">
+        <div id="LSPA-h1-Container-Time">
           <div id="LSPA-h1">Pick a time</div>
         </div>
-        <LSPAppointmentsCarousel carouselType={"Time"} />
+        <LSPAppointmentsTimeContainer/>
+          <div id="LSPA-Submit">
+            <div id="LSPA-Submit-Button">Book Appointment</div>
+          </div>
+        </form>
       </div>
+
     </>
   )
 }
@@ -106,7 +104,6 @@ export default LSPAppointmentsManager
 //       }
 //     })
 
-//     console.log(userAppointments)
 
 //     return (
 //       userAppointments.map((appointment) =>
@@ -125,15 +122,12 @@ export default LSPAppointmentsManager
 //       let month = moment.getMonth() + 1;
 //       let date = moment.getDate();
 //       var time = year + '-' + month + '-' + date
-//       console.log(time)
 //       const updateDate = new Date(time)
 //       disabledDatesUnix.push(moment.setTime(updateDate.getTime() + 86400000) - 3600000)
 //     }
 
-//     console.log(disabledDatesUnix)
 
 //     const y = disabledDatesUnix.indexOf(new Date("2023-01-07").getTime() + 86400000) - 3600000
-//     console.log(y)
 //     disabledDatesUnix.splice(y, 1)
 
 

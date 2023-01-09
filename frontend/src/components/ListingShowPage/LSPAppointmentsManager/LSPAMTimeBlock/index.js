@@ -1,2 +1,2 @@
-import Component from "./Component"
-export default Component
+import LSPAMTimeBlock from "./LSPAMTimeBlock"
+export default LSPAMTimeBlock

@@ -131,15 +131,10 @@ const UserShowPage = () => {
 //   const twoMonthsFromNow = twoMonthsRaw.toISOString().slice(0, 10)
 
 
-
-
-//   console.log(twoMonthsFromNow)
-
 //   const now = new Date();
 //   const timeStr = now.toISOString().slice(10)
 //   const today = now.toISOString().slice(0, 10)
 
-//   console.log(today)
 
 
 
@@ -205,7 +200,6 @@ const UserShowPage = () => {
 //       }
 //     })
 
-//     console.log(userAppointments)
 
 //     return (
 //       userAppointments.map((appointment) =>
@@ -224,15 +218,13 @@ const UserShowPage = () => {
 //       let month = moment.getMonth() + 1;
 //       let date = moment.getDate();
 //       var time = year + '-' + month + '-' + date
-//       console.log(time)
 //       const updateDate = new Date(time)
 //       disabledDatesUnix.push(moment.setTime(updateDate.getTime() + 86400000) - 3600000)
 //     }
 
-//     console.log(disabledDatesUnix)
+
 
 //     const y = disabledDatesUnix.indexOf(new Date("2023-01-07").getTime() + 86400000) - 3600000
-//     console.log(y)
 //     disabledDatesUnix.splice(y, 1)
 
 

@@ -2,7 +2,6 @@ import "./LSPAMDateBlock.css"
 
 const LSPAMDateBlock = ({ day, weekday, month, activeDate, setActiveDate}) => {
 
-  console.log(setActiveDate)
 
   const dateBlockClickHandler = (e) => {
     e.stopPropagation()

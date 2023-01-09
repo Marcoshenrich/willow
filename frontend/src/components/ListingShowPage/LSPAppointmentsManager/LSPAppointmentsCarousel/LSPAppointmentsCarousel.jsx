@@ -4,10 +4,11 @@ import LSPAMDateBlock from "../LSPAMDateBlock"
 import { useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 import Moment from 'react-moment';
+import LSPAMTimeBlock from "../LSPAMTimeBlock/LSPAMTimeBlock"
 
 
 const LSPAppointmentsCarousel = ({ carouselType }) => {
-  console.log(carouselType)
+
   const dispatch = useDispatch()
   const [dateQueue, setDateQueue] = useState([])
   const [favoriteQueuePointer, setFavoriteQueuePointer] = useState(6)
@@ -79,6 +80,10 @@ const LSPAppointmentsCarousel = ({ carouselType }) => {
     <div id="LSPA-Carousel">
       <BsChevronLeft id="Left-LSPA-Carousel-Icon" />
       {carouselType === "Date" && (placeDateBlocks())}
+      {carouselType === "Time" && (<LSPAMTimeBlock />)}
+      {carouselType === "Time" && (<LSPAMTimeBlock />)}
+      {carouselType === "Time" && (<LSPAMTimeBlock />)}
+      {carouselType === "Time" && (<LSPAMTimeBlock />)}
       <BsChevronRight id="Right-LSPA-Carousel-Icon" />
     </div>
   )

@@ -1,0 +1,2 @@
+import LSPAppointmentsTimeContainer from "./LSPAppointmentsTimeContainer"
+export default LSPAppointmentsTimeContainer

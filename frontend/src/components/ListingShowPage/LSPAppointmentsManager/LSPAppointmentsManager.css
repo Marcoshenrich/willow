@@ -31,7 +31,16 @@
 #LSPA-h1-Container {
     width: 100%;
     margin: 17px;
-    margin-left: 116px;
+    margin-left: 35px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#LSPA-h1-Container-Time {
+    width: 100%;
+    margin: 17px;
+    margin-left: 35px;
+    margin-top: 40px;
     display: flex;
     justify-content: flex-start;
 }
@@ -41,4 +50,45 @@
     font-family: var(--font);
     font-size: var(--font-s-lrg);
     font-weight: var(--font-w-med);
+}
+
+#LSPA-Submit {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-med);
+}
+
+#LSPA-Submit-Button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid var(--burnt-amber);
+    font-size: var(--font-s-med);
+    background-color: var(--burnt-amber);
+    margin-top: 10px;
+    height: 35px;
+    width: 230px;
+    border-radius: 4px;
+    color: var(--fog);
+    transition: background-color 1s;
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml);
+    margin: 3px;
+}
+
+#LSPA-Submit-Button:hover {
+    cursor: pointer;
+    transition: background-color 1s;
+    background-color: #d85a1a;
+}
+
+#LSPA-Submit-Button:active {
+    height: 32px;
+    width: 220px;
 }
