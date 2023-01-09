@@ -17,7 +17,6 @@ const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
   const timeStr = now.toISOString().slice(10)
   const today = now.toISOString().slice(0, 10)
 
-
   const dateQueueMaker = () => {
     let nowClone = new Date()
     let i = 0

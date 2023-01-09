@@ -19,14 +19,14 @@ import LSPAppointmentsTimeContainer from "./LSPAppointmentsTimeContainer";
 
 const LSPAppointmentsManager = ({listing}) => {
   const dispatch = useDispatch()
-  const { agentId } = listing.agentId
+  const agentId = listing.agentId
   const appointments = useSelector(getAppointments)
 
   const now = new Date();
   const timeStr = now.toISOString().slice(10)
   const today = now.toISOString().slice(0, 10)
 
-  const [date, setDate] = useState(today)
+  const [date, setDate] = useState(now)
   const [time, setTime] = useState("")
 
 
@@ -36,6 +36,7 @@ const LSPAppointmentsManager = ({listing}) => {
     e.stopPropagation()
     e.preventDefault()
     const appoint = { agent_id: agentId, listing_id: listing.id, date: `${date}`, time:`${time}`}
+    console.log(appoint)
     dispatch(createAppointment(appoint))
   }
 
