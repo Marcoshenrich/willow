@@ -19,26 +19,40 @@
     --fog: #efefef;
 }
 
-#LSP-Appointments-Container {
-    height: 360px;
-    width: 70%;
+#LSPAMDB-Container {
+    width: 80px;
+    height: 80px;
+    border: 1.5px solid var(--fog);
+    border-radius: 2px;
+    color: var(--oceanabyss);
+    font-family: var(--font);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
-#LSPA-h1-Container {
-    width: 100%;
-    margin: 17px;
-    margin-left: 116px;
-    display: flex;
-    justify-content: flex-start;
+#LSPAMDB-Container:hover {
+    border: 1.5px solid lightgray;
+    cursor: pointer;
 }
 
-#LSPA-h1 {
-    color: var(--oceanabyss);
-    font-family: var(--font);
+#LSPAMDB-Container div {
+    padding: 2px;
+}
+
+#LSPAMDB-Weekday {
+    font-size: var(--font-s-sml);
+    font-weight: 350;
+}
+
+#LSPAMDB-Date {
     font-size: var(--font-s-lrg);
-    font-weight: var(--font-w-med);
+    font-weight: 320;
 }
+
+#LSPAMDB-Month {
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml);
+}
+

@@ -19,26 +19,20 @@
     --fog: #efefef;
 }
 
-#LSP-Appointments-Container {
-    height: 360px;
-    width: 70%;
+#LSPA-Carousel {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
 }
 
-#LSPA-h1-Container {
-    width: 100%;
-    margin: 17px;
-    margin-left: 116px;
-    display: flex;
-    justify-content: flex-start;
+#LSPA-Carousel > * {
+    margin: 5px;
 }
 
-#LSPA-h1 {
-    color: var(--oceanabyss);
-    font-family: var(--font);
-    font-size: var(--font-s-lrg);
-    font-weight: var(--font-w-med);
+#Left-LSPA-Carousel-Icon {
+    font-size: 20px;
+}
+
+#Right-LSPA-Carousel-Icon {
+    font-size: 20px;
+    stroke: 400px;
 }
