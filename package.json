@@ -23,8 +23,11 @@
   },
   "homepage": "https://github.com/Marcoshenrich/willow#readme",
   "dependencies": {
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.40",
     "react-calendar": "^4.0.0",
-    "react-icons": "^4.7.1"
+    "react-icons": "^4.7.1",
+    "react-moment": "^1.1.2"
   },
   "main": "index.js"
 }

@@ -1,13 +1,20 @@
 import "./LSPAMDateBlock.css"
 
-const LSPAMDateBlock = () => {
+const LSPAMDateBlock = ({ day, weekday, month, activeDate, setActiveDate}) => {
+
+  console.log(setActiveDate)
+
+  const dateBlockClickHandler = (e) => {
+    e.stopPropagation()
+    setActiveDate[0](day)
+  }
 
   return (
     <>
-      <div id="LSPAMDB-Container">
-        <div id="LSPAMDB-Weekday">Monday</div>
-        <div id="LSPAMDB-Date">10</div>
-        <div id="LSPAMDB-Month">Jan</div>
+      <div id={activeDate === day ? "LSPAMDB-Container-Active" : "LSPAMDB-Container" }      onClick={dateBlockClickHandler}>
+        <div id="LSPAMDB-Weekday">{weekday}</div>
+        <div id="LSPAMDB-Date">{day}</div>
+        <div id="LSPAMDB-Month">{month}</div>
       </div>
     </>
   )

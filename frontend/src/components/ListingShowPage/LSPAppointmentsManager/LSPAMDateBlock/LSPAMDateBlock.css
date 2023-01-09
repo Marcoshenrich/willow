@@ -37,22 +37,34 @@
     cursor: pointer;
 }
 
-#LSPAMDB-Container div {
-    padding: 2px;
+#LSPAMDB-Container-Active {
+    width: 80px;
+    height: 80px;
+    border: 2px solid gray;
+    border-radius: 2px;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #LSPAMDB-Weekday {
     font-size: var(--font-s-sml);
     font-weight: 350;
+    padding: 2px;
 }
 
 #LSPAMDB-Date {
     font-size: var(--font-s-lrg);
     font-weight: 320;
+    padding: 2px;
 }
 
 #LSPAMDB-Month {
     font-size: var(--font-s-sml);
     font-weight: var(--font-w-sml);
+    padding: 2px;
 }
 
