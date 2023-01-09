@@ -12,5 +12,6 @@ class Api::ListingsController < ApplicationController
 
     private
     def listings_params
+        
     end
 end

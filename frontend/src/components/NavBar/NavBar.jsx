@@ -24,7 +24,6 @@ const NavBar = () => {
 
     const onSessionModalClose = (e) => {
         e.stopPropagation()
-        console.log("SessionModal Closing")
         setShowSessionModal(false)
         dispatch(clearErrors())
     }
@@ -62,7 +61,7 @@ const NavBar = () => {
             <div id="NavBarRight">
                 <div>Manage Rentals</div>
                 <div>Advertise</div>
-                <div>Help</div>
+                <div><Link to={`/user/profile`}>Help</Link></div>
                 {sessionControl()}
             </div>
         </nav>

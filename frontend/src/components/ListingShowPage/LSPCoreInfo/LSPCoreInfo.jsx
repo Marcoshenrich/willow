@@ -8,8 +8,11 @@ import { GiDreamCatcher } from "react-icons/gi"
 import { GiPollenDust } from "react-icons/gi"
 
 
-const ListingShowPageCoreInfo = ({listing}) => {
+const ListingShowPageCoreInfo = ({ listing, showAppointmentsManager, setShowAppointmentsManager }) => {
 
+  const handleLSPShowAppointment = () =>{
+    setShowAppointmentsManager((showAppointmentsManager) => !showAppointmentsManager)
+  }
   return (
     <>
       <div className="LSP-Core-Info">
@@ -40,7 +43,7 @@ const ListingShowPageCoreInfo = ({listing}) => {
         <div className="LSP-Appointment-Info">
           <p>Request a tour as early as</p>
           <p id="LSP-Appointment-Time">Tomorrow at 2:30pm</p>
-          <button id="LSP-Appointment-Submit">Schedule a Tour</button>
+          <button id="LSP-Appointment-Submit" onClick={handleLSPShowAppointment}>Schedule a Tour</button>
         </div>
       </div>
     </>

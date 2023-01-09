@@ -7,16 +7,43 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { getListings, fetchListings } from "../../store/listings"
 import { BsChevronDown } from "react-icons/bs"
+import { fetchFavorites, getFavorites } from "../../store/favorite"
+import { getCurrentUser } from "../../store/session"
 
 
 const ListingsIndex = () => {
 
   const dispatch = useDispatch()
   const listings = useSelector(getListings)
+  const favorites = useSelector(getFavorites)
+  const currentUser = useSelector(getCurrentUser)
   
   useEffect(()=>{
     dispatch(fetchListings())
+    dispatch(fetchFavorites(currentUser.id))
   },[])
+
+  const favoritedListings = () => {
+    const favoritedListingArray = []
+    const favoritedIdArray = []
+    favorites.forEach((favorite)=>{
+      favoritedListingArray.push(favorite.listingId)
+      favoritedIdArray.push(favorite.id)
+    })
+  
+    return [favoritedIdArray, favoritedListingArray]
+  } 
+
+  
+
+  const favoriteChecker = (listing) => {
+    let favoritedIdArray;
+    let favoritedListingArray;
+    [favoritedIdArray, favoritedListingArray] = favoritedListings()
+    if (favoritedListingArray.includes(listing.id)) return favoritedIdArray[favoritedListingArray.indexOf(listing.id)]
+    return false
+  }
+
 
   return (
     <>
@@ -34,7 +61,7 @@ const ListingsIndex = () => {
               </div>
             </div>
             <div id="Listings-Container">
-              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i}/> ) )}
+              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i} favoriteId={favoriteChecker(listing)}/> ) )}
             </div>
           </div>
       </div>

@@ -1,5 +1,7 @@
 import "./HomeRecommendations.css"
 import gardenSign from "../../assets/heroes/gardensign.jpg"
+import mushroom from "../../assets/heroes/mushroom.jpg"
+import butterflies from "../../assets/heroes/butterflies.jpg"
 
 const HomeRecommendations = () => {
 
@@ -11,9 +13,9 @@ const HomeRecommendations = () => {
           <p>Sign in to write your next chapter.</p>
           <button>Sign In</button>
         </div>
+        <div><img src={mushroom} /></div>
         <div><img src={gardenSign} /></div>
-        <div><img src={gardenSign} /></div>
-        <div><img src={gardenSign} /></div>
+        <div><img src={butterflies} /></div>
       </div>
     </div>
   )

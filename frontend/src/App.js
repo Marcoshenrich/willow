@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import SplashPage from "./components/SplashPage";
 import ListingsIndex from "./components/ListingsIndex";
 import ListingShowPage from "./components/ListingShowPage";
-import AgentShowPage from "./components/AgentShowPage";
+import UserShowPage from "./components/UserShowPage";
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
       <NavBar/>
       <Switch>
         <Route path="/listings/:listingId" component={ListingShowPage}/>
-        <Route path="/agents/:agentId" component={AgentShowPage} />
+        <Route path="/user/profile" component={UserShowPage} />
         <Route path="/listings" component={ListingsIndex} />
         <Route path="/" component={SplashPage}/>
       </Switch>

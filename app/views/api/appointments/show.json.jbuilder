@@ -6,4 +6,4 @@ json.appointment do
   json.set! :agent do
       json.extract! @appointment.agent, :username
   end
-end
+end 

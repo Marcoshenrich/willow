@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import "./ListingModule.css"
 import { FaHeart } from "react-icons/fa"
 import { useEffect, useState } from "react";
@@ -6,54 +7,49 @@ import { fetchUser, getUser } from "../../store/user";
 import { useDispatch, useSelector } from "react-redux"
 import { ScrollModal } from '../../context/Modal';
 import ListingShowPage from "../ListingShowPage";
+import { createFavorite, deleteFavorite, fetchFavorites, getFavorites } from "../../store/favorite";
+import { getCurrentUser } from "../../store/session"
 
-
-const ListingModule = ({listing}) => {
+const ListingModule = ({ listing, favoriteId }) => {
   const dispatch = useDispatch()
+  const agentId = listing.agentId
+
+  const agent = useSelector(getUser(agentId))
+  const current_user = useSelector(getCurrentUser)
+
   const [showListingModal, setShowListingModal] = useState(false)
-  const [dummyState, SetDummyState] = useState(true)
+  const [favoriteActive, setFavoriteActive] = useState(!!favoriteId)
 
   const onListingModalClose = (e) => {
     e.stopPropagation()
-    console.log("in listing-modal close")
-    console.log(showListingModal)
     setShowListingModal(false)
-    console.log(showListingModal)
-
-    console.log(dummyState)
-    SetDummyState(true)
   }
-
-  const listingModalOpen = () => {
-    
-    setShowListingModal(true)
-  }
-
-
-  const [favoriteActive, setFavoriteActive] = useState(false)
-  const agentId = listing.agentId
-  const agent = useSelector(getUser(agentId))
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation()
+    if (favoriteActive) {
+      dispatch(deleteFavorite(favoriteId))
+    } else {
+      const favorite = {
+        listingId: listing.id,
+        userId: current_user.id
+      }
+      dispatch(createFavorite(favorite))
+    }
+    dispatch(fetchFavorites())
     setFavoriteActive((favoriteActive) =>  !favoriteActive )
   }
   
   useEffect(() => {
     dispatch(fetchUser(agentId))
-    
   }, [])
 
-
-
-
   return (
-    <div id="Listing-Module" onClick={()=>listingModalOpen()}>
+    <div id="Listing-Module" onClick={() => setShowListingModal(true)}>
       <FaHeart 
         style={{ stroke: "white", strokeWidth: "45", overflowClipMargin: "border-box", paddingLeft: "3px", paddingRight: "3px" }} 
         className={favoriteActive ? "LM-Favorite LM-Favorite-Active" : "LM-Favorite" } 
         onClick={handleFavoriteClick}/>
-
       <div id="LM-Image">
         <img src={listing && listing.imageUrls && (listing.imageUrls[0])} />
       </div>

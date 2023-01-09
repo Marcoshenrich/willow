@@ -18,6 +18,9 @@ class Api::AppointmentsController < ApplicationController
 
     def index
         @appointments = Appointment.all
+        puts ""
+        puts "in apps controller"
+        puts ""
         render "api/appointments/index"
     end
 

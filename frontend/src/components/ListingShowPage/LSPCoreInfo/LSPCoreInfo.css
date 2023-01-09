@@ -64,7 +64,7 @@
     background-color: var(--oceansurf);
     margin-top: 10px;
     height: 35px;
-    width: 90%;
+    width: 230px;
     border-radius: 4px;
     color: var(--fog);
     transition: background-color 1s;
@@ -78,7 +78,7 @@
 
 #LSP-Appointment-Submit:active {
     height: 32px;
-    width: 87%;
+    width: 220px;
 }
 
 

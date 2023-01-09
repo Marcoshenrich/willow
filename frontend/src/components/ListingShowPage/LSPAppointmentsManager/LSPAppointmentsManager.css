@@ -1,0 +1,94 @@
+:root {
+    --font: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+    --font-w-lrg: 700;
+    --font-w-med: 400;
+    --font-w-sml: 300;
+    --font-s-lrg: 24px;
+    --font-s-med: 18px;
+    --font-s-sml: 14px;
+
+    --burnt-amber: #f1641d;
+    --beeswax: #FDEBD2;
+    --grassylight: #d4e9d7;
+    --grassyplains: #9ec064;
+    --enchantment: #9560b8;
+    --oceanmist: #d7e5f5;
+    --oceansurf: #4d6bc6;
+    --oceandepths: #2f466c;
+    --oceanabyss: #232347;
+    --fog: #efefef;
+}
+
+#LSP-Appointments-Container {
+    height: 420px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#LSPA-h1-Container {
+    width: 100%;
+    margin: 17px;
+    margin-left: 35px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#LSPA-h1-Container-Time {
+    width: 100%;
+    margin: 17px;
+    margin-left: 35px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#LSPA-h1 {
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-med);
+}
+
+#LSPA-Submit {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-med);
+}
+
+#LSPA-Submit-Button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid var(--burnt-amber);
+    font-size: var(--font-s-med);
+    background-color: var(--burnt-amber);
+    margin-top: 10px;
+    height: 35px;
+    width: 230px;
+    border-radius: 4px;
+    color: var(--fog);
+    transition: background-color 1s;
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml);
+    margin: 3px;
+}
+
+#LSPA-Submit-Button:hover {
+    cursor: pointer;
+    transition: background-color 1s;
+    background-color: #d85a1a;
+}
+
+#LSPA-Submit-Button:active {
+    height: 32px;
+    width: 220px;
+}

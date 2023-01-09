@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 class Appointment < ApplicationRecord
-  validates :listing_id, :user_id, :agent_id, uniqueness: { scope: [:date, :time]}
+  validates :listing_id, :user_id, :agent_id, uniqueness: { scope: [:date, :time]}, presence: true
 
     belongs_to :listing
 

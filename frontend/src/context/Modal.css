@@ -67,5 +67,6 @@
 }
 
 #Scroll-Modal > #modal-content {
-    top: -82px
+    top: -90px;
+    border-radius: 0px;
 }
