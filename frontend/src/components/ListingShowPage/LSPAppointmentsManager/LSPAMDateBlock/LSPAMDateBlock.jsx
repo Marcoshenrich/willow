@@ -10,8 +10,6 @@ const LSPAMDateBlock = ({ day, weekday, month, year, activeDate, setActiveDate})
     setActiveDate(new Date(year, month, day))
   }
   
-  console.log(activeDate)
-
   return (
     <>
       <div id={activeDate.getDate() === day ? "LSPAMDB-Container-Active" : "LSPAMDB-Container" }      onClick={dateBlockClickHandler}>

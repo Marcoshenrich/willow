@@ -36,7 +36,6 @@ const LSPAppointmentsManager = ({listing}) => {
     e.stopPropagation()
     e.preventDefault()
     const appoint = { agent_id: agentId, listing_id: listing.id, date: `${date}`, time:`${time}`}
-    console.log(appoint)
     dispatch(createAppointment(appoint))
   }
 
