@@ -79,11 +79,11 @@ const LSPAppointmentsManager = ({listing}) => {
         <div id="LSPA-h1-Container">
           <div id="LSPA-h1">Pick a date</div>
         </div>
-        <LSPAppointmentsCarousel/>
+        <LSPAppointmentsCarousel carouselType={"Date"}/>
         <div id="LSPA-h1-Container">
           <div id="LSPA-h1">Pick a time</div>
         </div>
-        <LSPAppointmentsCarousel />
+        <LSPAppointmentsCarousel carouselType={"Time"} />
       </div>
     </>
   )

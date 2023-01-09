@@ -6,8 +6,8 @@ import { useState, useEffect } from "react"
 import Moment from 'react-moment';
 
 
-const LSPAppointmentsCarousel = () => {
-
+const LSPAppointmentsCarousel = ({ carouselType }) => {
+  console.log(carouselType)
   const dispatch = useDispatch()
   const [dateQueue, setDateQueue] = useState([])
   const [favoriteQueuePointer, setFavoriteQueuePointer] = useState(6)
@@ -16,6 +16,7 @@ const LSPAppointmentsCarousel = () => {
   const now = new Date()
   const timeStr = now.toISOString().slice(10)
   const today = now.toISOString().slice(0, 10)
+
 
   const dateQueueMaker = () => {
     let nowClone = new Date()
@@ -38,19 +39,13 @@ const LSPAppointmentsCarousel = () => {
 
   }
 
-  // useEffect(() => {
-  //   setDateQueue()
-  // }, [])
-
-
   const placeDateBlocks = () => {
     const [day, weekday, month] = dateQueueMaker()
       return (
         day.map((dayInteger, i) =>
-          <LSPAMDateBlock key={i} day={dayInteger} month={month[i]} weekday={weekday[i]} activeDate={activeDate} setActiveDate={[setActiveDate]} />)
+          <LSPAMDateBlock key={i} day={dayInteger} month={month[i]} weekday={weekday[i]} activeDate={activeDate} setActiveDate={setActiveDate} />)
       )
   }
-
 
 
   const negModuloHander = (pointer, queueLen) => {
@@ -83,15 +78,7 @@ const LSPAppointmentsCarousel = () => {
   return (
     <div id="LSPA-Carousel">
       <BsChevronLeft id="Left-LSPA-Carousel-Icon" />
-      {placeDateBlocks()}
-      {/* <LSPAMDateBlock />
-      <LSPAMDateBlock />
-      <LSPAMDateBlock />
-
-      <Moment format="YYYY/MM/DD" >{dateToFormat}</Moment>
-      <LSPAMDateBlock />
-      <LSPAMDateBlock />
-      <LSPAMDateBlock /> */}
+      {carouselType === "Date" && (placeDateBlocks())}
       <BsChevronRight id="Right-LSPA-Carousel-Icon" />
     </div>
   )
