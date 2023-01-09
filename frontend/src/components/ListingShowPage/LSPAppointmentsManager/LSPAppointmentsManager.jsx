@@ -18,6 +18,7 @@ import LSPAppointmentsTimeContainer from "./LSPAppointmentsTimeContainer";
 
 
 const LSPAppointmentsManager = ({listing}) => {
+  const currentUser = useSelector(getCurrentUser)
   const dispatch = useDispatch()
   const agentId = listing.agentId
   const appointments = useSelector(getAppointments)
@@ -29,29 +30,35 @@ const LSPAppointmentsManager = ({listing}) => {
   const [date, setDate] = useState(now)
   const [time, setTime] = useState("")
 
-
-
-
   const appointmentMaker = (e) => {
     e.stopPropagation()
     e.preventDefault()
     const appoint = { agent_id: agentId, listing_id: listing.id, date: `${date}`, time:`${time}`}
     dispatch(createAppointment(appoint))
+    setTime("")
+    setDate(now)
   }
 
-  const agentAvailabilitySorter = () => {
+  const timeAvailabilitySorter = () => {
     const timeSlots = ["08:00", "11:30", "15:00", "18:30"]
-    var appointmentsTimes = []
+    var agentAppointmentsTimes = []
+    var userAppointmentsTimes = []
 
     appointments.forEach((appointment)=>{
-      if (appointment.agentId == agentId && appointment.date === date) {
-        appointmentsTimes.push(appointment.time)
+      if (appointment.date === date.toISOString().slice(0, 10)) {
+        if (appointment.agentId == agentId) {
+          agentAppointmentsTimes.push(appointment.time)
+        }
+
+        if (appointment.userId == currentUser.id) {
+          userAppointmentsTimes.push(appointment.time)
+        }
       }
     })
 
     const availableTimes = []
     timeSlots.forEach((timeSlot) => { 
-      if (!appointmentsTimes.includes(timeSlot)) {
+      if (!agentAppointmentsTimes.includes(timeSlot) && !userAppointmentsTimes.includes(timeSlot)) {
         availableTimes.push(timeSlot)
       }
     })
@@ -61,7 +68,7 @@ const LSPAppointmentsManager = ({listing}) => {
 
   useEffect(()=>{
     dispatch(fetchAppointments())
-  },[dispatch])
+  },[])
 
   return (
     <>
@@ -74,7 +81,7 @@ const LSPAppointmentsManager = ({listing}) => {
         <div id="LSPA-h1-Container-Time">
           <div id="LSPA-h1">Pick a time</div>
         </div>
-          <LSPAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={agentAvailabilitySorter()} />
+          <LSPAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={timeAvailabilitySorter()} />
           <div id="LSPA-Submit">
             <div id="LSPA-Submit-Button" onClick={appointmentMaker}>Book Appointment</div>
           </div>

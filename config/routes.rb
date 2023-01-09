@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :favorites, only: [:index]
     end
     resources :listings, only: [:create, :index, :show]
-    resources :appointments, only: [:create, :destroy, :show]
+    resources :appointments, only: [:create, :destroy, :show, :index]
     resources :favorites, only: [:create, :destroy, :index]
     resource :session, only: [:show, :create, :destroy]
     resource :map, only: [:show]

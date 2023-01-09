@@ -30,7 +30,7 @@ const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
       day.push(nowClone.getDate())
       month.push(nowClone.getMonth())
       weekday.push(daysInWeek[nowClone.getDay()])
-      year.push(nowClone.getYear() + 1900)
+      year.push(nowClone.getFullYear())
       nowClone.setDate(nowClone.getDate() + 1);
       i++
     }
