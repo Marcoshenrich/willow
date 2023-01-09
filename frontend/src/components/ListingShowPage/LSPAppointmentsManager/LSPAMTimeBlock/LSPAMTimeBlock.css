@@ -32,6 +32,24 @@
     justify-content: center;
 }
 
+#LSPAM-Time-Block:hover {
+    border: 1.5px solid lightgray;
+    cursor: pointer;
+}
+
+#LSPAM-Time-Block-Active {
+    height: 50px;
+    width: 104px;
+    border: 2px solid gray;
+    border-radius: 2px;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #LSPAM-Time-Block-Time {
     font-size: 18px;
     font-weight: 320;

@@ -21,20 +21,21 @@ const LSPAppointmentsManager = ({listing}) => {
   const dispatch = useDispatch()
   const { agentId } = listing.agentId
   const appointments = useSelector(getAppointments)
-  const currentUser = useSelector(getCurrentUser)
 
   const now = new Date();
   const timeStr = now.toISOString().slice(10)
   const today = now.toISOString().slice(0, 10)
 
   const [date, setDate] = useState(today)
-  const [time, setTime] = useState(timeStr)
+  const [time, setTime] = useState("")
+
+
+
 
   const appointmentMaker = (e) => {
     e.stopPropagation()
     e.preventDefault()
     const appoint = { agent_id: agentId, listing_id: listing.id, date: `${date}`, time:`${time}`}
-    setTime("")
     dispatch(createAppointment(appoint))
   }
 
@@ -48,17 +49,14 @@ const LSPAppointmentsManager = ({listing}) => {
       }
     })
 
-    const available_times = []
+    const availableTimes = []
     timeSlots.forEach((timeSlot) => { 
       if (!appointmentsTimes.includes(timeSlot)) {
-        available_times.push(timeSlot)
+        availableTimes.push(timeSlot)
       }
     })
 
-    return(
-      available_times.map((available_time, i ) => 
-        <option key={i} >{available_time}</option>
-    ))
+    return availableTimes
   }
 
   useEffect(()=>{
@@ -72,13 +70,13 @@ const LSPAppointmentsManager = ({listing}) => {
         <div id="LSPA-h1-Container">
           <div id="LSPA-h1">Pick a date</div>
         </div>
-        <LSPAppointmentsCarousel carouselType={"Date"}/>
+          <LSPAppointmentsCarousel activeDate={date} setActiveDate={setDate} />
         <div id="LSPA-h1-Container-Time">
           <div id="LSPA-h1">Pick a time</div>
         </div>
-        <LSPAppointmentsTimeContainer/>
+          <LSPAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={agentAvailabilitySorter()} />
           <div id="LSPA-Submit">
-            <div id="LSPA-Submit-Button">Book Appointment</div>
+            <div id="LSPA-Submit-Button" onClick={appointmentMaker}>Book Appointment</div>
           </div>
         </form>
       </div>

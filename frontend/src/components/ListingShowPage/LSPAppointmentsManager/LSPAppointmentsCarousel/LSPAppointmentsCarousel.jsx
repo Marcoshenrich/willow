@@ -7,12 +7,11 @@ import Moment from 'react-moment';
 import LSPAMTimeBlock from "../LSPAMTimeBlock/LSPAMTimeBlock"
 
 
-const LSPAppointmentsCarousel = ({ carouselType }) => {
+const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
 
   const dispatch = useDispatch()
   const [dateQueue, setDateQueue] = useState([])
   const [favoriteQueuePointer, setFavoriteQueuePointer] = useState(6)
-  const [activeDate, setActiveDate] = useState("")
 
   const now = new Date()
   const timeStr = now.toISOString().slice(10)
@@ -24,27 +23,27 @@ const LSPAppointmentsCarousel = ({ carouselType }) => {
     let i = 0
     const daysInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const day = []
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     const month = []
     const weekday = [] 
+    const year = [] 
 
     while (i < 5) {
       day.push(nowClone.getDate())
-      month.push(months[nowClone.getMonth()])
+      month.push(nowClone.getMonth())
       weekday.push(daysInWeek[nowClone.getDay()])
+      year.push(nowClone.getYear() + 1900)
       nowClone.setDate(nowClone.getDate() + 1);
       i++
     }
-
-    return [day, weekday, month]
+    return [day, weekday, month, year]
 
   }
 
   const placeDateBlocks = () => {
-    const [day, weekday, month] = dateQueueMaker()
+    const [day, weekday, month, year] = dateQueueMaker()
       return (
         day.map((dayInteger, i) =>
-          <LSPAMDateBlock key={i} day={dayInteger} month={month[i]} weekday={weekday[i]} activeDate={activeDate} setActiveDate={setActiveDate} />)
+          <LSPAMDateBlock key={i} day={dayInteger} month={month[i]} weekday={weekday[i]} year={year[i]} activeDate={activeDate} setActiveDate={setActiveDate} />)
       )
   }
 
@@ -79,11 +78,7 @@ const LSPAppointmentsCarousel = ({ carouselType }) => {
   return (
     <div id="LSPA-Carousel">
       <BsChevronLeft id="Left-LSPA-Carousel-Icon" />
-      {carouselType === "Date" && (placeDateBlocks())}
-      {carouselType === "Time" && (<LSPAMTimeBlock />)}
-      {carouselType === "Time" && (<LSPAMTimeBlock />)}
-      {carouselType === "Time" && (<LSPAMTimeBlock />)}
-      {carouselType === "Time" && (<LSPAMTimeBlock />)}
+      {placeDateBlocks()}
       <BsChevronRight id="Right-LSPA-Carousel-Icon" />
     </div>
   )
