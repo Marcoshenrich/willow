@@ -17,6 +17,7 @@ export const getMapKey = (store) => {
 export const fetchMapKey = () => async dispatch => {
     const response = await csrfFetch("/api/map")
     if (response.ok) {
+        console.log("in fetchmapkey")
         const key = await response.json();
         dispatch(receiveMapKey(key));
     }

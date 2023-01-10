@@ -3,60 +3,50 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './Map.css';
 import { fetchMapKey, getMapKey } from '../../store/map';
 import {GiButterflyFlower} from "react-icons/gi"
-
+import { getListings, fetchListings } from "../../store/listings"
+import './Map.css';
 
 
 
 const MapWrapper = () => {
+  const dispatch = useDispatch()
+  const key = useSelector(getMapKey)
+  const listings = useSelector(getListings)
+
+  useEffect(() => {
+    dispatch(fetchMapKey())
+    dispatch(fetchListings())
+  }, [])
+
+  const { isLoaded } = useLoadScript({ googleMapsApiKey: key })
+  console.log(process.env.REACT_APP_MAPS_API_KEY)
+  
 
   return (
     <>
       <Wrapper>
-        <LocalMap />
+        <LocalMap listings={listings}/>
       </Wrapper>
     </>
   )
 }
 
 export const LocalMap = () => {
-  const dispatch = useDispatch()
-  const key = useSelector(getMapKey)
 
-  useEffect(() => {
-    dispatch(fetchMapKey())
-  }, [dispatch])
-
-  const { isLoaded } = useLoadScript({ googleMapsApiKey: key })
-
-  if (!isLoaded) return <div>Loading...</div>
-
-  return (
-    <div id="Map-Container"><Map/></div>
-  )
-}
-
-const Map = () => {
-  const center = useMemo(() => ({ lat: 35, lng: -111 }))
-
-  const tourStops = [
-    [{ lat: 34.8791806, lng: -111.8265049 }, "Boynton Pass"],
-    [{ lat: 34.8559195, lng: -111.7988186 }, "Airport Mesa"],
-    [{ lat: 34.832149, lng: -111.7695277 }, "Chapel of the Holy Cross"],
-    [{ lat: 34.823736, lng: -111.8001857 }, "Red Rock Crossing"],
-    [{ lat: 34.800326, lng: -111.7665047 }, "Bell Rock"],
-  ];
+  const center = useMemo(() => ({ lat: 37.7749, lng: -122.36 }))
 
   const markers = document.getElementById("Marker")
 
-
-  return <GoogleMap zoom={10} center={center} mapContainerClassName="map">
-    {tourStops.map(([coords, title], i) => 
-      <Marker id="Marker" position={coords} title={`${i + 1}. ${title}`} optimized={false} label={`${i + 1}`} />
-    )}
+  return (
+   <GoogleMap zoom={12} center={center} mapContainerClassName="map">
+    {/* {tourStops.map(([coords, title], i) =>
+      <Marker id="Marker" key={i} position={coords} title={`${i + 1}. ${title}`} optimized={false} label={`${i + 1}`} />
+    )} */}
   </GoogleMap >
+  )
 }
+
 
 export default MapWrapper
