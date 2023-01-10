@@ -1,11 +1,7 @@
 import "./USPFavorites.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react";
-import { fetchAppointments, fetchAppointment, getAppointment, getAppointments, createAppointment, deleteAppointment } from "../../../store/appointment";
-import { useParams } from "react-router-dom";
 import { getCurrentUser } from "../../../store/session";
-import UserAppointmentShow from "../UserAppointmentShow";
-import Calendar from "react-calendar"
 import 'react-calendar/dist/Calendar.css'
 import { fetchListings, getListings } from "../../../store/listings";
 import { fetchFavorites, getFavorites } from "../../../store/favorite";

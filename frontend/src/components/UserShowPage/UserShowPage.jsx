@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchAppointments, getAppointments } from "../../store/appointment"
 import { getCurrentUser } from "../../store/session"
-import UserAppointmentShow from "./UserAppointmentShow"
+import UserAppointmentModule from "./UserAppointmentModule"
 import "./UserShowPage.css"
 import USPFavorites from "./USPFavorites"
 
@@ -26,7 +26,7 @@ const UserShowPage = () => {
     
     return (
       userAppointmentsArr.map((appointment)=>
-        <UserAppointmentShow appointment = { appointment }/>
+        <UserAppointmentModule appointment = { appointment }/>
       )
     )
   }
