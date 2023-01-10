@@ -14,15 +14,16 @@ import { Link } from "react-router-dom";
 const USPFavorites = () => {
   const dispatch = useDispatch()
   const listings = useSelector(getListings)
+  // console.log(listings)
   const favorites = useSelector(getFavorites)
+  // console.log(favorites)
   const currentUser = useSelector(getCurrentUser)
   const [showFavoriteQueue, setShowFavoriteQueue] = useState(false)
   const [favoriteCount, setFavoriteCount] = useState(0)
   
 
   useEffect(() => {
-    dispatch(fetchFavorites(currentUser.id))
-    dispatch(fetchListings())
+    dispatch(fetchFavorites(currentUser.id)).then(() => dispatch(fetchListings()))
   }, [])
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const USPFavorites = () => {
         favorites.map((favorite, i) => {
           // console.log(favorite.listingId - 1)
           // console.log(favorite.id)
-          return <ListingModule key={i} listing={listings[favorite.listingId - 1]} favoriteId={favorite.id}
+          return <ListingModule key={favorite.id} listing={listings[favorite.listingId - 1]} favoriteId={favorite.id}
           />})
       )
     }

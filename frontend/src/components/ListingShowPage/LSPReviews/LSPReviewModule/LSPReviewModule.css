@@ -18,3 +18,30 @@
     --oceanabyss: #232347;
     --fog: #efefef;
 }
+
+.LSP-Review-Module {
+    height: 120px;
+    width: 300px;
+    border: 1px solid black;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-sml);
+}
+
+.LSP-Review-Module div {
+    padding: 5px ;
+}
+
+#LSPRM-Username {
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-med);
+}
+
+#LSPRM-Date {
+
+}
+
+#LSPRM-Body {
+    padding-top: 11px;
+}

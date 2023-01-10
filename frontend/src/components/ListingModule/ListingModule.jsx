@@ -20,8 +20,9 @@ const ListingModule = ({ listing, favoriteId }) => {
   
   const [showListingModal, setShowListingModal] = useState(false)
   const [favoriteActive, setFavoriteActive] = useState(!!favoriteId)
-  console.log(`favorite id in module ${favoriteId}`)
-  console.log(favoriteActive)
+
+  // console.log(`favorite id in module ${favoriteId}`)
+  // console.log(favoriteActive)
 
   const onListingModalClose = (e) => {
     e.stopPropagation()
@@ -29,6 +30,8 @@ const ListingModule = ({ listing, favoriteId }) => {
   }
 
   const handleFavoriteClick = (e) => {
+    console.log(listing, "in handle favorite click")
+    
     e.stopPropagation()
     if (favoriteActive) {
       dispatch(deleteFavorite(favoriteId))
@@ -39,9 +42,10 @@ const ListingModule = ({ listing, favoriteId }) => {
       }
       dispatch(createFavorite(favorite))
     }
-    dispatch(fetchFavorites())
-    setFavoriteActive((favoriteActive) =>  !favoriteActive )
+    setFavoriteActive((favoriteActive) => !favoriteActive)
+
   }
+
   
   useEffect(() => {
     dispatch(fetchUser(agentId))
