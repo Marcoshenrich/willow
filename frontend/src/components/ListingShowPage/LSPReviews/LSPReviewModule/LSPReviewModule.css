@@ -21,7 +21,7 @@
 
 .LSP-Review-Module {
     height: 120px;
-    width: 300px;
+    width: 450px;
     border: 1px solid black;
     color: var(--oceanabyss);
     font-family: var(--font);
@@ -29,17 +29,38 @@
     font-weight: var(--font-w-sml);
 }
 
-.LSP-Review-Module div {
+.LSP-Review-Module > div {
     padding: 5px ;
 }
+
+#LSPRM-Top-Bar {
+    display: flex;
+    height: 20px;
+    justify-content: space-between;
+} 
 
 #LSPRM-Username {
     font-size: var(--font-s-med);
     font-weight: var(--font-w-med);
 }
 
-#LSPRM-Date {
+#LSPRM-Top-Bar-Icons {
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+}
 
+#LSPRM-Top-Bar-Icons > * {
+    font-size: 20px;
+}
+
+#LSPRM-Top-Bar-Icons > *:hover {
+    font-size: 21px;
+    color: var(--enchantment)
+}
+
+#LSPRM-Date {
+    margin-top: 3px;
 }
 
 #LSPRM-Body {
