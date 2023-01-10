@@ -104,4 +104,23 @@
     font-family: var(--font);
     font-size: var(--font-s-lrg);
     font-weight: var(--font-w-sml);
+    display: flex;
+    flex-direction: column;
+
+}
+
+#LSPA-Appointment-Success > div {
+    margin: 6px;
+}
+
+#LSPAAS-Bold {
+    color: #4d6bc6;
+}
+
+#LSPA-Appointment-Login-Required {
+        font-family: var(--font);
+            font-size: var(--font-s-lrg);
+            font-weight: var(--font-w-sml);
+            display: flex;
+            flex-direction: column;
 }

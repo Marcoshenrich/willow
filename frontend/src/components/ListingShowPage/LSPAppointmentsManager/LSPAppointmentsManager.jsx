@@ -2,16 +2,9 @@ import "./LSPAppointmentsManager.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react";
 import { fetchAppointments, fetchAppointment, getAppointment, getAppointments, createAppointment, deleteAppointment } from "../../../store/appointment";
-import { useParams } from "react-router-dom";
 import { getCurrentUser } from "../../../store/session";
 // import UserAppointmentShow from "../UserAppointmentShow";
-import Calendar from "react-calendar"
 import 'react-calendar/dist/Calendar.css'
-import { fetchListings, getListings } from "../../../store/listings";
-import { fetchFavorites, getFavorites } from "../../../store/favorite";
-import ListingModule from "../../ListingModule";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
-import LSPAMDateBlock from "./LSPAMDateBlock";
 import LSPAppointmentsCarousel from "./LSPAppointmentsCarousel";
 import LSPAppointmentsTimeContainer from "./LSPAppointmentsTimeContainer";
 
@@ -25,6 +18,7 @@ const LSPAppointmentsManager = ({listing}) => {
 
   const now = new Date();
   const [showAppointmentModule, setshowAppointmentModule] = useState(true)
+  const [appointmentIndex, setAppointmentIndex] = useState(false)
   const [date, setDate] = useState(now)
   const [time, setTime] = useState("")
 
@@ -65,27 +59,34 @@ const LSPAppointmentsManager = ({listing}) => {
   }
 
   const appointmentExistsChecker = () => {
-    
-    appointments.forEach((appointment) => {
-      // console.log("user id checker")
-      // console.log(appointment.userId == currentUser.id)
-
-      // console.log(`listing id checker ${appointment.listingId}, ${listing.id}`)
-      // console.log(appointment.listingId == listing.id)
-
-      // console.log("date checker")
-      // console.log(new Date(appointment.date).getTime() < now.getTime())
-      console.log(`${appointment.date}T${appointment.time}:00`)
+    appointments.forEach((appointment, i) => {
       if (appointment.userId == currentUser.id 
         && appointment.listingId == listing.id
         && (Date.parse(`${appointment.date}T${appointment.time}:00`) > now.getTime())
         ) {
-        console.log("in true")
-
-        setshowAppointmentModule(false)
+          setshowAppointmentModule(false)
+          setAppointmentIndex(i)
         return
       }
     })
+  }
+
+  const dateParser = (appointment) => {
+    let month = appointment.date.slice(6, 7)
+    let day = appointment.date.slice(8, 10)
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    month = months[month - 1]
+    if (day[0] === "0") day = day[1]
+    return `${month} ${day}`
+  }
+
+  const timeParser = (appointment) => {
+    let hoursInt = parseInt(appointment.time.slice(0, 2))
+    const ampm = hoursInt < 12 ? "AM" : "PM"
+    if (hoursInt > 12) {
+      hoursInt -= 12
+    }
+    return `${hoursInt}:${appointment.time.slice(3, 5)} ${ampm}`
   }
 
   useEffect(()=>{
@@ -93,13 +94,22 @@ const LSPAppointmentsManager = ({listing}) => {
   },[])
 
   useEffect(() => {
-    appointmentExistsChecker()
+    if (currentUser) appointmentExistsChecker()
   }, [appointments])
+
+  const deleteAppointmentClick = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setshowAppointmentModule(true)
+    dispatch(deleteAppointment(appointments[appointmentIndex].id))
+  }
+
+  console.log(currentUser)
 
   return (
     <>
-      <div id={showAppointmentModule ? "LSP-Appointments-Container" : "LSP-Appointments-Success-Container"}>
-        {appointments && showAppointmentModule && (
+      <div id={showAppointmentModule && currentUser ? "LSP-Appointments-Container" : "LSP-Appointments-Success-Container"}>
+        {appointments && currentUser && showAppointmentModule && (
         <form>
         <div id="LSPA-h1-Container">
           <div id="LSPA-h1">Pick a date</div>
@@ -114,7 +124,16 @@ const LSPAppointmentsManager = ({listing}) => {
           </div>
           </form>)}
         {!showAppointmentModule && (
-          <div id="LSPA-Appointment-Success">You did it, your next appointment is at [time]</div>
+          <div id="LSPA-Appointment-Success">
+            <div>You did it, your next appointment is on</div>
+            <div><span id="LSPAAS-Bold">{dateParser(appointments[appointmentIndex])}</span> at <span id="LSPAAS-Bold">{timeParser(appointments[appointmentIndex])}</span> with {appointments[appointmentIndex].agent.username}</div>
+            <div id="USAM-Cancel"><button onClick={(e) => deleteAppointmentClick(e)} id="LSPA-Submit-Button">Cancel Appointment</button></div>
+          </div>
+        )}
+        { !!!currentUser && (
+          <div id="LSPA-Appointment-Login-Required">
+            <div><span id="LSPAAS-Bold">Log in </span>to visit your dream home</div>
+          </div>
         )}
       </div>
 

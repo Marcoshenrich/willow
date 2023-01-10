@@ -20,7 +20,7 @@ const ListingsIndex = () => {
   
   useEffect(()=>{
     dispatch(fetchListings())
-    dispatch(fetchFavorites(currentUser.id))
+    if (currentUser) dispatch(fetchFavorites(currentUser.id))
   },[])
 
   const favoritedListings = () => {
