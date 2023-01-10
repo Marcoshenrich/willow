@@ -22,8 +22,7 @@ const NavBar = () => {
         history.push(`/listings`);
     }
 
-    const onSessionModalClose = (e) => {
-        e.stopPropagation()
+    const onSessionModalClose = () => {
         setShowSessionModal(false)
         dispatch(clearErrors())
     }

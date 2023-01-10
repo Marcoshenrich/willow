@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { signUpErrors } from "../../../store/errors";
 import * as sessionActions from "../../../store/session";
 import './SignupForm.css';
 
 
-function SignupFormPage({ onSessionModalClose }) {
+function SignupFormPage({ onModalClose }) {
     const dispatch = useDispatch();
     const errors = useSelector(state => state.errors.signUpErrors);
     const [email, setEmail] = useState("");
@@ -16,8 +15,9 @@ function SignupFormPage({ onSessionModalClose }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         if (password === confirmPassword) {
-            dispatch(sessionActions.signup({ email, username, password }))
+            dispatch(sessionActions.signup({ email, username, password })).then((res) => { if (res.ok) onModalClose() })
         } else {
             dispatch(signUpErrors(["Passwords don't match"]))
         }
@@ -49,6 +49,13 @@ function SignupFormPage({ onSessionModalClose }) {
             return (<span className="red">- Passwords must match</span>)
         }
     }
+
+    const demoLogin = (e) => {
+        e.preventDefault();
+        e.stopPropagation()
+        dispatch(sessionActions.login({ credential: "Heleynore", password: "password" })).then((res) => { if (res.ok) onModalClose() })
+    }
+
 
     return (
         <form className="Sign-Up-Form" onSubmit={handleSubmit}>
@@ -101,6 +108,7 @@ function SignupFormPage({ onSessionModalClose }) {
                     {errors.map(error => <div key={error}>{error}</div>)}
                 </div>)
             }
+            <button className="Login-Button" id="Demo-User-Button" onClick={demoLogin}>Log In As Demo User</button>
             <button type="submit">Sign Up</button>
         </form>
     );

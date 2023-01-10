@@ -104,8 +104,6 @@ const LSPAppointmentsManager = ({listing}) => {
     dispatch(deleteAppointment(appointments[appointmentIndex].id))
   }
 
-  console.log(currentUser)
-
   return (
     <>
       <div id={showAppointmentModule && currentUser ? "LSP-Appointments-Container" : "LSP-Appointments-Success-Container"}>
