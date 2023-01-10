@@ -39,32 +39,22 @@
 }
 
 .USP-Favorited-Carousel {
-    width: auto;
+    width: 70%;
+    background-color: pink;
     height: auto;
-    /* background-color: pink; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.USP-Carousel-Button {
-    width: 60px;
-    height: 100px;
-    margin: 15px;
-    background-color: rgb(0, 0, 0, .18);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.USP-Favorited-Carousel.Favorite-Carousel-1 {
+    max-width: 600px;
 }
 
-.USP-Carousel-Button-Icon {
-    font-size: 40px;
-    color: rgb(0, 0, 0, .65);
+.USP-Favorited-Carousel.Favorite-Carousel-2 {
+    max-width: 900px;
 }
 
-.USP-Carousel-Button:hover {
-    background-color: rgb(0, 0, 0, .25);
-}
 
 #USP-Favorites-None-Body {
     display: flex;
