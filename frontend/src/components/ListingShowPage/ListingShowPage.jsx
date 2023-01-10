@@ -13,6 +13,7 @@ import { MdDateRange } from "react-icons/md"
 import LSPDetails from "./LSPDetails"
 import LSPImages from "./LSPImages"
 import LSPAppointmentsManager from "./LSPAppointmentsManager"
+import LSPReviews from "./LSPReviews"
 
 
 
@@ -55,6 +56,7 @@ const ListingShowPage = ({listing}) => {
 
       </div>
       <div id="LSP-Details"> <LSPDetails listing={listing}/> </div>
+      <div id="LSP-Reviews"><LSPReviews listing={listing} /></div>
     </div>
   )
 }

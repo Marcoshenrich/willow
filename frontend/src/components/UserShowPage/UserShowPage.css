@@ -67,3 +67,17 @@
     flex-wrap: wrap;
     overflow-y: scroll;
 }
+
+#USP-No-Appointments-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#USP-No-Appointments-Container div {
+   color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml);
+   padding: 20px;
+}

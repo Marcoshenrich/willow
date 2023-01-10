@@ -7,7 +7,7 @@ import { fetchListings, getListings } from "../../../store/listings";
 import { fetchFavorites, getFavorites } from "../../../store/favorite";
 import ListingModule from "../../ListingModule";
 import Carousel from 'react-elastic-carousel';
-
+import { Link } from "react-router-dom";
  
 
 
@@ -64,7 +64,7 @@ const USPFavorites = () => {
         {!showFavoriteQueue && (
           <div id="USP-Favorites-None-Body">
             <div>Uh oh, looks like you haven't found any homes you love yet</div>
-            <div>Find the perfect home</div>
+          <Link to="/listings"><div>Find the perfect home</div></Link>
           </div>)}
       </div>
   )

@@ -81,6 +81,11 @@
 }
 
 #LSP-Details {
-    height: 360px;
+    height: 300px;
     margin-top:20px;
+}
+
+#LSP-Reviews {
+    height: 360px;
+    border: 1px solid black;
 }

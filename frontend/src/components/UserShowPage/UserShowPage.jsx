@@ -5,7 +5,7 @@ import { getCurrentUser } from "../../store/session"
 import UserAppointmentModule from "./UserAppointmentModule"
 import "./UserShowPage.css"
 import USPFavorites from "./USPFavorites"
-
+import { Link } from "react-router-dom";
 
 const UserShowPage = () => { 
   const dispatch = useDispatch()
@@ -36,8 +36,18 @@ const UserShowPage = () => {
       <div className="USP-Appointments">
         <div id="USP-Appointments-Header">Your Appointments:</div>
         <div id="USP-Appointments-Container">
-          <div id="USP-Appointments-Calendar">Calendar Here Maybe</div>
-          <div id="USP-Appointments-Show">{appointments && (userAppointments())}</div>
+          {(appointments.length > 0) && (
+            <>
+              <div id="USP-Appointments-Calendar">Calendar Here Maybe</div>
+              <div id="USP-Appointments-Show">{(userAppointments())}</div>
+            </>
+        )}
+          {(appointments.length === 0) && (
+            <div id="USP-No-Appointments-Container">
+              <div id="USP-No-Appointments-Body" >Looks like you don't have any appointments yet.</div>
+              <Link to="/listings"><div id="USP-No-Appointments-Link">Browse properties</div></Link>
+            </div>
+          )}
         </div>
       </div>
     <USPFavorites />

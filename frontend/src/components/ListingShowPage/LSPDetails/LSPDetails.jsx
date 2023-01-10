@@ -22,8 +22,6 @@ const LSPDetails = ({listing}) => {
             {listing && (<li>Fireplaces: {listing.numFireplaces}</li>)}
           </ul>
         </div>
-
-
       </div>
     </>
   )
