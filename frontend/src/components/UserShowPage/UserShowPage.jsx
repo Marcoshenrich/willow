@@ -1,97 +1,46 @@
-import "./UserShowPage.css"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect, useState } from "react";
-import { fetchAppointments, fetchAppointment, getAppointment, getAppointments, createAppointment, deleteAppointment } from "../../store/appointment";
-import { useParams } from "react-router-dom";
-import { getCurrentUser } from "../../store/session";
-import UserAppointmentShow from "../UserAppointmentShow";
-import Calendar from "react-calendar"
-import 'react-calendar/dist/Calendar.css'
-import { fetchListings, getListings } from "../../store/listings";
-import { fetchFavorites, getFavorites } from "../../store/favorite";
-import ListingModule from "../ListingModule";
-import { BsChevronLeft, BsChevronRight} from "react-icons/bs"
-
+import { fetchAppointments, getAppointments } from "../../store/appointment"
+import { getCurrentUser } from "../../store/session"
+import UserAppointmentShow from "./UserAppointmentShow"
+import "./UserShowPage.css"
+import USPFavorites from "./USPFavorites"
 
 
 const UserShowPage = () => { 
-
   const dispatch = useDispatch()
-  const listings = useSelector(getListings)
-  const favorites = useSelector(getFavorites)
+  const appointments = useSelector(getAppointments)
   const currentUser = useSelector(getCurrentUser)
-  const [favoriteQueue, setFavoriteQueue] = useState([])
-  const [showFavoriteQueue, setShowFavoriteQueue] = useState(false)
-  const [favoriteQueuePointer, setFavoriteQueuePointer] = useState(2)
 
-  useEffect(() => {
-    dispatch(fetchFavorites(currentUser.id))
-    dispatch(fetchListings())
-    setFavoriteQueue(favorites.slice(0, 3))
-  }, [])
+  useEffect(()=>{
+    dispatch(fetchAppointments())
+  },[])
 
-  useEffect(() => {
-    setFavoriteQueue(favorites.slice(0, 3))
-    if (favoriteQueue.length) {
-      setShowFavoriteQueue(true)
-    } else if (!favoriteQueue) {
-      setShowFavoriteQueue(false)
-    }
-  }, [favorites])
-
-
-  const placeListingModules = () => {
-    if (listings.length > 0 && favorites && favoriteQueue) {
-      return (
-        favoriteQueue.map((favorite) => 
-          <ListingModule listing={listings[favorite.listingId - 1]} favoriteId={favorite.id} />)
+    const userAppointments = () => {
+      const userAppointmentsArr = []
+      appointments.forEach((appointment) => {
+        if (appointment.userId == currentUser.id) {
+          userAppointmentsArr.push(appointment)
+        }
+    })
+    
+    return (
+      userAppointmentsArr.map((appointment)=>
+        <UserAppointmentShow appointment = { appointment }/>
       )
-    }
+    )
   }
-
-  const negModuloHander = (pointer, queueLen) =>{
-    let remain = pointer % queueLen;
-    let check = Math.floor(remain >= 0 ? remain : remain + queueLen)
-    return check
-  }
-
-  const carouselClickHandler = (e) => {
-    e.stopPropagation()
-    let favoriteQueueclone = favoriteQueue.slice()
-    if (e.currentTarget.id.slice(0, 4) === "Left") {
-      favoriteQueueclone.pop()
-      favoriteQueueclone.unshift(favorites[negModuloHander(favoriteQueuePointer - 3, favorites.length)])
-      setFavoriteQueuePointer(favoriteQueuePointer - 1)
-    } else {
-      favoriteQueueclone.shift()
-      favoriteQueueclone.push(favorites[negModuloHander(favoriteQueuePointer + 1, favorites.length)])
-      setFavoriteQueuePointer(favoriteQueuePointer + 1)
-    }
-    setFavoriteQueue(favoriteQueueclone)
-  }
-
 
   return (
-    <div className="User-Show-Page">  
+    <div className="User-Show-Page">
       <div className="USP-Appointments">
-
+        <div id="USP-Appointments-Header">Your Appointments:</div>
+        <div id="USP-Appointments-Container">
+          <div id="USP-Appointments-Calendar">Calendar Here Maybe</div>
+          <div id="USP-Appointments-Show">{appointments && (userAppointments())}</div>
+        </div>
       </div>
-      <div className="USP-Favorites">
-        <div id="USP-Favorites-Header">You loved...</div>
-        { showFavoriteQueue && (
-          <div className="USP-Favorited-Carousel">
-            {favorites.length > 3 && (<div className="USP-Carousel-Button" id="Left-USP-Carousel-Button" onClick={(e) => carouselClickHandler(e)}><BsChevronLeft className="USP-Carousel-Button-Icon" /></div>)}
-            {placeListingModules()}
-            {favorites.length > 3 && (<div className="USP-Carousel-Button" id="Right-USP-Carousel-Button" onClick={(e) => carouselClickHandler(e)}><BsChevronRight className="USP-Carousel-Button-Icon" /></div>)}
-          </div>
-        )}
-        {!showFavoriteQueue && (
-        <div id="USP-Favorites-None-Body">
-          <div>Uh oh, looks like you haven't found any homes you love yet</div>
-          <div>Find the perfect home</div>
-        </div> )}
-      </div>
-
+    <USPFavorites />
     </div>
   )
 }
@@ -141,21 +90,6 @@ const UserShowPage = () => {
 //   const [date, setDate] = useState(today)
 //   const [time, setTime] = useState(timeStr)
 
-//   const appointmentMaker = (e) => {
-//     e.stopPropagation()
-//     e.preventDefault()
-//     const appoint = { agent_id: agentId, listing_id: 2, date: `${date}`, time:`${time}`}
-//     setTime("")
-//     dispatch(createAppointment(appoint))
-//   }
-
-//   const appointmentScheduleFinder = (e) => {
-//     e.stopPropagation()
-//     e.preventDefault()
-//     const appoint = { agent_id: agentId, listing_id: 2, date_time: `${date}-${time}` }
-//     dispatch(fetchAppointment(appoint))
-//   }
-
 //   const appointmentDeleter = (e) => {
 //     e.stopPropagation()
 //     e.preventDefault()
@@ -192,13 +126,7 @@ const UserShowPage = () => {
 
 //   }
 
-//   const userAppointments = () => {
-//     const userAppointments = []
-//     appointments.forEach((appointment) => {
-//       if (appointment.userId == currentUser.id) {
-//         userAppointments.push(appointment)
-//       }
-//     })
+
 
 
 //     return (
@@ -206,22 +134,6 @@ const UserShowPage = () => {
 //         <UserAppointmentShow appointment={appointment}/>
 //       ))
 //   }
-
-
-//   const disabledDates = () => {
-//     const disabledDatesUnix = []
-//     const moment = new Date();
-
-//     for (let i = 1; i < 65; i++) {
-
-//       let year = moment.getFullYear();
-//       let month = moment.getMonth() + 1;
-//       let date = moment.getDate();
-//       var time = year + '-' + month + '-' + date
-//       const updateDate = new Date(time)
-//       disabledDatesUnix.push(moment.setTime(updateDate.getTime() + 86400000) - 3600000)
-//     }
-
 
 
 //     const y = disabledDatesUnix.indexOf(new Date("2023-01-07").getTime() + 86400000) - 3600000
@@ -291,10 +203,7 @@ const UserShowPage = () => {
 //               date.getDate() === disabledDate.getDate()
 //             )} />
 //         </div>
-//         <div>
-//           <div>Your Appointments:</div>
-//           {appointments && (<div>{userAppointments()}</div>)}
-//         </div>
+
 //       </div>
 
 //     </>

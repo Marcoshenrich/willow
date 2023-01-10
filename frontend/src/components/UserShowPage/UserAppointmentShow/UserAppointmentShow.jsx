@@ -1,5 +1,5 @@
 import "./UserAppointmentShow.css"
-import { deleteAppointment } from "../../store/appointment";
+import { deleteAppointment } from "../../../store/appointment";
 import { useDispatch } from "react-redux";
 
 const UserAppointmentShow = ({ appointment }) => {
@@ -34,10 +34,15 @@ const UserAppointmentShow = ({ appointment }) => {
 
   return (
     <div id="User-Show-Appointment-Module">
-      <div>{appointment.listing.name}</div>
-      <div>Date: {dateParser()} at {timeParser()}</div>
-      <div>Agent: {appointment.agent.username} </div>
-      <button onClick={(e) => deleteAppointmentClick(e)}>delete appointment</button>
+      <div id="USAM-Img-Container">
+        {appointment && (<img src={appointment.listing.imageUrls[0]} id="USAM-Ext-Img"/>)}
+      </div>
+      <div>
+        <div id="USAM-Name">{appointment.listing.name}</div>
+        <div id="USAM-Date">Date: {dateParser()} at {timeParser()}</div>
+        <div id="USAM-Agent-Info">Agent: {appointment.agent.username} </div>
+        <button onClick={(e) => deleteAppointmentClick(e)} id="USAM-Button">I can no longer make it</button>
+      </div>
     </div>
   )
 }
