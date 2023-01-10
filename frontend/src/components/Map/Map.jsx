@@ -21,7 +21,7 @@ const MapWrapper = () => {
   }, [])
 
   const { isLoaded } = useLoadScript({ googleMapsApiKey: key })
-  console.log(process.env.REACT_APP_MAPS_API_KEY)
+  // console.log(process.env.REACT_APP_MAPS_API_KEY)
   
 
   return (
@@ -33,17 +33,23 @@ const MapWrapper = () => {
   )
 }
 
-export const LocalMap = () => {
 
+export const LocalMap = ({ listings }) => {
   const center = useMemo(() => ({ lat: 37.7749, lng: -122.36 }))
 
-  const markers = document.getElementById("Marker")
+  const listingCoords = () => {
+    const coordsArr = []
+    for (let i = 0; i < listings.length; i++) {
+        coordsArr.push({ lat: listings[i].lat, lng: listings[i].long })
+    }
+    return coordsArr
+  }
 
   return (
    <GoogleMap zoom={12} center={center} mapContainerClassName="map">
-    {/* {tourStops.map(([coords, title], i) =>
-      <Marker id="Marker" key={i} position={coords} title={`${i + 1}. ${title}`} optimized={false} label={`${i + 1}`} />
-    )} */}
+      {listings && (listingCoords().map((coords, i) =>
+      <Marker id="Marker" key={i} position={coords} optimized={false} />
+    ))}
   </GoogleMap >
   )
 }

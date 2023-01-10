@@ -24,9 +24,7 @@ const LSPAppointmentsManager = ({listing}) => {
   const appointments = useSelector(getAppointments)
 
   const now = new Date();
-  const timeStr = now.toISOString().slice(10)
-  const today = now.toISOString().slice(0, 10)
-
+  const [showAppointmentModule, setshowAppointmentModule] = useState(true)
   const [date, setDate] = useState(now)
   const [time, setTime] = useState("")
 
@@ -34,7 +32,7 @@ const LSPAppointmentsManager = ({listing}) => {
     e.stopPropagation()
     e.preventDefault()
     const appoint = { agent_id: agentId, listing_id: listing.id, date: `${date}`, time:`${time}`}
-    dispatch(createAppointment(appoint))
+    if (time) dispatch(createAppointment(appoint))
     setTime("")
     setDate(now)
   }
@@ -66,13 +64,42 @@ const LSPAppointmentsManager = ({listing}) => {
     return availableTimes
   }
 
+  const appointmentExistsChecker = () => {
+    
+    appointments.forEach((appointment) => {
+      // console.log("user id checker")
+      // console.log(appointment.userId == currentUser.id)
+
+      // console.log(`listing id checker ${appointment.listingId}, ${listing.id}`)
+      // console.log(appointment.listingId == listing.id)
+
+      // console.log("date checker")
+      // console.log(new Date(appointment.date).getTime() < now.getTime())
+      console.log(`${appointment.date}T${appointment.time}:00`)
+      if (appointment.userId == currentUser.id 
+        && appointment.listingId == listing.id
+        && (Date.parse(`${appointment.date}T${appointment.time}:00`) > now.getTime())
+        ) {
+        console.log("in true")
+
+        setshowAppointmentModule(false)
+        return
+      }
+    })
+  }
+
   useEffect(()=>{
     dispatch(fetchAppointments())
   },[])
 
+  useEffect(() => {
+    appointmentExistsChecker()
+  }, [appointments])
+
   return (
     <>
-      <div id="LSP-Appointments-Container">
+      <div id={showAppointmentModule ? "LSP-Appointments-Container" : "LSP-Appointments-Success-Container"}>
+        {appointments && showAppointmentModule && (
         <form>
         <div id="LSPA-h1-Container">
           <div id="LSPA-h1">Pick a date</div>
@@ -85,7 +112,10 @@ const LSPAppointmentsManager = ({listing}) => {
           <div id="LSPA-Submit">
             <div id="LSPA-Submit-Button" onClick={appointmentMaker}>Book Appointment</div>
           </div>
-        </form>
+          </form>)}
+        {!showAppointmentModule && (
+          <div id="LSPA-Appointment-Success">You did it, your next appointment is at [time]</div>
+        )}
       </div>
 
     </>

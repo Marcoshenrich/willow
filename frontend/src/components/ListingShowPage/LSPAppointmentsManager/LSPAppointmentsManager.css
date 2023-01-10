@@ -92,3 +92,16 @@
     height: 32px;
     width: 220px;
 }
+
+#LSP-Appointments-Success-Container{
+    height:140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#LSPA-Appointment-Success {
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-sml);
+}
