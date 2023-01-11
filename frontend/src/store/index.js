@@ -7,6 +7,7 @@ import errors from "./errors";
 import users from "./user";
 import appointments from "./appointment";
 import favorites from "./favorite";
+import reviews from "./review";
 
 let enhancer;
 
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const appReducer = combineReducers({
+    reviews,
     favorites, 
     appointments,
     errors,

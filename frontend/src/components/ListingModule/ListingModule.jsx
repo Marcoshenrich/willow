@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import "./ListingModule.css"
 import { FaHeart } from "react-icons/fa"
 import { useEffect, useState } from "react";
@@ -14,14 +13,12 @@ const ListingModule = ({ listing, favoriteId }) => {
   const dispatch = useDispatch()
   const agentId = listing.agentId
 
-  
+
   const agent = useSelector(getUser(agentId))
   const current_user = useSelector(getCurrentUser)
   
   const [showListingModal, setShowListingModal] = useState(false)
   const [favoriteActive, setFavoriteActive] = useState(!!favoriteId)
-  console.log(`favorite id in module ${favoriteId}`)
-  console.log(favoriteActive)
 
   const onListingModalClose = (e) => {
     e.stopPropagation()
@@ -39,9 +36,10 @@ const ListingModule = ({ listing, favoriteId }) => {
       }
       dispatch(createFavorite(favorite))
     }
-    dispatch(fetchFavorites())
-    setFavoriteActive((favoriteActive) =>  !favoriteActive )
+    setFavoriteActive((favoriteActive) => !favoriteActive)
+
   }
+
   
   useEffect(() => {
     dispatch(fetchUser(agentId))

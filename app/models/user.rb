@@ -22,15 +22,21 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  has_many :favorites
+  has_many :favorites,
+        dependent: :destroy
+
+  has_many :reviews,
+        dependent: :destroy
 
   has_many :user_appointments,
         foreign_key: :user_id,
-        class_name: :Appointment
+        class_name: :Appointment,
+        dependent: :destroy
 
   has_many :agent_appointments,
         foreign_key: :agent_id,
-        class_name: :Appointment
+        class_name: :Appointment,
+        dependent: :destroy
 
   def self.find_by_credentials(credential, password)
     user = nil

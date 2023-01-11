@@ -8,9 +8,12 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show] do
       resources :favorites, only: [:index]
     end
-    resources :listings, only: [:create, :index, :show]
+    resources :listings, only: [:create, :index, :show] do
+      resources :reviews, only: [:index]
+    end
     resources :appointments, only: [:create, :destroy, :show, :index]
     resources :favorites, only: [:create, :destroy, :index]
+    resources :reviews, only: [:show, :create, :destroy, :update]
     resource :session, only: [:show, :create, :destroy]
     resource :map, only: [:show]
 
