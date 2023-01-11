@@ -1,9 +1,7 @@
 import "./LSPAppointmentsTimeContainer.css"
-import { useDispatch, useSelector } from "react-redux"
 import LSPAMTimeBlock from "../LSPAMTimeBlock"
 
 const LSPAppointmentsTimeContainer = ({ activeTime, setActiveTime, availableTimes }) => {
-  const dispatch = useDispatch()
 
   const timeBlockMaker = () => {
     return (
