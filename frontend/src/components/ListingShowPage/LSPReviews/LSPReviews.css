@@ -39,10 +39,36 @@
     justify-content: space-around;
 }
 
+#LSP-Review-Container.No-Review {
+    height: 200px;
+}
+
 #Form-Setup {
     height: 200px;
     width: 500px;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+}
+
+#LSP-No-Review-Prompt-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+}
+
+#LSP-No-Review-Prompt-Container div {
+    padding: 20px;
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-sml);
+}
+
+#Write-Review-Prompt:hover {
+    color: var(--oceansurf);
+    cursor: pointer;
+    text-decoration: underline;
+    
 }
