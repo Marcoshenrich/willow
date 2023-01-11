@@ -33,6 +33,12 @@
 #
 class Listing < ApplicationRecord
     has_many_attached :images
-    has_many :appointments
-    has_many :favorites
+    has_many :appointments,
+        dependent: :destroy
+        
+  has_many :reviews,
+        dependent: :destroy
+
+    has_many :favorites,
+        dependent: :destroy
 end

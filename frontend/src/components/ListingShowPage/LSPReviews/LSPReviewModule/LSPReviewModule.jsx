@@ -2,7 +2,7 @@ import "./LSPReviewModule.css"
 import { TiDeleteOutline } from "react-icons/ti"
 import { BsPencil } from "react-icons/bs"
 
-const LSPReviewModule = () => {
+const LSPReviewModule = ({username, date, body}) => {
 
   return (
     <div className="LSP-Review-Module">
