@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getCurrentUser } from "../../../store/session"
-import { createReview, deleteReview, fetchReviews, fetchReview } from "../../../store/review";
+import { createReview, getReviews, deleteReview, fetchReviews, fetchReview } from "../../../store/review";
 
 
 
@@ -11,14 +11,25 @@ import "./LSPReviews.css"
 const LSPReviews = ({ listing }) => {
   const dispatch = useDispatch()
   const currentUser = useSelector(getCurrentUser)
+  const reviews = useSelector(getReviews)
   const [body, setBody] = useState("")
 
+  useEffect(()=>{
+    dispatch(fetchReviews(listing.id))
+  },[])
 
   const LSPReviewSubmitHandler = () => {
-    console.log("in handler")
     const review = { body, userId: currentUser.id, listingId: listing.id  }
-    console.log(review)
     dispatch(createReview(review))
+  }
+
+
+  const lspReviewModulePlacer = () => {
+    if (reviews) {
+      return (
+        reviews.map((review, i) => <LSPReviewModule key={i} review={review} /> )
+      )
+    }
   }
 
   return (
@@ -29,9 +40,8 @@ const LSPReviews = ({ listing }) => {
           <textarea onChange={(e) => { setBody(e.target.value) }} cols="30" rows="10"></textarea>
           <button value={body} onClick={LSPReviewSubmitHandler}>submit</button>
         </div>
-        <LSPReviewModule />
-        <LSPReviewModule />
-        <LSPReviewModule />
+  
+        {reviews && lspReviewModulePlacer()}
       </div>
     </>
   )

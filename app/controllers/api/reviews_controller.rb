@@ -9,8 +9,9 @@ class Api::ReviewsController < ApplicationController
     end
 
     def index
-        @reviews = Reviews.listing_favorites(listing.id)
-        render "api/favorites/index"
+        @reviews = Review.listing_reviews(params[:listing_id])
+        puts params[:listing_id]
+        render "api/reviews/index"
     end
 
     def update

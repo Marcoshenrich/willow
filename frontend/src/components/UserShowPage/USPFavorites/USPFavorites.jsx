@@ -14,9 +14,8 @@ import { Link } from "react-router-dom";
 const USPFavorites = () => {
   const dispatch = useDispatch()
   const listings = useSelector(getListings)
-  // console.log(listings)
   const favorites = useSelector(getFavorites)
-  // console.log(favorites)
+
   const currentUser = useSelector(getCurrentUser)
   const [showFavoriteQueue, setShowFavoriteQueue] = useState(false)
   const [favoriteCount, setFavoriteCount] = useState(0)
@@ -34,11 +33,8 @@ const USPFavorites = () => {
 
   const placeListingModules = () => {
     if (listings.length > 0 && favorites) {
-      // console.log(favorites)
       return (
         favorites.map((favorite, i) => {
-          // console.log(favorite.listingId - 1)
-          // console.log(favorite.id)
           return <ListingModule key={favorite.id} listing={listings[favorite.listingId - 1]} favoriteId={favorite.id}
           />})
       )

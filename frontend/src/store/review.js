@@ -43,8 +43,8 @@ export const fetchReview = (reviewId) => async dispatch => {
     }
 };
 
-export const fetchReviews = () => async dispatch => {
-    const response = await csrfFetch("/api/reviews")
+export const fetchReviews = (listingId) => async dispatch => {
+    const response = await csrfFetch(`/api/listings/${listingId}/reviews`)
     if (response.ok) {
         const data = await response.json();
         dispatch(receiveReviews(data));
@@ -104,7 +104,7 @@ const reviewsReducer = (oldState = {}, action) => {
             return newState;
 
         case REMOVE_REVIEW:
-            delete newState[action.review.id]
+            delete newState[action.reviewId]
             return newState;
 
         default:

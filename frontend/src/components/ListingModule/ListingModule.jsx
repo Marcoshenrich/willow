@@ -13,15 +13,12 @@ const ListingModule = ({ listing, favoriteId }) => {
   const dispatch = useDispatch()
   const agentId = listing.agentId
 
-  
+
   const agent = useSelector(getUser(agentId))
   const current_user = useSelector(getCurrentUser)
   
   const [showListingModal, setShowListingModal] = useState(false)
   const [favoriteActive, setFavoriteActive] = useState(!!favoriteId)
-
-  // console.log(`favorite id in module ${favoriteId}`)
-  // console.log(favoriteActive)
 
   const onListingModalClose = (e) => {
     e.stopPropagation()
@@ -29,8 +26,6 @@ const ListingModule = ({ listing, favoriteId }) => {
   }
 
   const handleFavoriteClick = (e) => {
-    console.log(listing, "in handle favorite click")
-    
     e.stopPropagation()
     if (favoriteActive) {
       dispatch(deleteFavorite(favoriteId))
