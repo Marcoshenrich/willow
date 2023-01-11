@@ -20,8 +20,8 @@
 }
 
 .LSP-Review-Module {
+    width: 600px;
     height: auto;
-    width: 350px;
     border: 1px solid gray;
     color: var(--oceanabyss);
     font-family: var(--font);
@@ -69,4 +69,5 @@
 
 #LSPRM-Body {
     padding-top: 11px;
+    height: auto;
 }

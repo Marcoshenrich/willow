@@ -55,6 +55,7 @@ const UserAppointmentModule = ({ appointment }) => {
   const deleteAppointmentClick = (e) => {
     e.preventDefault()
     e.stopPropagation()
+    setShowUpdateTime((showUpdateTime) => !showUpdateTime)
     dispatch(deleteAppointment(appointment.id))
   }
 
@@ -84,8 +85,6 @@ const UserAppointmentModule = ({ appointment }) => {
 
     return availableTimes
   }
-
-  const availableTimes = []
 
   useEffect(()=>{
     dispatch(fetchAppointments())

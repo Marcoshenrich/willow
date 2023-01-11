@@ -22,6 +22,7 @@
 .LSP {
     color: var(--oceanabyss);
     width: 100%;
+    height: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -83,8 +84,4 @@
 #LSP-Details {
     height: 300px;
     margin-top:20px;
-}
-
-#LSP-Reviews {
-    height: 450px;
 }

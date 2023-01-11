@@ -111,6 +111,10 @@ body {
     line-height: 1;
 }
 
+textarea {
+    resize: none;
+}
+
 ol,
 ul {
     list-style: none;

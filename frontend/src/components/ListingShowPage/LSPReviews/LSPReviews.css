@@ -19,6 +19,11 @@
     --fog: #efefef;
 }
 
+#LSP-Reviews {
+    height: auto;
+     margin-bottom: 50px;
+}
+
 #LSP-Reviews-h2 {
     margin-bottom: 20px;
     font-family: var(--font);
@@ -29,7 +34,7 @@
 #LSP-Review-Container {
     display: flex;
     flex-wrap: wrap;
-    height: 400px;
+    max-height: 600px;
     width: 100%;
     border: solid var(--fog) 3px;
     border-radius: 10px;
@@ -43,12 +48,62 @@
     height: 200px;
 }
 
-#Form-Setup {
-    height: 200px;
+#LSP-Review-Container.No-Review.Write-Review {
+    height: 500px;
+}
+
+#LSP-Review-Container.Contains-Reviews {
+    height: auto;
+}
+
+#LSPR-Write-Review-Form-Container {
+    height: auto;
+    margin-bottom: 50px;
     width: 500px;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+#LSPRWR-Text-Input {
+    border-color: gray;
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 600px;
+    height: 150px;
+    padding: 20px;
+    line-height: 35px;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml);
+    
+}
+
+#LSPRWR-Submit {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid slategrey;
+    font-size: var(--font-s-med);
+    background-color: var(--oceansurf);
+    margin-top: 10px;
+    height: 35px;
+    width: 230px;
+    border-radius: 4px;
+    color: var(--fog);
+    transition: background-color 1s;
+}
+
+#LSPRWR-Submit:hover {
+    cursor: pointer;
+    transition: background-color 1s;
+    background-color: var(--oceandepths);
+}
+
+#LSPRWR-Submit:active {
+    height: 32px;
+    width: 220px;
 }
 
 #LSP-No-Review-Prompt-Container {
@@ -66,9 +121,32 @@
     font-weight: var(--font-w-sml);
 }
 
-#Write-Review-Prompt:hover {
+#Write-First-Review-Prompt:hover {
     color: var(--oceansurf);
     cursor: pointer;
     text-decoration: underline;
     
+}
+
+#LSPR-Review-Show-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    margin: 20px;
+}
+
+#LSPRWR-Write-New-Review-Submit {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid slategrey;
+    font-size: var(--font-s-med);
+    background-color: var(--enchantment);
+    margin: 10px;
+    height: 35px;
+    width: 230px;
+    border-radius: 4px;
+    color: var(--fog);
+    transition: background-color 1s;
 }

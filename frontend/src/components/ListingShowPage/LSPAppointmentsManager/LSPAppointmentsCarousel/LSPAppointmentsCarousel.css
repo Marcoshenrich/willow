@@ -22,6 +22,7 @@
 #LSPA-Carousel {
     display: flex;
     align-items: center;
+        box-sizing: border-box;
 }
 
 #LSPA-Carousel > * {

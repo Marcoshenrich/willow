@@ -56,7 +56,7 @@ const ListingShowPage = ({listing}) => {
 
       </div>
       <div id="LSP-Details"> <LSPDetails listing={listing}/></div>
-      <div id="LSP-Reviews"><LSPReviews listing={listing} /></div>
+      <LSPReviews listing={listing} />
     </div>
   )
 }

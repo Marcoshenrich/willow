@@ -14,47 +14,72 @@ const LSPReviews = ({ listing }) => {
   const reviews = useSelector(getReviews)
   const [body, setBody] = useState("")
   const [writeReview, setWriteReview] = useState(false)
+  const [listingReviews, setListingReviews] = useState([])
+
 
   useEffect(()=>{
     dispatch(fetchReviews(listing.id))
   },[])
+
+  useEffect(() => {
+    setListingReviews([])
+    reviews.forEach((review)=>{
+      if (review.listingId === listing.id) {
+        setListingReviews(listingReviews => listingReviews.concat(review))
+      }
+    })
+  }, [reviews])
+
+
 
   const writeReviewPromptClickHandler = () => {
     setWriteReview((writeReview) => !writeReview)
   }
 
   const LSPReviewSubmitHandler = () => {
+    console.log("in submit handler")
     const review = { body, userId: currentUser.id, listingId: listing.id  }
+    setWriteReview((writeReview) => !writeReview)
     dispatch(createReview(review))
     setBody("")
   }
 
 
-  const lspReviewModulePlacer = () => {
-    if (reviews) {
+  const lspReviewModulePlacer = (listingReviews) => {
+    if (listingReviews) {
+      console.log("in module place if statement")
+      console.log(listingReviews)
       return (
-        reviews.map((review, i) => <LSPReviewModule key={i} review={review} /> )
+        listingReviews.map((review, i) => {
+          return <LSPReviewModule key={i} review={review} /> 
+        }
+        )
       )
     }
   }
 
   return (
-    <>
+    <div id="LSP-Reviews">
       {listing && (<h2 id="LSP-Reviews-h2" >What visitors had to say</h2>)}
-      <div id="LSP-Review-Container" className={(reviews.length === 0 ? "No-Review" : "Contains-Reviews") + (writeReview ? " Write-Review" : "" ) }>
-        { (reviews.length === 0) && ( <div id="LSP-No-Review-Prompt-Container">
+      <div id="LSP-Review-Container" className={(listingReviews.length === 0 ? "No-Review" : "Contains-Reviews") + (writeReview ? " Write-Review" : "" ) }>
+        {(listingReviews.length === 0) && ( <div id="LSP-No-Review-Prompt-Container">
           <div>Looks like no one has written a review of this property</div>
-          <div id="Write-Review-Prompt" onClick={writeReviewPromptClickHandler}>Write the first one</div>
+          <div id="Write-First-Review-Prompt" onClick={writeReviewPromptClickHandler}>Write the first one</div>
         </div> 
         )}
-        { writeReview  && (<div id="Form-Setup">
-          <textarea value={body} onChange={(e) => { setBody(e.target.value) }} cols="30" rows="10"></textarea>
-          <button onClick={LSPReviewSubmitHandler}>submit</button>
+        { writeReview  && (
+        <div id="LSPR-Write-Review-Form-Container">
+            <textarea id="LSPRWR-Text-Input" placeholder="What do you think?" value={body} onChange={(e) => { setBody(e.target.value) }} cols="30" rows="10"></textarea>
+            <button id="LSPRWR-Submit" onClick={LSPReviewSubmitHandler}>submit</button>
         </div>)}
-  
-          {reviews && lspReviewModulePlacer()}
+        {(listingReviews.length > 0) && (
+          <div id="LSPR-Review-Show-Container">
+            {lspReviewModulePlacer(listingReviews)}
+            {!writeReview && (<button id="LSPRWR-Write-New-Review-Submit" onClick={writeReviewPromptClickHandler}>Write a Review</button>)}
+          </div>
+        )}
       </div>
-    </>
+    </div>
   )
 }
 

@@ -62,9 +62,11 @@
 
 #USP-Appointments-Show {
     display: flex;
-    height: 95%;
-    width: 50%;
+    height: 100%;
+    width: 30%;
     flex-wrap: wrap;
+        align-items: center;
+    justify-content: center;
     overflow-y: scroll;
 }
 
