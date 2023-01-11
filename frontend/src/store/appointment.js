@@ -75,6 +75,21 @@ export const createAppointment = (appointment) => async dispatch => {
     }
 }
 
+export const updateAppointment = (appointment) => async dispatch => {
+    const response = await csrfFetch(`/api/appointments/${appointment.id}`, {
+        method: "PATCH",
+        body: JSON.stringify(appointment),
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    })
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(receiveAppointment(data.appointment));
+    }
+}
+
 
 
 

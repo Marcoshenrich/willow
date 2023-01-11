@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react";
 import { fetchAppointments, fetchAppointment, getAppointment, getAppointments, createAppointment, deleteAppointment } from "../../../store/appointment";
 import { getCurrentUser } from "../../../store/session";
-// import UserAppointmentShow from "../UserAppointmentShow";
 import 'react-calendar/dist/Calendar.css'
 import LSPAppointmentsCarousel from "./LSPAppointmentsCarousel";
 import LSPAppointmentsTimeContainer from "./LSPAppointmentsTimeContainer";

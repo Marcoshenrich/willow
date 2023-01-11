@@ -38,7 +38,6 @@ const UserShowPage = () => {
         <div id="USP-Appointments-Container">
           {(appointments.length > 0) && (
             <>
-              <div id="USP-Appointments-Calendar">Calendar Here Maybe</div>
               <div id="USP-Appointments-Show">{(userAppointments())}</div>
             </>
         )}

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :listings, only: [:create, :index, :show] do
       resources :reviews, only: [:index]
     end
-    resources :appointments, only: [:create, :destroy, :show, :index]
+    resources :appointments, only: [:create, :destroy, :show, :index, :update]
     resources :favorites, only: [:create, :destroy, :index]
     resources :reviews, only: [:show, :create, :destroy, :update]
     resource :session, only: [:show, :create, :destroy]

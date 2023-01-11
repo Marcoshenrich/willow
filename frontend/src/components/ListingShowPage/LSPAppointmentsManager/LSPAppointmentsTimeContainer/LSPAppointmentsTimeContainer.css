@@ -22,6 +22,7 @@
 #LSPA-Time-Container {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     padding-left: 30px;
 }
 

@@ -1,9 +1,14 @@
 import "./UserAppointmentModule.css"
-import { deleteAppointment } from "../../../store/appointment";
+import { deleteAppointment, updateAppointment } from "../../../store/appointment";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import LSPAppointmentsTimeContainer from "../../ListingShowPage/LSPAppointmentsManager/LSPAppointmentsTimeContainer/LSPAppointmentsTimeContainer";
+
 
 const UserAppointmentModule = ({ appointment }) => {
   const dispatch = useDispatch()
+  const [time, setTime] = useState("")
+  const [showUpdateTime, setShowUpdateTime] = useState("")
 
   const dateParser = () => {
     const year = appointment.date.slice(0,4)
@@ -24,19 +29,40 @@ const UserAppointmentModule = ({ appointment }) => {
     return `${hoursInt}:${appointment.time.slice(3, 5)} ${ampm}`
   }
 
+  const updateTimeClick = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setShowUpdateTime((showUpdateTime) => !showUpdateTime)
+
+    if (time && showUpdateTime) {
+      const updatedAppointment = { 
+        id: appointment.id, 
+        listingId: appointment.listingId, 
+        userId: appointment.userId, 
+        date: appointment.date,
+        time
+      }
+      dispatch(updateAppointment(updatedAppointment))
+    } else {
+      
+    }
+  }
+
   const deleteAppointmentClick = (e) => {
     e.preventDefault()
     e.stopPropagation()
     dispatch(deleteAppointment(appointment.id))
   }
 
-
+  const availableTimes = ["06:00", "20:00", "12:00"]
 
   return (
     <div id="User-Show-Appointment-Module">
         <div id="USAM-Name">{appointment.listing.name}</div>
         <div id="USAM-Date">Date: {dateParser()} at {timeParser()}</div>
         <div id="USAM-Agent-Info">Agent: {appointment.agent.username} </div>
+      {showUpdateTime && (<LSPAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={availableTimes} />)}
+      <div id="USAM-Edit"><button onClick={(e) => updateTimeClick(e)} id="USAM-Edit-Submit">{(time && showUpdateTime) ? "Change Time" : "Reschedule" }</button></div>
       <div id="USAM-Cancel"><button onClick={(e) => deleteAppointmentClick(e)} id="USAM-Cancel-Submit">Cancel Appointment</button></div>
     </div>
   )

@@ -15,12 +15,17 @@ class Api::AppointmentsController < ApplicationController
         render "api/appointments/index"
     end
 
+    def update
+        @appointment = Appointment.find_by(id: params[:id])
+        if @appointment.update(appointment_params)
+            render "api/appointments/show"
+        end
+    end
+
+
 
     def index
         @appointments = Appointment.all
-        puts ""
-        puts "in apps controller"
-        puts ""
         render "api/appointments/index"
     end
 

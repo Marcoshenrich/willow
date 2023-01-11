@@ -25,7 +25,7 @@
     background-color: white;
     margin-top: 15px;
     margin-left: 15px;
-    height: 140px;
+    height: auto;
     width: 300px;
 }
 
@@ -57,11 +57,10 @@
     padding-left: 10px;
 }
 
-#USAM-Cancel-Submit{
+#User-Show-Appointment-Module button {
     display: flex;
     height: 30px;
-    padding: 15px;
-    background-color: var(--burnt-amber);
+    width: 185px;
     color: #efefef;
     border: none;
     font-family: var(--font);
@@ -69,8 +68,40 @@
     font-weight: var(--font-w-sml);
     align-items: center;
     border-radius: 3px;
+}
+
+#User-Show-Appointment-Module button:hover {
 
 }
+
+#User-Show-Appointment-Module button:active {
+    width: 183px;
+    height: 29px;
+}
+
+#USAM-Edit-Submit {
+    background-color: var(--enchantment);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#USAM-Cancel-Submit {
+    background-color: var(--burnt-amber);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#USAM-Edit {
+    padding-top: 3px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 #USAM-Cancel {
     padding-top: 3px;
