@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
     validates :user_id, :listing_id, :body, presence: true
-    validates :body, length: { in: 1...1000 }
+    validates :body, length: { in: 1...500 }
 
     belongs_to :user
     belongs_to :listing

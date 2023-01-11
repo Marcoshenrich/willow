@@ -20,13 +20,17 @@
 }
 
 .LSP-Review-Module {
-    height: 120px;
-    width: 450px;
-    border: 1px solid black;
+    height: auto;
+    width: 350px;
+    border: 1px solid gray;
     color: var(--oceanabyss);
     font-family: var(--font);
     font-size: var(--font-s-sml);
     font-weight: var(--font-w-sml);
+    margin: 15px;
+    padding: 20px;
+    line-height: 20px;
+    border-radius: 4px;
 }
 
 .LSP-Review-Module > div {

@@ -28,16 +28,19 @@
 
 #LSP-Review-Container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    height: 400px;
     width: 100%;
-    border: solid var(--fog) 2px;
+    border: solid var(--fog) 3px;
     border-radius: 10px;
     margin-top: 10px;
     margin-left: -1px;
+    overflow-y: scroll;
+    justify-content: space-around;
 }
 
 #Form-Setup {
-    height: 500px;
+    height: 200px;
     width: 500px;
     border: 1px solid black;
     display: flex;

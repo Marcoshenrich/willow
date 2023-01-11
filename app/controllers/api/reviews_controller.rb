@@ -10,7 +10,6 @@ class Api::ReviewsController < ApplicationController
 
     def index
         @reviews = Review.listing_reviews(params[:listing_id])
-        puts params[:listing_id]
         render "api/reviews/index"
     end
 

@@ -1,8 +1,9 @@
 import "./LSPReviewModule.css"
+import { useEffect, useState } from "react"
 import { TiDeleteOutline } from "react-icons/ti"
 import { BsPencil } from "react-icons/bs"
 import { useDispatch, useSelector } from "react-redux"
-import { createReview, getReviews, deleteReview, fetchReviews, fetchReview } from "../../../../store/review";
+import { updateReview, getReviews, deleteReview, fetchReviews, fetchReview } from "../../../../store/review";
 import { getCurrentUser } from "../../../../store/session"
 
 const LSPReviewModule = ({ review }) => {
@@ -10,10 +11,18 @@ const LSPReviewModule = ({ review }) => {
   const author = review.user.username
   const datesArr = review.userAppointments
   const currentUser = useSelector(getCurrentUser)
+  const [edit, setEdit] = useState(false)
+  const [body, setBody] = useState("")
 
   const LSPReviewModuleDeleteClickHandler = (e) =>{
     e.stopPropagation()
     dispatch(deleteReview(review.id))
+  }
+
+  const LSPReviewModuleEditHandler = () => {
+    const updatedReview = { id: review.id, body, userId: currentUser.id, listingId: review.listingId }
+    dispatch(updateReview(updatedReview))
+    setEdit((edit) => !edit)
   }
 
   const dateParser = (date) => {
@@ -35,7 +44,6 @@ const LSPReviewModule = ({ review }) => {
       return  `Has not visited the property.`
     }
   }
-
   return (
     <div className="LSP-Review-Module">
       <div id="LSPRM-Top-Bar" >
@@ -43,15 +51,25 @@ const LSPReviewModule = ({ review }) => {
         <div id="LSPRM-Top-Bar-Icons">
           {review.userId === currentUser.id && (
           <>
-            <BsPencil />
+            <BsPencil onClick={()=> setEdit((edit) => !edit)} />
             <TiDeleteOutline onClick={LSPReviewModuleDeleteClickHandler}/>
           </>
           )}
         </div>
       
       </div>
+      {edit && (
+        <>
+          <textarea defaultValue={review.body} onChange={(e) => { setBody(e.target.value) }} cols="30" rows="10"></textarea>
+          <button onClick={LSPReviewModuleEditHandler}>submit</button>
+        </>
+      )}
+      {!edit && (
+        <>
       <div id="LSPRM-Date">{dateVisitChecker()}</div>
       <div id="LSPRM-Body">{review.body}</div>
+        </>
+      )}
     </div>
   )
 }
