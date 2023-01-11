@@ -5,6 +5,11 @@ class Review < ApplicationRecord
     belongs_to :user
     belongs_to :listing
 
+
+    has_many :user_appointments,
+      through: :user,
+      source: :user_appointments
+
     def self.listing_favorites(listing_id)
     Review
       .select("*")

@@ -1,7 +1,7 @@
 import csrfFetch from './csrf';
 
 const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
-const RECEIVE_REVIEWS = 'RECEIVE_REVIEW';
+const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
 const REMOVE_REVIEW = 'REMOVE_REVIEW';
 
 const receiveReview = (review) => {

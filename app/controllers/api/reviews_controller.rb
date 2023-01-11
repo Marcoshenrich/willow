@@ -1,4 +1,5 @@
 class Api::ReviewsController < ApplicationController
+    wrap_parameters include: Review.attribute_names + ['listingId', 'userId', 'body']
 
     def create
         @review = Review.new(review_params)

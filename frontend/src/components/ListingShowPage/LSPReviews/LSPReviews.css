@@ -36,3 +36,10 @@
     margin-left: -1px;
 }
 
+#Form-Setup {
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
