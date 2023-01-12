@@ -19,7 +19,6 @@ const LSPReviews = ({ listing }) => {
   const [listingReviews, setListingReviews] = useState([])
   
 
-
   useEffect(()=>{
     dispatch(fetchReviews(listing.id))
   },[])
@@ -33,8 +32,6 @@ const LSPReviews = ({ listing }) => {
     })
   }, [reviews])
 
-
-
   const writeReviewPromptClickHandler = () => {
     setWriteReview((writeReview) => !writeReview)
   }
@@ -44,7 +41,6 @@ const LSPReviews = ({ listing }) => {
     dispatch(clearErrors())
     dispatch(createReview(review)).then((res) => { if (res.ok) setWriteReview((writeReview) => !writeReview) }).then((writeReview) => { if (!writeReview) setBody("")})
   }
-
 
   const lspReviewModulePlacer = (listingReviews) => {
     if (listingReviews) {
@@ -61,17 +57,18 @@ const LSPReviews = ({ listing }) => {
     <div id="LSP-Reviews">
       {listing && (<h2 id="LSP-Reviews-h2" >What visitors had to say</h2>)}
       <div id="LSP-Review-Container" className={(listingReviews.length === 0 ? "No-Review" : "Contains-Reviews") + (writeReview ? " Write-Review" : "" ) }>
-        {(listingReviews.length === 0) && ( <div id="LSP-No-Review-Prompt-Container">
-          <div>Looks like no one has written a review of this property</div>
-          <div id="Write-First-Review-Prompt" onClick={writeReviewPromptClickHandler}>Be the first</div>
-        </div> 
+        {(listingReviews.length === 0) && ( 
+          <div id="LSP-No-Review-Prompt-Container">
+            <div>Looks like no one has written a review of this property</div>
+            <div id="Write-First-Review-Prompt" onClick={writeReviewPromptClickHandler}>Be the first</div>
+          </div> 
         )}
         { writeReview  && (
-        <div id="LSPR-Write-Review-Form-Container">
+          <div id="LSPR-Write-Review-Form-Container">
             <textarea id="LSPRWR-Text-Input" placeholder="What do you think?" value={body} onChange={(e) => { setBody(e.target.value) }} cols="30" rows="10"></textarea>
             {errors && (<div id="LSPR-Errors">{errors[0]}</div>)}
             <button id="LSPRWR-Submit" onClick={LSPReviewSubmitHandler}>submit</button>
-        </div>)}
+          </div>)}
         {(listingReviews.length > 0) && (
           <div id="LSPR-Review-Show-Container">
             {lspReviewModulePlacer(listingReviews)}

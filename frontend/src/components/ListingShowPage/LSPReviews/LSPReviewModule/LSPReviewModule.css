@@ -63,6 +63,54 @@
     color: var(--enchantment)
 }
 
+#LSPRM-Username-Edit-Container {
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#LSPRM-Username-Edit-Text {
+    border-color: gray;
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 95%;
+    height: 150px;
+    padding: 20px;
+    line-height: 35px;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml);
+}
+
+#LSPRM-Username-Edit-Submit {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid slategrey;
+    font-size: var(--font-s-med);
+    background-color: var(--oceansurf);
+    margin-top: 10px;
+    height: 35px;
+    width: 230px;
+    border-radius: 4px;
+    color: var(--fog);
+    transition: background-color 1s;
+}
+
+#LSPRM-Username-Edit-Submit:hover {
+    cursor: pointer;
+    transition: background-color 1s;
+    background-color: var(--oceandepths);
+}
+
+#LSPRM-Username-Edit-Submit:active {
+    height: 32px;
+    width: 220px;
+}
+
 #LSPRM-Date {
     margin-top: 3px;
 }
@@ -71,3 +119,4 @@
     padding-top: 11px;
     height: auto;
 }
+

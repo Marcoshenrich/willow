@@ -1,5 +1,5 @@
 import csrfFetch from './csrf';
-import { newReviewErrors } from './errors';
+import { newReviewErrors, editReviewErrors } from './errors';
 
 const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
@@ -75,7 +75,6 @@ export const createReview = (review) => async dispatch => {
         dispatch(receiveReview(data.review));
         return response;
     } else {
-        console.log(data.errors)
         dispatch(newReviewErrors(data.errors))
     }
 }
@@ -89,10 +88,13 @@ export const updateReview = (review) => async dispatch => {
             "Accept": "application/json"
         }
     })
+    const data = await response.json();
     if (response.ok) {
-        const data = await response.json();
+        console.log("in updated response")
         dispatch(receiveReview(data.review));
         return response;
+    } else {
+        dispatch(editReviewErrors(data.errors))
     }
 }
 

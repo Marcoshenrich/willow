@@ -5,12 +5,14 @@ import { BsPencil } from "react-icons/bs"
 import { useDispatch, useSelector } from "react-redux"
 import { updateReview, getReviews, deleteReview, fetchReviews, fetchReview } from "../../../../store/review";
 import { getCurrentUser } from "../../../../store/session"
+import { clearErrors } from "../../../../store/errors";
 
 const LSPReviewModule = ({ review }) => {
   const dispatch = useDispatch()
   const author = review.user.username
   const datesArr = review.userAppointments
   const currentUser = useSelector(getCurrentUser)
+  const errors = useSelector(state => state.errors.editReviewErrors);
   const [edit, setEdit] = useState(false)
   const [body, setBody] = useState("")
 
@@ -19,10 +21,16 @@ const LSPReviewModule = ({ review }) => {
     dispatch(deleteReview(review.id))
   }
 
+  const LSPReviewModuleEditClickHandler = (e) => {
+    e.stopPropagation()
+    dispatch(clearErrors())
+    setEdit((edit) => !edit)
+  }
+
   const LSPReviewModuleEditHandler = () => {
     const updatedReview = { id: review.id, body, userId: currentUser.id, listingId: review.listingId }
-    dispatch(updateReview(updatedReview))
-    setEdit((edit) => !edit)
+    dispatch(clearErrors())
+    dispatch(updateReview(updatedReview)).then((res) => { if (res.ok) setEdit((edit) => !edit) })
   }
 
   const dateParser = (date) => {
@@ -51,7 +59,7 @@ const LSPReviewModule = ({ review }) => {
         <div id="LSPRM-Top-Bar-Icons">
           {review.userId === currentUser.id && (
           <>
-            <BsPencil onClick={()=> setEdit((edit) => !edit)} />
+              <BsPencil onClick={LSPReviewModuleEditClickHandler} />
             <TiDeleteOutline onClick={LSPReviewModuleDeleteClickHandler}/>
           </>
           )}
@@ -59,15 +67,16 @@ const LSPReviewModule = ({ review }) => {
       
       </div>
       {edit && (
-        <>
-          <textarea defaultValue={review.body} onChange={(e) => { setBody(e.target.value) }} cols="30" rows="10"></textarea>
-          <button onClick={LSPReviewModuleEditHandler}>submit</button>
-        </>
+        <div id="LSPRM-Username-Edit-Container">
+          <textarea id="LSPRM-Username-Edit-Text" defaultValue={review.body} onChange={(e) => { setBody(e.target.value) }} cols="30" rows="10"></textarea>
+          { errors && (<div id="LSPR-Errors">{errors[0]}</div>)}
+          <button id="LSPRM-Username-Edit-Submit" onClick={LSPReviewModuleEditHandler}>Edit Post</button>
+        </div>
       )}
       {!edit && (
         <>
-      <div id="LSPRM-Date">{dateVisitChecker()}</div>
-      <div id="LSPRM-Body">{review.body}</div>
+          <div id="LSPRM-Date">{dateVisitChecker()}</div>
+          <div id="LSPRM-Body">{review.body}</div>
         </>
       )}
     </div>
