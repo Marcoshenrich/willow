@@ -1,8 +1,10 @@
 import thunk from 'redux-thunk';
 import csrfFetch from './csrf';
+import { searchErrors } from './errors';
 
 const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 const RECEIVE_LISTING = 'RECEIVE_LISTING';
+const CLEAR_LISTINGS = 'CLEAR_LISTINGS';
 
 const receiveListings = (listings) => {
     return {
@@ -15,6 +17,12 @@ const receiveListing = (listing) => {
     return {
         type: RECEIVE_LISTING,
         listing
+    };
+};
+
+export const clearListings = () => {
+    return {
+        type: CLEAR_LISTINGS,
     };
 };
 
@@ -33,6 +41,17 @@ export const fetchListings = () => async dispatch => {
     if (response.ok) {
         const data = await response.json();
         dispatch(receiveListings(data));
+    }
+};
+
+export const searchListings = (query) => async dispatch => {
+    const response = await csrfFetch(`api/listings/search/${query}`)
+    const data = await response.json();
+    if (response.ok) {
+        dispatch(receiveListings(data));
+        return response;
+    } else {
+        dispatch(searchErrors(data))
     }
 };
 
@@ -69,6 +88,9 @@ const listingsReducer = (oldState={}, action) => {
         case RECEIVE_LISTING:
             newState[action.listing.id] = action.listing
             return newState;
+
+        case CLEAR_LISTINGS:
+            return {};
     
         default:
             return oldState;;

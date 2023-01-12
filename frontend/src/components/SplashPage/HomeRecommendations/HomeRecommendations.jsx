@@ -10,8 +10,7 @@ const HomeRecommendations = () => {
       <div>
         <div id="Recommendation-Text">
           <h3>Homes from Glade to Glen</h3>
-          <p>Sign in to write your next chapter.</p>
-          <button>Sign In</button>
+          <p>Let's write your next chapter together.</p>
         </div>
         <div><img src={mushroom} /></div>
         <div><img src={gardenSign} /></div>
