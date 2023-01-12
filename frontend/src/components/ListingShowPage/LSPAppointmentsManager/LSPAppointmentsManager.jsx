@@ -7,7 +7,7 @@ import 'react-calendar/dist/Calendar.css'
 import LSPAppointmentsCarousel from "./LSPAppointmentsCarousel";
 import LSPAppointmentsTimeContainer from "./LSPAppointmentsTimeContainer";
 
-const LSPAppointmentsManager = ({listing}) => {
+const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
   const currentUser = useSelector(getCurrentUser)
   const dispatch = useDispatch()
   const agentId = listing.agentId
@@ -18,6 +18,12 @@ const LSPAppointmentsManager = ({listing}) => {
   const [appointmentIndex, setAppointmentIndex] = useState(false)
   const [date, setDate] = useState(now)
   const [time, setTime] = useState("")
+
+  const LSPALoggedOutSignInHandler = (e) =>{
+    console.log("in handler")
+    e.stopPropagation()
+    setShowSessionModal(true)
+  }
 
   const appointmentMaker = (e) => {
     e.stopPropagation()
@@ -128,7 +134,7 @@ const LSPAppointmentsManager = ({listing}) => {
         )}
         { !currentUser && (
           <div id="LSPA-Appointment-Login-Required">
-            <div><span id="LSPAAS-Bold">Sign in</span> to visit your dream home</div>
+            <div><span id="LSPAAS-Bold" onClick={(e)=>{LSPALoggedOutSignInHandler(e)}}>Sign in</span> to visit your dream home</div>
           </div>
         )}
       </div>

@@ -1,13 +1,12 @@
+import './NavBar.css';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as sessionActions from '../../store/session';
+import { Link, useHistory } from 'react-router-dom';
 import SessionModal from '../SessionModal';
 import { FixedModal } from '../../context/Modal';
-import './NavBar.css';
-import Icon from "../assets/icons/icon.png"
-import { Link, useHistory } from 'react-router-dom';
+import * as sessionActions from '../../store/session';
 import { clearErrors } from '../../store/errors';
-import { Route } from "react-router-dom";
+import Icon from "../assets/icons/icon.png"
 
 
 const NavBar = () => {

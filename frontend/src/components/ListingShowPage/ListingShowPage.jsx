@@ -14,24 +14,35 @@ import LSPDetails from "./LSPDetails"
 import LSPImages from "./LSPImages"
 import LSPAppointmentsManager from "./LSPAppointmentsManager"
 import LSPReviews from "./LSPReviews"
-
-
+import SessionModal from '../SessionModal';
+import { FixedModal } from '../../context/Modal';
+import { clearErrors } from "../../store/errors"
 
 const ListingShowPage = ({listing}) => {
   const dispatch = useDispatch()
+  const [showSessionModal, setShowSessionModal] = useState(false)
   const [showAppointmentsManager, setShowAppointmentsManager] = useState(false)
   
   useEffect(()=>{
     dispatch(fetchListing(listing.id))
   }, [listing.id])
 
+  const onSessionModalClose = () => {
+    setShowSessionModal(false)
+    dispatch(clearErrors())
+  }
 
 
   return (
+    <>
+      {showSessionModal && (
+      <FixedModal onModalClose={onSessionModalClose}>
+        <SessionModal onModalClose={onSessionModalClose} />
+      </FixedModal>)}
     <div className="LSP">
       <LSPImages imageUrls={listing.imageUrls}/>
       <ListingShowPageCoreInfo listing={listing} showAppointmentsManager={showAppointmentsManager} setShowAppointmentsManager={setShowAppointmentsManager} />
-      {showAppointmentsManager && (< LSPAppointmentsManager listing={listing} />)}
+        {showAppointmentsManager && (< LSPAppointmentsManager listing={listing} setShowSessionModal={setShowSessionModal} />)}
       <div id="LSP-Description">
         <div>
           <h2>Description</h2>
@@ -55,8 +66,10 @@ const ListingShowPage = ({listing}) => {
 
       </div>
       <div id="LSP-Details"> <LSPDetails listing={listing}/></div>
-      <LSPReviews listing={listing} />
+        <LSPReviews listing={listing} setShowSessionModal={setShowSessionModal}/>
+      
     </div>
+    </>
   )
 }
 

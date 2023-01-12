@@ -9,7 +9,7 @@ import { clearErrors } from "../../../store/errors";
 
 
 
-const LSPReviews = ({ listing }) => {
+const LSPReviews = ({ listing, setShowSessionModal }) => {
   const dispatch = useDispatch()
   const currentUser = useSelector(getCurrentUser)
   const reviews = useSelector(getReviews)
@@ -42,6 +42,11 @@ const LSPReviews = ({ listing }) => {
     dispatch(createReview(review)).then((res) => { if (res.ok) setWriteReview((writeReview) => !writeReview) }).then((writeReview) => { if (!writeReview) setBody("")})
   }
 
+  const LSPRLoggedOutSignInHandler = (e) => {
+    e.stopPropagation()
+    setShowSessionModal(true)
+  }
+
   const lspReviewModulePlacer = (listingReviews) => {
     if (listingReviews) {
       return (
@@ -61,7 +66,7 @@ const LSPReviews = ({ listing }) => {
           <div id="LSP-No-Review-Prompt-Container">
             <div>Looks like no one has written a review of this property</div>
             {currentUser && (<div id="Write-First-Review-Prompt" onClick={writeReviewPromptClickHandler}>Be the first</div>)}
-            {!currentUser && (<div id="Write-First-Review-Prompt">Sign in to be the First</div>)}
+            {!currentUser && (<div id="LSPRSign-In"> <span id="LSPAAS-Bold" onClick={(e) => { LSPRLoggedOutSignInHandler(e) }}>Sign in</span> to be the First</div>)}
           </div> 
         )}
         { writeReview  && (
