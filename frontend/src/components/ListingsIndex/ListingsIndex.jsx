@@ -1,17 +1,18 @@
 import ListingShowPage from "../ListingShowPage"
 import "./ListingsIndex.css"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import Map from "../Map"
 import ListingModule from "../ListingModule"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { getListings, fetchListings } from "../../store/listings"
+import { getListings, fetchListings, searchListings } from "../../store/listings"
 import { BsChevronDown } from "react-icons/bs"
 import { fetchFavorites, getFavorites } from "../../store/favorite"
 import { getCurrentUser } from "../../store/session"
 
 
 const ListingsIndex = () => {
+  const { query } = useParams()
 
   const dispatch = useDispatch()
   const listings = useSelector(getListings)
@@ -19,9 +20,13 @@ const ListingsIndex = () => {
   const currentUser = useSelector(getCurrentUser)
   
   useEffect(()=>{
-    dispatch(fetchListings())
+    if (query) {
+      dispatch(searchListings(query))
+    } else {
+      dispatch(fetchListings())
+    }
     if (currentUser) dispatch(fetchFavorites(currentUser.id))
-  },[])
+  }, [query])
 
   const favoritedListings = () => {
     const favoritedListingArray = []

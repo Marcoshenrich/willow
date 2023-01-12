@@ -117,10 +117,15 @@
     color: #4d6bc6;
 }
 
+#LSPAAS-Bold:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 #LSPA-Appointment-Login-Required {
-        font-family: var(--font);
-            font-size: var(--font-s-lrg);
-            font-weight: var(--font-w-sml);
-            display: flex;
-            flex-direction: column;
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-sml);
+    display: flex;
+    flex-direction: column;
 }

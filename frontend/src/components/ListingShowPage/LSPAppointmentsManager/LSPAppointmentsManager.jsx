@@ -126,9 +126,9 @@ const LSPAppointmentsManager = ({listing}) => {
             <div id="USAM-Cancel"><button onClick={(e) => deleteAppointmentClick(e)} id="LSPA-Submit-Button">Cancel Appointment</button></div>
           </div>
         )}
-        { !!!currentUser && (
+        { !currentUser && (
           <div id="LSPA-Appointment-Login-Required">
-            <div><span id="LSPAAS-Bold">Log in </span>to visit your dream home</div>
+            <div><span id="LSPAAS-Bold">Sign in</span> to visit your dream home</div>
           </div>
         )}
       </div>

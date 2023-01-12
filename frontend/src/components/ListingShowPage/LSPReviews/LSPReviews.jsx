@@ -60,7 +60,8 @@ const LSPReviews = ({ listing }) => {
         {(listingReviews.length === 0) && ( 
           <div id="LSP-No-Review-Prompt-Container">
             <div>Looks like no one has written a review of this property</div>
-            <div id="Write-First-Review-Prompt" onClick={writeReviewPromptClickHandler}>Be the first</div>
+            {currentUser && (<div id="Write-First-Review-Prompt" onClick={writeReviewPromptClickHandler}>Be the first</div>)}
+            {!currentUser && (<div id="Write-First-Review-Prompt">Sign in to be the First</div>)}
           </div> 
         )}
         { writeReview  && (
@@ -72,7 +73,7 @@ const LSPReviews = ({ listing }) => {
         {(listingReviews.length > 0) && (
           <div id="LSPR-Review-Show-Container">
             {lspReviewModulePlacer(listingReviews)}
-            {!writeReview && (<button id="LSPRWR-Write-New-Review-Submit" onClick={writeReviewPromptClickHandler}>Write a Review</button>)}
+            {!writeReview && currentUser && (<button id="LSPRWR-Write-New-Review-Submit" onClick={writeReviewPromptClickHandler}>Write a Review</button>)}
           </div>
         )}
       </div>

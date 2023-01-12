@@ -57,7 +57,7 @@ const LSPReviewModule = ({ review }) => {
       <div id="LSPRM-Top-Bar" >
         <div id="LSPRM-Username">{author}</div>
         <div id="LSPRM-Top-Bar-Icons">
-          {review.userId === currentUser.id && (
+          {currentUser && review.userId === currentUser.id && (
           <>
               <BsPencil onClick={LSPReviewModuleEditClickHandler} />
             <TiDeleteOutline onClick={LSPReviewModuleDeleteClickHandler}/>
