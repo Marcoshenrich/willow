@@ -49,13 +49,6 @@ const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
       )
   }
 
-
-  const negModuloHander = (pointer, queueLen) => {
-    let remain = pointer % queueLen;
-    let check = Math.floor(remain >= 0 ? remain : remain + queueLen)
-    return check
-  }
-
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 100, itemsToShow: 4, itemsToScroll: 4 },

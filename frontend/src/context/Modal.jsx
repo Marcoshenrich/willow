@@ -37,6 +37,21 @@ export function FixedModal({ onModalClose, children }) {
     );
 }
 
+export function ImageModal({ onModalClose, children }) {
+    const modalNode = useContext(ModalContext);
+    if (!modalNode) return null;
+
+    return ReactDOM.createPortal(
+        <div id="Image-Modal">
+            <div id="Image-modal-background" onClick={onModalClose} />
+            <div id="Image-modal-content">
+                {children}
+            </div>
+        </div>,
+        modalNode
+    );
+}
+
 export function ScrollModal({ onModalClose, children }) {
     const modalNode = useContext(ModalContext);
     if (!modalNode) return null;

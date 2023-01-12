@@ -71,3 +71,38 @@
     top: -90px;
     border-radius: 0px;
 }
+
+#Image-Modal {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    height: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+}
+
+#Image-modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#Image-modal-content {
+    display: flex;
+    height: auto;
+    width: auto;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+    padding: 20px;
+}

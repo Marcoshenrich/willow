@@ -2,7 +2,6 @@ import "./SplashPage.css"
 import Hero from "./Hero/Hero"
 import HomeRecommendations from "./HomeRecommendations"
 import footer from "../assets/footer.webp"
-
 const SplashPage = () => {
 
   return (
