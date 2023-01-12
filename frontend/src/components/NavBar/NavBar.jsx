@@ -32,7 +32,7 @@ const NavBar = () => {
 
     const sessionControl = () => {
         if (sessionUser) { 
-            return <div onClick={(e) => logout(e)}>Log Out</div>
+            return <div onClick={(e) => { routeChangeHome(); logout(e)}}>Log Out</div>
         } else {
             return <div onClick={() => setShowSessionModal(true)}>Sign In</div>
         }

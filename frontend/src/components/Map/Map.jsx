@@ -1,11 +1,10 @@
 import React, { useEffect, useMemo } from 'react'
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMapKey, getMapKey } from '../../store/map';
 import {GiButterflyFlower} from "react-icons/gi"
-import { getListings, fetchListings } from "../../store/listings"
+import { getListings } from "../../store/listings"
 import './Map.css';
 
 
@@ -19,13 +18,14 @@ const MapWrapper = () => {
     dispatch(fetchMapKey())
   }, [])
 
-  const { isLoaded } = useLoadScript({ googleMapsApiKey: key })
+  // const { isLoaded } = useLoadScript({ googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY })
+  // console.log(key)
   // console.log(process.env.REACT_APP_MAPS_API_KEY)
   
 
   return (
     <>
-      <Wrapper>
+      <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY}>
         <LocalMap listings={listings}/>
       </Wrapper>
     </>

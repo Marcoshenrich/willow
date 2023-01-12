@@ -26,11 +26,12 @@ const Hero = () => {
             <img src={blueMyco}/>
         </div>
         <div id="Hero-Content">
+            
             <div>Discover Your Fairy Tale</div>
-            <div id="Search-Bar">
-                    <input value={query} type="search" placeholder={searchErrors ? searchErrors[0] : "find your dream home"} onChange={(e) => setQuery(e.target.value)} />
-                <button id="Search-Button">{<BsSearch id="Search-Glass" onClick={splashSearchSubmit}/>}</button>
-            </div>
+                <div id="Search-Bar">
+                    <input id={searchErrors ? "Search-Bar-Errors" : ""} value={query} type="search" placeholder={searchErrors ? searchErrors[0] : "find your dream home"} onChange={(e) => setQuery(e.target.value)} />
+                    <button id="Search-Button">{<BsSearch id="Search-Glass" onClick={splashSearchSubmit} />}</button>
+                </div>
         </div>
     </>
     )
