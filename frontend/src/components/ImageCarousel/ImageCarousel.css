@@ -23,19 +23,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto;
-    width: auto;
+    height: 800px;
+    width: 1000px;
 }
 
 #Carousel-Image {
     object-fit: cover;
     height: auto;
     width: auto;
+    max-height: 800px;
+    max-width: 800px;
 }
 
 #Image-Carousel-Image-Container {
-    height: 700px;
-    width: 700px;
+    height: 800px;
+    width: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,4 +63,30 @@
 
 .Image-Carousel-Icon:hover {
     color: rgba(0, 0, 0, 0.65);
+}
+
+#Image-Carousel-Right-Utils-Box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 800px;
+}
+
+#Image-Carousel-Close-Container {
+    height: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#Image-Carousel-Close-Icon {
+    font-size: 40px;
+    color:white;
+    border-radius: 50%;
+}
+
+#Image-Carousel-Close-Icon:hover {
+    background-color: gray;
+
 }

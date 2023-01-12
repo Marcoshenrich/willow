@@ -6,7 +6,7 @@ import SessionModal from '../SessionModal';
 import { FixedModal } from '../../context/Modal';
 import * as sessionActions from '../../store/session';
 import { clearErrors } from '../../store/errors';
-import Icon from "../assets/icons/icon.png"
+import Icon from "../../assets/icons/icon.png"
 
 
 const NavBar = () => {

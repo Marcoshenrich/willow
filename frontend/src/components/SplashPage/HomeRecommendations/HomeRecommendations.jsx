@@ -1,7 +1,7 @@
 import "./HomeRecommendations.css"
-import gardenSign from "../../assets/heroes/gardensign.jpg"
-import mushroom from "../../assets/heroes/mushroom.jpg"
-import butterflies from "../../assets/heroes/butterflies.jpg"
+import gardenSign from "../../../assets/heroes/gardensign.jpg"
+import mushroom from "../../../assets/heroes/mushroom.jpg"
+import butterflies from "../../../assets/heroes/butterflies.jpg"
 
 const HomeRecommendations = () => {
 

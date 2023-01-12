@@ -1,5 +1,5 @@
 import "./Hero.css"
-import blueMyco from "../../assets/heroes/bluemyco.jpg"
+import blueMyco from "../../../assets/heroes/bluemyco.jpg"
 import { BsSearch } from "react-icons/bs"
 import { useDispatch, useSelector } from 'react-redux';
 import { searchListings, clearListings } from "../../../store/listings";
