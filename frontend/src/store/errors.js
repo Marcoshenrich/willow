@@ -3,6 +3,7 @@ const SIGNUP_ERRORS = 'SIGNUP_ERRORS';
 const CLEAR_ERRORS = 'CLEAR_ERRORS';
 const NEW_REVIEW_ERRORS = 'NEW_REVIEW_ERRORS'
 const EDIT_REVIEW_ERRORS = 'EDIT_REVIEW_ERRORS'
+const SEARCH_ERRORS = 'SEARCH_ERRORS'
 
 
 export const loginErrors = (errors) => {
@@ -39,6 +40,12 @@ export const editReviewErrors = (errors) => {
     };
 };
 
+export const searchErrors = (errors) => {
+    return {
+        type: SEARCH_ERRORS,
+        errors
+    };
+};
 
 
 
@@ -60,6 +67,11 @@ const errorReducer = (oldState = {}, action) => {
 
         case EDIT_REVIEW_ERRORS:
             newState["editReviewErrors"] = action.errors
+            return newState
+
+
+        case SEARCH_ERRORS:
+            newState["searchErrors"] = action.errors
             return newState
 
         case CLEAR_ERRORS:
