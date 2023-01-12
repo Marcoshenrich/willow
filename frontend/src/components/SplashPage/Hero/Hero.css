@@ -59,6 +59,7 @@
 #Search-Bar > input {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    padding-left: 15px;
     border: solid var(--oceandepths) 2px;
     border-right: 0px;
     width: 30%;
@@ -73,7 +74,10 @@
     border-left: 0px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+}
 
+#Search-Bar-Errors::placeholder {
+    color: #F47174;
 }
 
 #Search-Glass {
