@@ -7,12 +7,15 @@ import './NavBar.css';
 import Icon from "../assets/icons/icon.png"
 import { Link, useHistory } from 'react-router-dom';
 import { clearErrors } from '../../store/errors';
+import { Route } from "react-router-dom";
+
 
 const NavBar = () => {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user);
     const [showSessionModal, setShowSessionModal] = useState(false)
     const history = useHistory();
+    const currentUser = useSelector(sessionActions.getCurrentUser)
 
     const routeChangeHome = () => {
         history.push(`/`);
@@ -47,9 +50,8 @@ const NavBar = () => {
             <div id="NavBarLeft">
                 <div onClick={routeChangeListings}>Buy</div>
                 <div onClick={routeChangeListings}>Rent</div>
-                <div>Sell</div>
-                <div>Home Loans</div>
-                <div>Agent Finder</div>
+                    <div ><a id="Link" target="_blank" href="https://www.google.com/search?q=A+Midsummer+Night%27s+Dream+tickets+near+me">Dreams</a></div>
+
             </div>
 
             <div id="NavBarMid">
@@ -58,9 +60,8 @@ const NavBar = () => {
             </div>
 
             <div id="NavBarRight">
-                <div>Manage Rentals</div>
-                <div>Advertise</div>
-                <div><Link to={`/user/profile`}>Help</Link></div>
+                <div ><a id="Link" target="_blank" href="https://en.wikipedia.org/wiki/Fairy">Learn More</a></div>
+                {currentUser && (<div ><Link id="Link"  to={`/user/profile`}>Profile</Link></div>)}
                 {sessionControl()}
             </div>
         </nav>

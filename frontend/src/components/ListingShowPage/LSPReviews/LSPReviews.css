@@ -46,6 +46,9 @@
 
 #LSP-Review-Container.No-Review {
     height: 200px;
+            display: flex;
+                flex-direction: column;
+                align-items: center;
 }
 
 #LSP-Review-Container.No-Review.Write-Review {
@@ -77,8 +80,16 @@
     font-family: var(--font);
     font-size: var(--font-s-med);
     font-weight: var(--font-w-sml);
-    
 }
+
+#LSPR-Errors {
+    margin: 15px;
+    color: red;
+    font-family: var(--font);
+    font-size: var(--font-s-sml);
+    font-weight: var(--font-w-med);
+}
+
 
 #LSPRWR-Submit {
     align-items: center;
@@ -149,4 +160,15 @@
     border-radius: 4px;
     color: var(--fog);
     transition: background-color 1s;
+}
+
+#LSPRWR-Write-New-Review-Submit:hover {
+    cursor: pointer;
+    transition: background-color 1s;
+    background-color: var(--oceandepths);
+}
+
+#LSPRWR-Write-New-Review-Submit:active {
+    height: 32px;
+    width: 220px;
 }

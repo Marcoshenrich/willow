@@ -20,20 +20,13 @@
 }
 
 #LSPA-Carousel {
+    width: 600px;
     display: flex;
+    justify-content: center;
     align-items: center;
-        box-sizing: border-box;
+
 }
 
 #LSPA-Carousel > * {
     margin: 5px;
-}
-
-#Left-LSPA-Carousel-Icon {
-    font-size: 20px;
-}
-
-#Right-LSPA-Carousel-Icon {
-    font-size: 20px;
-    stroke: 400px;
 }

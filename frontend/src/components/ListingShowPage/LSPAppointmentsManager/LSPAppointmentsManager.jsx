@@ -7,8 +7,6 @@ import 'react-calendar/dist/Calendar.css'
 import LSPAppointmentsCarousel from "./LSPAppointmentsCarousel";
 import LSPAppointmentsTimeContainer from "./LSPAppointmentsTimeContainer";
 
-
-
 const LSPAppointmentsManager = ({listing}) => {
   const currentUser = useSelector(getCurrentUser)
   const dispatch = useDispatch()
@@ -87,6 +85,7 @@ const LSPAppointmentsManager = ({listing}) => {
     }
     return `${hoursInt}:${appointment.time.slice(3, 5)} ${ampm}`
   }
+
 
   useEffect(()=>{
     dispatch(fetchAppointments())

@@ -1,20 +1,23 @@
+import "./LSPReviews.css"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getCurrentUser } from "../../../store/session"
 import { createReview, getReviews, deleteReview, fetchReviews, fetchReview } from "../../../store/review";
-
-
-
 import LSPReviewModule from "./LSPReviewModule/LSPReviewModule"
-import "./LSPReviews.css"
+import { clearErrors } from "../../../store/errors";
+
+
+
 
 const LSPReviews = ({ listing }) => {
   const dispatch = useDispatch()
   const currentUser = useSelector(getCurrentUser)
   const reviews = useSelector(getReviews)
+  const errors = useSelector(state => state.errors.newReviewErrors);
   const [body, setBody] = useState("")
   const [writeReview, setWriteReview] = useState(false)
   const [listingReviews, setListingReviews] = useState([])
+  
 
 
   useEffect(()=>{
@@ -37,18 +40,14 @@ const LSPReviews = ({ listing }) => {
   }
 
   const LSPReviewSubmitHandler = () => {
-    console.log("in submit handler")
     const review = { body, userId: currentUser.id, listingId: listing.id  }
-    setWriteReview((writeReview) => !writeReview)
-    dispatch(createReview(review))
-    setBody("")
+    dispatch(clearErrors())
+    dispatch(createReview(review)).then((res) => { if (res.ok) setWriteReview((writeReview) => !writeReview) }).then((writeReview) => { if (!writeReview) setBody("")})
   }
 
 
   const lspReviewModulePlacer = (listingReviews) => {
     if (listingReviews) {
-      console.log("in module place if statement")
-      console.log(listingReviews)
       return (
         listingReviews.map((review, i) => {
           return <LSPReviewModule key={i} review={review} /> 
@@ -64,12 +63,13 @@ const LSPReviews = ({ listing }) => {
       <div id="LSP-Review-Container" className={(listingReviews.length === 0 ? "No-Review" : "Contains-Reviews") + (writeReview ? " Write-Review" : "" ) }>
         {(listingReviews.length === 0) && ( <div id="LSP-No-Review-Prompt-Container">
           <div>Looks like no one has written a review of this property</div>
-          <div id="Write-First-Review-Prompt" onClick={writeReviewPromptClickHandler}>Write the first one</div>
+          <div id="Write-First-Review-Prompt" onClick={writeReviewPromptClickHandler}>Be the first</div>
         </div> 
         )}
         { writeReview  && (
         <div id="LSPR-Write-Review-Form-Container">
             <textarea id="LSPRWR-Text-Input" placeholder="What do you think?" value={body} onChange={(e) => { setBody(e.target.value) }} cols="30" rows="10"></textarea>
+            {errors && (<div id="LSPR-Errors">{errors[0]}</div>)}
             <button id="LSPRWR-Submit" onClick={LSPReviewSubmitHandler}>submit</button>
         </div>)}
         {(listingReviews.length > 0) && (

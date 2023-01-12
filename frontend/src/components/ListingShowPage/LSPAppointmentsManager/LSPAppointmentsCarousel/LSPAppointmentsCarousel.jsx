@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 import Moment from 'react-moment';
 import LSPAMTimeBlock from "../LSPAMTimeBlock/LSPAMTimeBlock"
+import Carousel from 'react-elastic-carousel';
+
 
 
 const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
@@ -26,17 +28,18 @@ const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
     const weekday = [] 
     const year = [] 
 
-    while (i < 5) {
+    while (i < 14) {
+      nowClone.setDate(nowClone.getDate() + 1);
       day.push(nowClone.getDate())
       month.push(nowClone.getMonth())
       weekday.push(daysInWeek[nowClone.getDay()])
       year.push(nowClone.getFullYear())
-      nowClone.setDate(nowClone.getDate() + 1);
       i++
     }
     return [day, weekday, month, year]
 
   }
+
 
   const placeDateBlocks = () => {
     const [day, weekday, month, year] = dateQueueMaker()
@@ -53,32 +56,18 @@ const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
     return check
   }
 
-
-  const carouselClickHandler = (e) => {
-    // e.stopPropagation()
-    // let favoriteQueueclone = favoriteQueue.slice()
-    // if (e.currentTarget.id.slice(0, 4) === "Left") {
-    //   favoriteQueueclone.pop()
-    //   favoriteQueueclone.unshift(favorites[negModuloHander(favoriteQueuePointer - 3, favorites.length)])
-    //   setFavoriteQueuePointer(favoriteQueuePointer - 1)
-    // } else {
-    //   favoriteQueueclone.shift()
-    //   favoriteQueueclone.push(favorites[negModuloHander(favoriteQueuePointer + 1, favorites.length)])
-    //   setFavoriteQueuePointer(favoriteQueuePointer + 1)
-    // }
-    // setFavoriteQueue(favoriteQueueclone)
-  }
-
-  const dateToFormat = '1976-04-19T12:59-0500';
-
-
-
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 100, itemsToShow: 4, itemsToScroll: 4 },
+    { width: 400, itemsToShow: 5, itemsToScroll: 5 }
+  ];
 
   return (
     <div id="LSPA-Carousel">
-      <BsChevronLeft id="Left-LSPA-Carousel-Icon" />
-      {placeDateBlocks()}
-      <BsChevronRight id="Right-LSPA-Carousel-Icon" />
+
+      <Carousel breakPoints={breakPoints}>
+        {placeDateBlocks()}
+      </Carousel>
     </div>
   )
 }

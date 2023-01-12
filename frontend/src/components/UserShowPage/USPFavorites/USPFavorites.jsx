@@ -23,6 +23,7 @@ const USPFavorites = () => {
 
   useEffect(() => {
     dispatch(fetchFavorites(currentUser.id)).then(() => dispatch(fetchListings()))
+    
   }, [])
 
   useEffect(() => {

@@ -65,3 +65,11 @@
     color: var(--burnt-amber)
 }
 
+#Link {
+    text-decoration: none;
+    color: var(--oceanabyss);
+}
+
+#Link:hover {
+    color: var(--burnt-amber);
+}

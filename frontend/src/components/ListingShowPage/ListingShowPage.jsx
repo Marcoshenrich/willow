@@ -32,7 +32,6 @@ const ListingShowPage = ({listing}) => {
       <LSPImages imageUrls={listing.imageUrls}/>
       <ListingShowPageCoreInfo listing={listing} showAppointmentsManager={showAppointmentsManager} setShowAppointmentsManager={setShowAppointmentsManager} />
       {showAppointmentsManager && (< LSPAppointmentsManager listing={listing} />)}
-      <div id="LSP-Local-Info">Local Info</div>
       <div id="LSP-Description">
         <div>
           <h2>Description</h2>

@@ -1,7 +1,6 @@
 class Review < ApplicationRecord
     validates :user_id, :listing_id, :body, presence: true
-    validates :body, length: { in: 1...500 }
-
+    validates :body, length: {maximum: 500, message:  "can't be more than 500 characters" }
     belongs_to :user
     belongs_to :listing
 

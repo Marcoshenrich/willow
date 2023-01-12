@@ -22,7 +22,6 @@
 .LSP {
     color: var(--oceanabyss);
     width: 100%;
-    height: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -34,7 +33,9 @@
 
 #LSP-Description div {
     width: 650px;
-    margin-top: 25px;
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #LSP-Description h2 {
@@ -63,6 +64,8 @@
     border: solid var(--fog) 2px;
     border-radius: 10px;
     margin: 10px;
+        margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #LSP-HLT-Header {
@@ -84,4 +87,6 @@
 #LSP-Details {
     height: 300px;
     margin-top:20px;
+    margin-bottom: 20px;
 }
+
