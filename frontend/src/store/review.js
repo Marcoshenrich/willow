@@ -90,7 +90,6 @@ export const updateReview = (review) => async dispatch => {
     })
     const data = await response.json();
     if (response.ok) {
-        console.log("in updated response")
         dispatch(receiveReview(data.review));
         return response;
     } else {

@@ -17,10 +17,6 @@ const MapWrapper = () => {
   useEffect(() => {
     dispatch(fetchMapKey())
   }, [])
-
-  // const { isLoaded } = useLoadScript({ googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY })
-  // console.log(key)
-  // console.log(process.env.REACT_APP_MAPS_API_KEY)
   
 
   return (

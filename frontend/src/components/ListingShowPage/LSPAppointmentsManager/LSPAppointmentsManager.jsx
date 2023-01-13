@@ -20,7 +20,6 @@ const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
   const [time, setTime] = useState("")
 
   const LSPALoggedOutSignInHandler = (e) =>{
-    console.log("in handler")
     e.stopPropagation()
     setShowSessionModal(true)
   }
