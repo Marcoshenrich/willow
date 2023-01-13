@@ -39,6 +39,11 @@
     object-fit: cover;
 }
 
+.LSP-Images img:hover {
+    cursor: pointer;
+    filter: brightness(70%)
+}
+
 .LSP-Support-Image-Container{
     width: 34%;
     height: 100%;

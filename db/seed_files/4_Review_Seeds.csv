@@ -1,0 +1,25 @@
+user_id:int,listing_id:int,body
+4,1,"So cute! I love libraries, they remind me of the Fae Realms, but like, the opposite."
+5,1,That bedroom is very cozy. I asked if they could let me keept the books and they said no >:(
+6,2,"Too small for me, but I liked the cinnamon smells."
+7,4,"That spirit tree was so gorgeous, I sat under it for a while but the tour agent was rude and made me move."
+8,4,I haven't been but this looks like my Mom's place!
+9,6,Just like my pet hobbits used to live in. 
+10,7,Perfect little hideaway for an introvert like me. I can't afford it tho.
+11,9,"This kitchen is unreal! What a special place to be. Not so sure about the furnace in the bedroom, feels dangerous!"
+4,10,"Soooo Beautiful. Scary to be so close to a Fae gate tho, I mean, who knows what will come out of it."
+5,10,Only rich fae can afford to even look at this place. I asked and they said no >:(
+6,10,... Can I move into the kitchen? Will cook for free
+7,12,"Wooooooah, place is even more unreal in person. "
+8,13,"MY GODFATHER VISITED THIS PLACE AND WAS CURSED, DO NOT GO"
+9,13,Scary...
+10,13,:(
+11,13,Don't know what all the fuss is about. 
+4,14,I don't fish. 
+5,15,I'm trying to love this place but it looked a little sparse. Not sure...
+6,16,I love the ocean!
+7,17,"Too Cute! Sad that it's always winter. Also, I walked into the kitchen and I swear I warbled a little bit. "
+8,17,The colors on this are just perfect. 
+9,18,Wonderful. 
+10,22,The most beautiful place I've ever seen!
+11,22,Smelled bad. 

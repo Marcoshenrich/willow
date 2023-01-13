@@ -73,6 +73,7 @@ class EasySeeds
         data << row
       end
       headers = data.shift
+  
       headers.map{|header| header.to_sym}
     
       return headers, data
@@ -98,7 +99,8 @@ class EasySeeds
         return ActiveModel::Type::Boolean.new.cast(datum)
 
       elsif ["date"].include?(data_type)
-        return DateTime.parse(datum).to_date.to_s
+        puts datum
+        return Date.parse(datum)
 
       else
         return datum

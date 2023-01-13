@@ -1,4 +1,7 @@
-username,email,password,agent: bool
+username,email,password,agent:bool
+Twig-Eater,Twig-Eater@fairymail.io,password,TRUE
+Titania,Titania@fairymail.io,password,TRUE
+Tooth-Fairy Maeve,Enamelist@fairymail.io,password,TRUE
 Heleynore,Heleynore@fairymail.io,password,FALSE
 Tarragon,Tarragon@fairymail.io,password,FALSE
 Chenol,Chenol@fairymail.io,password,FALSE
@@ -7,6 +10,4 @@ Qirel,Qirel@fairymail.io,password,FALSE
 Umesalor,Umesalor@fairymail.io,password,FALSE
 Elm,Elm@fairymail.io,password,FALSE
 Mia,Mia@fairymail.io,password,FALSE
-Twig-Eater,Twig-Eater@fairymail.io,password,TRUE
-Titania,Titania@fairymail.io,password,TRUE
-Tooth-Fairy Maeve,Enamelist@fairymail.io,password,TRUE
+Periwinkle Star,Stardom@fairymail.io,password,FALSE
