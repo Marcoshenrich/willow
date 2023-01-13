@@ -39,8 +39,6 @@ const ListingsIndex = () => {
     return [favoritedIdArray, favoritedListingArray]
   } 
 
-  
-
   const favoriteChecker = (listing) => {
     let favoritedIdArray;
     let favoritedListingArray;
