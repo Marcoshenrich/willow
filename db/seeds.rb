@@ -9,7 +9,7 @@ User.destroy_all
   
 class_names = [User, Listing, Appointment, Review]
 class_image_names = [Listing]
-puts "in unpack"
+
 EasySeeds.create_easy_seed_data(class_names)
 EasySeeds.attach_images(class_image_names)
 

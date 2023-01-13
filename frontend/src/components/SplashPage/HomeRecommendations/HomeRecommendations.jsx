@@ -1,9 +1,16 @@
 import "./HomeRecommendations.css"
+import { Link, useHistory } from 'react-router-dom';
 import gardenSign from "../../../assets/heroes/gardensign.jpg"
-import mushroom from "../../../assets/heroes/mushroom.jpg"
-import butterflies from "../../../assets/heroes/butterflies.jpg"
+import yellowHouse from "../../../assets/heroes/yellowHouse.jpeg"
+import leafHome from "../../../assets/heroes/leafHome.jpeg"
 
 const HomeRecommendations = () => {
+  const history = useHistory();
+  
+  const routeChangeListings = () => {
+    history.push(`/listings`);
+  }
+
 
   return (
     <div className="Recommendations">
@@ -11,10 +18,12 @@ const HomeRecommendations = () => {
         <div id="Recommendation-Text">
           <h3>Homes from Glade to Glen</h3>
           <p>Let's write your next chapter together.</p>
+          <button id="Splash-Page-CTA" onClick={routeChangeListings}>Find the perfect home</button>
+
         </div>
-        <div><img src={mushroom} /></div>
         <div><img src={gardenSign} /></div>
-        <div><img src={butterflies} /></div>
+        <div><img src={leafHome} /></div>
+        <div><img src={yellowHouse} /></div>
       </div>
     </div>
   )

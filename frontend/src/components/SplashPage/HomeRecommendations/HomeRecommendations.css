@@ -60,7 +60,7 @@
 #Recommendation-Text > h3{
     margin: 5px;
     font-family: var(--font);
-    font-size: var(--font-s-med);
+    font-size: var(--font-s-lrg);
     font-weight: var(--font-w-lrg);
     text-align: center;
 }
@@ -68,26 +68,34 @@
 #Recommendation-Text>p {
     margin: 10px;
     font-family: var(--font);
-    font-size: var(--font-s-sml);
-    font-weight: var(--font-w-sml);
-    text-align: center;
-}
-
-#Recommendation-Text>button {
-    cursor: pointer;
-    background-color:transparent;
-    border-radius: 3px;
-    margin: 10px;
-    height: 50px;
-    width: 90px;
-    font-family: var(--font);
     font-size: var(--font-s-med);
     font-weight: var(--font-w-sml);
     text-align: center;
 }
 
-#Recommendation-Text>button:hover {
+#Splash-Page-CTA {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid slategrey;
+    font-size: var(--font-s-med);
+    background-color: var(--oceansurf);
+    margin-top: 15px;
+    height: 46px;
+    width: 205px;
+    border-radius: 4px;
+    color: var(--fog);
     transition: background-color 1s;
-    background-color: var(--grassylight);
+    min-height: 43px;
+}
+
+#Recommendation-Text>button:hover {
+    transition: background-color .5s;
+    background-color: var(--oceandepths);
+}
+
+#Recommendation-Text>button:active {
+    height: 43px;
+    width: 200px;
 
 }

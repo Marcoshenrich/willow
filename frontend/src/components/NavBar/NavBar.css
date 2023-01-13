@@ -36,8 +36,12 @@
     font-size: 60px;
 }
 
-#NavBarMid img {
+#NavBarMid:hover {
     cursor: pointer;
+    font-size: 62px;
+}
+
+#NavBarMid img {
     top: 5px;
     width: 53px;
     height: 60px;

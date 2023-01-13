@@ -53,8 +53,8 @@ const NavBar = () => {
 
             </div>
 
-            <div id="NavBarMid">
-                    <img src={Icon} alt="" onClick={routeChangeHome}/>
+            <div id="NavBarMid" onClick={routeChangeHome}>
+                    <img src={Icon} alt=""/>
                 <span>Willow</span>
             </div>
 
