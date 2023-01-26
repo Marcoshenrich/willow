@@ -7,6 +7,7 @@ import { useState } from "react";
 const ImageCarousel = ({ imageArray, index, setImageIndex, setShowImageCarousel }) => {
   const numImages = imageArray.length
 
+  //consider placing in a util for modular use
   const negModuloHander = (pointer, queueLen) => {
     let remain = pointer % queueLen;
     let check = Math.floor(remain >= 0 ? remain : remain + queueLen)
