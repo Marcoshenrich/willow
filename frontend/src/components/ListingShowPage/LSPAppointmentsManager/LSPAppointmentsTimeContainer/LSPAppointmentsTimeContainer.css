@@ -23,9 +23,5 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding-left: 30px;
-}
-
-#LSPA-Time-Container>* {
-    margin: 4.5px;
+    padding-left: 65px;
 }

@@ -19,6 +19,18 @@
     --fog: #efefef;
 }
 
+#LSPAM-Time-Block-Wrapper {
+        max-width: 104px;
+    border-radius: 2px;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    margin-top: 3.5px;
+}
+
 #LSPAM-Time-Block {
     height: 50px;
     width: 104px;
@@ -27,9 +39,9 @@
     color: var(--oceanabyss);
     font-family: var(--font);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 3.5px;
 }
 
 #LSPAM-Time-Block:hover {
@@ -48,6 +60,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+        margin: 3px;
 }
 
 #LSPAM-Time-Block-Time {

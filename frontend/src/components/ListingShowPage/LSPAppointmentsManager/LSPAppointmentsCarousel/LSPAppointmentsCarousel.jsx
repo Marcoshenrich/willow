@@ -14,7 +14,7 @@ const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
   const dispatch = useDispatch()
 
   const now = new Date()
-  
+
   const dateQueueMaker = () => {
     let nowClone = new Date()
     let i = 0
@@ -53,7 +53,6 @@ const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
 
   return (
     <div id="LSPA-Carousel">
-
       <Carousel breakPoints={breakPoints}>
         {placeDateBlocks()}
       </Carousel>

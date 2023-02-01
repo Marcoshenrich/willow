@@ -31,7 +31,7 @@
 #LSPA-h1-Container {
     width: 100%;
     margin: 17px;
-    margin-left: 35px;
+    margin-left: 70px;
     display: flex;
     justify-content: flex-start;
 }
@@ -39,7 +39,7 @@
 #LSPA-h1-Container-Time {
     width: 100%;
     margin: 17px;
-    margin-left: 35px;
+    margin-left: 70px;
     margin-top: 40px;
     display: flex;
     justify-content: flex-start;

@@ -30,3 +30,11 @@
 #LSPA-Carousel > * {
     margin: 5px;
 }
+
+.rec.rec-arrow {
+    border-radius: 0;
+}
+
+.rec.rec-arrow:disabled {
+    visibility: hidden;
+}

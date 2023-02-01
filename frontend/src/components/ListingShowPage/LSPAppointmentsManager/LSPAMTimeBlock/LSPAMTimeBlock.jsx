@@ -18,8 +18,10 @@ const LSPAMTimeBlock = ({ timeslot, setActiveTime, activeTime}) => {
 
 
   return (
-    <div id={activeTime === timeslot ? "LSPAM-Time-Block-Active" : "LSPAM-Time-Block"} onClick={timeBlockClickHandler}>
-      <div id="LSPAM-Time-Block-Time">{timeParser(timeslot)}</div>
+    <div id="LSPAM-Time-Block-Wrapper">
+      <div id={activeTime === timeslot ? "LSPAM-Time-Block-Active" : "LSPAM-Time-Block"} onClick={timeBlockClickHandler}>
+        <div id="LSPAM-Time-Block-Time">{timeParser(timeslot)}</div>
+      </div>
     </div>
   )
 }
