@@ -12,7 +12,7 @@ const LSPAMDateBlock = ({ day, weekday, month, year, activeDate, setActiveDate})
   
   return (
     <>
-      <div id={activeDate.getDate() === day ? "LSPAMDB-Container-Active" : "LSPAMDB-Container" }      onClick={dateBlockClickHandler}>
+      <div id={activeDate && activeDate.getDate() === day ? "LSPAMDB-Container-Active" : "LSPAMDB-Container" }      onClick={dateBlockClickHandler}>
         <div id="LSPAMDB-Weekday">{weekday}</div>
         <div id="LSPAMDB-Date">{day}</div>
         <div id="LSPAMDB-Month">{months[month]}</div>

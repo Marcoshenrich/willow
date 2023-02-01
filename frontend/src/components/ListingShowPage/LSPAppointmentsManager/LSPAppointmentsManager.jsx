@@ -16,7 +16,7 @@ const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
   const now = new Date();
   const [showAppointmentModule, setshowAppointmentModule] = useState(true)
   const [appointmentIndex, setAppointmentIndex] = useState(false)
-  const [date, setDate] = useState(now)
+  const [date, setDate] = useState("")
   const [time, setTime] = useState("")
 
   const LSPALoggedOutSignInHandler = (e) =>{
@@ -116,14 +116,18 @@ const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
           <div id="LSPA-h1">Pick a date</div>
         </div>
           <LSPAppointmentsCarousel activeDate={date} setActiveDate={setDate} />
-        <div id="LSPA-h1-Container-Time">
-          <div id="LSPA-h1">Pick a time</div>
-        </div>
-          <LSPAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={timeAvailabilitySorter()} />
+            {date && (<>
+            <div id="LSPA-h1-Container-Time">
+            <div id="LSPA-h1">Pick a time</div>
+            </div>
+              <LSPAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={timeAvailabilitySorter()} />
+              </>)}
           <div id="LSPA-Submit">
+            
             <div id="LSPA-Submit-Button" onClick={appointmentMaker}>Book Appointment</div>
           </div>
           </form>)}
+        
         {!showAppointmentModule && (
           <div id="LSPA-Appointment-Success">
             <div>You did it, your next appointment is on</div>
@@ -143,56 +147,3 @@ const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
 }
 
 export default LSPAppointmentsManager
-//   //   for calendar
-//   //   const [calDate, setCalDate] = useState(new Date())
-
-//   //   const twoMonthsSeed = new Date();
-//   //   const twoMonthsRaw = new Date(twoMonthsSeed.setMonth(twoMonthsSeed.getMonth() + 2))
-//   //   const twoMonthsFromNow = twoMonthsRaw.toISOString().slice(0, 10)
-
-
-//   const userAppointments = () => {
-//     const userAppointments = []
-//     appointments.forEach((appointment) => {
-//       if (appointment.userId == currentUser.id) {
-//         userAppointments.push(appointment)
-//       }
-//     })
-
-
-//     return (
-//       userAppointments.map((appointment) =>
-//         <UserAppointmentShow appointment={appointment}/>
-//       ))
-//   }
-
-
-//   const disabledDates = () => {
-//     const disabledDatesUnix = []
-//     const moment = new Date();
-
-//     for (let i = 1; i < 65; i++) {
-
-//       let year = moment.getFullYear();
-//       let month = moment.getMonth() + 1;
-//       let date = moment.getDate();
-//       var time = year + '-' + month + '-' + date
-//       const updateDate = new Date(time)
-//       disabledDatesUnix.push(moment.setTime(updateDate.getTime() + 86400000) - 3600000)
-//     }
-
-
-//     const y = disabledDatesUnix.indexOf(new Date("2023-01-07").getTime() + 86400000) - 3600000
-//     disabledDatesUnix.splice(y, 1)
-
-
-//     const disabledDatesArr = disabledDatesUnix.map((disabledDate)=>
-//       new Date(disabledDate)
-//     )
-
-    
-
-
-//     return disabledDatesArr
-
-//   } 
