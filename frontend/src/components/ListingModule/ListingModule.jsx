@@ -9,13 +9,15 @@ import ListingShowPage from "../ListingShowPage";
 import { createFavorite, deleteFavorite, fetchFavorites, getFavorites } from "../../store/favorite";
 import { getCurrentUser } from "../../store/session"
 
-const ListingModule = ({ listing, favoriteId }) => {
+const ListingModule = ({ listing, favoriteId, setShowSessionModal }) => {
   const dispatch = useDispatch()
   const agentId = listing.agentId
 
 
   const agent = useSelector(getUser(agentId))
   const current_user = useSelector(getCurrentUser)
+  console.log("current user is")
+  console.log(current_user)
   
   const [showListingModal, setShowListingModal] = useState(false)
   const [favoriteActive, setFavoriteActive] = useState(!!favoriteId)
@@ -27,7 +29,9 @@ const ListingModule = ({ listing, favoriteId }) => {
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation()
-    if (favoriteActive) {
+    if (!current_user) { 
+      setShowSessionModal(true)
+    } else if (favoriteActive) {
       dispatch(deleteFavorite(favoriteId))
     } else {
       const favorite = {

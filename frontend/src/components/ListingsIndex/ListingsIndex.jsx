@@ -1,14 +1,15 @@
-import ListingShowPage from "../ListingShowPage"
 import "./ListingsIndex.css"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Map from "../Map"
 import ListingModule from "../ListingModule"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect,useState } from "react"
-import { getListings, fetchListings, searchListings, sortListings } from "../../store/listings"
-import { BsChevronDown, BsChevronUp } from "react-icons/bs"
+import { getListings, fetchListings, searchListings } from "../../store/listings"
 import { fetchFavorites, getFavorites } from "../../store/favorite"
+import { clearErrors } from "../../store/errors"
 import { getCurrentUser } from "../../store/session"
+import SessionModal from '../SessionModal';
+import { FixedModal } from '../../context/Modal';
 import LISort from "./LISort"
 
 
@@ -18,6 +19,7 @@ const ListingsIndex = () => {
   const listings = useSelector(getListings)
   const favorites = useSelector(getFavorites)
   const currentUser = useSelector(getCurrentUser)
+  const [showSessionModal, setShowSessionModal] = useState(false)
 
   
   useEffect(()=>{
@@ -48,6 +50,11 @@ const ListingsIndex = () => {
     return false
   }
 
+  const onSessionModalClose = () => {
+    setShowSessionModal(false)
+    dispatch(clearErrors())
+  }
+
 
   return (
     <>
@@ -62,11 +69,16 @@ const ListingsIndex = () => {
               <LISort />
             </div>
             <div id="Listings-Container">
-              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i} favoriteId={favoriteChecker(listing)}/> ) )}
+              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i} favoriteId={favoriteChecker(listing)} setShowSessionModal={setShowSessionModal}/> ) )}
             </div>
           </div>
       </div>
-    </div> 
+    </div>
+      {showSessionModal && (
+        <FixedModal onModalClose={onSessionModalClose}>
+          <SessionModal onModalClose={onSessionModalClose} />
+        </FixedModal>
+      )}
     </>
   )
 }

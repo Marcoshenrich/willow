@@ -3,6 +3,7 @@ import blueMyco from "../../../assets/heroes/bluemyco.jpg"
 import { BsSearch } from "react-icons/bs"
 import { useDispatch, useSelector } from 'react-redux';
 import { searchListings, clearListings } from "../../../store/listings";
+import { clearErrors } from "../../../store/errors";
 import { useState } from "react";
 import { Link, useHistory } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ const Hero = () => {
 
     const splashSearchSubmit = () => {
         dispatch(clearListings())
+        dispatch(clearErrors())
         dispatch(searchListings(query)).then((res) => { if (res.ok) history.push(`/listings/search/${query}`) })
         setQuery("")
     }
