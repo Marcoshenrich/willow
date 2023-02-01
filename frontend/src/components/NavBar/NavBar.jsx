@@ -49,9 +49,9 @@ const NavBar = () => {
         <nav id="NavBar">
             <div id="NavBarLeft">
                 <div onClick={routeChangeListings}>Browse Properties</div>
-                    <div><a id="Link" target="_blank" href="https://marcoshenrich.github.io/profile/">About Me</a></div>
-                    <div><a id="Link" target="_blank" href="https://www.linkedin.com/in/marcos-henrich-794226108/"><FaLinkedin id="Nav-Bar-Icon" /></a></div>
-                    <div><a id="Link" target="_blank" href="https://github.com/Marcoshenrich/"><FaGithub id="Nav-Bar-Icon" /></a></div>
+                <div><a id="Link" target="_blank" href="https://marcoshenrich.github.io/profile/">About Me</a></div>
+                <div><a id="Link" target="_blank" href="https://www.linkedin.com/in/marcos-henrich-794226108/"><FaLinkedin id="Nav-Bar-Icon" /></a></div>
+                <div><a id="Link" target="_blank" href="https://github.com/Marcoshenrich/"><FaGithub id="Nav-Bar-Icon" /></a></div>
             </div>
 
             <div id="NavBarMid" onClick={routeChangeHome}>
