@@ -40,7 +40,7 @@ const ListingModule = ({ listing, favoriteId, setShowSessionModal }) => {
       }
       dispatch(createFavorite(favorite))
     }
-    setFavoriteActive((favoriteActive) => !favoriteActive)
+    if (current_user) setFavoriteActive((favoriteActive) => !favoriteActive)
 
   }
 
