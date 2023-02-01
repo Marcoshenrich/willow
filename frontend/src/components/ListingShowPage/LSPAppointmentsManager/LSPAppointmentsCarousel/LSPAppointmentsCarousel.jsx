@@ -12,13 +12,9 @@ import Carousel from 'react-elastic-carousel';
 const LSPAppointmentsCarousel = ({ activeDate, setActiveDate }) => {
 
   const dispatch = useDispatch()
-  const [dateQueue, setDateQueue] = useState([])
-  const [favoriteQueuePointer, setFavoriteQueuePointer] = useState(6)
 
   const now = new Date()
-  const timeStr = now.toISOString().slice(10)
-  const today = now.toISOString().slice(0, 10)
-
+  
   const dateQueueMaker = () => {
     let nowClone = new Date()
     let i = 0

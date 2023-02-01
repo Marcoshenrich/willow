@@ -6,6 +6,8 @@ import { getCurrentUser } from "../../../store/session";
 import 'react-calendar/dist/Calendar.css'
 import LSPAppointmentsCarousel from "./LSPAppointmentsCarousel";
 import LSPAppointmentsTimeContainer from "./LSPAppointmentsTimeContainer";
+import { appointmentErrors } from "../../../store/errors";
+
 
 const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
   const currentUser = useSelector(getCurrentUser)
@@ -27,10 +29,11 @@ const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
   const appointmentMaker = (e) => {
     e.stopPropagation()
     e.preventDefault()
+
     const appoint = { agent_id: agentId, listing_id: listing.id, date: `${date}`, time:`${time}`}
     if (time) dispatch(createAppointment(appoint))
     setTime("")
-    setDate(now)
+    setDate("")
   }
 
   const timeAvailabilitySorter = () => {
@@ -122,10 +125,11 @@ const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
             </div>
               <LSPAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={timeAvailabilitySorter()} />
               </>)}
+            {date && time && (
           <div id="LSPA-Submit">
             
             <div id="LSPA-Submit-Button" onClick={appointmentMaker}>Book Appointment</div>
-          </div>
+              </div>)}
           </form>)}
         
         {!showAppointmentModule && (
