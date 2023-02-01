@@ -7,6 +7,7 @@ import { FixedModal } from '../../context/Modal';
 import * as sessionActions from '../../store/session';
 import { clearErrors } from '../../store/errors';
 import Icon from "../../assets/icons/icon.png"
+import { FaLinkedin, FaGithub } from "react-icons/fa"
 
 
 const NavBar = () => {
@@ -47,10 +48,10 @@ const NavBar = () => {
         <>
         <nav id="NavBar">
             <div id="NavBarLeft">
-                <div onClick={routeChangeListings}>Buy</div>
-                <div onClick={routeChangeListings}>Rent</div>
-                    <div ><a id="Link" target="_blank" href="https://www.google.com/search?q=A+Midsummer+Night%27s+Dream+tickets+near+me">Dreams</a></div>
-
+                <div onClick={routeChangeListings}>Browse Properties</div>
+                    <div><a id="Link" target="_blank" href="https://marcoshenrich.github.io/profile/">About Me</a></div>
+                    <div><a id="Link" target="_blank" href="https://www.linkedin.com/in/marcos-henrich-794226108/"><FaLinkedin id="Nav-Bar-Icon" /></a></div>
+                    <div><a id="Link" target="_blank" href="https://github.com/Marcoshenrich/"><FaGithub id="Nav-Bar-Icon" /></a></div>
             </div>
 
             <div id="NavBarMid" onClick={routeChangeHome}>
@@ -59,6 +60,7 @@ const NavBar = () => {
             </div>
 
             <div id="NavBarRight">
+                <div ><a id="Link" target="_blank" href="https://www.google.com/search?q=A+Midsummer+Night%27s+Dream+tickets+near+me">Dreams</a></div>
                 <div ><a id="Link" target="_blank" href="https://en.wikipedia.org/wiki/Fairy">Learn More</a></div>
                 {currentUser && (<div ><Link id="Link"  to={`/user/profile`}>Profile</Link></div>)}
                 {sessionControl()}
