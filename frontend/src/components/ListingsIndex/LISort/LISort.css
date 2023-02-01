@@ -1,0 +1,59 @@
+:root {
+    --font: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+    --font-w-lrg: 700;
+    --font-w-med: 400;
+    --font-w-sml: 300;
+    --font-s-lrg: 24px;
+    --font-s-med: 18px;
+    --font-s-sml: 14px;
+
+    --burnt-amber: #f1641d;
+    --beeswax: #FDEBD2;
+    --grassylight: #d4e9d7;
+    --grassyplains: #9ec064;
+    --enchantment: #9560b8;
+    --oceanmist: #d7e5f5;
+    --oceansurf: #4d6bc6;
+    --oceandepths: #2f466c;
+    --oceanabyss: #232347;
+    --fog: #efefef;
+}
+
+#LI-Sort-Arrow:hover {
+    cursor: pointer;
+}
+
+#LI-Sort-Dropdown:hover {
+    cursor: pointer;
+}
+
+#LI-Sort-Dropdown {
+    position: relative;
+    display: flex;
+    width: 200px;
+    justify-content: flex-end;
+}
+
+#LI-Sort-Dropdown-Menu {
+    position: absolute;
+    width: 200px;
+    top: 35px;
+    left: 25px;
+    z-index: 20;
+    background-color: white;
+    border: 1px solid var(--enchantment);
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+}
+
+
+.LI-Sort-Dropdown-Section {
+    color: var(--oceanabyss);
+    padding: 10px;
+}
+
+.LI-Sort-Dropdown-Section:hover {
+    color: var(--fog);
+    background-color: #232347;
+    padding: 10px;
+}
