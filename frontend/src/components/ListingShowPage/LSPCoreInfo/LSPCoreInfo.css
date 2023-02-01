@@ -51,8 +51,8 @@
     margin: 3px;
 }
 
-#LSP-Appointment-Time {
-    font-weight: var(--font-w-med);
+#LSP-Appointment-Text {
+    font-size: var(--font-s-med);
 }
 
 #LSP-Appointment-Submit {

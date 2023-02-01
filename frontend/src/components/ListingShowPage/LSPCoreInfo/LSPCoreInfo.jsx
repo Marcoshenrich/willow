@@ -41,8 +41,7 @@ const ListingShowPageCoreInfo = ({ listing, showAppointmentsManager, setShowAppo
           </div>
         </div>
         <div className="LSP-Appointment-Info">
-          <p>Request a tour as early as</p>
-          <p id="LSP-Appointment-Time">Tomorrow at 2:30pm</p>
+          <p id="LSP-Appointment-Text">Want to see this property?</p>
           <button id="LSP-Appointment-Submit" onClick={handleLSPShowAppointment}>Schedule a Tour</button>
         </div>
       </div>
