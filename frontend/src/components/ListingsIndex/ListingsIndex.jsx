@@ -5,7 +5,7 @@ import Map from "../Map"
 import ListingModule from "../ListingModule"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { getListings, fetchListings, searchListings } from "../../store/listings"
+import { getListings, fetchListings, searchListings, sortListings } from "../../store/listings"
 import { BsChevronDown } from "react-icons/bs"
 import { fetchFavorites, getFavorites } from "../../store/favorite"
 import { getCurrentUser } from "../../store/session"
@@ -48,6 +48,13 @@ const ListingsIndex = () => {
   }
 
 
+  const sortDispatcher = (e) => {
+    e.stopPropagation()
+    // console.log(e.target.innerText)
+    dispatch(sortListings(e.target.innerText))
+  }
+
+
   return (
     <>
     <div className="Listings-Index">
@@ -59,7 +66,14 @@ const ListingsIndex = () => {
             <div id="Listings-Header">
               <h2>Magical Homes Just For You</h2>
               <div>
-                <div>Sort: Homes For You</div>
+                {/* <div>Sort: Homes For You</div> */}
+                <div onClick={e => { sortDispatcher(e)}}>sqin</div>
+                <div onClick={e => { sortDispatcher(e)}}>numRooms</div>
+                {/* <div>3 num rooms</div>
+                <div>4 num beds</div>
+                <div>5 num fireplaces</div> */}
+                {/* <div>Sort: Homes For You</div> */}
+
                 <BsChevronDown id="LI-Sort-Dropdown-Icon" />
               </div>
             </div>

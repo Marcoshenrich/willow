@@ -4,6 +4,7 @@ import { searchErrors } from './errors';
 
 const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 const RECEIVE_LISTING = 'RECEIVE_LISTING';
+const SORT_LISTINGS = 'SORT_LISTINGS';
 const CLEAR_LISTINGS = 'CLEAR_LISTINGS';
 
 const receiveListings = (listings) => {
@@ -19,6 +20,15 @@ const receiveListing = (listing) => {
         listing
     };
 };
+
+export const sortListings = (sortKey) => {
+    return {
+        type: SORT_LISTINGS,
+        sortKey
+    };
+};
+
+
 
 export const clearListings = () => {
     return {
@@ -79,6 +89,15 @@ export const createListing = (listing) => async dispatch => {
 }
 
 
+
+const sortListingsBy = (sortKey, state) => {
+
+    const newState = Object.values(state).sort((b, a) => a[sortKey] - b[sortKey])
+
+    return { ...newState }
+}
+
+
 const listingsReducer = (oldState={}, action) => {
     const newState = { ...oldState }
     switch (action.type) {
@@ -88,6 +107,9 @@ const listingsReducer = (oldState={}, action) => {
         case RECEIVE_LISTING:
             newState[action.listing.id] = action.listing
             return newState;
+
+        case SORT_LISTINGS:
+            return sortListingsBy(action.sortKey, newState)
 
         case CLEAR_LISTINGS:
             return {};
