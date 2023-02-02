@@ -11,6 +11,7 @@ import { getCurrentUser } from "../../store/session"
 import SessionModal from '../SessionModal';
 import { FixedModal } from '../../context/Modal';
 import LISort from "./LISort"
+import LIListingContainer from "./LIListingContainer"
 
 
 const ListingsIndex = () => {
@@ -22,7 +23,6 @@ const ListingsIndex = () => {
   const [triggerSort, setTriggerSort] = useState(false)
   const [sortByLargestBool, setSortByLargestBool] = useState(false)
   const [sortBy, setSortBy] = useState("Homes For You")
-
   const [listings, setListings] = useState(listingsArr)
 
   
@@ -114,9 +114,7 @@ const ListingsIndex = () => {
               <h2 onClick={e=>sortTest(e)}>Magical Homes Just For You</h2>
               <LISort sortByLargestBool={sortByLargestBool} setSortByLargestBool={setSortByLargestBool} sortBy={sortBy} setSortBy={setSortBy} />
             </div>
-            <div id="Listings-Container">
-              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i} setShowSessionModal={setShowSessionModal}/> ) )}
-            </div>
+            <LIListingContainer listings={listings} setShowSessionModal={setShowSessionModal}/>
           </div>
       </div>
     </div>
