@@ -4,7 +4,6 @@ import { searchErrors } from './errors';
 
 const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 const RECEIVE_LISTING = 'RECEIVE_LISTING';
-const SORT_LISTINGS = 'SORT_LISTINGS';
 const CLEAR_LISTINGS = 'CLEAR_LISTINGS';
 
 const receiveListings = (listings) => {
@@ -20,14 +19,6 @@ const receiveListing = (listing) => {
         listing
     };
 };
-
-export const sortListings = (sortObj) => {
-    return {
-        type: SORT_LISTINGS,
-        sortObj
-    };
-};
-
 
 
 export const clearListings = () => {
@@ -99,45 +90,6 @@ const listingObjKeyMaker = (stateArr) => {
 
 
 
-const sortListingsBy = ({ key, sortByLargestBool }, state) => {
-    var sortKey;
-    let newState;
-
-    if (key === "Price") {
-        if (sortByLargestBool) {
-            newState = Object.values(state).sort((b, a) => (a.humanTeeth + a.stolenDreams + a.fairyDust) - (b.humanTeeth + b.stolenDreams + b.fairyDust))
-        } else {
-            newState = Object.values(state).sort((a, b) => (a.humanTeeth + a.stolenDreams + a.fairyDust) - (b.humanTeeth + b.stolenDreams + b.fairyDust))
-        }
-        return { ...newState }
-    } else if (key === "Square Inches") {
-        sortKey = "sqin";
-    } else if (key === "Number of Rooms") {
-        sortKey = "numRooms";
-    } else if (key === "Number of Beds") {
-        sortKey = "beds";
-    } else if (key === "Number of Hearths") {
-        sortKey = "numFireplaces";
-    } else {
-        if (sortByLargestBool) {
-            newState = Object.values(state).sort((b, a) => a.id - b.id)
-        } else {
-            newState = Object.values(state).sort((a, b) => a.id - b.id)
-        }
-        return { ...newState }
-    }
-
-
-    if (sortByLargestBool) {
-        newState = Object.values(state).sort((a, b) => a[sortKey] - b[sortKey])
-    } else {
-        newState = Object.values(state).sort((b, a) => a[sortKey] - b[sortKey])
-    }
-    
-    return { ...newState }
-}
-
-
 const listingsReducer = (oldState={}, action) => {
     const newState = { ...oldState }
     switch (action.type) {
@@ -147,9 +99,6 @@ const listingsReducer = (oldState={}, action) => {
         case RECEIVE_LISTING:
             newState[action.listing.id] = action.listing
             return newState;
-
-        case SORT_LISTINGS:
-            return sortListingsBy(action.sortObj, newState)
 
         case CLEAR_LISTINGS:
             return {};

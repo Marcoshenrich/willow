@@ -16,11 +16,16 @@ import LISort from "./LISort"
 const ListingsIndex = () => {
   const { query } = useParams()
   const dispatch = useDispatch()
-  const listings = useSelector(getListings)
+  const listingsArr = useSelector(getListings)
   const currentUser = useSelector(getCurrentUser)
   const [showSessionModal, setShowSessionModal] = useState(false)
   const [triggerSort, setTriggerSort] = useState(false)
+  const [sortByLargestBool, setSortByLargestBool] = useState(false)
+  const [sortBy, setSortBy] = useState("Homes For You")
 
+  const [listings, setListings] = useState(listingsArr)
+
+  
   useEffect(()=>{
     if (query) {
       dispatch(searchListings(query))
@@ -35,6 +40,55 @@ const ListingsIndex = () => {
     dispatch(clearErrors())
   }
 
+  useEffect(()=>{
+    setListings(listingsArr)
+  },[])
+
+
+
+  useEffect(()=>{
+    setListings(sortListingsBy(listings))
+  }, [sortByLargestBool, sortBy])
+
+
+
+  const sortListingsBy = (prevListings) =>{
+    var sortKey;
+
+    if (sortBy === "Price") {
+      if (sortByLargestBool) {
+        return prevListings.sort((b, a) => (a.humanTeeth + a.stolenDreams + a.fairyDust) - (b.humanTeeth + b.stolenDreams + b.fairyDust))
+      } else {
+        return prevListings.sort((a, b) => (a.humanTeeth + a.stolenDreams + a.fairyDust) - (b.humanTeeth + b.stolenDreams + b.fairyDust))
+      }
+
+    } else if (sortBy === "Square Inches") {
+      sortKey = "sqin";
+    } else if (sortBy === "Number of Rooms") {
+      sortKey = "numRooms";
+    } else if (sortBy === "Number of Beds") {
+      sortKey = "beds"
+    } else if (sortBy === "Number of Hearths") {
+      sortKey = "numFireplaces";
+    } else {
+      if (sortByLargestBool) {
+        return prevListings.sort((b, a) => a.id - b.id)
+      } else {
+        return prevListings.sort((a, b) => a.id - b.id)
+      }
+    }
+
+
+    if (sortByLargestBool) {
+      return prevListings.sort((a, b) => a[sortKey] - b[sortKey])
+    } else {
+      return prevListings.sort((b, a) => a[sortKey] - b[sortKey])
+    }
+  }
+
+
+
+
   const sortTest = (e) =>{
     e.stopPropagation();
     setTriggerSort((triggerSort)=>!triggerSort);
@@ -46,10 +100,8 @@ const ListingsIndex = () => {
     } else {
       listings.sort((b, a) => a.id - b.id);
     }
-    console.log(listings)
   }, [triggerSort])
-
-
+  
   return (
     <>
     <div className="Listings-Index">
@@ -60,7 +112,7 @@ const ListingsIndex = () => {
           <div id="Listings-Nav">
             <div id="Listings-Header">
               <h2 onClick={e=>sortTest(e)}>Magical Homes Just For You</h2>
-              <LISort />
+              <LISort sortByLargestBool={sortByLargestBool} setSortByLargestBool={setSortByLargestBool} sortBy={sortBy} setSortBy={setSortBy} />
             </div>
             <div id="Listings-Container">
               {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i} setShowSessionModal={setShowSessionModal}/> ) )}

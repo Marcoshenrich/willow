@@ -6,17 +6,14 @@ import { BsChevronDown, BsChevronUp } from "react-icons/bs"
 import { fetchFavorites, getFavorites } from "../../../store/favorite"
 import { getCurrentUser } from "../../../store/session"
 
-const LISort = () => {
+const LISort = ({ sortByLargestBool, setSortByLargestBool, sortBy, setSortBy }) => {
   const dispatch = useDispatch()
-  const [sortByLargestBool, setSortByLargestBool] = useState(false)
-  const [sortBy, setsortBy] = useState("Homes For You")
   const [showDropown, setShowDropown] = useState(false)
 
   const sortDispatcher = (e) => {
     e.stopPropagation()
-    setsortBy(e.target.innerText)
+    setSortBy(e.target.innerText)
     setShowDropown(false)
-    dispatch(sortListings({ key: e.target.innerText, sortByLargestBool }))
   }
 
   const arrowClickHandler = (e) => {
@@ -25,12 +22,20 @@ const LISort = () => {
   }
 
   useEffect(()=>{
-    dispatch(sortListings({ key: sortBy, sortByLargestBool }))
+    // dispatch(sortListings({ key: sortBy, sortByLargestBool }))
   }, [sortByLargestBool])
 
   useEffect(() => {
-    dispatch(sortListings({ key: "id", sortByLargestBool:true }))
+    // dispatch(sortListings({ key: "id", sortByLargestBool:true }))
   }, [])
+
+
+
+
+
+
+
+
 
 
   return (
