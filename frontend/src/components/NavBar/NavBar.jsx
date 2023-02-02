@@ -61,8 +61,8 @@ const NavBar = () => {
 
             <div id="NavBarRight">
                 <div ><a id="Link" target="_blank" href="https://www.google.com/search?q=A+Midsummer+Night%27s+Dream+tickets+near+me">Dreams</a></div>
-                <div ><a id="Link" target="_blank" href="https://en.wikipedia.org/wiki/Fairy">Learn More</a></div>
-                {currentUser && (<div ><Link id="Link"  to={`/user/profile`}>Profile</Link></div>)}
+                {/* <div ><a id="Link" target="_blank" href="https://en.wikipedia.org/wiki/Fairy">Learn More</a></div> */}
+                {currentUser && (<div ><Link id="Link"  to={`/user/profile`}>Your Profile</Link></div>)}
                 {sessionControl()}
             </div>
         </nav>

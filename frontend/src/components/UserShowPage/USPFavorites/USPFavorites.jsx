@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "../../../store/session";
 import 'react-calendar/dist/Calendar.css'
-import { fetchListings, getListings } from "../../../store/listings";
+import { fetchListings, getListings, sortListings } from "../../../store/listings";
 import { fetchFavorites, getFavorites } from "../../../store/favorite";
 import ListingModule from "../../ListingModule";
 import Carousel from 'react-elastic-carousel';
@@ -23,7 +23,7 @@ const USPFavorites = () => {
 
   useEffect(() => {
     dispatch(fetchFavorites(currentUser.id)).then(() => dispatch(fetchListings()))
-    
+    dispatch(sortListings({ key: "id", sortByLargestBool: true }))
   }, [])
 
   useEffect(() => {
@@ -67,35 +67,5 @@ const USPFavorites = () => {
       </div>
   )
 }
-
-
-/* {showFavoriteQueue && (
-          <div className="USP-Favorited-Carousel">
-            {favorites.length > 3 && (<div className="USP-Carousel-Button" id="Left-USP-Carousel-Button" onClick={(e) => carouselClickHandler(e)}><BsChevronLeft className="USP-Carousel-Button-Icon" /></div>)}
-            {placeListingModules()}
-            {favorites.length > 3 && (<div className="USP-Carousel-Button" id="Right-USP-Carousel-Button" onClick={(e) => carouselClickHandler(e)}><BsChevronRight className="USP-Carousel-Button-Icon" /></div>)}
-          </div>
-        )} */
-
-// class App extends Component {
-//   state = {
-//     items: [
-//       { id: 1, title: 'item #1' },
-//       { id: 2, title: 'item #2' },
-//       { id: 3, title: 'item #3' },
-//       { id: 4, title: 'item #4' },
-//       { id: 5, title: 'item #5' }
-//     ]
-//   }
-
-//   render() {
-//     const { items } = this.state;
-//     return (
-//       <Carousel>
-//         {items.map(item => <div key={item.id}>{item.title}</div>)}
-//       </Carousel>
-//     )
-//   }
-// }
 
 export default USPFavorites

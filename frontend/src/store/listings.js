@@ -89,6 +89,15 @@ export const createListing = (listing) => async dispatch => {
 }
 
 
+const listingObjKeyMaker = (stateArr) => {
+    const newState = {}
+    stateArr.forEach((listing)=>{
+        newState[listing.id] = listing
+    })
+    return newState
+}
+
+
 
 const sortListingsBy = ({ key, sortByLargestBool }, state) => {
     var sortKey;

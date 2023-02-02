@@ -20,6 +20,7 @@ const ListingsIndex = () => {
   const favorites = useSelector(getFavorites)
   const currentUser = useSelector(getCurrentUser)
   const [showSessionModal, setShowSessionModal] = useState(false)
+  const [triggerSort, setTriggerSort] = useState(false)
 
   
   useEffect(()=>{
@@ -55,6 +56,20 @@ const ListingsIndex = () => {
     dispatch(clearErrors())
   }
 
+  const sortTest = (e) =>{
+    e.stopPropagation();
+    setTriggerSort(!triggerSort);
+  }
+
+  useEffect(()=>{
+    if (triggerSort) {
+      listings.sort((a, b) => a.id - b.id);
+    } else {
+      listings.sort((b, a) => a.id - b.id);
+    }
+    console.log(listings)
+  }, [triggerSort])
+
 
   return (
     <>
@@ -65,7 +80,7 @@ const ListingsIndex = () => {
           </div>
           <div id="Listings-Nav">
             <div id="Listings-Header">
-              <h2>Magical Homes Just For You</h2>
+              <h2 onClick={e=>sortTest(e)}>Magical Homes Just For You</h2>
               <LISort />
             </div>
             <div id="Listings-Container">
