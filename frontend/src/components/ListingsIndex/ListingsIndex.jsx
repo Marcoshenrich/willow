@@ -17,12 +17,10 @@ const ListingsIndex = () => {
   const { query } = useParams()
   const dispatch = useDispatch()
   const listings = useSelector(getListings)
-  const favorites = useSelector(getFavorites)
   const currentUser = useSelector(getCurrentUser)
   const [showSessionModal, setShowSessionModal] = useState(false)
   const [triggerSort, setTriggerSort] = useState(false)
 
-  
   useEffect(()=>{
     if (query) {
       dispatch(searchListings(query))
@@ -32,25 +30,6 @@ const ListingsIndex = () => {
     if (currentUser) dispatch(fetchFavorites(currentUser.id))
   }, [query])
 
-  const favoritedListings = () => {
-    const favoritedListingArray = []
-    const favoritedIdArray = []
-    favorites.forEach((favorite)=>{
-      favoritedListingArray.push(favorite.listingId)
-      favoritedIdArray.push(favorite.id)
-    })
-  
-    return [favoritedIdArray, favoritedListingArray]
-  } 
-
-  const favoriteChecker = (listing) => {
-    let favoritedIdArray;
-    let favoritedListingArray;
-    [favoritedIdArray, favoritedListingArray] = favoritedListings()
-    if (favoritedListingArray.includes(listing.id)) return favoritedIdArray[favoritedListingArray.indexOf(listing.id)]
-    return false
-  }
-
   const onSessionModalClose = () => {
     setShowSessionModal(false)
     dispatch(clearErrors())
@@ -58,7 +37,7 @@ const ListingsIndex = () => {
 
   const sortTest = (e) =>{
     e.stopPropagation();
-    setTriggerSort(!triggerSort);
+    setTriggerSort((triggerSort)=>!triggerSort);
   }
 
   useEffect(()=>{
@@ -84,7 +63,7 @@ const ListingsIndex = () => {
               <LISort />
             </div>
             <div id="Listings-Container">
-              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i} favoriteId={favoriteChecker(listing)} setShowSessionModal={setShowSessionModal}/> ) )}
+              {listings && (listings.map((listing, i) => <ListingModule listing={listing} key={i} setShowSessionModal={setShowSessionModal}/> ) )}
             </div>
           </div>
       </div>

@@ -9,14 +9,31 @@ import ListingShowPage from "../ListingShowPage";
 import { createFavorite, deleteFavorite, fetchFavorites, getFavorites } from "../../store/favorite";
 import { getCurrentUser } from "../../store/session"
 
-const ListingModule = ({ listing, favoriteId, setShowSessionModal }) => {
+const ListingModule = ({ listing, setShowSessionModal }) => {
   const dispatch = useDispatch()
   const agentId = listing.agentId
   const agent = useSelector(getUser(agentId))
   const current_user = useSelector(getCurrentUser)
+  const favorites = useSelector(getFavorites)
   
   const [showListingModal, setShowListingModal] = useState(false)
-  const [favoriteActive, setFavoriteActive] = useState(!!favoriteId)
+  const [favoriteActive, setFavoriteActive] = useState(false)
+  const [favoriteId, setFavoriteId] = useState(null)
+  
+
+  const favoriteChecker = () => {
+    for (let i = 0; i < favorites.length; i++) {
+      if (favorites[i].listingId === listing.id) {
+        setFavoriteId(favorites[i].id);
+        setFavoriteActive(true);
+        break;
+      }
+    }
+  }
+
+
+
+
 
   const onListingModalClose = (e) => {
     e.stopPropagation()
@@ -40,10 +57,14 @@ const ListingModule = ({ listing, favoriteId, setShowSessionModal }) => {
 
   }
 
+  useEffect(() => {
+    favoriteChecker()
+  }, [favorites])
+
+
   
   useEffect(() => {
     dispatch(fetchUser(agentId))
-    setFavoriteActive(!!favoriteId)
   }, [])
 
   return (
@@ -69,11 +90,11 @@ const ListingModule = ({ listing, favoriteId, setShowSessionModal }) => {
           {listing && (`${listing.beds} bds | ${listing.sqin} sqin - built ${listing.built}`)}
         </div>
         {agent && (
-          <div><Link id="LM-Info-Agent-Link" to={`/agents/${agent.id}`}>
+          <div>
           <div id="LM-Info-Agent">
             {`Godmother: ${ agent.username}`}
           </div>
-          </Link></div>
+         </div>
         )}
       </div>
     </div>
