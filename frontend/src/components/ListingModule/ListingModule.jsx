@@ -26,14 +26,12 @@ const ListingModule = ({ listing, setShowSessionModal }) => {
       if (favorites[i].listingId === listing.id) {
         setFavoriteId(favorites[i].id);
         setFavoriteActive(true);
-        break;
+        return;
       }
     }
+    setFavoriteId(null);
+    setFavoriteActive(false);
   }
-
-
-
-
 
   const onListingModalClose = (e) => {
     e.stopPropagation()
