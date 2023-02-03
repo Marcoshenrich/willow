@@ -52,9 +52,9 @@ export const getSortedListings = (options = { sortBy: "id", sortByLargestBool: t
     var sortKey;
     if (options.sortBy === "Price") {
         if (options.sortByLargestBool) {
-            return listingArr.sort((b, a) => (a.humanTeeth + a.stolenDreams + a.fairyDust) - (b.humanTeeth + b.stolenDreams + b.fairyDust))
-        } else {
             return listingArr.sort((a, b) => (a.humanTeeth + a.stolenDreams + a.fairyDust) - (b.humanTeeth + b.stolenDreams + b.fairyDust))
+        } else {
+            return listingArr.sort((b, a) => (a.humanTeeth + a.stolenDreams + a.fairyDust) - (b.humanTeeth + b.stolenDreams + b.fairyDust))
         }
 
     } else if (options.sortBy === "Square Inches") {

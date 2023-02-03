@@ -20,7 +20,7 @@ const ListingsIndex = () => {
   const currentUser = useSelector(getCurrentUser)
   const [showSessionModal, setShowSessionModal] = useState(false)
   const [triggerSort, setTriggerSort] = useState(false)
-  const [sortByLargestBool, setSortByLargestBool] = useState(true)
+  const [sortByLargestBool, setSortByLargestBool] = useState(false)
   const [sortBy, setSortBy] = useState("Homes For You")
   const [options, setOptions] = useState({
     sortByLargestBool,
