@@ -1,7 +1,5 @@
 require_relative 'easy_seeder'
 
-#example from my own seed data
-
 Review.destroy_all
 Appointment.destroy_all
 Listing.destroy_all
