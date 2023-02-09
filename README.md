@@ -10,6 +10,7 @@ Willow is a full stack clone of the real estate website Zillow. It was built wit
 * React and Redux were used to render components and manage state
 * Ruby was used to code the routes, models, and controllers
 * A rails framework tied this code to a PostgreSQL database
+* A google map API shows the locations of various listings
 * An AWS database houses the image repository for listings
 
 # Selected Features and Development

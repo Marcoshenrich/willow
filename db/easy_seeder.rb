@@ -85,23 +85,18 @@ class EasySeeds
     #data_type, the type you wish to convert to, by default will return a string if none is given
     def self.type_conversion(datum, data_type = 'string')
       if ['text', 'string', 's'].include?(data_type)
-        puts datum
         return datum.to_s
       
       elsif ['int', 'integer', 'i'].include?(data_type)
-        puts datum
         return datum.to_i
       
       elsif ['float', 'f'].include?(data_type)
-        puts datum
         return datum.to_f
 
       elsif ["bool", "boolean"].include?(data_type)
-        puts datum
         return ActiveModel::Type::Boolean.new.cast(datum)
 
       elsif ["date"].include?(data_type)
-        puts datum
         return Date.parse(datum)
 
       else
