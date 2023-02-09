@@ -1,5 +1,9 @@
 # Willow
 
+## Live Link
+
+https://willow-8s24.onrender.com/
+
 ## Background
 
 Willow is a full stack clone of the real estate website Zillow. It was built with a Ruby on Rails backend, a PostgreSQL database, and a JavaScript React/Redux frontend. Willow simulates the user experience of a potential homebuyer, providing navigation, search, and exploration to find their perfect home. It features CRUD functionality for appointments and reviews, and partial CRUD for favoriting listings.
@@ -18,6 +22,9 @@ Willow is a full stack clone of the real estate website Zillow. It was built wit
 ## Create Appointment
 
 Appointment creation is powered by an intermediary click handler which opens an appointment module, presenting curated selections of available dates and times to the user. The frontend fetches all of the user's appointments and those of the listing's agent, placing them in state. An algorithm then prunes available times for the appointment for the selected date. A user cannot double-book themselves or a specific agent since unavailable times are not offered in the appointment maker. 
+
+![appointments](https://raw.githubusercontent.com/Marcoshenrich/willow/main/github-images/willow-appointments.gif)
+
 
 ### LSPAppointmentsManager.js
 
@@ -53,8 +60,6 @@ Appointment creation is powered by an intermediary click handler which opens an 
 ```
 
 Once an appointment exists and is added to state, a listener function evaluates all appointments currently in state seeking appointments between the user and listing that are in the future. If any are present, the appoint-maker module dissapears and the component renders relevant appointment information.
-
-![appointments](https://raw.githubusercontent.com/Marcoshenrich/willow/main/github-images/willow-appointments.gif)
 
 
 ```javascript
