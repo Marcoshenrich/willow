@@ -54,6 +54,8 @@ Appointment creation is powered by an intermediary click handler which opens an 
 
 Once an appointment exists and is added to state, a listener function evaluates all appointments currently in state seeking appointments between the user and listing that are in the future. If any are present, the appoint-maker module dissapears and the component renders relevant appointment information.
 
+![appointments](https://raw.githubusercontent.com/Marcoshenrich/willow/main/github-images/willow-appointments.gif)
+
 
 ```javascript
 
@@ -74,3 +76,5 @@ Once an appointment exists and is added to state, a listener function evaluates 
 ## Reviews
 
 The core review section in each listing is responsive to various user and review states. It renders components modularly on the following booleans - whether a user is logged in, whether any reviews exist, and whether a user is writing a review or not. 
+
+![reviews](https://raw.githubusercontent.com/Marcoshenrich/willow/main/github-images/willow-reviews.gif)
