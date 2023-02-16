@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpErrors } from "../../../store/errors";
 import * as sessionActions from "../../../store/session";
+import { IoIosCheckmarkCircle } from  "react-icons/io"
+import { RiCheckboxBlankCircleLine } from "react-icons/ri"
 import './SignupForm.css';
 
 
@@ -36,26 +38,19 @@ function SignupFormPage({ onModalClose }) {
 
     const passwordLengthReq = () => {
         if (password.length >= 6) {
-            return (<span className="green">- Password must be at least 6 characters</span>)
-        }else{
-            return (<span className="red">- Password must be at least 6 characters</span>)
+            return (<span className="green"><div className="Pass-Req-Icon-Container"><IoIosCheckmarkCircle style={{ fontSize: '14px' }} /></div>Password must be at least 6 characters</span>)
+        }else{ 
+            return (<span className="red"><div className="Pass-Req-Icon-Container"><RiCheckboxBlankCircleLine style={{ fontSize: '13px' }} /></div>Password must be at least 6 characters</span>)
         }
     }
 
     const passwordMatchReq = () => {
         if (password === confirmPassword) {
-            return (<span className="green">- Passwords must match</span>)
+            return (<span className="green"><div className="Pass-Req-Icon-Container"><IoIosCheckmarkCircle style={{fontSize: '14px'}} /></div>Passwords must match</span>)
         } else {
-            return (<span className="red">- Passwords must match</span>)
+            return (<span className="red"><div className="Pass-Req-Icon-Container"><RiCheckboxBlankCircleLine style={{ fontSize: '13px' }} /></div>Passwords must match</span>)
         }
     }
-
-    const demoLogin = (e) => {
-        e.preventDefault();
-        e.stopPropagation()
-        dispatch(sessionActions.login({ credential: "Heleynore", password: "password" })).then((res) => { if (res.ok) onModalClose() })
-    }
-
 
     return (
         <form className="Sign-Up-Form" onSubmit={handleSubmit}>
@@ -100,15 +95,11 @@ function SignupFormPage({ onModalClose }) {
                     required
                 />
             </label>
-            <div id="Fairy-Godmother-Signup">
-                <label><input type="checkbox" value="" /><span>I am a Fairy Godmother</span></label>
-            </div>
             {errors && (
                 <div id="Sign-Up-Errors">
                     {errors.map(error => <div key={error}>{error}</div>)}
                 </div>)
             }
-            <button className="Login-Button" id="Demo-User-Button" onClick={demoLogin}>Log In As Demo User</button>
             <button type="submit">Sign Up</button>
         </form>
     );
