@@ -79,12 +79,20 @@
     border-radius: 4px;
     color: var(--fog);
     transition: background-color 1s;
-        padding-top: 10px;
-        padding-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Session-Button-Container {
+    height: 40px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
-.Login-Form>button:hover {
+.Login-Form button:hover {
     cursor: pointer;
     transition: background-color 1s;
     background-color: var(--oceandepths);
@@ -102,6 +110,7 @@
 
 .Login-Button:active {
     width: 87%;
+    height: 100%;
 }
 
 #Login-Errors {

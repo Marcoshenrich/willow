@@ -67,7 +67,7 @@
     font-weight: var(--font-w-med);
 }
 
-.Sign-Up-Form > button {
+.Sign-Up-Form button {
     align-items: center;
     justify-content: center;
     display: flex;
@@ -80,17 +80,19 @@
     border-radius: 4px;
     color: var(--fog);
     transition: background-color 1s;
-    min-height: 43px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.Sign-Up-Form>button:hover {
+.Sign-Up-Form button:hover {
     cursor: pointer;
     transition: background-color 1s;
     background-color: var(--oceandepths);
 }
 
-.Sign-Up-Form>button:active {
+#Sign-Up-Submit:active {
     width: 87%;
+    height: 100%;
 }
 
 #Sign-Up-Errors {

@@ -100,7 +100,9 @@ function SignupFormPage({ onModalClose }) {
                     {errors.map(error => <div key={error}>{error}</div>)}
                 </div>)
             }
-            <button type="submit">Sign Up</button>
+            <div className="Session-Button-Container">
+                <button type="submit" id="Sign-Up-Submit">Sign Up</button>
+            </div>
         </form>
     );
 }

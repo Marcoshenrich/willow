@@ -49,8 +49,12 @@ function LoginFormPage({ onModalClose }) {
                 {loginErrors.map(error => <div key={error}>{error}</div>)}
             </div>)
             }
-            <button className="Login-Button" id="Demo-User-Button" onClick={demoLogin}>Log In As Demo User</button>
-            <button className="Login-Button">Log In</button>
+            <div className="Session-Button-Container">
+                <button className="Login-Button" id="Demo-User-Button" onClick={demoLogin}>Log In As Demo User</button>
+            </div>
+            <div className="Session-Button-Container">
+                <button className="Login-Button">Log In</button>
+            </div>
         </form>
     );
 }
