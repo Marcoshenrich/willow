@@ -1,11 +1,10 @@
 import "./ListingsIndex.css"
 import { useParams } from "react-router-dom"
 import Map from "../Map"
-import ListingModule from "../ListingModule"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect,useState } from "react"
 import { getSortedListings, fetchListings, searchListings, rerenderListings } from "../../store/listings"
-import { fetchFavorites, getFavorites } from "../../store/favorite"
+import { fetchFavorites } from "../../store/favorite"
 import { clearErrors } from "../../store/errors"
 import { getCurrentUser } from "../../store/session"
 import SessionModal from '../SessionModal';

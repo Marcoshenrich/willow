@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./ListingModule.css"
 import { FaHeart } from "react-icons/fa"
 import { useEffect, useState } from "react";
@@ -6,7 +5,7 @@ import { fetchUser, getUser } from "../../store/user";
 import { useDispatch, useSelector } from "react-redux"
 import { ScrollModal } from '../../context/Modal';
 import ListingShowPage from "../ListingShowPage";
-import { createFavorite, deleteFavorite, fetchFavorites, getFavorites } from "../../store/favorite";
+import { createFavorite, deleteFavorite, getFavorites } from "../../store/favorite";
 import { getCurrentUser } from "../../store/session"
 
 const ListingModule = ({ listing, setShowSessionModal }) => {

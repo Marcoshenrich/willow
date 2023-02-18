@@ -2,7 +2,6 @@ import "./ImageCarousel.css"
 import { ImageModal } from '../../context/Modal';
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
 import { AiOutlineClose } from "react-icons/ai"
-import { useState } from "react";
 
 const ImageCarousel = ({ imageArray, index, setImageIndex, setShowImageCarousel }) => {
   const numImages = imageArray.length
