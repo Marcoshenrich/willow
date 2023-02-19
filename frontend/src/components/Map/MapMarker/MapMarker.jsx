@@ -2,6 +2,9 @@ import "./MapMarker.css"
 import React from 'react'
 import { useState } from 'react';
 import {GiFairy} from "react-icons/gi"
+import { GiFairyWand } from "react-icons/gi"
+import { GiEvilHand } from "react-icons/gi"
+import { GiHighGrass } from "react-icons/gi"
 import { ScrollModal } from "../../../context/Modal";
 import ListingShowPage from "../../ListingShowPage";
 
@@ -30,7 +33,20 @@ const ListingMarker = ({ lat, lng, listing }) => {
               <div id="Listing-Marker-Img-Container">
                 <img id="Listing-Marker-Img" src={listing.imageUrls[0]}/>
               </div>
-              <div>{listing.name}</div>
+            <div className="LMI-Listing-Name">{listing.name}</div>
+            <div className="LMI-Listing-Price">${listing.humanTeeth + listing.fairyDust + listing.stolenDreams}</div>
+            <div className="LMI-Highlight-Container">
+              <div className="LMI-Highlight-Blurb" >
+                <GiFairyWand className="LMI-Highlight-Icon" />
+                <div className="LMI-Highlight-Text">{listing.blessings}</div>
+              </div>
+              <div className="LMI-Highlight-Blurb" >
+                <GiEvilHand className="LMI-Highlight-Icon" />
+                <div className="LMI-Highlight-Text">{listing.omens}</div>
+              </div>
+
+            </div>
+
             </div> : null
       }
       <div className="Listing-Marker-Icon-Container" >
@@ -45,10 +61,5 @@ const ListingMarker = ({ lat, lng, listing }) => {
     </div>
   )
 }
-
-{/* <img id="marker-listing-photo" src={listingPhoto ? listingPhoto : logo} alt="" />
-<p id="marker-listing-price">${info?.price.toLocaleString()}</p>
-<p>{info.bedroom} bd {info.bathroom} ba</p>
-<p>{info.listing_type} for {info.deal_type}</p>  */}
 
 export default ListingMarker

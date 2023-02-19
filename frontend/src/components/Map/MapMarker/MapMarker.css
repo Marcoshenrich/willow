@@ -40,6 +40,21 @@
     border: 3px solid var(--burnt-amber);
 }
 
+.LMI-Listing-Name {
+    margin: 4px;
+    font-size: 14px;
+    font-weight: var(--font-w-sml);
+    text-decoration: underline;
+    text-decoration-color: var(--oceansurf);
+    color: var(--oceanabyss);
+}
+
+.LMI-Listing-Price {
+    font-size: 12px;
+    font-weight: var(--font-w-sml);
+    color: var(--oceanabyss);
+}
+
 
 .Listing-Marker-Icon-Container:hover .Listing-Marker-Icon {
     color: #fbd5a1;
@@ -58,10 +73,10 @@
 
 .Listing-Marker-Info {
     position: absolute;
-    top: -180px;
-    right: -83px;
-    width: 146px;
-    height: 158px;
+    top: -205px;
+    right: -100px;
+    width: 170px;
+    height: 180px;
     background-color: rgb(255 255 255);
     border-radius: 5px;
     font-size: 13px;
@@ -88,4 +103,31 @@
     height: 100%;
     object-fit: cover;
     border-radius: 10px 10px 0px 0px;
+}
+
+.LMI-Highlight-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.LMI-Highlight-Blurb {
+    display: flex;
+    padding: 3px;
+    padding-left: 20px;
+
+}
+
+.LMI-Highlight-Icon {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--oceandepths)
+}
+
+.LMI-Highlight-Text {
+    margin-left: 5px;
+    font-size: 11px;
+    font-weight: var(--font-w-sml);
 }
