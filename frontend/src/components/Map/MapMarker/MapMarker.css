@@ -31,6 +31,18 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border: 3px solid #7b479e;
+}
+
+.Listing-Marker-Icon-Container:hover {
+    width: 43px;
+    height: 43px;
+    border: 3px solid var(--burnt-amber);
+}
+
+
+.Listing-Marker-Icon-Container:hover .Listing-Marker-Icon {
+    color: #fbd5a1;
 }
 
 .Listing-Marker-Icon {
