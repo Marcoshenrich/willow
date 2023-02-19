@@ -34,7 +34,8 @@ const Map = ({ setLat, setLng, lat, lng }) => {
   }
 
   const markers = listings?.map((listing, idx) => {
-    return <MapMarker lat={listing.lat} lng={listing.lng} key={idx}
+    console.log("in markers")
+    return <MapMarker lat={listing.lat} lng={listing.long} key={idx}
       markerInfo={
         {
           listing_id: listing.id,
@@ -53,12 +54,10 @@ const Map = ({ setLat, setLng, lat, lng }) => {
         draggable={true}
         yesIWantToUseGoogleMapApiInternals
       >
-
+        {markers}
         <AnyReactComponent latitude={lat} setLongitude={lng}
           lat={defaultProps.center.lat}
           lng={defaultProps.center.lng}
-        // draggable={true}
-        // text="🏠"
         />
       </GoogleMapReact>
     </div>

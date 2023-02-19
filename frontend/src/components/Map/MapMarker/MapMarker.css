@@ -29,3 +29,29 @@
 .location-marker {
     position: relative;
 }
+
+.Listing-Marker {
+    height: 50px;
+    width: 50px;
+}
+
+.Listing-Marker-Info {
+    position: absolute;
+    top: -158px;
+    right: -87px;
+    width: 146px;
+    height: 158px;
+    /* padding: 20px; */
+    background-color: rgb(255 255 255);
+    border-radius: 5px;
+    font-size: 13px;
+    text-align: center;
+    color: black;
+    line-height: 17px;
+    z-index: 100;
+    border-radius: 10px;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 0 0px 1px #fff, 0 0 2px 3px #9f9f9f, 0 0 2px 4px #6ba9ff;
+
+}

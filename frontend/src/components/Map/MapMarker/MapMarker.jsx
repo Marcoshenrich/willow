@@ -2,6 +2,7 @@ import "./MapMarker.css"
 import React from 'react'
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import {GiMushroomHouse} from "react-icons/gi"
 
 
 const ListingMarker = ({ lat, lng, markerInfo }) => {
@@ -14,13 +15,14 @@ const ListingMarker = ({ lat, lng, markerInfo }) => {
     window.scrollTo(0, 0)
   }
 
-  return (
-    <div className='location-marker' onMouseOver={() => setCondition(true)} onMouseOut={() => setCondition(false)} onClick={handleClick}>
+  
 
+  return (
+    <div className='Listing-Marker' onMouseOver={() => setCondition(true)} onMouseOut={() => setCondition(false)} onClick={handleClick}>
       {
         condition ?
           <div>
-            <div className='listing-marker-info'>
+            <div className='Listing-Marker-Info'>
               {/* <img id="marker-listing-photo" src={listingPhoto ? listingPhoto : logo} alt="" />
               <p id="marker-listing-price">${info?.price.toLocaleString()}</p>
               <p>{info.bedroom} bd {info.bathroom} ba</p>
@@ -28,6 +30,8 @@ const ListingMarker = ({ lat, lng, markerInfo }) => {
             </div>
           </div> : null
       }
+
+      <GiMushroomHouse />
 
     </div>
   )
