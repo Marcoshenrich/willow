@@ -48,7 +48,6 @@ const ListingsIndex = () => {
       sortByLargestBool,
       sortBy
     }, dispatch(rerenderListings()))
-    console.log(options)
   }, [sortByLargestBool, sortBy])
 
 

@@ -46,8 +46,6 @@ export const getSortedListings = (options = { sortBy: "id", sortByLargestBool: t
     } else {
         return []
     }
-    console.log(options.sortBy)
-    console.log(options.sortByLargestBool)
 
     var sortKey;
     if (options.sortBy === "Price") {
