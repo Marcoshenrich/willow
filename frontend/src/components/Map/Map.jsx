@@ -35,11 +35,7 @@ const Map = ({ setLat, setLng, lat, lng }) => {
 
   const markers = listings?.map((listing, idx) => {
     console.log("in markers")
-    return <MapMarker lat={listing.lat} lng={listing.long} key={idx}
-      markerInfo={
-        {
-          listing_id: listing.id,
-        }} />
+    return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing}/>
   })
 
 
