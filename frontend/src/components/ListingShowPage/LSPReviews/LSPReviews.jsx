@@ -34,6 +34,7 @@ const LSPReviews = ({ listing, setShowSessionModal }) => {
 
   const writeReviewPromptClickHandler = () => {
     setWriteReview((writeReview) => !writeReview)
+    setTimeout(() => window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"}), 100)
   }
 
   const LSPReviewSubmitHandler = () => {
