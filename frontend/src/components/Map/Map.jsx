@@ -8,10 +8,6 @@ import { useState } from 'react';
 import MapMarker from './MapMarker';
 
 
-
-
-const AnyReactComponent = ({ text }) => <div id="map-pin">{text}</div>;
-
 const Map = ({ setLat, setLng, lat, lng }) => {
   const listings = useSelector(getListings)
 
@@ -34,7 +30,6 @@ const Map = ({ setLat, setLng, lat, lng }) => {
   }
 
   const markers = listings?.map((listing, idx) => {
-    console.log("in markers")
     return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing}/>
   })
 
@@ -51,10 +46,6 @@ const Map = ({ setLat, setLng, lat, lng }) => {
         yesIWantToUseGoogleMapApiInternals
       >
         {markers}
-        <AnyReactComponent latitude={lat} setLongitude={lng}
-          lat={defaultProps.center.lat}
-          lng={defaultProps.center.lng}
-        />
       </GoogleMapReact>
     </div>
   );

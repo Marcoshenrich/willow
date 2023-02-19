@@ -1,7 +1,7 @@
 import "./MapMarker.css"
 import React from 'react'
 import { useState } from 'react';
-import {GiMushroomHouse} from "react-icons/gi"
+import {GiFairy} from "react-icons/gi"
 
 
 const ListingMarker = ({ lat, lng, listing }) => {
@@ -17,17 +17,16 @@ const ListingMarker = ({ lat, lng, listing }) => {
     <div className='Listing-Marker' onMouseOver={() => setShowMapModule(true)} onMouseOut={() => setShowMapModule(false)} onClick={handleClick}>
       {
         showMapModule ?
-          <div>
             <div className='Listing-Marker-Info'>
               <div id="Listing-Marker-Img-Container">
                 <img id="Listing-Marker-Img" src={listing.imageUrls[0]}/>
               </div>
               <div>{listing.name}</div>
-            </div>
-          </div> : null
+            </div> : null
       }
-
-      <GiMushroomHouse />
+      <div className="Listing-Marker-Icon-Container" >
+      <GiFairy className='Listing-Marker-Icon' />
+      </div>
 
     </div>
   )
