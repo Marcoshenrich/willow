@@ -2,7 +2,7 @@ import "./LSPReviews.css"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getCurrentUser } from "../../../store/session"
-import { createReview, getReviews, deleteReview, fetchReviews, fetchReview } from "../../../store/review";
+import { createReview, getReviews, fetchReviews } from "../../../store/review";
 import LSPReviewModule from "./LSPReviewModule/LSPReviewModule"
 import { clearErrors } from "../../../store/errors";
 

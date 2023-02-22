@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchListing, getListing } from "../../store/listings"
+import { useDispatch } from "react-redux"
+import { fetchListing } from "../../store/listings"
 import "./ListingShowPage.css"
 import ListingShowPageCoreInfo from "./LSPCoreInfo/LSPCoreInfo"
 import LSPHighlight from "./LSPHighlight"
