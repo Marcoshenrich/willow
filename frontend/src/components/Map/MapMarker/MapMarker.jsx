@@ -4,7 +4,6 @@ import { useState } from 'react';
 import {GiFairy} from "react-icons/gi"
 import { GiFairyWand } from "react-icons/gi"
 import { GiEvilHand } from "react-icons/gi"
-import { GiHighGrass } from "react-icons/gi"
 import { ScrollModal } from "../../../context/Modal";
 import ListingShowPage from "../../ListingShowPage";
 
