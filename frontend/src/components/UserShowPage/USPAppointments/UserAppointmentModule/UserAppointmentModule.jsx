@@ -1,9 +1,9 @@
 import "./UserAppointmentModule.css"
-import { deleteAppointment, updateAppointment, getAppointments, fetchAppointments } from "../../../store/appointment";
+import { deleteAppointment, updateAppointment, getAppointments, fetchAppointments } from "../../../../store/appointment";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import LSPAppointmentsTimeContainer from "../../ListingShowPage/LSPAppointmentsManager/LSPAppointmentsTimeContainer/LSPAppointmentsTimeContainer";
-import { getCurrentUser } from "../../../store/session";
+import LSPAppointmentsTimeContainer from "../../../ListingShowPage/LSPAppointmentsManager/LSPAppointmentsTimeContainer/LSPAppointmentsTimeContainer";
+import { getCurrentUser } from "../../../../store/session";
 
 
 const UserAppointmentModule = ({ appointment }) => {
