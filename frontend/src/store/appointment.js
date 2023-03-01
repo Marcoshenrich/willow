@@ -51,6 +51,14 @@ export const fetchAppointments = () => async dispatch => {
     }
 };
 
+export const fetchUserAppointments = (userId) => async dispatch => {
+    const response = await csrfFetch(`/api/user/${userId}/appointments`)
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(receiveAppointments(data));
+    }
+};
+
 export const deleteAppointment = (appointmentId) => async dispatch => {
     const response = await csrfFetch(`/api/appointments/${appointmentId}`, {
         method: "DELETE"

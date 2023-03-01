@@ -15,6 +15,12 @@ class Api::AppointmentsController < ApplicationController
         render "api/appointments/index"
     end
 
+    def user_appointments
+        console.log("in user_appointments")
+        @appointments = Appointment.all
+        render "api/appointments/index"
+    end
+
     def update
         @appointment = Appointment.find_by(id: params[:id])
         if @appointment.update(appointment_params)

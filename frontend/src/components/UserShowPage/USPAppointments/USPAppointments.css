@@ -18,3 +18,61 @@
     --oceanabyss: #232347;
     --fog: #efefef;
 }
+
+
+.USP-Appointments {
+    height: 300px;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#USP-Appointments-Header {
+    margin: 25px;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-lrg);
+    font-weight: var(--font-w-sml);
+}
+
+#USP-Appointments-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+}
+
+#USP-Appointments-Calendar {
+    height: 95%;
+    width: 30%;
+    border: 1px solid black;
+}
+
+#USP-Appointments-Show {
+    display: flex;
+    height: 100%;
+    width: 30%;
+    flex-wrap: wrap;
+        align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+#USP-No-Appointments-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#USP-No-Appointments-Container div {
+   color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml);
+   padding: 20px;
+}

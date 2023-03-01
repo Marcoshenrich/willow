@@ -4,10 +4,12 @@ import { useState } from 'react';
 import {GiFairy} from "react-icons/gi"
 import { GiFairyWand } from "react-icons/gi"
 import { GiEvilHand } from "react-icons/gi"
+import { BsSuitHeartFill } from "react-icons/bs"
+import { FaRegClock } from "react-icons/fa"
 import { ScrollModal } from "../../../context/Modal";
 import ListingShowPage from "../../ListingShowPage";
 
-const ListingMarker = ({ lat, lng, listing }) => {
+const ListingMarker = ({listing, icon }) => {
   const [showMapModule, setShowMapModule] = useState(false)
   const [showListingModal, setShowListingModal] = useState(false)
 
@@ -20,6 +22,20 @@ const ListingMarker = ({ lat, lng, listing }) => {
   const onListingModalClose = (e) => {
     e.stopPropagation()
     setShowListingModal(false)
+  }
+
+  const iconPicker = () => {
+    switch (icon) {
+      case "favorite":
+        return (<BsSuitHeartFill className='Listing-Marker-Icon' />)
+
+      case "appoint":
+        return (<FaRegClock className='Listing-Marker-Icon' />)
+
+      default:
+        return (<GiFairy className='Listing-Marker-Icon' />)
+    }
+
   }
 
   
@@ -49,7 +65,7 @@ const ListingMarker = ({ lat, lng, listing }) => {
             </div> : null
       }
       <div className="Listing-Marker-Icon-Container" >
-      <GiFairy className='Listing-Marker-Icon' />
+      {iconPicker()}
       </div>
 
       {listing && showListingModal && (

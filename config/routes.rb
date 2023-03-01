@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :show] do
       resources :favorites, only: [:index]
+      get "/users/:id/appointments", to: "appointments#user_appointments", :as => "user_appointments"
     end
     resources :listings, only: [:create, :index, :show] do
       resources :reviews, only: [:index]
-        collection do 
-          get "/search/:query", to: "listings#search", :as => "search"
-        end
+      collection do 
+        get "/search/:query", to: "listings#search", :as => "search"
+      end
     end
     resources :appointments, only: [:create, :destroy, :show, :index, :update]
     resources :favorites, only: [:create, :destroy, :index]

@@ -1,11 +1,13 @@
 import "./USPAppointments.css"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchAppointments, getAppointments } from "../../../store/appointment"
+import { fetchAppointments, fetchUserAppointments, getAppointments } from "../../../store/appointment"
 import { getCurrentUser } from "../../../store/session"
 import UserAppointmentModule from "./UserAppointmentModule"
 import { Link } from "react-router-dom";
 import Calendar from 'react-calendar'
+
+
 
 const USPAppointments = () => {
   const dispatch = useDispatch()
@@ -13,7 +15,7 @@ const USPAppointments = () => {
   const currentUser = useSelector(getCurrentUser)
 
   useEffect(() => {
-    dispatch(fetchAppointments())
+    dispatch(fetchUserAppointments(currentUser.id))
   }, [])
 
   const userAppointments = () => {

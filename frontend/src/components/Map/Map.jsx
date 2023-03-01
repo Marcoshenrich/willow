@@ -8,7 +8,7 @@ import { useState } from 'react';
 import MapMarker from './MapMarker';
 
 
-const Map = ({ setLat, setLng, lat, lng }) => {
+const Map = () => {
   const listings = useSelector(getListings)
 
   const defaultProps = {
@@ -23,12 +23,6 @@ const Map = ({ setLat, setLng, lat, lng }) => {
     fullscreenControl: false,
     disableDefaultUI: true
   }
-
-  const getCoordinates = (e) => {
-    setLat(e.lat);
-    setLng(e.lng)
-  }
-
   const markers = listings?.map((listing, idx) => {
     return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing}/>
   })
@@ -37,7 +31,7 @@ const Map = ({ setLat, setLng, lat, lng }) => {
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: '100%', width: '100%' }}>
-      <GoogleMapReact onClick={getCoordinates}
+      <GoogleMapReact 
         bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
