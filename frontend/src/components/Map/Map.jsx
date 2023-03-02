@@ -10,11 +10,12 @@ import { getAppointments } from '../../store/appointment';
 import { getFavorites } from '../../store/favorite';
 import { getCurrentUser } from '../../store/session';
 
-const Map = ({iconDisplay}) => {
+const Map = ({iconDisplay, listings}) => {
 
   const appointments = useSelector(getAppointments)
   const favorites = useSelector(getFavorites)
-  const listings = useSelector(getListings)
+  // const listings = useSelector(getListings)
+  // console.log(listings)
 
   const currentUser = useSelector(getCurrentUser)
 
@@ -35,9 +36,11 @@ const Map = ({iconDisplay}) => {
     let listingIdsAppointments = []
     let listingIdsFavorites = []
 
-    for (let appointment of appointments) {
-      if (appointment.userId !== currentUser.id) continue
-      listingIdsAppointments.push(appointment.listingId)
+    if (iconDisplay !== "Favorites") {
+      for (let appointment of appointments) {
+        if (appointment.userId !== currentUser.id) continue
+        listingIdsAppointments.push(appointment.listingId)
+      }
     }
 
     for (let favorite of favorites) {
@@ -60,8 +63,9 @@ const Map = ({iconDisplay}) => {
 
 
   return (
-    // Important! Always set the container height explicitly
+
     <div style={{ height: '100%', width: '100%' }}>
+      {listings && (
       <GoogleMapReact 
         bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
         defaultCenter={defaultProps.center}
@@ -70,9 +74,11 @@ const Map = ({iconDisplay}) => {
         draggable={true}
         yesIWantToUseGoogleMapApiInternals
       >
-        {listings.length > 0 && (markers())}
+        {markers()}
       </GoogleMapReact>
-    </div>
+      )}
+      </div>
+
   );
 }
 

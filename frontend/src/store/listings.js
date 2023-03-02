@@ -41,6 +41,29 @@ export const getListings = (store) => {
 
 
 
+export const getPrunedListings = (selectedList, currentUser) => (store) => {
+    if (!currentUser) return []
+    switch (selectedList) {
+        case "Appointments":
+            return listingPruner(store.listings, store.appointments, currentUser)
+        case "Favorites":
+            return listingPruner(store.listings, store.favorites, currentUser)
+        default:
+            return listingPruner(store.listings, store.favorites, currentUser).concat(listingPruner(store.listings, store.appointments, currentUser))
+    }
+}
+
+const listingPruner = (listings, pruneByList, currentUser) => {
+    if (Object.values(listings).length === 0) return []
+    let prunedListArr = []
+    for (let pruneObj of Object.values(pruneByList)) {
+        if (pruneObj.userId !== currentUser.id) continue
+        prunedListArr.push(listings[pruneObj.listingId])
+    }
+    return prunedListArr
+}
+
+
 
 
 export const getSortedListings = (options = { sortBy: "id", sortByLargestBool: true}) => (store) => {

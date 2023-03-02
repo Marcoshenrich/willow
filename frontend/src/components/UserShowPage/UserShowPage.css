@@ -55,7 +55,6 @@
     box-shadow: inset 2px 0px 4px 1px rgba(0, 0, 0, .25);
     width: 800px;
     min-width: 800px;
-    overflow-y: scroll;
 }
 
 #USP-Nav-Toggle-Container {

@@ -19,7 +19,7 @@ function App() {
         <Route path="/listings/:listingId" component={ListingShowPage}/>
         <Route path="/user/profile" component={UserShowPage} />
         <Route path="/listings" component={ListingsIndex} />
-        <Route path="/test" component={TestModule} />
+        {/* <Route path="/test" component={TestModule} /> */}
         <Route path="/" component={SplashPage}/>
       </Switch>
     </>

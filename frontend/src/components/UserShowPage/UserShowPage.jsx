@@ -5,25 +5,27 @@ import Map from "../Map"
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { getSortedListings, fetchListings, searchListings, rerenderListings, getListings } from "../../store/listings"
+import { getPrunedListings, fetchListings, searchListings, rerenderListings, getListings } from "../../store/listings"
 import { fetchFavorites } from "../../store/favorite"
 import { clearErrors } from "../../store/errors"
 import { getCurrentUser } from "../../store/session"
 import SessionModal from '../SessionModal';
 import { FixedModal } from '../../context/Modal';
 import { fetchUserAppointments } from "../../store/appointment"
+import UserAppointmentModule from "./USPAppointments/UserAppointmentModule"
+import USPStats from "./USPStats"
 
 const UserShowPage = () => { 
 
   const dispatch = useDispatch()
   const currentUser = useSelector(getCurrentUser)
   const [selectedList, setSelectedList] = useState("Appointments")
-  const listings = useSelector(getListings())
+  const listings = useSelector(getPrunedListings(selectedList, currentUser))
 
   useEffect(()=>{
     dispatch(fetchListings())
-    dispatch(fetchFavorites())
-    dispatch(fetchUserAppointments())
+    dispatch(fetchFavorites(currentUser.id))
+    dispatch(fetchUserAppointments(currentUser.id))
   },[])
 
   const toggleSelector = (e) => {
@@ -47,6 +49,9 @@ const UserShowPage = () => {
               <div onClick={toggleSelector} className={selectedList === "Favorites" ? "USP-Toggle-Selected" : "USP-Toggle-Unselected"}>Favorites</div>
               <div onClick={toggleSelector} className={selectedList === "Your Stats" ? "USP-Toggle-Selected" : "USP-Toggle-Unselected"}>Your Stats</div>
             </div>
+            {selectedList === "Appointments" && (<USPAppointments/>)}
+            {selectedList === "Favorites" && (<USPFavorites />)}
+            {selectedList === "Your Stats" && (<USPStats />)}
           </div>
         </div>
       </div>

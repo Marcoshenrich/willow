@@ -21,37 +21,28 @@
 
 
 .USP-Favorites {
-    height: 50%;
     width: 100%;
-    background-color: var(--fog);
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
-}
-
-#USP-Favorites-Header {
-    margin: 25px;
-    color: var(--oceanabyss);
-    font-family: var(--font);
-    font-size: var(--font-s-lrg);
-    font-weight: var(--font-w-sml);
+    justify-content: center;
 }
 
 .USP-Favorited-Carousel {
     width: 70%;
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .USP-Favorited-Carousel.Favorite-Carousel-1 {
-    max-width: 600px;
+    height: 1px;
 }
 
 .USP-Favorited-Carousel.Favorite-Carousel-2 {
-    max-width: 900px;
+    height: 100px;
 }
 
 
