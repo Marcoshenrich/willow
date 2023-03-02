@@ -95,7 +95,7 @@ const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
 
 
   useEffect(()=>{
-    dispatch(fetchAppointments())
+    dispatch(fetchUserAppointments(currentUser.id))
     dispatch(fetchUserAppointments(agentId))
   },[])
 

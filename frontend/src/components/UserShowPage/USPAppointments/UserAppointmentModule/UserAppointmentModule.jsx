@@ -86,10 +86,6 @@ const UserAppointmentModule = ({ appointment }) => {
     return availableTimes
   }
 
-  useEffect(()=>{
-    dispatch(fetchAppointments())
-  },[])
-
   return (
     <div id="User-Show-Appointment-Module">
         <div id="USAM-Name">{appointment.listing.name}</div>

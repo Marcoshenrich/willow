@@ -50,12 +50,6 @@ const ListingsIndex = () => {
     }, dispatch(rerenderListings()))
   }, [sortByLargestBool, sortBy])
 
-
-  const sortTest = (e) =>{
-    e.stopPropagation();
-    setTriggerSort((triggerSort)=>!triggerSort);
-  }
-
   useEffect(()=>{
     if (triggerSort) {
       listings.sort((a, b) => a.id - b.id);
@@ -73,7 +67,7 @@ const ListingsIndex = () => {
           </div>
           <div id="Listings-Nav">
             <div id="Listings-Header">
-              <h2 onClick={e=>sortTest(e)}>Magical Homes Just For You</h2>
+              <h2>Magical Homes Just For You</h2>
               <LISort sortByLargestBool={sortByLargestBool} setSortByLargestBool={setSortByLargestBool} sortBy={sortBy} setSortBy={setSortBy} />
             </div>
             <LIListingContainer listings={listings} setShowSessionModal={setShowSessionModal}/>
