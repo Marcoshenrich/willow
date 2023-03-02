@@ -26,10 +26,10 @@ const ListingMarker = ({listing, icon }) => {
 
   const iconPicker = () => {
     switch (icon) {
-      case "favorite":
+      case "Favorites":
         return (<BsSuitHeartFill className='Listing-Marker-Icon' />)
 
-      case "appoint":
+      case "Appointments":
         return (<FaRegClock className='Listing-Marker-Icon' />)
 
       default:

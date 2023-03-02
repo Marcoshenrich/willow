@@ -63,7 +63,7 @@ const ListingsIndex = () => {
     <div className="Listings-Index">
       <div className="Listings-Panels">
           <div id="Listings-Map">
-            <Map/>
+            <Map listings={listings}/>
           </div>
           <div id="Listings-Nav">
             <div id="Listings-Header">

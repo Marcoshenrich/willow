@@ -5,30 +5,38 @@ import Map from "../Map"
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { getSortedListings, fetchListings, searchListings, rerenderListings } from "../../store/listings"
+import { getSortedListings, fetchListings, searchListings, rerenderListings, getListings } from "../../store/listings"
 import { fetchFavorites } from "../../store/favorite"
 import { clearErrors } from "../../store/errors"
 import { getCurrentUser } from "../../store/session"
 import SessionModal from '../SessionModal';
 import { FixedModal } from '../../context/Modal';
+import { fetchUserAppointments } from "../../store/appointment"
 
 const UserShowPage = () => { 
 
   const dispatch = useDispatch()
   const currentUser = useSelector(getCurrentUser)
   const [selectedList, setSelectedList] = useState("Appointments")
+  const listings = useSelector(getListings())
 
+  useEffect(()=>{
+    dispatch(fetchListings())
+    dispatch(fetchFavorites())
+    dispatch(fetchUserAppointments())
+  },[])
 
   const toggleSelector = (e) => {
     setSelectedList(e.target.innerText)
   }
-  // className = "USP-Toggle-Selected"
+
+
   return (
     <>
       <div className="User-Show-Page">
         <div className="USP-Panels">
           <div id="USP-Map">
-            <Map />
+            <Map iconDisplay={selectedList} listings={listings}/>
           </div>
           <div id="USP-Nav">
             <div id="USP-Header">

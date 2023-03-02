@@ -6,10 +6,14 @@ import { getListings } from "../../store/listings"
 import './Map.css';
 import { useState } from 'react';
 import MapMarker from './MapMarker';
+import { getAppointments } from '../../store/appointment';
+import { getFavorites } from '../../store/favorite';
 
+const Map = ({iconDisplay}) => {
 
-const Map = () => {
   const listings = useSelector(getListings)
+  const appointments = useSelector(getAppointments)
+  const favorites = useSelector(getFavorites)
 
   const defaultProps = {
     center: {
@@ -23,9 +27,40 @@ const Map = () => {
     fullscreenControl: false,
     disableDefaultUI: true
   }
-  const markers = listings?.map((listing, idx) => {
-    return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing}/>
-  })
+
+  const markers = () => {
+    if (iconDisplay) {
+      return listings?.map((listing, idx) => {
+        return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing} icon={iconDisplay} />
+      })
+    } else {
+      return listings?.map((listing, idx) => {
+        return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing} icon={"Appointments"} />
+      })
+    }
+  }
+  
+
+  //problem here is that this has listing Id's, not indicies for the array. 
+  // consider using the use selector, or writing a bulky algo to check each listing id
+  const iconSorter = () => {
+    let listingIdsAppointments = [] 
+    let listingIdsFavorites = [] 
+
+    for (let appointment of appointments) {
+      listingIdsAppointments.push(appointment.listingId)
+    }
+
+    for (let favorite of favorites) {
+      if (listingIdsAppointments.includes(favorite.listingId)) continue
+      listingIdsFavorites.push(favorite.listingId)
+    }
+
+    return [listingIdsAppointments, listingIdsFavorites]
+  }
+
+  
+  
 
 
   return (
@@ -39,7 +74,7 @@ const Map = () => {
         draggable={true}
         yesIWantToUseGoogleMapApiInternals
       >
-        {markers}
+        {listings.length > 0 && (markers())}
       </GoogleMapReact>
     </div>
   );
