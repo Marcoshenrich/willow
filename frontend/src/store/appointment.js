@@ -52,7 +52,7 @@ export const fetchAppointments = () => async dispatch => {
 };
 
 export const fetchUserAppointments = (userId) => async dispatch => {
-    const response = await csrfFetch(`/api/user/${userId}/appointments`)
+    const response = await csrfFetch(`/api/users/${userId}/appointments/`)
     if (response.ok) {
         const data = await response.json();
         dispatch(receiveAppointments(data));

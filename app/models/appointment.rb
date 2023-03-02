@@ -1,3 +1,5 @@
+require 'date'
+
 # == Schema Information
 #
 # Table name: appointments
@@ -28,6 +30,19 @@ class Appointment < ApplicationRecord
       .select("*")
       .where("date IN (?)", date)
       .where("agent_id IN (?)", agent_id)
+    end
+
+    def self.future_user_appointments(user_id)
+      Appointment
+      .select("*")
+      .where("user_id IN (?)", user_id)
+      .where("date >= (?)", Date.today)
+    end
+
+    def self.user_appointments(user_id)
+      Appointment
+      .select("*")
+      .where("user_id IN (?)", user_id)
     end
 
 end

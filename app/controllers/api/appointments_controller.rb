@@ -15,9 +15,16 @@ class Api::AppointmentsController < ApplicationController
         render "api/appointments/index"
     end
 
-    def user_appointments
-        console.log("in user_appointments")
-        @appointments = Appointment.all
+    def future_user_appointments
+        @appointments = Appointment.future_user_appointments(params[:user_id])
+        render "api/appointments/index"
+    end
+
+    def index
+        # @appointments = Appointment.user_appointments(params[:user_id])
+        # index does not pass in 
+        @user = User.find_by(id: params[:user_id])
+        @appointments = @user.user_appointments
         render "api/appointments/index"
     end
 
@@ -26,13 +33,6 @@ class Api::AppointmentsController < ApplicationController
         if @appointment.update(appointment_params)
             render "api/appointments/show"
         end
-    end
-
-
-
-    def index
-        @appointments = Appointment.all
-        render "api/appointments/index"
     end
 
 
