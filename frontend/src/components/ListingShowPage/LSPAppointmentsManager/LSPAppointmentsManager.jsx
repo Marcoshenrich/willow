@@ -93,11 +93,9 @@ const LSPAppointmentsManager = ({ listing, setShowSessionModal }) => {
     return `${hoursInt}:${appointment.time.slice(3, 5)} ${ampm}`
   }
 
-
-  useEffect(()=>{
-    dispatch(fetchUserAppointments(currentUser.id))
+  useEffect(() => {
     dispatch(fetchUserAppointments(agentId))
-  },[])
+  }, [])
 
   useEffect(() => {
     if (currentUser) appointmentExistsChecker()

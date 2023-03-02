@@ -39,6 +39,10 @@ export const getListings = (store) => {
     return []
 }
 
+
+
+
+
 export const getSortedListings = (options = { sortBy: "id", sortByLargestBool: true}) => (store) => {
     let listingArr;
     if (store.listings) {

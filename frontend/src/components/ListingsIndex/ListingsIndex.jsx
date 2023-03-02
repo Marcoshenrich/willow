@@ -11,6 +11,7 @@ import SessionModal from '../SessionModal';
 import { FixedModal } from '../../context/Modal';
 import LISort from "./LISort"
 import LIListingContainer from "./LIListingContainer"
+import { fetchUserAppointments } from "../../store/appointment"
 
 
 const ListingsIndex = () => {
@@ -26,7 +27,6 @@ const ListingsIndex = () => {
     sortBy
   })
   const listings = useSelector(getSortedListings(options))
-
   
   useEffect(()=>{
     if (query) {
@@ -34,7 +34,10 @@ const ListingsIndex = () => {
     } else {
       dispatch(fetchListings(options))
     }
-    if (currentUser) dispatch(fetchFavorites(currentUser.id))
+    if (currentUser) {
+      dispatch(fetchFavorites(currentUser.id))
+      dispatch(fetchUserAppointments(currentUser.id))
+    }
   }, [query])
 
   const onSessionModalClose = () => {

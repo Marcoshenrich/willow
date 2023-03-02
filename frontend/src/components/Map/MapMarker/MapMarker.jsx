@@ -9,7 +9,7 @@ import { FaRegClock } from "react-icons/fa"
 import { ScrollModal } from "../../../context/Modal";
 import ListingShowPage from "../../ListingShowPage";
 
-const ListingMarker = ({listing, icon }) => {
+const ListingMarker = ({ listing, iconArrs }) => {
   const [showMapModule, setShowMapModule] = useState(false)
   const [showListingModal, setShowListingModal] = useState(false)
 
@@ -24,8 +24,15 @@ const ListingMarker = ({listing, icon }) => {
     setShowListingModal(false)
   }
 
+  const iconParser = (iconArrs) => {
+    let [listingIdsAppointments, listingIdsFavorites] = iconArrs
+    if (listingIdsAppointments.includes(listing.id)) return "Appointments"
+    if (listingIdsFavorites.includes(listing.id)) return "Favorites"
+    return true
+  }
+
   const iconPicker = () => {
-    switch (icon) {
+    switch (iconParser(iconArrs)) {
       case "Favorites":
         return (<BsSuitHeartFill className='Listing-Marker-Icon' />)
 

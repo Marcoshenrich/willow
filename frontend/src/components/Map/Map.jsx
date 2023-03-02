@@ -2,18 +2,21 @@ import React, { useEffect, useMemo } from 'react'
 import GoogleMapReact from 'google-map-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMapKey, getMapKey } from '../../store/map';
-import { getListings } from "../../store/listings"
+import { getListings, getIconListings } from "../../store/listings"
 import './Map.css';
 import { useState } from 'react';
 import MapMarker from './MapMarker';
 import { getAppointments } from '../../store/appointment';
 import { getFavorites } from '../../store/favorite';
+import { getCurrentUser } from '../../store/session';
 
 const Map = ({iconDisplay}) => {
 
-  const listings = useSelector(getListings)
   const appointments = useSelector(getAppointments)
   const favorites = useSelector(getFavorites)
+  const listings = useSelector(getListings)
+
+  const currentUser = useSelector(getCurrentUser)
 
   const defaultProps = {
     center: {
@@ -28,26 +31,12 @@ const Map = ({iconDisplay}) => {
     disableDefaultUI: true
   }
 
-  const markers = () => {
-    if (iconDisplay) {
-      return listings?.map((listing, idx) => {
-        return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing} icon={iconDisplay} />
-      })
-    } else {
-      return listings?.map((listing, idx) => {
-        return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing} icon={"Appointments"} />
-      })
-    }
-  }
-  
-
-  //problem here is that this has listing Id's, not indicies for the array. 
-  // consider using the use selector, or writing a bulky algo to check each listing id
   const iconSorter = () => {
-    let listingIdsAppointments = [] 
-    let listingIdsFavorites = [] 
+    let listingIdsAppointments = []
+    let listingIdsFavorites = []
 
     for (let appointment of appointments) {
+      if (appointment.userId !== currentUser.id) continue
       listingIdsAppointments.push(appointment.listingId)
     }
 
@@ -59,7 +48,14 @@ const Map = ({iconDisplay}) => {
     return [listingIdsAppointments, listingIdsFavorites]
   }
 
+  const markers = () => {
+    let iconArrs = iconSorter()
+    return listings?.map((listing, idx) => {
+      return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing} iconArrs={iconArrs}/>
+    })
+  }
   
+
   
 
 
