@@ -39,10 +39,4 @@ class Appointment < ApplicationRecord
       .where("date >= (?)", Date.today)
     end
 
-    def self.user_appointments(user_id)
-      Appointment
-      .select("*")
-      .where("user_id IN (?)", user_id)
-    end
-
 end

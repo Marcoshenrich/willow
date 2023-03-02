@@ -21,10 +21,7 @@ class Api::AppointmentsController < ApplicationController
     end
 
     def index
-        # @appointments = Appointment.user_appointments(params[:user_id])
-        # index does not pass in 
-        @user = User.find_by(id: params[:user_id])
-        @appointments = @user.user_appointments
+        @appointments = current_user.user_appointments
         render "api/appointments/index"
     end
 

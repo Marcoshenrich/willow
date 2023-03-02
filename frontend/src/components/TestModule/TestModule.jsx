@@ -14,7 +14,7 @@ const TestModule = () => {
 
 
   useEffect(() => {
-    dispatch(fetchUserAppointments(currentUser.id))
+    // dispatch(fetchUserAppointments(currentUser.id))
     dispatch(fetchAppointments(currentUser.id))
   }, [])
 
