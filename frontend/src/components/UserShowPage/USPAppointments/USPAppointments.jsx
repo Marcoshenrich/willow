@@ -35,12 +35,13 @@ const USPAppointments = () => {
 
   return (
     <div className="USP-Appointments">
-      <div id="USP-Appointments-Header">Your Appointments:</div>
       <div id="USP-Appointments-Container">
         {(appointments.length > 0) && (
-          <>
+
+          <div id="USP-Appointments-Show-Container"> 
+            <Calendar/>
             <div id="USP-Appointments-Show">{userAppointments()}</div>
-          </>
+          </div>
         )}
         {(appointments.length === 0) && (
           <div id="USP-No-Appointments-Container">

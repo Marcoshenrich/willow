@@ -21,44 +21,39 @@
 
 
 .USP-Appointments {
-    height: 300px;
-    width: 40%;
-    height: 50%;
+    height: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#USP-Appointments-Header {
-    margin: 25px;
-    color: var(--oceanabyss);
-    font-family: var(--font);
-    font-size: var(--font-s-lrg);
-    font-weight: var(--font-w-sml);
+    justify-content:  center;
 }
 
 #USP-Appointments-Container {
     display: flex;
+    height: 100%;
+    margin-top: 20px;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 80%;
+    overflow-y: scroll;
 }
 
-#USP-Appointments-Calendar {
-    height: 95%;
-    width: 30%;
-    border: 1px solid black;
+#USP-Appointments-Show-Container {
+    display: flex;
+    height: 60vh;
+    margin-top: 150px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #USP-Appointments-Show {
     display: flex;
     height: 100%;
-    width: 30%;
+    width: 100%;
     flex-wrap: wrap;
-        align-items: center;
+    align-items: center;
     justify-content: center;
-    overflow-y: scroll;
 }
 
 #USP-No-Appointments-Container {

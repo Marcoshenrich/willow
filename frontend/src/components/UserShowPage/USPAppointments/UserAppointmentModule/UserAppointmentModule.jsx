@@ -55,7 +55,6 @@ const UserAppointmentModule = ({ appointment }) => {
   const deleteAppointmentClick = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    setShowUpdateTime((showUpdateTime) => !showUpdateTime)
     dispatch(deleteAppointment(appointment.id))
   }
 
@@ -93,7 +92,7 @@ const UserAppointmentModule = ({ appointment }) => {
         <div id="USAM-Agent-Info">Agent: {appointment.agent.username} </div>
       {showUpdateTime && (<LSPAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={timeAvailabilitySorter()} />)}
       <div id="USAM-Edit"><button onClick={(e) => updateTimeClick(e)} id="USAM-Edit-Submit">{(time && showUpdateTime) ? "Change Time" : "Reschedule" }</button></div>
-      <div id="USAM-Cancel"><button onClick={(e) => deleteAppointmentClick(e)} id="USAM-Cancel-Submit">Cancel Appointment</button></div>
+      <div id="USAM-Cancel"><button onClick={deleteAppointmentClick} id="USAM-Cancel-Submit">Cancel Appointment</button></div>
     </div>
   )
 }
