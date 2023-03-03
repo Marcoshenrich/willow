@@ -19,14 +19,16 @@
     --fog: #efefef;
 }
 
-#LSPA-Time-Container {
+#UA-Time-Container {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     padding-left: 65px;
 }
 
-#LSPA-No-Time-Callout {
+#UA-No-Time-Callout {
+padding-left: 43px;
+    margin-top: 20px;
     color: var(--oceanabyss);
     font-family: var(--font);
     font-size: var(--font-s-med);
