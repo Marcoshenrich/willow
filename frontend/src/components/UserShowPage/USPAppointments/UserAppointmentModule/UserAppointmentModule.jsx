@@ -1,9 +1,9 @@
 import "./UserAppointmentModule.css"
 import { deleteAppointment, updateAppointment, getAppointments, fetchAppointments } from "../../../../store/appointment";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import LSPAppointmentsTimeContainer from "../../../ListingShowPage/LSPAppointmentsManager/LSPAppointmentsTimeContainer/LSPAppointmentsTimeContainer";
 import { getCurrentUser } from "../../../../store/session";
+import UserAppointmentsTimeContainer from "./UATimeContainer/UATimeContainer";
 
 
 const UserAppointmentModule = ({ appointment }) => {
@@ -90,7 +90,7 @@ const UserAppointmentModule = ({ appointment }) => {
         <div id="USAM-Name">{appointment.listing.name}</div>
         <div id="USAM-Date">Date: {dateParser()} at {timeParser()}</div>
         <div id="USAM-Agent-Info">Agent: {appointment.agent.username} </div>
-      {showUpdateTime && (<LSPAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={timeAvailabilitySorter()} />)}
+      {showUpdateTime && (<UserAppointmentsTimeContainer activeTime={time} setActiveTime={setTime} availableTimes={timeAvailabilitySorter()} />)}
       <div id="USAM-Edit"><button onClick={(e) => updateTimeClick(e)} id="USAM-Edit-Submit">{(time && showUpdateTime) ? "Change Time" : "Reschedule" }</button></div>
       <div id="USAM-Cancel"><button onClick={deleteAppointmentClick} id="USAM-Cancel-Submit">Cancel Appointment</button></div>
     </div>

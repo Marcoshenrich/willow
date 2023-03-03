@@ -1,7 +1,7 @@
-import "./LSPAppointmentsTimeContainer.css"
-import LSPAMTimeBlock from "../LSPAMTimeBlock"
+import LSPAMTimeBlock from "../../../../ListingShowPage/LSPAppointmentsManager/LSPAMTimeBlock"
+import "./UATimeContainer.css"
 
-const LSPAppointmentsTimeContainer = ({ activeTime, setActiveTime, availableTimes }) => {
+const UserAppointmentsTimeContainer = ({ activeTime, setActiveTime, availableTimes }) => {
 
   const timeBlockMaker = () => {
 
@@ -21,4 +21,4 @@ const LSPAppointmentsTimeContainer = ({ activeTime, setActiveTime, availableTime
   )
 }
 
-export default LSPAppointmentsTimeContainer
+export default UserAppointmentsTimeContainer

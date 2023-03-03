@@ -35,11 +35,11 @@ const USPAppointments = () => {
 
   return (
     <div className="USP-Appointments">
-      <div id="USP-Appointments-Container">
         {(appointments.length > 0) && (
-
           <div id="USP-Appointments-Show-Container"> 
-            <Calendar/>
+            <div id="USPA-Show-Calendar">
+              <Calendar/>
+            </div>
             <div id="USP-Appointments-Show">{userAppointments()}</div>
           </div>
         )}
@@ -49,7 +49,6 @@ const USPAppointments = () => {
             <Link to="/listings"><div id="USP-No-Appointments-Link">Browse properties</div></Link>
           </div>
         )}
-      </div>
     </div>
   )
 }

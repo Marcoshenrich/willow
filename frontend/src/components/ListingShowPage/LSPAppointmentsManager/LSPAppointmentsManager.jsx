@@ -1,7 +1,7 @@
 import "./LSPAppointmentsManager.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react";
-import { fetchUserAppointments, fetchAppointments, getAppointments, createAppointment, deleteAppointment } from "../../../store/appointment";
+import { fetchUserAppointments, getAppointments, createAppointment, deleteAppointment } from "../../../store/appointment";
 import { getCurrentUser } from "../../../store/session";
 import 'react-calendar/dist/Calendar.css'
 import LSPAppointmentsCarousel from "./LSPAppointmentsCarousel";
