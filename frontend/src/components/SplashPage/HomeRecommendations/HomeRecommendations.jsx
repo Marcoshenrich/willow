@@ -1,5 +1,5 @@
 import "./HomeRecommendations.css"
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import gardenSign from "../../../assets/heroes/gardensign.jpg"
 import yellowHouse from "../../../assets/heroes/yellowHouse.jpeg"
 import leafHome from "../../../assets/heroes/leafHome.jpeg"
