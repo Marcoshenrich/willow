@@ -6,7 +6,6 @@ const EDIT_REVIEW_ERRORS = 'EDIT_REVIEW_ERRORS'
 const SEARCH_ERRORS = 'SEARCH_ERRORS'
 const APPOINTMENT_ERRORS = 'APPOINTMENT_ERRORS'
 
-
 export const loginErrors = (errors) => {
     return {
         type: LOGIN_ERRORS,
