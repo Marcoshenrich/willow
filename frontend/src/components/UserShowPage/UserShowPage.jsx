@@ -49,6 +49,7 @@ const UserShowPage = () => {
               <div onClick={toggleSelector} className={selectedList === "Favorites" ? "USP-Toggle-Selected" : "USP-Toggle-Unselected"}>Favorites</div>
               <div onClick={toggleSelector} className={selectedList === "Your Stats" ? "USP-Toggle-Selected" : "USP-Toggle-Unselected"}>Your Stats</div>
             </div>
+            {/* add a wrapper div for shared bahvior */}
             {selectedList === "Appointments" && (<USPAppointments/>)}
             {selectedList === "Favorites" && (<USPFavorites />)}
             {selectedList === "Your Stats" && (<USPStats />)}
