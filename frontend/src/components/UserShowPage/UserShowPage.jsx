@@ -9,7 +9,7 @@ import { getPrunedListings, fetchListings, searchListings, rerenderListings, get
 import { fetchFavorites } from "../../store/favorite"
 import { getCurrentUser } from "../../store/session"
 import { fetchUserAppointments } from "../../store/appointment"
-import USPStats from "./USPStats"
+import USPAccount from "./USPAccount"
 
 const UserShowPage = () => { 
 
@@ -43,11 +43,11 @@ const UserShowPage = () => {
             <div id="USP-Nav-Toggle-Container">
               <div onClick={toggleSelector} className={selectedList === "Appointments" ? "USP-Toggle-Selected" : "USP-Toggle-Unselected" }>Appointments</div>
               <div onClick={toggleSelector} className={selectedList === "Favorites" ? "USP-Toggle-Selected" : "USP-Toggle-Unselected"}>Favorites</div>
-              <div onClick={toggleSelector} className={selectedList === "Your Stats" ? "USP-Toggle-Selected" : "USP-Toggle-Unselected"}>Your Stats</div>
+              <div onClick={toggleSelector} className={selectedList === "Your Account" ? "USP-Toggle-Selected" : "USP-Toggle-Unselected"}>Your Account</div>
             </div>
             {selectedList === "Appointments" && (<USPAppointments/>)}
             {selectedList === "Favorites" && (<USPFavorites />)}
-            {selectedList === "Your Stats" && (<USPStats />)}
+            {selectedList === "Your Account" && (<USPAccount />)}
           </div>
         </div>
       </div>

@@ -1,0 +1,75 @@
+:root {
+    --font: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+    --font-w-lrg: 700;
+    --font-w-med: 400;
+    --font-w-sml: 300;
+    --font-s-lrg: 24px;
+    --font-s-med: 18px;
+    --font-s-sml: 14px;
+
+    --burnt-amber: #f1641d;
+    --beeswax: #FDEBD2;
+    --grassylight: #d4e9d7;
+    --grassyplains: #9ec064;
+    --enchantment: #9560b8;
+    --oceanmist: #d7e5f5;
+    --oceansurf: #4d6bc6;
+    --oceandepths: #2f466c;
+    --oceanabyss: #232347;
+    --fog: #efefef;
+}
+
+.USP-Account {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--oceanabyss);
+    font-family: var(--font);
+    font-size: var(--font-s-med);
+    font-weight: var(--font-w-sml);
+}
+
+.USP-Body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 87%;
+}
+
+.USP-Account-Details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80px;
+    width: 100%;
+    margin: 20px;
+}
+
+.USP-Account-Stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 130px;
+    width: 100%;
+    margin: 20px;
+}
+
+#USP-Details-Header {
+    font-weight: var(--font-w-med);
+}
+
+#USP-Fairy-Footer {
+    height: 210px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#USP-Fairy-Footer img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
