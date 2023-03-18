@@ -38,6 +38,7 @@
 
 #USP-Header {
     height: 65px;
+    min-height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;

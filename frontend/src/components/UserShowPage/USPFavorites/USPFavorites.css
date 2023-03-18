@@ -35,14 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.USP-Favorited-Carousel.Favorite-Carousel-1 {
-    height: 1px;
-}
-
-.USP-Favorited-Carousel.Favorite-Carousel-2 {
-    height: 100px;
+    position: relative;
 }
 
 

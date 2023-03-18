@@ -12,13 +12,12 @@ import { Link } from "react-router-dom";
 const USPFavorites = () => {
   const listings = useSelector(getListings)
   const favorites = useSelector(getFavorites)
-
+  console.log(window.innerHeight)
+  const [carouselPos, setcarouselPos] = useState(window.innerHeight >= 800 ? 0 : Math.abs(window.innerHeight - 800) / 2.5)
   const [showFavoriteQueue, setShowFavoriteQueue] = useState(false)
-  const [favoriteCount, setFavoriteCount] = useState(0)
 
   useEffect(() => {
     setShowFavoriteQueue(!!favorites.length)
-    setFavoriteCount(() => favorites.length >= 2 ? 2 : favorites.length ) 
   }, [favorites])
 
 
@@ -32,20 +31,21 @@ const USPFavorites = () => {
     }
   }
 
-  const breakPoints = [
-    { height: 1, itemsToShow: 1 },
-    { height: 550, itemsToShow: 2, itemsToScroll: 2 }
-  ];
+  window.addEventListener("resize", (e) => { 
+    if (e.target.innerHeight >= 800) {
+      setcarouselPos(0)
+    } else {
+      setcarouselPos(Math.abs(e.target.innerHeight - 800)/2.5)
+    }
+  });
 
-  //breakPoints={breakPoints}
 
-  // a
 
   return (
       <div className="USP-Favorites">
-      {showFavoriteQueue && !!favoriteCount && (
-        <div className={`USP-Favorited-Carousel ` + `Favorite-Carousel-${favoriteCount}`}>
-          <Carousel verticalMode itemsToShow={2} height={1}>
+      {showFavoriteQueue && (
+        <div className={`USP-Favorited-Carousel`} style={{ top: carouselPos }}>
+          <Carousel verticalMode itemsToShow={2} top={2000}>
               {placeListingModules()}
           </Carousel>
         </div>
