@@ -2,10 +2,24 @@ import { useSelector } from "react-redux"
 import { getCurrentUser } from "../../../store/session"
 import "./USPAccount.css"
 import fairy from "../../../assets/heroes/USPFairyFooter.jpg"
+import csrfFetch from "../../../store/csrf"
+import { useEffect } from "react"
 
 
 const USPAccount = () => {
   const currentUser = useSelector(getCurrentUser)
+
+  const fetchUserStats = async () => {
+    const response = await csrfFetch(`/api/users/${currentUser.id}/stats`)
+    if (response.ok) {
+      const data = await response.json();
+    }
+  };
+
+  useEffect(()=>{
+    const stats = fetchUserStats()
+    console.log(stats)
+  },[])
 
   return (
     <div className="USP-Account">

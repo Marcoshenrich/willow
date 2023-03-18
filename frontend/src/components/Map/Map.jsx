@@ -14,8 +14,6 @@ const Map = ({iconDisplay, listings}) => {
 
   const appointments = useSelector(getAppointments)
   const favorites = useSelector(getFavorites)
-  // const listings = useSelector(getListings)
-  // console.log(listings)
 
   const currentUser = useSelector(getCurrentUser)
 

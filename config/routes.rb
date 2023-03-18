@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :show] do
       resources :favorites, only: [:index]
+      get "/stats/", to: "users#stats", :as => "stats"
       get "/appointments/", to: "appointments#future_user_appointments", :as => "future_user_appointments"
     end
     resources :listings, only: [:create, :index, :show] do

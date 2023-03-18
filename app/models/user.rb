@@ -38,6 +38,22 @@ class User < ApplicationRecord
         class_name: :Appointment,
         dependent: :destroy
 
+
+  def user_stats
+    num_reviews = self.reviews.length
+    num_favorites = self.favorites.length
+    num_appointments = self.user_appointments.length
+    num_future_appointments = Appointment.future_user_appointments(self.id).length
+    num_past_appointments = num_future_appointments - num_appointments
+
+    return {
+      num_future_appointments: num_future_appointments,
+      num_past_appointments: num_past_appointments,
+      num_reviews: num_reviews, 
+      num_favorites: num_favorites
+    }
+  end
+
   def self.find_by_credentials(credential, password)
     user = nil
     if URI::MailTo::EMAIL_REGEXP.match(credential)

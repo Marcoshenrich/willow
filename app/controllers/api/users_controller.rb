@@ -16,6 +16,11 @@ class Api::UsersController < ApplicationController
     render "api/users/show"
   end
 
+  def stats 
+    @stats = current_user.user_stats
+    render "api/users/stats"
+  end
+
 
   private
   def user_params

@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 const USPFavorites = () => {
   const listings = useSelector(getListings)
   const favorites = useSelector(getFavorites)
-  console.log(window.innerHeight)
   const [carouselPos, setcarouselPos] = useState(window.innerHeight >= 800 ? 0 : Math.abs(window.innerHeight - 800) / 2.5)
   const [showFavoriteQueue, setShowFavoriteQueue] = useState(false)
 
