@@ -44,7 +44,7 @@ class User < ApplicationRecord
     num_favorites = self.favorites.length
     num_appointments = self.user_appointments.length
     num_future_appointments = Appointment.future_user_appointments(self.id).length
-    num_past_appointments = num_future_appointments - num_appointments
+    num_past_appointments = num_appointments - num_future_appointments
 
     return {
       num_future_appointments: num_future_appointments,
