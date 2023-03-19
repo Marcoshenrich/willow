@@ -38,8 +38,8 @@ const USPAccount = () => {
           <div id="USP-Details-Header">Your Stats</div>
             <div>Upcoming Appointments: {stats.numFutureAppointments}</div>
             <div>Previous Appointments: {stats.numPastAppointments}</div>
-            <div>Reviewed: {stats.numReviews}</div>
-            <div>Favorited: {stats.numFavorites}</div>
+            <div>Reviews: {stats.numReviews}</div>
+            <div>Favorites: {stats.numFavorites}</div>
         </div>
         )}
       </div>
