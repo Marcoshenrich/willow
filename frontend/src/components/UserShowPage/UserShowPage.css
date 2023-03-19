@@ -78,9 +78,14 @@
 
 #USP-Nav-Toggle-Container > div:hover {
    background-color: #cab0dc;
+   border-radius: 5px;
    cursor: pointer;
+    font-size: 25px;
+    transition: background-color 1s, font-size 1s; 
 } 
 
 .USP-Toggle-Selected {
-    background-color: #cab0dc;
+    text-decoration: underline;
+    text-decoration-color: #cab0dc;
+    transition: text-decoration 3s;
 }
