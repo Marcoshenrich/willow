@@ -12,7 +12,15 @@ class Api::ListingsController < ApplicationController
 
     def search
         query = params[:query]
-        @listings = Listing.where('name ILIKE ? OR city ILIKE ? OR zip ILIKE ? OR flowers ILIKE ?', "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")
+        @listings = nil
+        generic_search_terms = ["homes", "home", "houses", "house", "apartments", "apartment", "rent", "buy", "rental", "rentals", "unit", "units", "fairy", "dream home", "my dream home" ]
+        
+        if generic_search_terms.include?(query.downcase)
+            @listings = Listing.all
+        else
+            @listings = Listing.where('name ILIKE ? OR city ILIKE ? OR zip ILIKE ? OR flowers ILIKE ?', "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")
+        end
+
         if @listings.length > 0
             render "api/listings/index"
         else

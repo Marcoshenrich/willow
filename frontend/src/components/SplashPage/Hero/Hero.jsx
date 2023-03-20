@@ -15,12 +15,15 @@ const Hero = () => {
     const [query, setQuery] = useState("")
     const searchErrors = useSelector(state => state.errors.searchErrors);
 
-    const splashSearchSubmit = () => {
+    const splashSearchSubmit = (e) => {
+        e.preventDefault()
         dispatch(clearListings())
         dispatch(clearErrors())
         dispatch(searchListings(query)).then((res) => { if (res.ok) history.push(`/listings/search/${query}`) })
         setQuery("")
     }
+
+    
 
     return (
     <>
@@ -30,10 +33,10 @@ const Hero = () => {
         <div id="Hero-Content">
             
             <div>Discover Your Fairy Tale</div>
-                <div id="Search-Bar">
-                    <input id={searchErrors ? "Search-Bar-Errors" : ""} value={query} type="search" placeholder={searchErrors ? searchErrors[0] : "find your dream home"} onChange={(e) => setQuery(e.target.value)} />
-                    <button id="Search-Button">{<BsSearch id="Search-Glass" onClick={splashSearchSubmit} />}</button>
-                </div>
+                <form id="Search-Bar" onSubmit={splashSearchSubmit}>
+                    <input id={searchErrors ? "Search-Bar-Errors" : ""} value={query} type="search" placeholder={searchErrors ? searchErrors[0] : "Find your dream home..."} onChange={(e) => setQuery(e.target.value)} />
+                    <button type="submit" id="Search-Button">{<BsSearch id="Search-Glass" />}</button>
+                </form>
         </div>
     </>
     )

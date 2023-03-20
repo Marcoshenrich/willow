@@ -1,13 +1,8 @@
 import "./LISort.css"
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect, useState } from "react"
-import { getListings, fetchListings, searchListings, sortListings } from "../../../store/listings"
+import { useState } from "react"
 import { BsChevronDown, BsChevronUp } from "react-icons/bs"
-import { fetchFavorites, getFavorites } from "../../../store/favorite"
-import { getCurrentUser } from "../../../store/session"
 
 const LISort = ({ sortByLargestBool, setSortByLargestBool, sortBy, setSortBy }) => {
-  const dispatch = useDispatch()
   const [showDropown, setShowDropown] = useState(false)
 
   const sortDispatcher = (e) => {
@@ -20,22 +15,6 @@ const LISort = ({ sortByLargestBool, setSortByLargestBool, sortBy, setSortBy }) 
     e.stopPropagation()
     setSortByLargestBool((sortByLargestBool)=>!sortByLargestBool)
   }
-
-  useEffect(()=>{
-    // dispatch(sortListings({ key: sortBy, sortByLargestBool }))
-  }, [sortByLargestBool])
-
-  useEffect(() => {
-    // dispatch(sortListings({ key: "id", sortByLargestBool:true }))
-  }, [])
-
-
-
-
-
-
-
-
 
 
   return (
