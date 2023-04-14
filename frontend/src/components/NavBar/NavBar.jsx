@@ -49,9 +49,9 @@ const NavBar = () => {
         <nav id="NavBar">
             <div id="NavBarLeft">
                 <div onClick={routeChangeListings}>Browse Properties</div>
-                <div><a id="Link" target="_blank" href="https://marcoshenrich.dev/">About Me</a></div>
-                <div><a id="Link" target="_blank" href="https://www.linkedin.com/in/marcos-henrich-794226108/"><FaLinkedin id="Nav-Bar-Icon" /></a></div>
-                <div><a id="Link" target="_blank" href="https://github.com/Marcoshenrich/"><FaGithub id="Nav-Bar-Icon" /></a></div>
+                <div id="NavBarAboutMe"><a id="Link" target="_blank" href="https://marcoshenrich.dev/">About Me</a></div>
+                    <div id="NavBarLinkedIn"><a id="Link" target="_blank" href="https://www.linkedin.com/in/marcos-henrich-794226108/"><FaLinkedin id="Nav-Bar-Icon" /></a></div>
+                    <div id="NavBarGitHub" ><a id="Link" target="_blank" href="https://github.com/Marcoshenrich/"><FaGithub id="Nav-Bar-Icon" /></a></div>
             </div>
 
             <div id="NavBarMid" onClick={routeChangeHome}>
@@ -60,8 +60,9 @@ const NavBar = () => {
             </div>
 
             <div id="NavBarRight">
-                <div ><a id="Link" target="_blank" href="https://www.google.com/search?q=A+Midsummer+Night%27s+Dream+tickets+near+me">Dreams</a></div>
-                {/* <div ><a id="Link" target="_blank" href="https://en.wikipedia.org/wiki/Fairy">Learn More</a></div> */}
+                <div id="NavBarDreams"><a id="Link" target="_blank" href="https://www.google.com/search?q=A+Midsummer+Night%27s+Dream+tickets+near+me">Dreams</a></div>
+                <div id="NavBarLinkedIn"><a id="Link" target="_blank" href="https://www.linkedin.com/in/marcos-henrich-794226108/"><FaLinkedin id="Nav-Bar-Icon" /></a></div>
+                <div id="NavBarGitHub"><a id="Link" target="_blank" href="https://github.com/Marcoshenrich/"><FaGithub id="Nav-Bar-Icon" /></a></div>
                 {currentUser && (<div ><Link id="Link"  to={`/user/profile`}>Your Profile</Link></div>)}
                 {sessionControl()}
             </div>

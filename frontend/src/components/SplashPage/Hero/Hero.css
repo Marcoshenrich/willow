@@ -44,6 +44,7 @@
     align-items: center;
     position: relative;
     color: white;
+    text-align: center;
     font-size: 100px;
     bottom: 300px;
     margin-bottom: -250px;
@@ -100,4 +101,18 @@
 
 #Search-Button:hover {
     background-color: var(--oceanmist);
+}
+
+/* @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) { */
+
+@media (max-width: 800px) {
+    #Hero-Content {
+        font-size: 50px;
+        margin-left:50px;
+        margin-right: 50px;
+    }
+
+    #Search-Bar>input {
+        width: 60%;
+    }
 }

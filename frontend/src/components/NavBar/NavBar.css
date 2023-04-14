@@ -94,3 +94,48 @@
 #Nav-Bar-Icon{
     font-size: 30px;
 }
+
+#NavBarRight > #NavBarLinkedIn {
+    display: none;
+}
+
+#NavBarRight>#NavBarGitHub {
+    display: none;
+}
+
+@media (max-width: 800px) {
+
+    #NavBarDreams {
+        display: none;
+    }
+
+    #NavBarAboutMe {
+        display: none;
+    }
+
+    #NavBarLeft>#NavBarLinkedIn {
+        display: none;
+    }
+
+    #NavBarLeft>#NavBarGitHub {
+        display: none;
+    }
+
+    #NavBarRight>#NavBarLinkedIn {
+        display: flex;
+    }
+
+    #NavBarRight>#NavBarGitHub {
+        display: flex;
+    }
+
+    #NavBarMid {
+        font-size: 30px;
+    }
+
+    #NavBarMid img {
+        top: 5px;
+        width: 20px;
+        height: 23px;
+    }
+}

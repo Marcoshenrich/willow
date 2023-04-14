@@ -29,7 +29,6 @@
 .Recommendations img {
     height: 100%;
     width: 100%;
-
 }
 
 .Recommendations>div {
@@ -97,5 +96,12 @@
 #Recommendation-Text>button:active {
     height: 43px;
     width: 200px;
+}
 
+@media (max-width: 800px) {
+
+    .Recommendations img {
+        height: 8rem;
+        width: 8rem;
+    }
 }

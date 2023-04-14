@@ -19,6 +19,7 @@
     --oceanabyss: #232347;
     --fog: #efefef;
 }
+
 #Splash-Page-Footer-Info {
     height: 300px;
     display: flex;
@@ -37,25 +38,6 @@
     margin-top: 20px
 }
 
-
-#Font-Test {
-    display: flex;
-padding-left: 100px;
-}
-
-#Font-Test > div{
-    padding: 20px;
-    margin: 20px;
-    border: black 1px solid;
-    display: flex;
-    flex-direction: column;
-}
-
-#Font-Test span {
-    font-family: var(--font);
-    color: var(--oceanabyss);
-}
-
 #Splash-Page-Footer-Image {
     width: 100%
 }
@@ -64,63 +46,8 @@ padding-left: 100px;
     width: 100%
 }
 
-
-.LargeS.LargeW {
-    font-size: var(--font-s-lrg);
-    font-weight: var(--font-w-lrg)
-}
-
-.LargeS.MedW {
-    font-size: var(--font-s-lrg);
-    font-weight: var(--font-w-med)
-}
-
-.LargeS.SmlW {
-    font-size: var(--font-s-lrg);
-    font-weight: var(--font-w-sml)
-}
-
-.StandS.LargeW {
-    font-size: var(--font-s-std);
-    font-weight: var(--font-w-lrg)
-}
-
-.StandS.MedW {
-    font-size: var(--font-s-std);
-    font-weight: var(--font-w-med)
-}
-
-.StandS.SmlW {
-    font-size: var(--font-s-std);
-    font-weight: var(--font-w-sml)
-}
-
-.MedS.LargeW {
-    font-size: var(--font-s-med);
-    font-weight: var(--font-w-lrg)
-}
-
-.MedS.MedW {
-    font-size: var(--font-s-med);
-    font-weight: var(--font-w-med)
-}
-
-.MedS.SmlW {
-    font-size: var(--font-s-med);
-    font-weight: var(--font-w-sml)
-}
-
-.SmlS.LargeW {
-    font-size: var(--font-s-sml);
-    font-weight: var(--font-w-lrg)
-}
-
-.SmlS.MedW {
-    font-size: var(--font-s-sml);
-    font-weight: var(--font-w-med)
-}
-
-.SmlS.SmlW {
-    font-size: var(--font-s-sml);
-    font-weight: var(--font-w-sml)
+@media (max-width: 800px) {
+    #Splash-Page-Footer-Info > div {
+        background-color: green;
+    }
 }
