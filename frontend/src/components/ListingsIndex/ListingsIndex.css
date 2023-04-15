@@ -29,10 +29,11 @@
     display: flex;
     height: 100%;
     width: 100%;
+    /* width: 100vw; */
 }
 
-.Listings-Panels > div {
-    height: 100%;
+
+#Listings-Map  {
     width: 100%;
 }
 
@@ -40,7 +41,7 @@
     width:800px;
     min-width: 800px;
     overflow-y: scroll;
-        box-shadow: inset 2px 0px 4px 1px rgba(0, 0, 0, .25);
+    box-shadow: inset 2px 0px 4px 1px rgba(0, 0, 0, .25);
 }
 
 #Listings-Header {
@@ -78,4 +79,45 @@
 #Listings-Container {
     display: flex;
     flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+    #Listings-Nav {
+        width: 400px;
+        min-width: 400px;
+        overflow-y: scroll;
+        box-shadow: inset 2px 0px 4px 1px rgba(0, 0, 0, .25);
+    }
+
+    #Listings-Header {
+        height: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    #Listings-Header h2 {
+        text-align: center;
+        margin-left: 20px;
+        color: var(--oceanabyss);
+        font-family: var(--font);
+        font-size: 1.5vw;
+        font-weight: var(--font-w-med);
+    }
+
+    #Listings-Header>div {
+        display: flex;
+        width: auto;
+        margin-right: 50px;
+        flex-direction: space-between;
+        color: var(--oceansurf);
+        font-family: var(--font);
+        font-size: var(--font-s-med);
+        font-weight: var(--font-w-sml);
+    }
+
+    #LI-Sort-Dropdown-Icon {
+        margin-left: 5px;
+    }
 }

@@ -55,5 +55,36 @@
 .LI-Sort-Dropdown-Section:hover {
     color: var(--fog);
     background-color: #232347;
-    padding: 10px;
+}
+
+@media (max-width: 1024px) {
+    
+        #LI-Sort-Dropdown-Menu {
+            position: absolute;
+            left: 50%;
+            transform: translate(-25%, 0);
+            width: 20vw;
+            top: 35px;
+            z-index: 20;
+            background-color: white;
+            border: 1px solid var(--enchantment);
+            border-radius: .25rem;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+        }
+    
+    
+        .LI-Sort-Dropdown-Section {
+            color: var(--oceanabyss);
+            font-size: 2vw;
+            padding: 1.3vw;
+        }
+
+        #LI-Sort-Dropdown-Header {
+            font-size: 2vw;
+        }
+    
+        .LI-Sort-Dropdown-Section:hover {
+            color: var(--fog);
+            background-color: #232347;
+        }
 }

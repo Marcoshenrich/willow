@@ -19,7 +19,6 @@ const ListingsIndex = () => {
   const dispatch = useDispatch()
   const currentUser = useSelector(getCurrentUser)
   const [showSessionModal, setShowSessionModal] = useState(false)
-  const [triggerSort, setTriggerSort] = useState(false)
   const [sortByLargestBool, setSortByLargestBool] = useState(false)
   const [sortBy, setSortBy] = useState("Homes For You")
   const [options, setOptions] = useState({
@@ -52,14 +51,6 @@ const ListingsIndex = () => {
       sortBy
     }, dispatch(rerenderListings()))
   }, [sortByLargestBool, sortBy])
-
-  useEffect(()=>{
-    if (triggerSort) {
-      listings.sort((a, b) => a.id - b.id);
-    } else {
-      listings.sort((b, a) => a.id - b.id);
-    }
-  }, [triggerSort])
   
   return (
     <>
