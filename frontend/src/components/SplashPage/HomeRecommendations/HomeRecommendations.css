@@ -99,9 +99,67 @@
 }
 
 @media (max-width: 800px) {
+    div {
+        border: 1px solid black !important;
+    }
+
+    .Recommendations {
+        height: 400px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: green;
+    }
+
+    .Recommendations>div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 20vw;
+        width: 20vw;
+        margin-top: 10vw;
+    }
+
+    #Rec-Div {
+        height: 20vw;
+        width: 20vw;
+    }
+
+    #Recommendation-Text {
+        width: 20vw;
+        height: 20vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #Recommendation-Text > h3{
+        font-size: 2.5vw;
+    }
+
+    #Recommendation-Text>p {
+        font-size: 2vw;
+        text-align: center;
+    }
 
     .Recommendations img {
-        height: 8rem;
-        width: 8rem;
+        height: 20vw;
+        width: 20vw;
+    }
+
+    #Splash-Page-CTA {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        border: 1px solid slategrey;
+        font-size: 2vw;
+        background-color: var(--oceansurf);
+        margin-top: 15px;
+        width: 20vw;
+        border-radius: 4px;
+        color: var(--fog);
+        transition: background-color 1s;
     }
 }
+

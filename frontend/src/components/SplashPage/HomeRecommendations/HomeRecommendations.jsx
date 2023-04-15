@@ -21,9 +21,9 @@ const HomeRecommendations = () => {
           <button id="Splash-Page-CTA" onClick={routeChangeListings}>Find the perfect home</button>
 
         </div>
-        <div><img src={gardenSign} /></div>
-        <div><img src={leafHome} /></div>
-        <div><img src={yellowHouse} /></div>
+        <div id="Rec-Div"><img src={gardenSign} /></div>
+        <div id="Rec-Div"><img src={leafHome} /></div>
+        <div id="Rec-Div"><img src={yellowHouse} /></div>
       </div>
     </div>
   )
