@@ -20,10 +20,16 @@
 }
 
 .Recommendations {
-    height: 400px;
+    height: 30vw;
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: blue;
+}
+
+#Rec-Div {
+    height: 20vw;
+    width: 20vw;
 }
 
 .Recommendations img {
@@ -32,12 +38,12 @@
 }
 
 .Recommendations>div {
-    margin-left: 23%;
-    margin-right: 23%;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
 
@@ -48,8 +54,11 @@
     height: 250px;
 }
 
+
+
 #Recommendation-Text {
-    width:350px;
+    width:20vw;
+    height: 20vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,7 +90,7 @@
     background-color: var(--oceansurf);
     margin-top: 15px;
     height: 46px;
-    width: 205px;
+    width: 20vw;
     border-radius: 4px;
     color: var(--fog);
     transition: background-color 1s;
@@ -99,12 +108,9 @@
 }
 
 @media (max-width: 800px) {
-    div {
-        border: 1px solid black !important;
-    }
 
     .Recommendations {
-        height: 400px;
+        height: 40vw;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -119,11 +125,6 @@
         margin-top: 10vw;
     }
 
-    #Rec-Div {
-        height: 20vw;
-        width: 20vw;
-    }
-
     #Recommendation-Text {
         width: 20vw;
         height: 20vw;
@@ -135,6 +136,7 @@
 
     #Recommendation-Text > h3{
         font-size: 2.5vw;
+        
     }
 
     #Recommendation-Text>p {
@@ -153,16 +155,24 @@
         display: flex;
         border: 1px solid slategrey;
         font-size: 1.5vw;
+        height: 4vw;
         margin-top: 1vw;
-        height: 5vw;
         width: 20vw;
+        min-height: 0px;
     }
 
-    .Recommendations {
-        height: 50vw;
-        width: 100%;
+
+    @media (max-width: 570px){
+        #Recommendation-Text>p {
+            display: none;
+        }
+    }
+
+    #Recommendation-Text {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
     }
 }
 
