@@ -47,7 +47,14 @@
 }
 
 @media (max-width: 800px) {
+
     #Splash-Page-Footer-Info > div {
-        background-color: green;
+        width: 50%;
+        text-align: center;
+        line-height: 20px;
+        font-family: var(--font);
+        font-size: 13px;
+        font-weight: var(--font-w-sml);
+        margin-top: 20px
     }
 }

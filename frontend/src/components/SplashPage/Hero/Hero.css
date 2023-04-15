@@ -45,9 +45,8 @@
     position: relative;
     color: white;
     text-align: center;
-    font-size: 100px;
-    bottom: 300px;
-    margin-bottom: -250px;
+    font-size: 5vw;
+    background-color: blue;
 }
 
 #Search-Bar {
@@ -107,12 +106,25 @@
 
 @media (max-width: 800px) {
     #Hero-Content {
-        font-size: 50px;
+        font-size: 7.5vw;
         margin-left:50px;
         margin-right: 50px;
     }
 
     #Search-Bar>input {
         width: 60%;
+    }
+
+    #Hero {
+        height: 400px;
+        width: 100%;
+    }
+
+    #Hero::before {
+        content: "";
+        height: 400px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.25);
+        position: absolute
     }
 }
