@@ -47,14 +47,16 @@
 }
 
 @media (max-width: 800px) {
+    #Splash-Page-Footer-Info {
+        height: auto;
+    }
 
     #Splash-Page-Footer-Info > div {
-        width: 50%;
+        width: 60%;
         text-align: center;
-        line-height: 20px;
+        line-height: 2.5vw;
         font-family: var(--font);
-        font-size: 13px;
-        font-weight: var(--font-w-sml);
+        font-size: 2vw;
         margin-top: 20px
     }
 }

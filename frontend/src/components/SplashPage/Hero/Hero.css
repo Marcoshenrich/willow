@@ -19,10 +19,6 @@
     --fog: #efefef;
 }
 
-div {
-    border: 1px solid black !important
-}
-
 #Hero {
     height: 40vw;
     width:100%;

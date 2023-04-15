@@ -24,7 +24,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: blue;
 }
 
 #Rec-Div {
@@ -46,15 +45,11 @@
     margin-right: 10vw;
 }
 
-
-
 .Recommendations > div > div{
     margin: 5px;
     width: 250px;
     height: 250px;
 }
-
-
 
 #Recommendation-Text {
     width:20vw;
@@ -68,7 +63,7 @@
 #Recommendation-Text > h3{
     margin: 5px;
     font-family: var(--font);
-    font-size: var(--font-s-lrg);
+    font-size: 2.5vw;
     font-weight: var(--font-w-lrg);
     text-align: center;
 }
@@ -76,7 +71,7 @@
 #Recommendation-Text>p {
     margin: 10px;
     font-family: var(--font);
-    font-size: var(--font-s-med);
+    font-size: 2vw;
     font-weight: var(--font-w-sml);
     text-align: center;
 }
@@ -86,7 +81,7 @@
     justify-content: center;
     display: flex;
     border: 1px solid slategrey;
-    font-size: var(--font-s-med);
+    font-size: 1.5vw;
     background-color: var(--oceansurf);
     margin-top: 15px;
     height: 46px;
@@ -111,9 +106,6 @@
 
     .Recommendations {
         height: 40vw;
-        width: 100%;
-        display: flex;
-        justify-content: center;
     }
 
     .Recommendations>div {
@@ -126,22 +118,7 @@
     }
 
     #Recommendation-Text {
-        width: 20vw;
-        height: 20vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: space-between;
-    }
-
-    #Recommendation-Text > h3{
-        font-size: 2.5vw;
-        
-    }
-
-    #Recommendation-Text>p {
-        font-size: 2vw;
-        text-align: center;
     }
 
     .Recommendations img {
@@ -150,19 +127,15 @@
     }
 
     #Splash-Page-CTA {
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        border: 1px solid slategrey;
-        font-size: 1.5vw;
         height: 4vw;
         margin-top: 1vw;
         width: 20vw;
         min-height: 0px;
     }
 
+}
 
-    @media (max-width: 570px){
+    @media (max-width: 570px) {
         #Recommendation-Text>p {
             display: none;
         }
@@ -174,5 +147,80 @@
         align-items: center;
         justify-content: space-around;
     }
+
+@media (min-width: 1100px) {
+
+    .Recommendations {
+        height: 400px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #Rec-Div {
+        height: 200px;
+        width: 200px;
+    }
+
+    .Recommendations img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .Recommendations>div {
+        margin-left: 23%;
+        margin-right: 23%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .Recommendations>div>div {
+        margin: 5px;
+        width: 250px;
+        height: 250px;
+    }
+
+    #Recommendation-Text {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #Recommendation-Text>h3 {
+        margin: 5px;
+        font-family: var(--font);
+        font-size: var(--font-s-lrg);
+        font-weight: var(--font-w-lrg);
+        text-align: center;
+    }
+
+    #Recommendation-Text>p {
+        margin: 10px;
+        font-family: var(--font);
+        font-size: var(--font-s-med);
+        font-weight: var(--font-w-sml);
+        text-align: center;
+    }
+
+    #Splash-Page-CTA {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        border: 1px solid slategrey;
+        font-size: var(--font-s-med);
+        background-color: var(--oceansurf);
+        margin-top: 15px;
+        height: 46px;
+        width: 205px;
+        border-radius: 4px;
+        color: var(--fog);
+        transition: background-color 1s;
+        min-height: 43px;
+    }
+
 }
 
