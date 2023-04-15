@@ -30,12 +30,14 @@ const Hero = () => {
         <div id="Hero">
             <img src={blueMyco}/>
         </div>
-        <div id="Hero-Content">
+        <div id="Hero-Content-Container">
+            <div id="Hero-Content">
             <div>Discover Your Fairy Tale</div>
                 <form id="Search-Bar" onSubmit={splashSearchSubmit}>
                     <input id={searchErrors ? "Search-Bar-Errors" : ""} value={query} type="search" placeholder={searchErrors ? searchErrors[0] : "Find your dream home..."} onChange={(e) => setQuery(e.target.value)} />
                     <button type="submit" id="Search-Button">{<BsSearch id="Search-Glass" />}</button>
                 </form>
+            </div>
         </div>
     </>
     )
