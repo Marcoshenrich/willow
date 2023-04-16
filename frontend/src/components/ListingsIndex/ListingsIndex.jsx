@@ -21,12 +21,16 @@ const ListingsIndex = () => {
   const [showSessionModal, setShowSessionModal] = useState(false)
   const [sortByLargestBool, setSortByLargestBool] = useState(false)
   const [sortBy, setSortBy] = useState("Homes For You")
+  const [showListings, setShowListings] = useState(true)
+
   const [options, setOptions] = useState({
     sortByLargestBool,
     sortBy
   })
   const listings = useSelector(getSortedListings(options))
-  
+  let showListingsBool = true
+
+
   useEffect(()=>{
     if (query) {
       dispatch(searchListings(query))
@@ -44,6 +48,12 @@ const ListingsIndex = () => {
     dispatch(clearErrors())
   }
 
+  const switchPanel = (e) => {
+    e.preventDefault()
+    setShowListings((showListingsBool) => !showListingsBool )
+    console.log("in switch")
+  }
+
 
   useEffect(()=>{
     setOptions({
@@ -56,18 +66,20 @@ const ListingsIndex = () => {
     <>
     <div className="Listings-Index">
       <div className="Listings-Panels">
-          <div id="Listings-Map">
+          <div id="Listings-Map" className="Hide-Listing-Panel-Mobile">
             <Map listings={listings}/>
           </div>
-          <div id="Listings-Nav">
+          <div id="Listings-Nav" className="Hide-Listing-Panel-Mobile">
             <div id="Listings-Header">
               <h2>Magical Homes Just For You</h2>
               <LISort sortByLargestBool={sortByLargestBool} setSortByLargestBool={setSortByLargestBool} sortBy={sortBy} setSortBy={setSortBy} />
             </div>
             <LIListingContainer listings={listings} setShowSessionModal={setShowSessionModal}/>
           </div>
+          <div id="Mobile-Index-Switcher" onClick={switchPanel}></div>
       </div>
     </div>
+
       {showSessionModal && (
         <FixedModal onModalClose={onSessionModalClose}>
           <SessionModal onModalClose={onSessionModalClose} />
