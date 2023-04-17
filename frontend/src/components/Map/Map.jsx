@@ -10,20 +10,31 @@ import { getAppointments } from '../../store/appointment';
 import { getFavorites } from '../../store/favorite';
 import { getCurrentUser } from '../../store/session';
 
-const Map = ({iconDisplay, listings}) => {
+const Map = ({ iconDisplay, listings, dontOpenListingModal }) => {
 
   const appointments = useSelector(getAppointments)
   const favorites = useSelector(getFavorites)
 
   const currentUser = useSelector(getCurrentUser)
 
-  const defaultProps = {
-    center: {
-      lat: 37.7749, 
-      lng: -122.36
-    },
-    zoom: 12
-  };
+  let defaultProps;
+  if (listings.length === 1) {
+    defaultProps = {
+      center: {
+        lat: listings[0].lat,
+        lng: listings[0].long,
+      },
+      zoom: 15
+    };
+  } else {
+    defaultProps = {
+      center: {
+        lat: 37.7749,
+        lng: -122.36
+      },
+      zoom: 12
+    };
+  }
 
   const mapOptions = {
     fullscreenControl: false,
@@ -52,14 +63,10 @@ const Map = ({iconDisplay, listings}) => {
   const markers = () => {
     let iconArrs = iconSorter()
     return listings?.map((listing, idx) => {
-      return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing} iconArrs={iconArrs}/>
+      return <MapMarker lat={listing.lat} lng={listing.long} key={idx} listing={listing} iconArrs={iconArrs} dontOpenListingModal={dontOpenListingModal}/>
     })
   }
   
-
-  
-
-
   return (
 
     <div style={{ height: '100%', width: '100%' }}>

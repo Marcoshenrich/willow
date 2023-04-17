@@ -9,12 +9,13 @@ import { FaRegClock } from "react-icons/fa"
 import { ScrollModal } from "../../../context/Modal";
 import ListingShowPage from "../../ListingShowPage";
 
-const ListingMarker = ({ listing, iconArrs }) => {
+const ListingMarker = ({ listing, iconArrs, dontOpenListingModal }) => {
   const [showMapModule, setShowMapModule] = useState(false)
   const [showListingModal, setShowListingModal] = useState(false)
 
   const handleClick = (e) => {
     e.stopPropagation()
+    if (dontOpenListingModal) return
     setShowMapModule(false)
     setShowListingModal(true)
   }

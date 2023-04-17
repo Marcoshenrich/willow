@@ -17,6 +17,8 @@ import LSPReviews from "./LSPReviews"
 import SessionModal from '../SessionModal';
 import { FixedModal } from '../../context/Modal';
 import { clearErrors } from "../../store/errors"
+import Map from "../Map"
+
 
 const ListingShowPage = ({listing}) => {
   const dispatch = useDispatch()
@@ -48,6 +50,9 @@ const ListingShowPage = ({listing}) => {
           <h2>Description</h2>
           {listing && (<p>{listing.description}</p>)}
         </div>
+      </div>
+      <div id="LSP-Local-Map-Container">
+          <Map listings={[listing]} dontOpenListingModal={true} />
       </div>
       <div id="LSP-Highlights">
         <div id="LSP-HLT-Header">Home Highlights</div>
