@@ -82,6 +82,11 @@
     justify-content: flex-end;
 }
 
+#Empty-Space {
+    height: 50px;
+    width: 100px;
+}
+
 #Image-Carousel-Close-Container:hover{
     cursor: pointer;
 }
@@ -95,5 +100,67 @@
 #Image-Carousel-Close-Icon:hover {
     background-color: gray;    
     cursor: pointer;
+
+}
+
+@media (max-width: 1024px) {
+#Image-Carousel-Container {
+        height: 70vw;
+        width: 100vw;
+    }
+
+    #Carousel-Image {
+        max-height: 80vw;
+        max-width: 80vw;
+    }
+
+    #Image-Carousel-Image-Container {
+        height: 80vw;
+        width: 80vw;
+    }
+
+    .Image-Carousel-Button-Container {
+        height: 14vw;
+        width: 8vw;
+        margin: 10px;
+    }
+
+    .Image-Carousel-Icon {
+        font-size: 50px;
+    }
+
+    .Image-Carousel-Icon:hover {
+        color: rgba(0, 0, 0, 0.65);
+        cursor: pointer;
+    }
+
+    #Image-Carousel-Right-Utils-Box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 80vw;
+    }
+
+    #Image-Carousel-Close-Container {
+        height: 5vw;
+        width: 10vw;
+    }
+
+    #Empty-Space {
+        height: 5vw;
+        width: 10vw;
+    }
+
+    #Image-Carousel-Close-Icon {
+        font-size: 40px;
+        color: white;
+        border-radius: 50%;
+    }
+
+    #Image-Carousel-Close-Icon:hover {
+        background-color: gray;
+        cursor: pointer;
+    }
 
 }
