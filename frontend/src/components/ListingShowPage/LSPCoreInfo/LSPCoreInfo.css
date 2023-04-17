@@ -141,6 +141,7 @@
 
 #LSP-Base-Stats>div {
     padding: 10px;
+    white-space: nowrap;
     font-family: var(--font);
     font-size: var(--font-s-sml);
     font-weight: var(--font-w-sml);
@@ -253,6 +254,8 @@
     }
 
     #LSP-Base-Stats>div {
+         max-height: 1vw;
+         display: block;
         padding: 1vw;
         font-size: 1.5vw;
     }
