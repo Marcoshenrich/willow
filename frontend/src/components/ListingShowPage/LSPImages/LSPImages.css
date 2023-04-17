@@ -62,6 +62,13 @@
 }
 
 #LSP-Support-Image-Bot {
-        background-color: #9560b8;
+    background-color: #9560b8;
     margin-top: 3px;
+}
+
+@media (max-width: 1024px) {
+    .LSP-Images {
+        height: 40vw;
+    }
+
 }

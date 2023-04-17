@@ -90,3 +90,15 @@
     margin-bottom: 20px;
 }
 
+
+@media (max-width: 1024px) {
+    .LSP {
+        width: 100vw;
+    }
+
+    .LSP>div {
+        width: 94vw;
+    }
+
+}
+
