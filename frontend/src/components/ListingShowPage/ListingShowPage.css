@@ -100,5 +100,60 @@
         width: 94vw;
     }
 
+    #LSP-Description div {
+        width: 90vw;
+        margin: 1vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
+
+    #LSP-Description h2 {
+        padding-bottom: 1vw;
+        font-size: 2.2vw;
+    }
+
+    #LSP-Description p {
+        padding-bottom: 1vw;
+        line-height: 2.5vw;
+        font-size: 1.7vw;
+    }
+
+
+    #LSP-Local-Info {
+        height: 360px;
+        border: solid black 1px;
+    }
+
+    #LSP-Highlights {
+        height: 180px;
+        border: solid var(--fog) 2px;
+        border-radius: 10px;
+        margin: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #LSP-HLT-Header {
+        font-family: var(--font);
+        font-size: var(--font-s-lrg);
+        font-weight: var(--font-s-lrg);
+        padding: 15px;
+        padding-left: 20px;
+    }
+
+    #LSP-HLT-Container {
+        display: flex;
+    }
+
+    #LSP-HLT-Container>div {
+        width: 450px;
+    }
+
+    #LSP-Details {
+        height: 300px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
 }
 
