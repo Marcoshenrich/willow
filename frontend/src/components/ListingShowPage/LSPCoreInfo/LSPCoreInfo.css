@@ -160,3 +160,114 @@
 .LSP-Icon-Value{
     font-size: 15px;
 }
+
+
+
+@media (max-width: 1024px) {
+    .LSP-Core-Info {
+        height: 12vw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .LSP-Top-Details {
+        height: 120px;
+        width: 70%;
+    }
+
+    .LSP-Appointment-Info {
+        border-radius: 10px;
+        width: 30%;
+    }
+
+    .LSP-Appointment-Info>* {
+        margin: .3vw;
+    }
+
+    #LSP-Appointment-Text {
+        font-size: 1.7vw;
+    }
+
+    #LSP-Appointment-Submit {
+        margin-top: 10px;
+        height: 3.5vw;
+        width: 23vw;
+        border-radius: 4px;
+        font-size: 1.7vw;
+        transition: background-color 1s;
+    }
+
+    #LSP-Appointment-Submit:hover {
+        cursor: pointer;
+        transition: background-color 1s;
+        background-color: var(--oceandepths);
+    }
+
+    #LSP-Appointment-Submit:active {
+        height: 3.2vw;
+        width: 22vw;
+    }
+
+    .LSP-Address {
+        width: 100%;
+    }
+
+    .LSP-Address>p {
+        margin: 0px;
+        padding: 5px;
+        padding-left: 10px;
+    }
+
+    .LSP-Mortgage-Info p {
+        margin: 0px;
+        padding: .5vw;
+        padding-left: 1vw;
+        width: 90%;
+        font-size: 1.4vw;
+        font-weight: var(--font-w-sml);
+    }
+
+    .LSP-Mortgage-Info {
+        display: flex;
+        flex-direction: column;
+        padding-right: 3vw;
+        align-items: flex-end;
+        width: 40%;
+    }
+
+    #LSP-Core-Info-h2 {
+        font-size: 2.2vw;
+    }
+
+
+    #LSP-Core-Info-Body {
+        font-size: 1.5vw;
+    }
+
+    #LSP-Base-Stats {
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 5vw;
+    }
+
+    #LSP-Base-Stats>div {
+        padding: 1vw;
+        font-size: 1.5vw;
+    }
+
+
+    .LSP-Icon {
+        font-size: 3vw;
+    }
+
+    #LSP-Icon-Text {
+        font-size: 1vw;
+    }
+
+
+    .LSP-Icon-Value{
+        font-size: 1.5vw;
+    }
+}
