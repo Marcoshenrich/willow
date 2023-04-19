@@ -76,7 +76,7 @@ const ListingsIndex = () => {
             </div>
             <LIListingContainer listings={listings} setShowSessionModal={setShowSessionModal}/>
           </div>
-          <div id="Mobile-Index-Switcher" onClick={switchPanel}></div>
+          {/* <div id="Mobile-Index-Switcher" onClick={switchPanel}></div> */}
       </div>
     </div>
 
