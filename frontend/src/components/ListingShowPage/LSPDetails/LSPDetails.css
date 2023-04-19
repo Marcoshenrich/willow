@@ -85,6 +85,7 @@
     }
 
     #LSP-Details-Info {
+        border: solid var(--fog) .2vw;
         border-radius: 1vw;
         margin-top: 1vw;
         margin-left: -.1vw;
@@ -101,6 +102,10 @@
         padding-left: 2.5vw;
         padding-top: 1.5vw;
         font-size: 1.5vw;
+    }
+
+    #LSP-Details-Info-Details {
+        border-bottom: .2vw solid var(--fog);
     }
 
     #LSP-Details-Info-Details li {

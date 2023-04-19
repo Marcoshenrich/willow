@@ -124,6 +124,7 @@
     }
 
     #LSP-Highlights {
+        border: solid var(--fog) .2vw;
         height: 18vw;
         margin: 1vw;
         margin-top: 2vw;

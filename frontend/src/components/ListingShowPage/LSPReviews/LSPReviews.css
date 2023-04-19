@@ -184,6 +184,7 @@
     }
 
     #LSP-Review-Container {
+        border: solid var(--fog) .3vw;
         max-height: 60vw;
         margin-top: 1vw;
         margin-left: -.1vw;
@@ -209,7 +210,7 @@
 
     #LSPRWR-Text-Input {
         margin-top: 2vw;
-        border-radius: 4px;
+        border-radius: .4vw;
         width: 60vw;
         height: 15vw;
         padding: 2vw;
@@ -228,6 +229,8 @@
         margin-top: 1vw;
         height: 3.5vw;
         width: 23vw;
+        border: .1vw solid slategrey;
+        border-radius: .4vw;
     }
 
 
@@ -255,6 +258,9 @@
         margin: 1vw;
         height: 3.5vw;
         width: 23vw;
+        border: .1vw solid slategrey;
+        border-radius: .4vw;
+
     }
 
     #LSPRWR-Write-New-Review-Submit:active {

@@ -123,6 +123,8 @@
 
 @media (max-width:1024px) {
     .LSP-Review-Module {
+        border: .1vw solid gray;
+        border-radius: .4vw;
         width: 60vw;
         font-size: 1.5vw;
         margin: 1.5vw;
@@ -154,7 +156,9 @@
         font-size: 2.1vw;
     }
 
+
     #LSPRM-Username-Edit-Text {
+        border-radius: .4vw;
         margin-top: 2vw;
         width: 95%;
         height: 15vw;
@@ -164,6 +168,8 @@
     }
 
     #LSPRM-Username-Edit-Submit {
+        border: .1vw solid slategrey;
+        border-radius: .4vw;
         font-size: 1.7vw;
         margin-top: 1vw;
         height: 3.5vw;
