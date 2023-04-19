@@ -131,7 +131,6 @@
     }
 
     #LSP-HLT-Header {
-
         font-size: 2.2vw;
         padding: 1.5vw;
         padding-left: 2vw;
@@ -141,14 +140,10 @@
         display: flex;
     }
 
-    #LSP-HLT-Container>div {
-        width: 450px;
-    }
-
     #LSP-Details {
-        height: 300px;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        height: 30vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
     }
 
 

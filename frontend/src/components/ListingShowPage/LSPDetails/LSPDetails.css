@@ -77,3 +77,40 @@
     content: "• ";
 }
 
+
+@media (max-width: 1024px) {
+    #LSP-Details-h2 {
+        margin-bottom: 2vw;
+        font-size: 2.2vw;
+    }
+
+    #LSP-Details-Info {
+        border-radius: 1vw;
+        margin-top: 1vw;
+        margin-left: -.1vw;
+    }
+
+    #LSP-Details-Info-Header-Box {
+        padding-left: 2vw;
+        width: 100%;
+        height: 4vw;
+        font-size: 1.5vw;
+    }
+
+    #LSP-Details-Info-Header2 {
+        padding-left: 2.5vw;
+        padding-top: 1.5vw;
+        font-size: 1.5vw;
+    }
+
+    #LSP-Details-Info-Details li {
+        margin: 2vw;
+        margin-left: 2.5vw;
+        width: 20vw;
+        font-size: 1.5vw;
+    }
+
+    #LSP-Details-Info-Details li:before {
+        content: "• ";
+    }
+}
