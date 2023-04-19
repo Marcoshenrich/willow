@@ -23,6 +23,7 @@ const LSPReviewModule = ({ review }) => {
 
   const LSPReviewModuleEditClickHandler = (e) => {
     e.stopPropagation()
+    setBody(review.body)
     dispatch(clearErrors())
     setEdit((edit) => !edit)
   }

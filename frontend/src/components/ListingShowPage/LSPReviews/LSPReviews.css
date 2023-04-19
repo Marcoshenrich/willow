@@ -172,3 +172,93 @@
     height: 32px;
     width: 220px;
 }
+
+@media (max-width:1024px) {
+    #LSP-Reviews {
+     margin-bottom: 5vw;
+    }
+
+    #LSP-Reviews-h2 {
+        margin-bottom: 2vw;
+        font-size: 2.2vw;
+    }
+
+    #LSP-Review-Container {
+        max-height: 60vw;
+        margin-top: 1vw;
+        margin-left: -.1vw;
+    }
+
+    #LSP-Review-Container.No-Review {
+        height: 20vw;
+    }
+
+    #LSP-Review-Container.No-Review.Write-Review {
+        height: 50vw;
+    }
+
+    #LSP-Review-Container.Contains-Reviews {
+        height: auto;
+    }
+
+    #LSPR-Write-Review-Form-Container {
+        height: auto;
+        margin-bottom: 5vw;
+        width: 50vw;
+    }
+
+    #LSPRWR-Text-Input {
+        margin-top: 2vw;
+        border-radius: 4px;
+        width: 60vw;
+        height: 15vw;
+        padding: 2vw;
+        line-height: 3.5vw;
+        font-size: 1.7vw;
+    }
+
+    #LSPR-Errors {
+        margin: 1.5vw;
+        font-size: 1.5vw;
+    }
+
+
+    #LSPRWR-Submit {
+        font-size: 1.7vw;
+        margin-top: 1vw;
+        height: 3.5vw;
+        width: 23vw;
+    }
+
+
+    #LSPRWR-Submit:active {
+        height: 3.2vw;
+        width: 22vw;
+    }
+
+    #LSP-No-Review-Prompt-Container {
+        padding: 2vw;
+
+    }
+
+    #LSP-No-Review-Prompt-Container div {
+        padding: 2vw;
+        font-size: 2.2vw;
+    }
+
+    #LSPR-Review-Show-Container {
+        margin: 2vw;
+    }
+
+    #LSPRWR-Write-New-Review-Submit {
+        font-size: 1.7vw;
+        margin: 1vw;
+        height: 3.5vw;
+        width: 23vw;
+    }
+
+    #LSPRWR-Write-New-Review-Submit:active {
+        height: 3.2vw;
+        width: 22vw;
+    }
+}

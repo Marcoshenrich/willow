@@ -120,3 +120,67 @@
     height: auto;
 }
 
+
+@media (max-width:1024px) {
+    .LSP-Review-Module {
+        width: 60vw;
+        font-size: 1.5vw;
+        margin: 1.5vw;
+        padding: 2vw;
+        line-height: 2vw;
+    }
+
+    .LSP-Review-Module>div {
+        padding: .5vw;
+    }
+
+    #LSPRM-Top-Bar {
+        height: 2vw;
+    }
+
+    #LSPRM-Username {
+        font-size: 1.7vw;
+    }
+
+    #LSPRM-Top-Bar-Icons {
+        width: 5vw;
+    }
+
+    #LSPRM-Top-Bar-Icons>* {
+        font-size: 2vw;
+    }
+
+    #LSPRM-Top-Bar-Icons>*:hover {
+        font-size: 2.1vw;
+    }
+
+    #LSPRM-Username-Edit-Text {
+        margin-top: 2vw;
+        width: 95%;
+        height: 15vw;
+        padding: 2vw;
+        line-height: 3.5vw;
+        font-size: 1.7vw;
+    }
+
+    #LSPRM-Username-Edit-Submit {
+        font-size: 1.7vw;
+        margin-top: 1vw;
+        height: 3.5vw;
+        width: 23vw;
+    }
+
+
+    #LSPRM-Username-Edit-Submit:active {
+        height: 3.2vw;
+        width: 22vw;
+    }
+
+    #LSPRM-Date {
+        margin-top: 3px;
+    }
+
+    #LSPRM-Body {
+        padding-top: 1.1vw;
+    }
+}
