@@ -70,6 +70,18 @@
 @media (max-width: 1024px) {
     .LSP-Images {
         height: 40vw;
+        border-radius: .8vw;
     }
 
+    #LSP-Hero-Image-Container {
+        margin-right: .6vw;
+    }
+
+    #LSP-Support-Image-Top {
+        margin-bottom: .3vw
+    }
+
+    #LSP-Support-Image-Bot {
+        margin-top: .3vw
+    }
 }
