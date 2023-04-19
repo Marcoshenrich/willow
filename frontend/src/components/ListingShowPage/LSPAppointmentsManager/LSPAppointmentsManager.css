@@ -131,3 +131,62 @@
     display: flex;
     flex-direction: column;
 }
+
+@media (max-width:1024px) {
+    #LSP-Appointments-Container {
+        height: 42vw;
+    }
+
+    #LSPA-h1-Container {
+        margin: 1.7vw;
+        margin-left: 7vw;
+    }
+
+    #LSPA-h1-Container-Time {
+        margin: 1.7vw;
+        margin-left: 7vw;
+        margin-top: 4vw;
+    }
+
+    #LSPA-h1 {
+        font-size: 2.2vw;
+    }
+
+    #LSPA-Submit {
+        margin-top: 3vw;
+        font-size: 2.2vw;
+    }
+
+    #LSPA-Submit-Button {
+        border: .1vw solid var(--burnt-amber);
+        font-size: 1.7vw;
+        margin-top: 1vw;
+        height: 3.5vw;
+        width: 23vw;
+        border-radius: .4vw;
+        font-size: 1.7vw;
+        margin: .3vw
+    }
+
+    #LSPA-Submit-Button:active {
+        height: 3.2vw;
+        width: 22vw;
+    }
+
+    #LSP-Appointments-Success-Container {
+        height: 14vw;
+    }
+
+    #LSPA-Appointment-Success {
+        font-size: 2.2vw;
+
+    }
+
+    #LSPA-Appointment-Success>div {
+        margin: .6vw;
+    }
+
+    #LSPA-Appointment-Login-Required {
+        font-size: 2.2vw;
+    }
+}

@@ -38,3 +38,14 @@
 .rec.rec-arrow:disabled {
     visibility: hidden;
 }
+
+@media (max-width:1024px) {
+    #LSPA-Carousel {
+        width: 60vw;
+
+    }
+
+    #LSPA-Carousel>* {
+        margin: .5vw;
+    }
+}

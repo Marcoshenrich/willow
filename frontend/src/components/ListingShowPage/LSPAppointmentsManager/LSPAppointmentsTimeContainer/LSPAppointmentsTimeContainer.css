@@ -34,3 +34,16 @@
     font-size: var(--font-s-med);
     font-weight: var(--font-w-sml);
 }
+
+@media (max-width:1024px) {
+    #LSPA-Time-Container {
+        padding-left: 6.5vw;
+    }
+
+    #LSPA-No-Time-Callout {
+        padding-left: .5vw;
+        padding-top: 1vw;
+        font-size: 1.7vw;
+    }
+}
+

@@ -68,3 +68,38 @@
     font-weight: 320;
     padding: 2px;
 }
+
+@media (max-width:1024px) {
+    #LSPAM-Time-Block-Wrapper {
+        max-width: 10.4vw;
+        border-radius: .2vw;
+        margin: .2vw;
+        margin-top: .35vw;
+    }
+
+    #LSPAM-Time-Block {
+        height: 5vw;
+        width: 10.4vw;
+        border: .15vw solid var(--fog);
+        border-radius: .2vw;
+        margin: .35vw
+    }
+
+    #LSPAM-Time-Block:hover {
+        border: .15vw solid lightgray;
+    }
+
+    #LSPAM-Time-Block-Active {
+        height: 5vw;
+        width: 10.4vw;
+        border: .2vw solid gray;
+        border-radius: .2vw;
+        margin: .3vw;
+    }
+
+    #LSPAM-Time-Block-Time {
+        font-size: 1.8vw;
+        font-weight: 32vw;
+        padding: .2vw;
+    }
+}

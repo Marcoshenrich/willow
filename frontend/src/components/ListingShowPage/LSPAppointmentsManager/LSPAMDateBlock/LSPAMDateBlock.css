@@ -69,3 +69,41 @@
     padding: 2px;
 }
 
+@media (max-width:1024px) {
+
+
+    #LSPAMDB-Container {
+        width: 8vw;
+        height: 8vw;
+        border: .15vw solid var(--fog);
+        border-radius: .2vw;
+        margin: .1vw;
+    }
+
+    #LSPAMDB-Container:hover {
+        border: .15vw solid lightgray;
+    }
+
+    #LSPAMDB-Container-Active {
+        width: 8vw;
+        height: 8vw;
+        border: .2vw solid var(--fog);
+        border-radius: .2vw;
+    }
+
+    #LSPAMDB-Weekday {
+        font-size: 1.5vw;
+        padding: .2vw;
+    }
+
+    #LSPAMDB-Date {
+        font-size: 2.2vw;
+        padding: .2vw;
+    }
+
+    #LSPAMDB-Month {
+        font-size: 1.5vw;
+        padding: .2vw;
+    }
+
+}
