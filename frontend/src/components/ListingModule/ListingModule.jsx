@@ -76,7 +76,7 @@ const ListingModule = ({ listing, setShowSessionModal }) => {
 
       {listing && showListingModal && (
         <ScrollModal onModalClose={onListingModalClose}>
-          <ListingShowPage listing={listing} />
+          <ListingShowPage listing={listing} onListingModalClose={onListingModalClose}/>
         </ScrollModal>)}
 
       <div id="LM-Info-Container">

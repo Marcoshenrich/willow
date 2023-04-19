@@ -41,7 +41,8 @@
 
 .LSP-Images img:hover {
     cursor: pointer;
-    filter: brightness(70%)
+    filter: brightness(70%);
+    z-index: -1;
 }
 
 .LSP-Support-Image-Container{

@@ -146,6 +146,34 @@
         margin-bottom: 2vw;
     }
 
+    #LSP-Close-Container {
+        position: fixed;
+        right: 5vw;
+        height: 6vw;
+        width: 6vw;
+        background-color: rgba(200, 200, 200, 0.85);
+        border-radius: 50%;
+        margin: 1vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+
+    #LSP-Close-Container:hover {
+        background-color: rgba(150, 150, 150, 0.95);
+        cursor: pointer;
+    }
+
+    #LSP-Close-Icon {
+        font-size: 5vw;
+    }
+
+    #LSP-Close-Icon {
+        color: rgba(0, 0, 0, 0.65);
+        cursor: pointer;
+    }
+
 
 
 }

@@ -18,12 +18,15 @@ import SessionModal from '../SessionModal';
 import { FixedModal } from '../../context/Modal';
 import { clearErrors } from "../../store/errors"
 import Map from "../Map"
+import { AiOutlineClose } from "react-icons/ai"
 
 
-const ListingShowPage = ({listing}) => {
+
+const ListingShowPage = ({ listing, onListingModalClose }) => {
   const dispatch = useDispatch()
   const [showSessionModal, setShowSessionModal] = useState(false)
   const [showAppointmentsManager, setShowAppointmentsManager] = useState(false)
+  
   
   useEffect(()=>{
     dispatch(fetchListing(listing.id))
@@ -42,6 +45,9 @@ const ListingShowPage = ({listing}) => {
         <SessionModal onModalClose={onSessionModalClose} />
       </FixedModal>)}
     <div className="LSP">
+        <div id="LSP-Close-Container">
+          <AiOutlineClose id="LSP-Close-Icon" onClick={onListingModalClose} />
+        </div>
       <LSPImages imageUrls={listing.imageUrls}/>
       <ListingShowPageCoreInfo listing={listing} showAppointmentsManager={showAppointmentsManager} setShowAppointmentsManager={setShowAppointmentsManager} />
         {showAppointmentsManager && (< LSPAppointmentsManager listing={listing} setShowSessionModal={setShowSessionModal} />)}
@@ -71,8 +77,7 @@ const ListingShowPage = ({listing}) => {
 
       </div>
       <div id="LSP-Details"> <LSPDetails listing={listing}/></div>
-        <LSPReviews listing={listing} setShowSessionModal={setShowSessionModal}/>
-      
+      <LSPReviews listing={listing} setShowSessionModal={setShowSessionModal}/>
     </div>
     </>
   )
