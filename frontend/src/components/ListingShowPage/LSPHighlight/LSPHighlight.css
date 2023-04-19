@@ -32,10 +32,6 @@
     color: slategray;
 }
 
-.LSP-HLT-Icon {
-    height: 200%;
-}
-
 #LSP-HLT-Category {
     padding-left: 10px;
     width: 150px;
@@ -52,4 +48,35 @@
     font-family: var(--font);
     font-size: var(--font-s-med);
     font-weight: var(--font-w-med);
+}
+
+@media (max-width: 1024px) {
+
+    .LSP-Highlight {
+        height: 2.5vw;
+        width: 40vw;
+        margin: 1vw;
+        margin-left: 2vw;
+    }
+
+
+
+    #LSP-HLT-Category {
+        padding-left: 1vw;
+        width: 15vw;
+        font-size: 1.7vw
+    }
+
+    #LSP-HLT-Icon-Div {
+        color: slategray;
+        font-size: 2vw;
+    }
+
+    #LSP-HLT-Content {
+        display: flex;
+        justify-content: flex-end;
+        white-space: nowrap;
+        margin-left: 10vw;
+        font-size: 1.7vw;
+    }
 }

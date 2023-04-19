@@ -124,20 +124,17 @@
     }
 
     #LSP-Highlights {
-        height: 180px;
-        border: solid var(--fog) 2px;
-        border-radius: 10px;
-        margin: 10px;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        height: 18vw;
+        margin: 1vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
     }
 
     #LSP-HLT-Header {
-        font-family: var(--font);
-        font-size: var(--font-s-lrg);
-        font-weight: var(--font-s-lrg);
-        padding: 15px;
-        padding-left: 20px;
+
+        font-size: 2.2vw;
+        padding: 1.5vw;
+        padding-left: 2vw;
     }
 
     #LSP-HLT-Container {
@@ -153,6 +150,8 @@
         margin-top: 20px;
         margin-bottom: 20px;
     }
+
+
 
 }
 
