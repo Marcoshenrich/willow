@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const LSPImages = ({ imageUrls }) => {
   const [showImageCarousel, setShowImageCarousel] = useState(false)
-  const [imageArray, setImageArray] = useState([])
   const [imageIndex, setImageIndex] = useState(0)
 
   const imageClickHandler = (e, index) => {
