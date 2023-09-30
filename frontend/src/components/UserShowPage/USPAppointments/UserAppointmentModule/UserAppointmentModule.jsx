@@ -15,9 +15,7 @@ const UserAppointmentModule = ({ appointment }) => {
   
 
   const dateParser = () => {
-    const year = appointment.date.slice(0,4)
-    let month = appointment.date.slice(6,7)
-    let day = appointment.date.slice(8,10)
+    let [year, month, day] = appointment.date.split("-")
     const months = ["January","February","March","April","May","June","July","August", "September", "October", "November", "December"]
     month = months[month - 1]
     if (day[0] === "0") day = day[1]
