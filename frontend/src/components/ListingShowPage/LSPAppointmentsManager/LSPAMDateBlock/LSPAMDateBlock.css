@@ -87,7 +87,7 @@
     #LSPAMDB-Container-Active {
         width: 8vw;
         height: 8vw;
-        border: .2vw solid var(--fog);
+        border: .2vw solid gray;
         border-radius: .2vw;
     }
 

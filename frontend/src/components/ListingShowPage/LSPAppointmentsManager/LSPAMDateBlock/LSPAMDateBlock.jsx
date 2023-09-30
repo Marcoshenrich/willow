@@ -7,6 +7,9 @@ const LSPAMDateBlock = ({ day, weekday, month, year, activeDate, setActiveDate})
 
   const dateBlockClickHandler = (e) => {
     e.stopPropagation()
+    console.log(activeDate)
+    // console.log(activeDate.getDate())
+    console.log(day)
     setActiveDate(new Date(year, month, day))
   }
   
